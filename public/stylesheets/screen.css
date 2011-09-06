@@ -69,7 +69,8 @@ ul.hmenu {
 }
 
 ul.hmenu li {
-  display: inline;  
+	display: inline;
+	font-family: "GoLong";  
 }
 
 a{
