@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   # GET /comments.xml
   def index
     @comments = Comment.all
+    @post = Post.find(params[:post_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +15,8 @@ class CommentsController < ApplicationController
   # GET /comments/1.xml
   def show
     @comment = Comment.find(params[:id])
-
+    @post = Post.find(params[:post_id])
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @comment }
@@ -41,19 +43,16 @@ class CommentsController < ApplicationController
   # POST /comments.xml
   def create
     @comment = Comment.new(params[:comment])
+    @post = Post.find(params[:post_id])
     @comment.user_id = current_user.id
-    # @comment.post_id = @post
+    @comment.post_id = @post.id
     # @post = Post.find(params[:id])
-    @post.inspect
+    # @post.inspect
 
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully created.') }
-        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
-      end
+    if @comment.save
+      redirect_to(@post, :notice => 'Comment was successfully created.')
+    else
+      render :action => "new"
     end
   end
 

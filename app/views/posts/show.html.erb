@@ -38,9 +38,9 @@
     <td><%= comment.content %></td>
     <td><%= comment.user_id %></td>
     <td><%= comment.post_id %></td>
-    <td><%= link_to 'Show', comment %></td>
-    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-    <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', post_comment_path(@post, comment) %></td>
+    <td><%= link_to 'Edit', edit_post_comment_path(@post, comment) %></td>
+    <td><%= link_to 'Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -52,5 +52,3 @@
 <h1>New comment</h1>
 
 <%= render 'comments/form' %>
-
-<%= link_to 'Back', comments_path %>
