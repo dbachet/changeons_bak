@@ -1,6 +1,8 @@
 Changeons::Application.routes.draw do
   
 
+  resources :types
+
   resources :categories
 
   resources :posts do 

@@ -5,4 +5,7 @@ class Post < ActiveRecord::Base
   
   has_many :categorizations
   has_many :categories, :through => :categorizations
+  
+  has_many :typizations
+  has_many :types, :through => :typizations
 end
