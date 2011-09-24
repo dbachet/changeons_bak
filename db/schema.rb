@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110922104126) do
+ActiveRecord::Schema.define(:version => 20110923152614) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(:version => 20110922104126) do
     t.datetime "updated_at"
   end
 
+  create_table "post_types", :force => true do |t|
+    t.string   "name"
+    t.string   "cached_slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -41,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20110922104126) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cached_slug"
+    t.integer  "post_type_id"
   end
 
   create_table "slugs", :force => true do |t|
@@ -54,20 +62,6 @@ ActiveRecord::Schema.define(:version => 20110922104126) do
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
-
-  create_table "types", :force => true do |t|
-    t.string   "name"
-    t.string   "cached_slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "typizations", :force => true do |t|
-    t.integer  "post_id"
-    t.integer  "type_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

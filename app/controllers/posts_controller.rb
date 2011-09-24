@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index, :show]
   
   # GET /posts
   # GET /posts.xml
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
-    @post = Post.new
+    @post = current_user.posts.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,17 +38,18 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   # POST /posts
   # POST /posts.xml
   def create
-    @post = Post.new(params[:post])
-    @post.user_id = current_user.id
+    @post = current_user.posts.new(params[:post])
     
     respond_to do |format|
       if @post.save
+        @post.category_ids = params[:post][:category_ids]
+        
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
@@ -78,7 +79,10 @@ class PostsController < ApplicationController
   # DELETE /posts/1.xml
   def destroy
     @post = Post.find(params[:id])
+    @post.category_ids = []
     @post.destroy
+    
+    
 
     respond_to do |format|
       format.html { redirect_to(posts_url) }

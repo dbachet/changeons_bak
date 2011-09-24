@@ -1,6 +1,6 @@
-class CreateTypes < ActiveRecord::Migration
+class CreatePostTypes < ActiveRecord::Migration
   def self.up
-    create_table :types do |t|
+    create_table :post_types do |t|
       t.string :name
       t.string :cached_slug
 
@@ -9,6 +9,6 @@ class CreateTypes < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :types
+    drop_table :post_types
   end
 end

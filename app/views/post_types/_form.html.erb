@@ -1,10 +1,10 @@
-<%= form_for(@type) do |f| %>
-  <% if @type.errors.any? %>
+<%= form_for(@post_type) do |f| %>
+  <% if @post_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@type.errors.count, "error") %> prohibited this type from being saved:</h2>
+      <h2><%= pluralize(@post_type.errors.count, "error") %> prohibited this post_type from being saved:</h2>
 
       <ul>
-      <% @type.errors.full_messages.each do |msg| %>
+      <% @post_type.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
