@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
     @posts = Post.all
-
+    @tags =  ActsAsTaggableOn::Tag.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
@@ -18,6 +19,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments
+    @tags = @post.tag_list
+    # @tags = ActsAsTaggableOn::Tag.find_by_name("tag1")
     
     respond_to do |format|
       format.html # show.html.erb
@@ -45,6 +48,7 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
     @post = current_user.posts.new(params[:post])
+    @post.tag_list = params[:post][:tag_list]
     
     respond_to do |format|
       if @post.save
@@ -66,6 +70,10 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
+        @post.tag_list = params[:post][:tag_list]
+        @post.save
+        @post.category_ids = params[:post][:category_ids]
+        
         format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -80,6 +88,8 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.category_ids = []
+    @post.tag_list = []
+    @post.save
     @post.destroy
     
     

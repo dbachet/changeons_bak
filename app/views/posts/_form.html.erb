@@ -3,5 +3,6 @@
     <%= f.input :content %><br />
     <%= f.association :categories,   :as => :check_boxes %><br />
 	<%= f.association :post_type, :as => :select %>
+	<%= f.input :tag_list %>
     <%= f.button :submit %>
 <% end %>
