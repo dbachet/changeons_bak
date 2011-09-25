@@ -4,20 +4,26 @@ class PostsController < ApplicationController
   def vote_up
     begin
       current_user.vote_exclusively_for(@post = Post.find(params[:id]))
-      render @post
+      @votes_result = @post.plusminus
+      respond_to do |format|
+        format.js
+      end
     rescue ActiveRecord::RecordInvalid
       render :nothing => true, :status => 404
     end
   end
   
-  # def vote_down
-  #   begin
-  #     current_user.vote_exclusively_against(@post = Post.find(params[:id]))
-  #     render @post
-  #   rescue ActiveRecord::RecordInvalid
-  #     render :nothing => true, :status => 404
-  #   end
-  # end
+  def vote_down
+    begin
+      current_user.vote_exclusively_against(@post = Post.find(params[:id]))
+      @votes_result = @post.plusminus
+      respond_to do |format|
+        format.js
+      end
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
   
     
   # GET /posts
@@ -39,12 +45,12 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comments = @post.comments
     @tags = @post.tag_list
-    @votes_for = @post.votes_for
+    @votes_result = @post.plusminus
     # @tags = ActsAsTaggableOn::Tag.find_by_name("tag1")
     
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @post }
+      format.js
     end
   end
 

@@ -5,17 +5,9 @@
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
-	<script type="text/javascript" charset="utf-8">
-		$(document).ready(function(){
-			$('ul.hmenu li:first').click(function(){
-				$(this).hide();
-			});
-		});
-	</script>
 </head>
 <body>
 	<ul class="hmenu">
-		<li>ttt</li>
 		<li>
 		<%= link_to('Home', root_path)%>
 		</li>
