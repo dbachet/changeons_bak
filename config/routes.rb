@@ -9,6 +9,10 @@ Changeons::Application.routes.draw do
 
   resources :posts do 
     resources :comments
+    member do
+      post :vote_up
+      post :vote_down
+    end
   end
 
   get "pages/home"

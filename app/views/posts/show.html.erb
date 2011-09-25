@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to("J'aime ce #{@post.post_type.name}", vote_up_post_path(@post), :method => :post) %>
+</br><%= "#{@votes_for}" %></br>
+
 <p>
   <b>Title:</b>
   <%= @post.title %>

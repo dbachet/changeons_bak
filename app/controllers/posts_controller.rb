@@ -1,6 +1,25 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   
+  def vote_up
+    begin
+      current_user.vote_exclusively_for(@post = Post.find(params[:id]))
+      render @post
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
+  
+  # def vote_down
+  #   begin
+  #     current_user.vote_exclusively_against(@post = Post.find(params[:id]))
+  #     render @post
+  #   rescue ActiveRecord::RecordInvalid
+  #     render :nothing => true, :status => 404
+  #   end
+  # end
+  
+    
   # GET /posts
   # GET /posts.xml
   def index
@@ -20,6 +39,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comments = @post.comments
     @tags = @post.tag_list
+    @votes_for = @post.votes_for
     # @tags = ActsAsTaggableOn::Tag.find_by_name("tag1")
     
     respond_to do |format|
