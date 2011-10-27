@@ -35,9 +35,32 @@ class CommentsController < ApplicationController
       format.xml  { render :xml => @comment }
     end
   end
+  
+  def reply
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @reply = Comment.new
+  end
+  
+  def create_reply
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    
+    puts "******** TEST CREATE REPLY *********"
+    @reply = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
+    puts "******** END TEST CREATE REPLY *********" 
+    
+    if @reply.save
+      @reply.move_to_child_of(@comment)
+      redirect_to(@post, :notice => 'Comment was successfully created.')
+    else
+      render :action => "new"
+    end
+  end
 
   # GET /comments/1/edit
   def edit
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
   end
 
@@ -69,11 +92,12 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.xml
   def update
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully updated.') }
+        format.html { redirect_to(@post, :notice => 'Comment was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -89,7 +113,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(comments_url) }
+      format.html { redirect_to(post_comments_path) }
       format.xml  { head :ok }
     end
   end

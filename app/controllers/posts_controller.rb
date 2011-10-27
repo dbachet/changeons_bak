@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   
+  
   def vote_up
     begin
       current_user.vote_exclusively_for(@post = Post.find(params[:id]))
@@ -43,7 +44,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments
+    @comments = @post.comment_threads
     @tags = @post.tag_list
     @votes_result = @post.plusminus
     # @tags = ActsAsTaggableOn::Tag.find_by_name("tag1")

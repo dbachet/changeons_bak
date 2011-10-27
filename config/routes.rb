@@ -8,7 +8,12 @@ Changeons::Application.routes.draw do
   resources :categories
 
   resources :posts do 
-    resources :comments
+    resources :comments do
+      member do
+        get :reply
+        post :create_reply
+      end
+    end
     member do
       post :vote_up
       post :vote_down

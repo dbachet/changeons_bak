@@ -22,7 +22,7 @@ class Comment < ActiveRecord::Base
     c.body = comment
     c.title = title
     c.user_id = user_id
-    c.post_id = obj.id
+    # c.post_id = obj.id
     c
   end
   
