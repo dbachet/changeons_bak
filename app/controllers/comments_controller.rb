@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+  
   # GET /comments
   # GET /comments.xml
   def index
@@ -42,10 +44,18 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   def create
-    @comment = Comment.new(params[:comment])
     @post = Post.find(params[:post_id])
-    @comment.user_id = current_user.id
-    @comment.post_id = @post.id
+    puts "** TEST COMMENT **"
+    @comment = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
+    
+    # @comment.save
+    # @comment.move_to_child_of(Comment.all.first)
+    puts "** END TEST COMMENT **"
+    
+    # @comment = Comment.new(params[:comment])
+    # @post = Post.find(params[:post_id])
+    # @comment.user_id = current_user.id
+    # @comment.post_id = @post.id
     # @post = Post.find(params[:id])
     # @post.inspect
 

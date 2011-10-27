@@ -35,7 +35,8 @@
 
 <table>
   <tr>
-    <th>Content</th>
+	<th>Title</th>
+    <th>Comment</th>
     <th>User</th>
     <th>Post</th>
     <th></th>
@@ -45,7 +46,8 @@
 
 <% @comments.each do |comment| %>
   <tr>
-    <td><%= comment.content %></td>
+	<td><%= comment.title %></td>
+    <td><%= comment.body %></td>
     <td><%= comment.user_id %></td>
     <td><%= comment.post_id %></td>
     <td><%= link_to 'Show', post_comment_path(@post, comment) %></td>

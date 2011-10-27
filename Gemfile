@@ -8,3 +8,4 @@ gem "simple_form"
 gem 'acts-as-taggable-on', '~>2.1.0'
 gem 'thumbs_up'
 gem 'jquery-rails', '>= 1.0.12'
+gem 'acts_as_commentable_with_threading'
