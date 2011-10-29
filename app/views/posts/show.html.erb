@@ -33,30 +33,11 @@
 <!-- Comments -->
 <h1>Listing comments</h1>
 
-<table>
-  <tr>
-	<th>Title</th>
-    <th>Comment</th>
-    <th>User</th>
-    <th>Post</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @comments.each do |comment| %>
-  <tr>
-	<td><%= comment.title %></td>
-    <td><%= comment.body %></td>
-    <td><%= comment.user_id %></td>
-    <td><%= comment.post_id %></td>
-    <td><%= link_to 'Show', post_comment_path(@post, comment) %></td>
-    <td><%= link_to 'Edit', edit_post_comment_path(@post, comment) %></td>
-    <td><%= link_to 'Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete %></td>
-	<td><%= link_to 'Reply', reply_post_comment_path(@post, comment) %></td>
-  </tr>
-<% end %>
-</table>
+
+<%= display_comments(@comments) %>
+
+
 
 <br />
 

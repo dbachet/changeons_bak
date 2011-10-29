@@ -86,3 +86,8 @@ h2 {
 	font-family: "arial";
 	color: grey;
 }
+
+tr.comment_reply {
+	padding-left: 20px;
+	background: grey;
+}

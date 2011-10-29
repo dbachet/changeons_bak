@@ -40,15 +40,15 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @reply = Comment.new
+    check_reply_ability(@comment, @post)
   end
   
   def create_reply
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
+    check_reply_ability(@comment, @post)
     
-    puts "******** TEST CREATE REPLY *********"
     @reply = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
-    puts "******** END TEST CREATE REPLY *********" 
     
     if @reply.save
       @reply.move_to_child_of(@comment)
@@ -115,6 +115,15 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(post_comments_path) }
       format.xml  { head :ok }
+    end
+  end
+  
+  private
+  
+  # Forbid the user to reply to a reply
+  def check_reply_ability(comment, post)
+    if !comment.parent_id.blank?
+      redirect_to(post, :alert => "You are not allowed man to reply a reply! Don't even try boy, it could cost you the life!")
     end
   end
 end

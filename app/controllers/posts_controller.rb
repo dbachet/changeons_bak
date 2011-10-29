@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   
-  
   def vote_up
     begin
       current_user.vote_exclusively_for(@post = Post.find(params[:id]))
@@ -126,4 +125,5 @@ class PostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
 end
