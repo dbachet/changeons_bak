@@ -13,5 +13,6 @@ class Post < ActiveRecord::Base
   has_many :categories, :through => :categorizations
   
   attr_accessible :category_ids, :post_type_id, :title, :content
-
+  
+  validates_presence_of :title, :content, :categories, :post_type, :tag_list
 end

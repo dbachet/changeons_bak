@@ -54,7 +54,7 @@ class CommentsController < ApplicationController
       @reply.move_to_child_of(@comment)
       redirect_to(@post, :notice => 'Comment was successfully created.')
     else
-      render :action => "new"
+      render :action => "reply"
     end
   end
 
@@ -85,7 +85,11 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to(@post, :notice => 'Comment was successfully created.')
     else
-      render :action => "new"
+      # render :action => "new"
+      @comments = @post.comment_threads
+      @tags = @post.tag_list
+      @votes_result = @post.plusminus
+      render :action => "posts/show"
     end
   end
 
