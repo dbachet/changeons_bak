@@ -1,0 +1,11 @@
+<div class="drop_write_as">
+	Envoyer en tant que &nbsp; <span class="more_than">></span>
+	<ul class="sub_write_as">
+		<li>
+			<%= link_to "Utilisateur enregistré", new_user_session_path, :id => "write_as_login_link", :title => "Log in your favourite website!" %>
+		</li>
+		<li>
+			<%= link_to "Invité", "comments_show_comment_guest_fields_path", :remote => true %>
+		</li>
+	</ul>
+</div>

@@ -19,6 +19,12 @@
     <%= f.text_area :body %>
   </div>
   <div class="actions">
+    <% if current_user %>
     <%= f.submit %>
+	<% else %>
+	<div class="wrap_drop_write_as">
+		<%= render 'comments/drop_write_as' %>
+	</div>
+	<% end %>
   </div>
 <% end %>

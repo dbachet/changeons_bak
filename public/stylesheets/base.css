@@ -85,3 +85,110 @@ form, fieldset {
 input, button, select {
   vertical-align: middle; /* Solution pb. d'alignement. (9) */
 }
+
+/* button to comment as */
+.drop_write_as {
+	display: block;
+	text-align: left;
+	padding: 10px 10px;
+	font-size: 22px;
+	height: 25px;
+	max-height: 25px;
+	width: 275px;
+	background-color: #A09BBC;
+	cursor: pointer;
+	border: 1px solid #A09BBC;
+	
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px; 
+	-webkit-border-bottom-left-radius: 5px; 
+	-webkit-border-bottom-right-radius: 5px; 
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px; 
+	-moz-border-radius-bottomright: 5px; 
+	-moz-border-radius-bottomleft: 5px; 
+	border-top-left-radius: 5px; 
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	
+}
+
+.drop_write_as:hover .sub_write_as {
+	display: inline-block;
+	position: relative;
+	z-index: 3;
+}
+
+	.sub_write_as {
+		display: none;
+		min-width: 275px;
+		background-color: #A09BBC;
+		padding: 10px 10px;
+		margin-left: -11px;
+		margin-top: 10px;
+		border: 1px solid #A09BBC;
+		-webkit-box-shadow: 0px 13px 25px rgba(0,0,0, 0.2);
+		-moz-box-shadow: 0px 13px 25px rgba(0,0,0, 0.2);
+		box-shadow: 0px 13px 25px rgba(0,0,0, 0.2);
+		
+	/*	-webkit-border-top-left-radius: 5px;*/
+	/*	-webkit-border-top-right-radius: 5px; */
+		-webkit-border-bottom-left-radius: 5px; 
+		-webkit-border-bottom-right-radius: 5px; 
+	/*	-moz-border-radius-topleft: 5px;*/
+	/*	-moz-border-radius-topright: 5px; */
+		-moz-border-radius-bottomright: 5px; 
+		-moz-border-radius-bottomleft: 5px; 
+	/*	border-top-left-radius: 5px; */
+	/*	border-top-right-radius: 5px; */
+		border-bottom-right-radius: 5px; 
+		border-bottom-left-radius: 5px;
+	}
+
+		.sub_write_as li {
+			list-style-type: none;
+			display: block;
+			border-bottom: 1px dotted #eaeaea;
+			font-size: 19px;
+			height: 22px;
+			padding: 8px 0;
+			text-align: right;
+		}
+
+			.sub_write_as li img {
+				margin-right: .5em;
+			}
+
+		.sub_write_as li:hover {
+			border-bottom: 1px dotted #bababa;
+		}
+
+	.more_than {
+		display: inline-block;
+		letter-spacing: -6px;
+		-webkit-transition: .3s ease-in-out;
+	  	-moz-transition: .3s ease-in-out;
+	  	-o-transition: .3s ease-in-out;
+	}
+
+	.drop_write_as:hover .more_than {
+		-webkit-transform: rotate(90deg) translate(10px, 0px) scale(1.0);
+		-moz-transform: rotate(90deg) translate(10px, 0px) scale(1.0);
+		-o-transform: rotate(90deg) translate(10px, 0px) scale(1.0);
+	}
+
+.drop_write_as:hover {
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px; 
+	-webkit-border-bottom-left-radius: 0px; 
+	-webkit-border-bottom-right-radius: 0px; 
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px; 
+	-moz-border-radius-bottomright: 0px; 
+	-moz-border-radius-bottomleft: 0px; 
+	border-top-left-radius: 5px; 
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 0px; 
+	border-bottom-left-radius: 0px;
+}
