@@ -1,6 +1,17 @@
 class CommentsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   
+  
+  def show_guest_fields
+    @comment = Comment.new
+    @comment.write_as_guest = true
+    
+    respond_to do |format|
+      format.html { redirect_to error_pages_javascript_disabled_path, :alert => "The guest posting is not authorized when javascript is disabled." }
+      format.js
+    end
+  end
+  
   # GET /comments
   # GET /comments.xml
   def index

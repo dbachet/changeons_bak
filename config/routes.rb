@@ -1,13 +1,16 @@
 Changeons::Application.routes.draw do
-  
+  get "error_pages/javascript_disabled"
 
   resources :post_types
 
   resources :types
 
   resources :categories
-
+  
+  match 'posts/:post_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "show_guest_fields"
+  
   resources :posts do 
+    # post :show_guest_fields
     resources :comments do
       member do
         get :reply
