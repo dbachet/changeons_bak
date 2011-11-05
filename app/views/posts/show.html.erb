@@ -45,7 +45,15 @@
 
 <h1>New comment</h1>
 
-<%= render 'comments/form' %>
+<div id="wrap_form_new_comment">
+	<%= puts @comment.user_id %>
+	<% if @comment.user_id == -1 %>
+	<%= render 'comments/form_with_guest_fields' %>
+	<% else %>
+	<%= render 'comments/form' %>
+	<% end %>
+</div>
+
 
 <h1>Listing tags</h1>
 

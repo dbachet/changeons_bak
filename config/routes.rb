@@ -9,8 +9,10 @@ Changeons::Application.routes.draw do
   
   match 'posts/:post_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "show_guest_fields"
   
+  match 'posts/:post_id/comments/comment_as_guest' => 'comments#comment_as_guest', :as => 'comment_as_guest', :via => 'get'
+  match 'posts/:post_id/comments/create_comment_as_guest' => 'comments#create_comment_as_guest', :as => 'create_comment_as_guest', :via => 'post'
+  
   resources :posts do 
-    # post :show_guest_fields
     resources :comments do
       member do
         get :reply

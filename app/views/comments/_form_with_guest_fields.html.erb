@@ -1,0 +1,48 @@
+<%= form_for(@comment, :url => create_comment_as_guest_path(@post), :method => :post, :validate => true) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= f.label :title %><br />
+	<% if user_signed_in? %>
+    <%= f.text_field :title, :validate => true %>
+	<% else %>
+	<%= f.text_field :title, :validate => true %>
+	<% end %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+	<% if user_signed_in? %>
+    <%= f.text_area :body, :validate => true %>
+	<% else %>
+	<%= f.text_area :body, :validate => true %>
+	<% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :guest_email %><br />
+    <%= f.text_field :guest_email, :validate => true %>
+  </div>
+  <div class="field">
+    <%= f.label :guest_website %><br />
+    <%= f.text_field :guest_website, :validate => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+	
+	
+<% end %>

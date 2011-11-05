@@ -1,30 +1,46 @@
 <%= form_for([@post, @comment]) do |f| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-      <ul>
-      <% @comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <% if current_user %>
-    <%= f.submit %>
-	<% else %>
-	<div class="wrap_drop_write_as">
-		<%= render 'comments/drop_write_as' %>
-	</div>
+	<% if @comment.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+			<ul>
+			<% @comment.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
 	<% end %>
-  </div>
+
+	<%= Devise.mappings.keys %>
+
+	<div class="field">
+	  <%= f.label :title %><br />
+		<% if user_signed_in? %>
+	  <%= f.text_field :title, :validate => true %>
+		<% else %>
+		<%= f.text_field :title, :validate => false %>
+		<% end %>
+	</div>
+	
+	<div class="field">
+    	<%= f.label :body %><br />
+	<% if user_signed_in? %>
+    	<%= f.text_area :body, :validate => true %>
+	<% else %>
+		<%= f.text_area :body, :validate => false %>
+	<% end %>
+	</div>
+
+	<div class="new_comment_guest_fields">
+  	</div>
+
+	<div class="actions">
+	<% if current_user %>
+		<%= f.submit %>
+	<% else %>
+		<div class="wrap_drop_write_as">
+		<%= render 'comments/drop_write_as' %>
+		</div>
+	<% end %>
+	</div>
 <% end %>

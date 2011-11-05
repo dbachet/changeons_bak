@@ -2,7 +2,8 @@ class Comment < ActiveRecord::Base
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
   
   validates_presence_of :body
-  validates_presence_of :user
+  validates_presence_of :user, :unless => :written_as_guest?
+  validates_presence_of :guest_email, :guest_website, :if => :written_as_guest?
   
   # NOTE: install the acts_as_votable plugin if you 
   # want user to vote on the quality of comments.
@@ -22,7 +23,20 @@ class Comment < ActiveRecord::Base
     c.body = comment
     c.title = title
     c.user_id = user_id
-    # c.post_id = obj.id
+    c.guest_email = nil
+    c.guest_website = nil
+    c
+  end
+  
+  def self.build_from_as_guest(obj, comment, title, guest_email, guest_website)
+    c = self.new
+    c.commentable_id = obj.id 
+    c.commentable_type = obj.class.name 
+    c.body = comment
+    c.title = title
+    c.user_id = -1 # user_id defined for guest
+    c.guest_email = guest_email
+    c.guest_website = guest_website
     c
   end
   
@@ -48,5 +62,10 @@ class Comment < ActiveRecord::Base
   def self.find_commentable(commentable_str, commentable_id)
     commentable_str.constantize.find(commentable_id)
   end
-
+    
+  def written_as_guest?
+    if self.user_id == -1
+      true
+    end
+  end
 end

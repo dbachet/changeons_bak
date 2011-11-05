@@ -46,6 +46,10 @@ class PostsController < ApplicationController
     @comments = @post.comment_threads
     @tags = @post.tag_list
     @votes_result = @post.plusminus
+    
+    # sign_out(guest_user)
+    # guest_user.destroy
+    # session[:guest_user_id] = nil
     # @tags = ActsAsTaggableOn::Tag.find_by_name("tag1")
     
     respond_to do |format|

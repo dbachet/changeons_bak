@@ -1,0 +1,14 @@
+var comment_title = $('input#comment_title').val(),
+	comment_content = $('textarea#comment_content').val(),
+	comment_guest_email = $('input#comment_guest_email').val(),
+	comment_guest_website = $('input#comment_guest_website').val();
+
+$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form_with_guest_fields') %>");
+
+
+$('input#comment_title').val(comment_title);
+$('textarea#comment_content').val(comment_content);
+$('input#comment_guest_email').val(comment_guest_email);
+$('input#comment_guest_website').val(comment_guest_website);
+
+$('form#new_comment[data-validate]').validate();
