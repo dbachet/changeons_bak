@@ -42,7 +42,7 @@ module CommentsHelper
                   content_tag(:div, link_to('Edit', edit_post_comment_path(@post, comment))) +
                   content_tag(:div, link_to('Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete)) +
                   content_tag(:div, (link_to('Reply', reply_post_comment_path(@post, comment, :anchor => "reply_comment_#{root_comment_key}")) if comment.parent_id.nil?) ) +
-                  (content_tag(:div, (render('comments/form_reply_comment') if (@comment ? @comment.id : -1) == root_comment_key), :id => "reply_comment_#{root_comment_key}") if comment.id == root_comment_key)
+                  (content_tag(:div, (render("comments/form_reply_comment#{(@reply.user_id == -1 ? "_with_guest_fields" : "")}") if (@comment ? @comment.id : -1) == root_comment_key), :id => "reply_comment_#{root_comment_key}") if comment.id == root_comment_key)
               end
             end
           

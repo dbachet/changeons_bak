@@ -5,7 +5,7 @@
 			<%= link_to "Utilisateur enregistré", new_user_session_path, :id => "write_as_login_link", :title => "Log in your favourite website!" %>
 		</li>
 		<li>
-			<%= link_to "Invité", show_guest_fields_path(@post), :remote => true %>
+			<%= link_to "Invité", show_guest_fields_path(@post, :anchor => "new_comment"), :remote => true %>
 		</li>
 	</ul>
 </div>
