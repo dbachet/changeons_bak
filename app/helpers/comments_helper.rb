@@ -20,32 +20,29 @@ module CommentsHelper
     sorted_threads = sort_comments(comments)
     sorted_keys = sorted_threads.keys.sort
     
-    content_tag :table, :class => "display_comments" do
+    content_tag :div, :class => "display_comments" do
       if comments.any? && sorted_keys.any?
         # Display headers of table
-        raw(
-          content_tag(:tr) do
-            content_tag(:th, "Title") +
-            content_tag(:th, "Comment") +
-            content_tag(:th) +
-            content_tag(:th) +
-            content_tag(:th)
-          end) +
+        # raw(
+        #   content_tag(:div) do
+        #     content_tag(:div, "Title") +
+        #     content_tag(:div, "Comment")
+        #   end) +
         
         # Display the content of table
         raw(
           sorted_keys.collect do |root_comment_key|
 
             sorted_threads[root_comment_key].collect do |comment|
-              content_tag(:tr, :class => (comment.id == root_comment_key ? "root_comment" : "comment_reply")) do
+              content_tag(:div, :class => (comment.id == root_comment_key ? "root_comment" : "comment_reply"), :id => ("comment_#{comment.id}" if comment.id == root_comment_key) ) do
                 
-                  content_tag(:td, comment.title) +
-                  content_tag(:td, comment.body) +
-                  content_tag(:td, link_to('Show', post_comment_path(@post, comment))) +
-                  content_tag(:td, link_to('Edit', edit_post_comment_path(@post, comment))) +
-                  content_tag(:td, link_to('Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete)) +
-                  content_tag(:td, (link_to('Reply', reply_post_comment_path(@post, comment)) if comment.parent_id.nil?) )
-                
+                  content_tag(:div, comment.title) + 
+                  content_tag(:div, comment.body) +
+                  content_tag(:div, link_to('Show', post_comment_path(@post, comment))) +
+                  content_tag(:div, link_to('Edit', edit_post_comment_path(@post, comment))) +
+                  content_tag(:div, link_to('Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete)) +
+                  content_tag(:div, (link_to('Reply', reply_post_comment_path(@post, comment, :anchor => "reply_comment_#{root_comment_key}")) if comment.parent_id.nil?) ) +
+                  (content_tag(:div, (render('comments/form_reply_comment') if (@comment ? @comment.id : -1) == root_comment_key), :id => "reply_comment_#{root_comment_key}") if comment.id == root_comment_key)
               end
             end
           

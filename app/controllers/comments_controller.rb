@@ -31,6 +31,8 @@ class CommentsController < ApplicationController
 
   # GET /comments/1
   # GET /comments/1.xml
+  
+  # TO REMOVE IF THOUGHT AS OR REDIRECT TO POST/SHOW
   def show
     @comment = Comment.find(params[:id])
     @post = Post.find(params[:post_id])
@@ -56,13 +58,22 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @reply = Comment.new
-    check_reply_ability(@comment, @post)
+    @new_comment = Comment.new
+    
+    if is_reply_allowed?(@new_comment)
+      @comments = @post.comment_threads
+      @tags = @post.tag_list
+      @votes_result = @post.plusminus
+      
+      render :action => "posts/show"
+    else
+      redirect_to(@post, :alert => "You are not allowed man to reply a reply! Don't even try boy, it could cost you the life!")
+    end
   end
   
   def create_reply
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    check_reply_ability(@comment, @post)
     
     @reply = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
     
@@ -70,7 +81,11 @@ class CommentsController < ApplicationController
       @reply.move_to_child_of(@comment)
       redirect_to(@post, :notice => 'Comment was successfully created.')
     else
-      render :action => "reply"
+      @new_comment = Comment.new
+      @comments = @post.comment_threads
+      @tags = @post.tag_list
+      @votes_result = @post.plusminus
+      render :action => "posts/show"
     end
   end
   
@@ -110,10 +125,10 @@ class CommentsController < ApplicationController
   # POST /comments.xml
   def create
     @post = Post.find(params[:post_id])
-    @comment = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
+    @new_comment = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
     
 
-    if @comment.save
+    if @new_comment.save
       redirect_to(@post, :notice => 'Comment was successfully created.')
     else
       @comments = @post.comment_threads
@@ -170,9 +185,10 @@ class CommentsController < ApplicationController
   end
   
   # Forbid the user to reply to a reply
-  def check_reply_ability(comment, post)
-    if !comment.parent_id.blank?
-      redirect_to(post, :alert => "You are not allowed man to reply a reply! Don't even try boy, it could cost you the life!")
+  def is_reply_allowed?(comment)
+    if comment.parent_id.nil?
+      true
+      # redirect_to(post, :alert => "You are not allowed man to reply a reply! Don't even try boy, it could cost you the life!")
     end
   end
 end

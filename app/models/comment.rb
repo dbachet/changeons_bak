@@ -18,8 +18,8 @@ class Comment < ActiveRecord::Base
   # example in readme
   def self.build_from(obj, user_id, comment, title)
     c = self.new
-    c.commentable_id = obj.id 
-    c.commentable_type = obj.class.name 
+    c.commentable_id = obj.id
+    c.commentable_type = obj.class.name
     c.body = comment
     c.title = title
     c.user_id = user_id

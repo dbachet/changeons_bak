@@ -192,3 +192,20 @@ input, button, select {
 	border-bottom-right-radius: 0px; 
 	border-bottom-left-radius: 0px;
 }
+
+div.root_comment {
+	background-color: grey;
+	border-bottom: 1px solid black;
+}
+
+div.root_comment a,
+div.root_comment a.visited,
+div.comment_reply a,
+div.comment_reply a.visited {
+	color: red;
+}
+
+div.comment_reply {
+	background-color: yellow;
+	border-bottom: 1px solid black;
+}

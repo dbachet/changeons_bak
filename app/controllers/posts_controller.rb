@@ -41,8 +41,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    @post = Post.find(params[:id])
-    @comment = Comment.new
+    @post = Post.find(params[:id])    
+    @new_comment = Comment.new
+    # @comment ||= Comment.new(:id => -1)
+    # puts @comment
     @comments = @post.comment_threads
     @tags = @post.tag_list
     @votes_result = @post.plusminus
