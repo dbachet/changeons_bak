@@ -5,10 +5,11 @@ class CommentsController < ApplicationController
   before_filter :authenticate_user!, :only => [:create, :create_reply, :destroy, :update]
   # after_filter :destroy_guest, :only => :create
   
-  
+  # show the fields to write comment as a guest
   def show_guest_fields
     @post = Post.find(params[:post_id])
-    @comment = Comment.new
+    @new_comment = Comment.new
+    
     
     respond_to do |format|
       # format.html { redirect_to error_pages_javascript_disabled_path, :alert => "The guest posting is not authorized when javascript is disabled." }
@@ -16,6 +17,18 @@ class CommentsController < ApplicationController
       format.js
     end
   end
+  
+  # show the fields to write comment as a guest
+  # def show_guest_fields_for_reply
+  #   @post = Post.find(params[:post_id])
+  #   @comment = Comment.new
+  #   
+  #   respond_to do |format|
+  #     # format.html { redirect_to error_pages_javascript_disabled_path, :alert => "The guest posting is not authorized when javascript is disabled." }
+  #     format.html { redirect_to comment_as_guest_path(@post) }
+  #     format.js
+  #   end
+  # end
   
   # GET /comments
   # GET /comments.xml
@@ -103,9 +116,9 @@ class CommentsController < ApplicationController
   def create_comment_as_guest
     @post = Post.find(params[:post_id])
     
-    @comment = Comment.build_from_as_guest( @post, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website] )
+    @new_comment = Comment.build_from_as_guest( @post, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website] )
     
-    if @comment.save
+    if @new_comment.save
       redirect_to(@post, :notice => 'Comment was successfully created as a guest comment.')
     else
       @comments = @post.comment_threads
@@ -114,6 +127,32 @@ class CommentsController < ApplicationController
       render :action => "posts/show"
     end
   end
+  
+  # def reply_as_guest
+  #   @post = Post.find(params[:post_id])
+  #   @comment = Comment.new
+  #   @comment.user_id = -1
+  #   
+  #   @comments = @post.comment_threads
+  #   @tags = @post.tag_list
+  #   @votes_result = @post.plusminus
+  #   render :action => "posts/show"
+  # end
+  # 
+  # def create_reply_as_guest
+  #   @post = Post.find(params[:post_id])
+  #   
+  #   @comment = Comment.build_from_as_guest( @post, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website] )
+  #   
+  #   if @comment.save
+  #     redirect_to(@post, :notice => 'Comment was successfully created as a guest comment.')
+  #   else
+  #     @comments = @post.comment_threads
+  #     @tags = @post.tag_list
+  #     @votes_result = @post.plusminus
+  #     render :action => "posts/show"
+  #   end
+  # end
 
   # GET /comments/1/edit
   def edit
