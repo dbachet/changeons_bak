@@ -212,10 +212,17 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.xml
   def destroy
     @comment = Comment.find(params[:id])
+    @post = Post.find(params[:post_id])
+    
+    if @comment.has_children?
+      @comment.children.each do |child|
+        child.destroy
+      end
+    end
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(post_comments_path) }
+      format.html { redirect_to(@post, :notice => 'Comment was successfully updated.') }
       format.xml  { head :ok }
     end
   end
