@@ -5,6 +5,18 @@ class CommentsController < ApplicationController
   before_filter :authenticate_user!, :only => [:create, :create_reply, :destroy, :update]
   # after_filter :destroy_guest, :only => :create
   
+  # show the reply fields
+  def show_reply
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @reply = Comment.new
+    
+    respond_to do |format|
+      format.html { redirect_to reply_post_comment_path(@post, @comment, :anchor => "reply_comment_#{@comment.id}") }
+      format.js
+    end
+  end
+  
   # show the fields to write comment as a guest
   def show_guest_fields
     @post = Post.find(params[:post_id])
@@ -21,7 +33,9 @@ class CommentsController < ApplicationController
   # show the fields to write reply as a guest
   def show_guest_fields_for_reply
     @post = Post.find(params[:post_id])
-    # @reply = Comment.new
+    @comment = Comment.find(params[:id])
+    @reply = Comment.new
+    @reply.user_id = -1
     
     respond_to do |format|
       # format.html { redirect_to error_pages_javascript_disabled_path, :alert => "The guest posting is not authorized when javascript is disabled." }

@@ -1,0 +1,3 @@
+$('div.reply_fields').html("");
+
+$('div#reply_comment_<%= @comment.id %>').html("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");

@@ -19,6 +19,7 @@ Changeons::Application.routes.draw do
   resources :posts do 
     resources :comments do
       member do
+        get :show_reply
         get :reply
         post :create_reply
       end
