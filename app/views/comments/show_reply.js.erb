@@ -1,3 +1,36 @@
 $('div.reply_fields').html("");
 
+
+
 $('div#reply_comment_<%= @comment.id %>').html("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
+
+// $("a.show_reply_fields").click(function(event){
+// 	event.preventDefault();
+// });
+
+$('a.fancybox_signin').fancybox({
+  'hideOnContentClick': false
+});
+
+
+
+// $('a.fancybox_signin').each(function(){
+//    $(this).fancybox({
+// 	'hideOnContentClick': false
+//     // titleShow     : false,
+//     // width:    400,
+//     // height:   120,
+//     // autoDimensions: false,
+//     // overlayOpacity: 0.6,
+//     // href: 'test.php?id='+$(this).attr('rel')
+//   }); 
+// });
+
+
+	// $("a#write_reply_as_login_link").live('click', function(){
+	//     $(this).fancybox({
+	// 		'hideOnContentClick': false,
+	//         'href': $(this).attr('href')
+	//     });
+	//     return false;
+	// });

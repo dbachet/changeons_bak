@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
   def show_reply
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
+    puts "comment id : #{@comment.id}"
     @reply = Comment.new
     
     respond_to do |format|
