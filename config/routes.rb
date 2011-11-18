@@ -37,7 +37,7 @@ Changeons::Application.routes.draw do
   get "pages/search"
 
   devise_for :users, :controllers => {:sessions => 'sessions'} do 
-    get "sessions/fancy_comment_login"
+    get "sessions/fancy_login"
   end
 
   # The priority is based upon order of creation:

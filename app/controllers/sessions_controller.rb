@@ -18,10 +18,10 @@ class SessionsController < Devise::SessionsController
     return sign_in_and_redirect(resource_name, resource)
   end
   
-  def fancy_comment_login
+  def fancy_login
     resource = build_resource
     clean_up_passwords(resource)
-    respond_with_navigational(resource, stub_options(resource)){ render :fancy_comment_login, :layout => false }
+    respond_with_navigational(resource, stub_options(resource)){ render :fancy_login, :layout => false }
   end
   
   def sign_in_and_redirect(resource_or_scope, resource=nil)

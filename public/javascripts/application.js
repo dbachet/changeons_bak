@@ -29,8 +29,7 @@ $(document).ready(function() {
 	//       }); 
 	//     });
 	
-$('a#write_as_login_link').attr('href', '/sessions/fancy_comment_login')
-$('a#write_reply_as_login_link').attr('href', '/sessions/fancy_comment_login')
+$('a.fancybox_signin').attr('href', '/sessions/fancy_login')
 
 });
 
