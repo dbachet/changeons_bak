@@ -11,7 +11,10 @@ $(document).ready(function() {
 	// });
 	
 	$('a.fancybox_signin').fancybox({
-	    'hideOnContentClick': false
+	    'hideOnContentClick': false,
+		'onComplete'	:	function() {
+			$('form#user_new[data-validate]').validate();
+		}
 	});
 	
 	// $('a.fancybox_signin').each(function(){
@@ -26,7 +29,8 @@ $(document).ready(function() {
 	//       }); 
 	//     });
 	
-
+$('a#write_as_login_link').attr('href', '/sessions/fancy_comment_login')
+$('a#write_reply_as_login_link').attr('href', '/sessions/fancy_comment_login')
 
 });
 

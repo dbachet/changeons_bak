@@ -7,15 +7,8 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-	<ul class="hmenu">
-		<li>
-		<%= link_to('Home', root_path)%>
-		</li>
-		<li>
-		<%= link_to('Posts', posts_path)%>
-		</li>
-		<%= render 'layouts/registration_items' %>
-		<%= render 'layouts/login_items' %>
+	<ul id="hmenu">
+		<%= render 'layouts/menu_items' %>
 	</ul>
 <%= yield %>
 

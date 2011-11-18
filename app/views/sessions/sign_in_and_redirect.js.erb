@@ -1,0 +1,14 @@
+$("form#user_new").bind('ajax:success', function(evt, data, status, xhr) {
+	
+		$.fancybox.close();
+		$('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
+		
+		//  For items on the new comment page **** PART TO FIX ****
+		// $('div.wrap_drop_write_as').remove();
+		// 		var comment_title = $('input#comment_title').val(),
+		// 			comment_content = $('textarea#comment_content').val();
+		// 		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
+		// 		$('input#comment_title').val(comment_title);
+		// 		$('textarea#comment_content').val(comment_content);
+		// 		$('form#new_comment[data-validate]').validate();
+});
