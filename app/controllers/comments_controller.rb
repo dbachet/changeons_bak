@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
   def show_guest_fields
     @post = Post.find(params[:post_id])
     @new_comment = Comment.new
+    @new_comment.user_id = -1
     
     
     respond_to do |format|

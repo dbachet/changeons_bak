@@ -15,19 +15,11 @@
 
   <div class="field">
     <%= f.label :title %><br />
-	<% if user_signed_in? %>
-    <%= f.text_field :title, :validate => true %>
-	<% else %>
-	<%= f.text_field :title, :validate => true %>
-	<% end %>
+    <%= f.text_field :title, 'data-post-id' => @post.id %>
   </div>
   <div class="field">
     <%= f.label :body %><br />
-	<% if user_signed_in? %>
     <%= f.text_area :body, :validate => true %>
-	<% else %>
-	<%= f.text_area :body, :validate => true %>
-	<% end %>
   </div>
 
   <div class="field">

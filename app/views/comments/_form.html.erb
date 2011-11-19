@@ -1,4 +1,4 @@
-<%= form_for(@new_comment, :url => {:action => "create", :controller => "comments", :post_id => @post, :anchor => "new_comment"}) do |f| %>
+<%= form_for(@new_comment, :url => {:action => "create", :controller => "comments", :post_id => @post, :anchor => "new_comment"}, :validate => (current_user ? true : false)) do |f| %>
 	<% if @new_comment.errors.any? %>
 		<div id="error_explanation">
 			<h2><%= pluralize(@new_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -15,20 +15,12 @@
 
 	<div class="field">
 	  <%= f.label :title %><br />
-		<% if user_signed_in? %>
-	  <%= f.text_field :title, :validate => true %>
-		<% else %>
-		<%= f.text_field :title, :validate => false %>
-		<% end %>
+	  <%= f.text_field :title, 'data-post-id' => @post.id %>
 	</div>
 	
 	<div class="field">
     	<%= f.label :body %><br />
-	<% if user_signed_in? %>
     	<%= f.text_area :body, :validate => true %>
-	<% else %>
-		<%= f.text_area :body, :validate => false %>
-	<% end %>
 	</div>
 
 	<div class="new_comment_guest_fields">

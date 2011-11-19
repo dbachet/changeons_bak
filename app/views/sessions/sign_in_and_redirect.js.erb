@@ -3,7 +3,16 @@ $("form#user_new").bind('ajax:success', function(evt, data, status, xhr) {
 		$.fancybox.close();
 		$('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
 		
-		//  For items on the new comment page **** PART TO FIX ****
-		$('div#wrap_form_new_comment div.actions, div.reply_fields div.actions').html("<input id='comment_submit' name='commit' type='submit' value='Create Comment'>");
-		// $('form#new_comment[data-validate]').validate();
+		//  For items on the new comment page 
+		// $('div#wrap_form_new_comment div.actions, div.reply_fields div.actions').html("<input id='comment_submit' name='commit' type='submit' value='Create Comment'>");
+		<% if @post %>
+		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
+		$('form#new_comment[data-validate]').validate();
+		<% end %>
+		
+		<% if @comment %>
+		$('div#reply_comment_<%= @comment.id %>').html("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
+		$('form#new_reply[data-validate]').validate();
+		<% end %>
+		
 });

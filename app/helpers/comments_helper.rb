@@ -22,12 +22,6 @@ module CommentsHelper
     
     content_tag :div, :class => "display_comments" do
       if comments.any? && sorted_keys.any?
-        # Display headers of table
-        # raw(
-        #   content_tag(:div) do
-        #     content_tag(:div, "Title") +
-        #     content_tag(:div, "Comment")
-        #   end) +
         
         # Display the content of table
         raw(

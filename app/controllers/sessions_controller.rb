@@ -12,13 +12,21 @@ class SessionsController < Devise::SessionsController
     !resource.nil? ? @result = true : @result = false
 
     # SHOULDN'T BE HERE
-    @comment = Comment.new
+    @post = Post.find(params[:user][:post_id]) unless params[:user][:post_id].empty? || params[:user][:post_id] == "undefined"
+    @comment = Comment.find(params[:user][:comment_id]) unless params[:user][:comment_id].empty?|| params[:user][:comment_id] == "undefined"
+    @reply = Comment.new unless params[:user][:comment_id].empty?|| params[:user][:comment_id] == "undefined"
+    @new_comment = Comment.new unless params[:user][:post_id].empty? || params[:user][:post_id] == "undefined"
     # SHOULDN'T BE HERE
-    
+        
     return sign_in_and_redirect(resource_name, resource)
   end
   
   def fancy_login
+    # SHOULDN'T BE HERE
+    @post_id = params[:post_id]
+    @comment_id = params[:comment_id]
+    # SHOULDN'T BE HERE
+    
     resource = build_resource
     clean_up_passwords(resource)
     respond_with_navigational(resource, stub_options(resource)){ render :fancy_login, :layout => false }

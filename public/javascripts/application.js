@@ -1,35 +1,20 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function() {
-
-  /* Using custom settings */
-  // $('a[href$=/users/sign_in]').fancybox({
-  //   'hideOnContentClick': false
-  // });
-	// $("a.show_reply_fields").click(function(event){
-	// 	event.preventDefault();
-	// });
 	
 	$('a.fancybox_signin').fancybox({
 	    'hideOnContentClick': false,
-		'onComplete'	:	function() {
+		'onComplete':	function() {
 			$('form#user_new[data-validate]').validate();
+		},
+		'onClosed': function() {
+			$('form#new_reply[data-validate], form#new_comment[data-validate]').validate();
 		}
 	});
-	
-	// $('a.fancybox_signin').each(function(){
-	//        $(this).fancybox({
-	// 	'hideOnContentClick': false
-	//         // titleShow     : false,
-	//         // width:    400,
-	//         // height:   120,
-	//         // autoDimensions: false,
-	//         // overlayOpacity: 0.6,
-	//         // href: 'test.php?id='+$(this).attr('rel')
-	//       }); 
-	//     });
-	
-$('a.fancybox_signin').attr('href', '/sessions/fancy_login')
 
+var post_id = $('form#new_comment input#comment_title').data('post-id');
+$('a.fancybox_signin').attr('href', '/sessions/fancy_login?post_id=' + post_id);
+
+$('form#new_comment[data-validate]').validate();
+$('form#new_reply[data-validate]').validate();
 });
-

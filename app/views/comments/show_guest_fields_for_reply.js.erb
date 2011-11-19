@@ -12,4 +12,4 @@ $('div.reply_fields textarea#comment_body').val(comment_content);
 $('div.reply_fields input#comment_guest_email').val(comment_guest_email);
 $('div.reply_fields input#comment_guest_website').val(comment_guest_website);
 
-$('div.reply_fields form#new_comment[data-validate]').validate();
+$('form#new_reply[data-validate], form#new_comment[data-validate]').validate();

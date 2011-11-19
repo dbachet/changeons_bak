@@ -1,12 +1,6 @@
 $('div.reply_fields').html("");
 
-
-
 $('div#reply_comment_<%= @comment.id %>').html("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
-
-// $("a.show_reply_fields").click(function(event){
-// 	event.preventDefault();
-// });
 
 $('a.fancybox_signin').fancybox({
 	'hideOnContentClick': false,
@@ -15,25 +9,13 @@ $('a.fancybox_signin').fancybox({
 	}
 });
 
-$('a#write_reply_as_login_link').attr('href', '/sessions/fancy_login')
-
-// $('a.fancybox_signin').each(function(){
-//    $(this).fancybox({
-// 	'hideOnContentClick': false
-//     // titleShow     : false,
-//     // width:    400,
-//     // height:   120,
-//     // autoDimensions: false,
-//     // overlayOpacity: 0.6,
-//     // href: 'test.php?id='+$(this).attr('rel')
-//   }); 
-// });
+var post_id = $('form#new_comment input#comment_title').data('post-id');
+var comment_id = $('form#new_reply input#comment_title').data('comment-id');
+$('a.fancybox_signin').attr('href', '/sessions/fancy_login?post_id=' + post_id + '&comment_id=' + comment_id);
 
 
-	// $("a#write_reply_as_login_link").live('click', function(){
-	//     $(this).fancybox({
-	// 		'hideOnContentClick': false,
-	//         'href': $(this).attr('href')
-	//     });
-	//     return false;
-	// });
+
+
+$('form#new_reply[data-validate]').validate();
+
+
