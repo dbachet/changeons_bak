@@ -10,3 +10,5 @@ gem 'thumbs_up'
 gem 'jquery-rails', '>= 1.0.12'
 gem 'acts_as_commentable_with_threading'
 gem 'client_side_validations'
+gem "ckeditor"
+gem "paperclip"

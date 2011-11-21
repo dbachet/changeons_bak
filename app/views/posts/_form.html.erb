@@ -1,8 +1,10 @@
 <%= simple_form_for(@post) do |f| %>
     <%= f.input :title %><br />
-    <%= f.input :content %><br />
+    <%= f.ckeditor :content, :label => false, :input_html => { :toolbar => 'Full', :width=>'800px', :height=>'500px' } %><br />
     <%= f.association :categories,   :as => :check_boxes %><br />
 	<%= f.association :post_type, :as => :select %>
 	<%= f.input :tag_list %>
     <%= f.button :submit %>
 <% end %>
+
+

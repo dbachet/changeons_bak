@@ -17,7 +17,9 @@
 
 <p>
   <b>Content:</b>
-  <%= @post.content %>
+	<div class="post_content">
+  <%= @post.content.html_safe %>
+	</div>
 </p>
 
 <p>

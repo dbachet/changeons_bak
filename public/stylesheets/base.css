@@ -317,3 +317,8 @@ div.comment_reply {
 	background-color: yellow;
 	border-bottom: 1px solid black;
 }
+
+/* Show post */
+div.post_content {
+	background: green;
+}
