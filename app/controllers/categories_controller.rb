@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+   layout false, :only => :new
+   
   # GET /categories
   # GET /categories.xml
   def index
@@ -27,8 +29,7 @@ class CategoriesController < ApplicationController
     @category = Category.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @category }
+      format.html
     end
   end
 
@@ -44,11 +45,11 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to(@category, :notice => 'Category was successfully created.') }
-        format.xml  { render :xml => @category, :status => :created, :location => @category }
+        format.js 
+        # format.html { redirect_to(@category, :notice => 'Category was successfully created.') }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @category.errors, :status => :unprocessable_entity }
+        format.js
+        # format.html { render :action => "new" }
       end
     end
   end

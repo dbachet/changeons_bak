@@ -1,7 +1,9 @@
 <%= simple_form_for(@post) do |f| %>
     <%= f.input :title %><br />
     <%= f.ckeditor :content, :label => false, :input_html => { :toolbar => 'Full', :width=>'800px', :height=>'500px' } %><br />
+	<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link" %>
     <%= f.association :categories,   :as => :check_boxes %><br />
+	<%= link_to "Créer un nouveau type", new_post_type_path, :class => "new_post_type_link" %>
 	<%= f.association :post_type, :as => :select %>
 	<%= f.input :tag_list %>
     <%= f.button :submit %>

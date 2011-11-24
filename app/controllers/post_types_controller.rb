@@ -1,4 +1,6 @@
 class PostTypesController < ApplicationController
+  layout false, :only => :new
+  
   # GET /post_types
   # GET /post_types.xml
   def index
@@ -44,11 +46,11 @@ class PostTypesController < ApplicationController
 
     respond_to do |format|
       if @post_type.save
-        format.html { redirect_to(@post_type, :notice => 'Post type was successfully created.') }
-        format.xml  { render :xml => @post_type, :status => :created, :location => @post_type }
+        format.js
+        # format.html { redirect_to(@post_type, :notice => 'Post type was successfully created.') }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @post_type.errors, :status => :unprocessable_entity }
+        format.js
+        # format.html { render :action => "new" }
       end
     end
   end
