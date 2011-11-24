@@ -78,8 +78,8 @@ class PostTypesController < ApplicationController
     @post_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to(post_types_url) }
-      format.xml  { head :ok }
+      # format.html { redirect_to(post_types_url) }
+      format.js
     end
   end
 end

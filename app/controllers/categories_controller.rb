@@ -77,8 +77,8 @@ class CategoriesController < ApplicationController
     @category.destroy
 
     respond_to do |format|
-      format.html { redirect_to(categories_url) }
-      format.xml  { head :ok }
+      # format.html { redirect_to(categories_url) }
+      format.js
     end
   end
 end

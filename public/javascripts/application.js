@@ -33,6 +33,10 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('a.index_categories_link, a.index_post_types_link').fancybox({
+	    'hideOnContentClick': false
+	});
+	
 	// End fancyboxes
 
 var post_id = $('form#new_comment input#comment_title').data('post-id');
