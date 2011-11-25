@@ -10,7 +10,7 @@
   </tr>
 
 <% @post_types.each do |post_type| %>
-  <tr>
+  <tr class="post_type_raw" id="<%= post_type.id %>">
     <td><%= post_type.name %></td>
     <td><%= post_type.cached_slug %></td>
     <td><%= link_to 'Show', post_type %></td>

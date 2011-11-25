@@ -10,7 +10,7 @@
   </tr>
 
 <% @categories.each do |category| %>
-  <tr>
+  <tr class="category_raw" id="<%= category.id %>">
     <td><%= category.name %></td>
     <td><%= category.cached_slug %></td>
     <td><%= link_to 'Show', category %></td>
