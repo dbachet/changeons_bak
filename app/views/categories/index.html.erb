@@ -14,7 +14,7 @@
     <td><%= category.name %></td>
     <td><%= category.cached_slug %></td>
     <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category), :remote => true %></td>
+    <td><%= link_to 'Edit', edit_category_path(category), :class => "edit_category_link fancybox.ajax" %></td>
     <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete, :remote => true %></td>
   </tr>
 <% end %>

@@ -14,7 +14,7 @@
     <td><%= post_type.name %></td>
     <td><%= post_type.cached_slug %></td>
     <td><%= link_to 'Show', post_type %></td>
-    <td><%= link_to 'Edit', edit_post_type_path(post_type) %></td>
+    <td><%= link_to 'Edit', edit_post_type_path(post_type), :class => "edit_post_type_link fancybox.ajax" %></td>
     <td><%= link_to 'Destroy', post_type, :confirm => 'Are you sure?', :method => :delete, :remote => true %></td>
   </tr>
 <% end %>

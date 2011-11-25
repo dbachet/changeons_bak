@@ -1,1 +1,2 @@
-$('div#fancybox-content').html("<%= escape_javascript(render 'categories/edit') %>");
+$.fancybox.close();
+$.fancybox( {href : '/categories/<%= @category %>/edit', type: 'ajax'} );

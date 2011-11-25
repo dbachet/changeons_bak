@@ -4,7 +4,7 @@ $('div#reply_comment_<%= @comment.id %>').html("<%= escape_javascript(render :pa
 
 $('a.fancybox_signin').fancybox({
 	closeClick: false,
-	afterLoad:	function() {
+	afterShow:	function() {
 		$('form#user_new[data-validate]').validate();
 	}
 });
