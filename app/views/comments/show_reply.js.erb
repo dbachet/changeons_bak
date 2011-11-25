@@ -3,8 +3,8 @@ $('div.reply_fields').html("");
 $('div#reply_comment_<%= @comment.id %>').html("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
 
 $('a.fancybox_signin').fancybox({
-	'hideOnContentClick': false,
-	'onComplete':	function() {
+	closeClick: false,
+	afterLoad:	function() {
 		$('form#user_new[data-validate]').validate();
 	}
 });
