@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+    @posts = Post.recent
     @tags =  ActsAsTaggableOn::Tag.all
     
     respond_to do |format|

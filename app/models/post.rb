@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  scope :recent, order('created_at desc').limit(3)
+  
   acts_as_taggable_on :tags
   acts_as_voteable
   acts_as_commentable
