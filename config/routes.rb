@@ -16,7 +16,9 @@ Changeons::Application.routes.draw do
   match 'posts/:post_id/comments/:id/reply_as_guest' => 'comments#reply_as_guest', :as => 'reply_as_guest', :via => 'get'
   match 'posts/:post_id/comments/:id/create_reply_as_guest' => 'comments#create_reply_as_guest', :as => 'create_reply_as_guest', :via => 'post'
   
-  resources :posts do 
+  post 'posts/show_more_posts', :as => 'show_more_posts'
+  
+  resources :posts do
     resources :comments do
       member do
         get :show_reply
@@ -89,7 +91,7 @@ Changeons::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "pages#home"
+  root :to => "posts#index"
 
   # See how all your routes lay out with "rake routes"
 

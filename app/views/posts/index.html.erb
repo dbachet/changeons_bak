@@ -1,6 +1,6 @@
 <h1>Listing posts</h1>
 
-<table>
+<table id="post_table">
   <tr>
     <th>Title</th>
     <th>Content</th>
@@ -21,6 +21,9 @@
   </tr>
 <% end %>
 </table>
+<% if @post_count != 0 %>
+<%= link_to "Voir plus d'articles", show_more_posts_path(:offset => @default_post_offset), :id => "show_more_posts_link", :method => :post, :remote => true, 'data-post-offset' => @default_post_offset %>
+<% end %>
 
 <br />
 

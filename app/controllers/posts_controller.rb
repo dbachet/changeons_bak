@@ -1,5 +1,20 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :show_more_posts]
+  
+  def show_more_posts
+    @default_post_offset = APP_CONFIG['default_post_offset']
+    @posts = Post.recent.offset(params[:offset])
+    @posts_count = Post.count - (@posts.length + params[:offset].to_i)
+    puts "all_count => #{Post.count} / post_size => #{@posts.length} / offset => #{params[:offset]} / result => #{@posts_count}"
+    
+    #  TO REFACTOR
+    
+    
+    respond_to do |format|
+      format.js
+      # format.html { render :nothing => true, :status => 404}
+    end
+  end
   
   def vote_up
     begin
@@ -25,12 +40,16 @@ class PostsController < ApplicationController
     end
   end
   
-    
+  
   # GET /posts
   # GET /posts.xml
   def index
+    @default_post_offset = APP_CONFIG['default_post_offset']
     @posts = Post.recent
     @tags =  ActsAsTaggableOn::Tag.all
+    @posts_count = Post.count - @posts.length
+    
+    # TO REFACTOR
     
     respond_to do |format|
       format.html # index.html.erb

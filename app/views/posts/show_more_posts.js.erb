@@ -1,0 +1,19 @@
+// Get the data-post-offset from the link
+var offset = $('a#show_more_posts_link').data('post-offset');
+// Add the default offset to the current value
+$('a#show_more_posts_link').data('post-offset', offset + <%= @default_post_offset %>);
+offset = $('a#show_more_posts_link').data('post-offset');
+// Change the offset in the link 
+$('a#show_more_posts_link').attr('href', "/posts/show_more_posts?offset=" + offset);
+
+// Display the new posts
+$('table#post_table tr:last').after("<%= escape_javascript(render :partial => 'posts/more_posts') %>");
+
+$('tr.new_posts_background').hide();
+$('tr.new_posts_background').fadeIn(1500);
+$('tr.new_posts_background').removeClass('new_posts_background');
+
+// CHECK IF THERE ARE MORE POSTS TO DISPLAY, IF NO, REMOVE THE BUTTON 'MORE POSTS'
+if (<%= @posts_count == 0 %>) {
+	$('a#show_more_posts_link').remove();
+}

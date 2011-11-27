@@ -1,6 +1,12 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
+// jQuery.ajaxSetup({
+//   'beforeSend': function(xhr) { xhr.setRequestHeader("Accept", "text/javascript") }
+// });
+
 $(document).ready(function() {
+
+	
 	
 	// Fancyboxes
 	$('a.fancybox_signin').fancybox({
@@ -56,4 +62,22 @@ if (post_id){
 
 $('form#new_comment[data-validate]').validate();
 $('form#new_reply[data-validate]').validate();
+
+
+   // $("a#show_more_posts_link").sendVar();
+
+
 });
+
+
+// 
+// $.fn.sendVar = function(){
+//     this.click( function() {
+//     var offset= 3;
+//        $.post('/posts/show_more_posts?offset=' + offset, function(data){
+// 
+//         })
+//        return false;
+//     });
+// }
+

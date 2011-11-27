@@ -1,0 +1,11 @@
+defaults: &defaults
+  default_post_offset: 2
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
