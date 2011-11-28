@@ -5,11 +5,24 @@ class CommentsController < ApplicationController
   before_filter :authenticate_user!, :only => [:create, :create_reply, :destroy, :update]
   # after_filter :destroy_guest, :only => :create
   
+  def show_more_comments
+    @default_comment_offset = APP_CONFIG['default_post_offset']
+    @post = Post.find(params[:post_id])
+    @comments = Comment.fetch_comments(@post, params[:offset])
+    @comments_count = @post.root_comments.count - (@comments.length + params[:offset].to_i)
+    
+    
+    respond_to do |format|
+      format.js
+      # format.html { render :nothing => true, :status => 404}
+    end
+  end
+  
   # show the reply fields
   def show_reply
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    puts "comment id : #{@comment.id}"
+    
     @reply = Comment.new
     
     respond_to do |format|

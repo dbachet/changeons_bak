@@ -1,0 +1,20 @@
+// Get the data-comment-offset from the link
+var offset = $('a#show_more_comments_link').data('comment-offset');
+// Add the default offset to the current value
+$('a#show_more_comments_link').data('comment-offset', offset + <%= @default_comment_offset %>);
+offset = $('a#show_more_comments_link').data('comment-offset');
+// Change the offset in the link 
+$('a#show_more_comments_link').attr('href', "/posts/<%= @post.cached_slug %>/show_more_comments?offset=" + offset);
+
+// Display the new posts
+$('div.display_comments > div:last').after("<%= escape_javascript(render :partial => 'comments/more_comments') %>");
+
+$('div.new_comments_background').hide();
+$('div.new_comments_background').fadeIn(1500);
+$('div.new_comments_background').removeClass('new_comments_background');
+
+
+// CHECK IF THERE ARE MORE COMMENT TO DISPLAY, IF NO, REMOVE THE BUTTON 'MORE COMMENTS'
+if (<%= @comments_count == 0 %>) {
+	$('a#show_more_comments_link').remove();
+}

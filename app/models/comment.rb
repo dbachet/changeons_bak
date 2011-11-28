@@ -71,8 +71,8 @@ class Comment < ActiveRecord::Base
   end
   
   # sort as {1=>[#<Comment>, #<Comment>], 8=>[#<Comment>]} where the first comment of each array is the root comment
-  def self.fetch_comments(post)
-    comments = post.root_comments.recent
+  def self.fetch_comments(post, offset)
+    comments = post.root_comments.recent.offset(offset)
     
     hash = {}
     comments.each do |comment|

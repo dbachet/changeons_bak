@@ -36,12 +36,16 @@
 <h1>Listing comments</h1>
 
 
-
+<div class="display_comments">
 <%= display_comments(@comments) %>
-
+</div>
 
 
 <br />
+
+<% if @comments_count != 0 %>
+<%= link_to "Voir plus de commentaires", show_more_comments_path(@post, :offset => @default_comment_offset), :id => "show_more_comments_link", :method => :post, :remote => true, 'data-comment-offset' => @default_comment_offset %>
+<% end %>
 
 <!-- New comment -->
 

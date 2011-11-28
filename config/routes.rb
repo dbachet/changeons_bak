@@ -17,6 +17,8 @@ Changeons::Application.routes.draw do
   match 'posts/:post_id/comments/:id/create_reply_as_guest' => 'comments#create_reply_as_guest', :as => 'create_reply_as_guest', :via => 'post'
   
   post 'posts/show_more_posts', :as => 'show_more_posts'
+  # post 'comments/show_more_comments', :as => 'show_more_comments'
+  match 'posts/:post_id/show_more_comments' => 'comments#show_more_comments', :as => 'show_more_comments', :via => 'post'
   
   resources :posts do
     resources :comments do
