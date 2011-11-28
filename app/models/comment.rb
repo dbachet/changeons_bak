@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
+  scope :recent, order('created_at desc').limit(APP_CONFIG['default_comment_offset'])
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
   
   validates_presence_of :body
@@ -67,5 +68,22 @@ class Comment < ActiveRecord::Base
     if self.user_id == -1
       true
     end
+  end
+  
+  # sort as {1=>[#<Comment>, #<Comment>], 8=>[#<Comment>]} where the first comment of each array is the root comment
+  def self.fetch_comments(post)
+    comments = post.root_comments.recent
+    
+    hash = {}
+    comments.each do |comment|
+      hash[comment.id] = [comment]
+      if comment.has_children?
+        comment.children.each do |child| # Add recent scope
+          hash[comment.id] << child
+        end
+      end
+    end
+    
+    hash
   end
 end

@@ -1,5 +1,6 @@
 defaults: &defaults
   default_post_offset: 2
+  default_comment_offset: 2
 
 development:
   <<: *defaults

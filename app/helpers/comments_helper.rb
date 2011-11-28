@@ -1,24 +1,10 @@
 module CommentsHelper
   
-  # sort as {1=>[#<Comment>, #<Comment>], 8=>#<Comment>}
-  def sort_comments(comments)
-    hash = {}
-
-    comments.each do |comment|
-      if comment.parent_id.nil?
-        hash[comment.id] = [comment]
-      else
-        hash[comment.parent_id] << comment
-      end
-    end
-    
-    hash
-  end
-  
   # This is to adapt as the comments maybe will be displayed another way !!
   def display_comments(comments)
-    sorted_threads = sort_comments(comments)
-    sorted_keys = sorted_threads.keys.sort
+    sorted_keys = comments.keys.sort
+    
+    puts "sorted_keys => #{sorted_keys.inspect}"
     
     content_tag :div, :class => "display_comments" do
       if comments.any? && sorted_keys.any?
@@ -26,8 +12,8 @@ module CommentsHelper
         # Display the content of table
         raw(
           sorted_keys.collect do |root_comment_key|
-
-            sorted_threads[root_comment_key].collect do |comment|
+            puts "first comment => #{comments[root_comment_key].inspect}"
+            comments[root_comment_key].collect do |comment|
               content_tag(:div, :class => (comment.id == root_comment_key ? "root_comment" : "comment_reply"), :id => ("comment_#{comment.id}" if comment.id == root_comment_key) ) do
                   
                   content_tag(:div, comment.title) + 

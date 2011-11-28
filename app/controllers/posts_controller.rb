@@ -5,9 +5,6 @@ class PostsController < ApplicationController
     @default_post_offset = APP_CONFIG['default_post_offset']
     @posts = Post.recent.offset(params[:offset])
     @posts_count = Post.count - (@posts.length + params[:offset].to_i)
-    puts "all_count => #{Post.count} / post_size => #{@posts.length} / offset => #{params[:offset]} / result => #{@posts_count}"
-    
-    #  TO REFACTOR
     
     
     respond_to do |format|
@@ -62,16 +59,11 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])    
     @new_comment = Comment.new
-    # @comment ||= Comment.new(:id => -1)
-    # puts @comment
-    @comments = @post.comment_threads
+    
+    @comments = Comment.fetch_comments(@post)
+
     @tags = @post.tag_list
     @votes_result = @post.plusminus
-    
-    # sign_out(guest_user)
-    # guest_user.destroy
-    # session[:guest_user_id] = nil
-    # @tags = ActsAsTaggableOn::Tag.find_by_name("tag1")
     
     respond_to do |format|
       format.html # show.html.erb
