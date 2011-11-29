@@ -252,7 +252,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(@post, :notice => 'Comment was successfully updated.') }
-      format.xml  { head :ok }
+      format.js
     end
   end
   
