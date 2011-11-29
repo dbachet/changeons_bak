@@ -18,7 +18,7 @@ module CommentsHelper
                 content_tag(:div, link_to('Edit', edit_post_comment_path(@post, comment))) +
                 content_tag(:div, link_to('Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :remote => true)) +
                 content_tag(:div, (link_to('Reply', show_reply_post_comment_path(@post, comment), :remote => true, :class => "show_reply_fields") if comment.parent_id.nil?) ) +
-                (content_tag(:div, (render("comments/form_reply_comment#{(@reply.user_id == -1 ? "_with_guest_fields" : "")}") if (@comment ? @comment.id : -1) == root_comment_key), :class => "reply_fields", :id => "reply_comment_#{root_comment_key}") if comment.id == root_comment_key)
+                (content_tag(:div, (render("comments/form_reply_comment") if (@comment ? @comment.id : -1) == root_comment_key), :class => "reply_fields", :id => "reply_comment_#{root_comment_key}") if comment.id == root_comment_key)
             end
           end
         

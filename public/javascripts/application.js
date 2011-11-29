@@ -55,9 +55,9 @@ $(document).ready(function() {
 
 var post_id = $('form#new_comment input#comment_title').data('post-id');
 if (post_id){
-	$('a.fancybox_signin').attr('href', '/sessions/fancy_login?post_id=' + post_id);
+	$('a.fancybox_signin').attr('href', '/users/sign_in?post_id=' + post_id);
 } else {
-	$('a.fancybox_signin').attr('href', '/sessions/fancy_login');
+	$('a.fancybox_signin').attr('href', '/users/sign_in');
 }
 
 $('form#new_comment[data-validate]').validate();

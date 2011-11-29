@@ -5,6 +5,10 @@ var comment_title = $('div.reply_fields input#comment_title').val(),
 
 $('div#reply_comment_<%= @comment.id %>').html("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
 
+$('div#reply_comment_<%= @comment.id %>').hide();
+
+$('div#reply_comment_<%= @comment.id %>').fadeIn("slow");
+window.location = "#reply_comment_<%= @comment.id %>";
 
 
 $('div.reply_fields input#comment_title').val(comment_title);

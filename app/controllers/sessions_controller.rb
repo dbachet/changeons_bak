@@ -21,7 +21,7 @@ class SessionsController < Devise::SessionsController
     return sign_in_and_redirect(resource_name, resource)
   end
   
-  def fancy_login
+  def new
     # SHOULDN'T BE HERE
     @post_id = params[:post_id]
     @comment_id = params[:comment_id]
@@ -41,7 +41,7 @@ class SessionsController < Devise::SessionsController
     # return render :create => {:success => true, :redirect => stored_location_for(scope) || after_sign_in_path_for(resource)}
     # return render :sign_in_and_redirect => {:redirect => :back}
         respond_to do |format|
-          format.html { redirect_to(:back) }
+          # format.html { redirect_to(:back) }
           format.js { render :sign_in_and_redirect }
         end
   end

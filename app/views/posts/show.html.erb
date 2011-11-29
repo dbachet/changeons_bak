@@ -49,14 +49,12 @@
 
 <!-- New comment -->
 
-<h1>New comment</h1>
+
 
 <div id="wrap_form_new_comment">
-	<% if @new_comment.user_id == -1 %>
-	<%= render 'comments/form_with_guest_fields' %>
-	<% else %>
+	<h1>New comment</h1>
 	<%= render 'comments/form' %>
-	<% end %>
+
 </div>
 
 
