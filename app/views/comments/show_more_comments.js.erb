@@ -9,9 +9,9 @@ $('a#show_more_comments_link').attr('href', "/posts/<%= @post.cached_slug %>/sho
 // Display the new posts
 $('div.display_comments > div:last').after("<%= escape_javascript(render :partial => 'comments/more_comments') %>");
 
-$('div.new_comments_background').hide();
-$('div.new_comments_background').fadeIn(1500);
-$('div.new_comments_background').removeClass('new_comments_background');
+$('div.new').hide();
+$('div.new').fadeIn(1500);
+$('div.new').removeClass('new');
 
 
 // CHECK IF THERE ARE MORE COMMENT TO DISPLAY, IF NO, REMOVE THE BUTTON 'MORE COMMENTS'

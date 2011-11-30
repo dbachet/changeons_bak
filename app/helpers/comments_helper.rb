@@ -5,25 +5,29 @@ module CommentsHelper
     sorted_keys = comments.keys.sort
     
     if comments.any? && sorted_keys.any?
-      
-      # Display the content of table
       raw(
+      # Display the content of table
         sorted_keys.collect do |root_comment_key|
-          comments[root_comment_key].collect do |comment|
-            content_tag(:div, :class => (comment.id == root_comment_key ? (is_new ? "root_comment new_comments_background" : "root_comment") : (is_new ? "comment_reply new_comments_background reply_for_#{root_comment_key}" : "comment_reply reply_for_#{root_comment_key}")), :id => "comment_#{comment.id}" ) do
-                
-                content_tag(:div, comment.title) + 
-                content_tag(:div, comment.body) +
-                content_tag(:div, link_to('Show', post_comment_path(@post, comment))) +
-                content_tag(:div, link_to('Edit', edit_post_comment_path(@post, comment))) +
-                content_tag(:div, link_to('Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :remote => true)) +
-                content_tag(:div, (link_to('Reply', show_reply_post_comment_path(@post, comment), :remote => true, :class => "show_reply_fields") if comment.parent_id.nil?) ) +
-                (content_tag(:div, (render("comments/form_reply_comment") if (@comment ? @comment.id : -1) == root_comment_key), :class => "reply_fields", :id => "reply_comment_#{root_comment_key}") if comment.id == root_comment_key)
-            end
+          comments[root_comment_key].collect do |c|
+            
+            display_comment(c, is_new)
+            
           end
-        
         end.join
-      )
+        )
     end
+  end
+  
+  def display_comment(comment, is_new = false)
+      content_tag(:div, :class => (comment.is_root_comment? ? (is_new ? "root_comment new" : "root_comment") : (is_new ? "comment_reply new reply_for_#{comment.parent_id}" : "comment_reply reply_for_#{comment.parent_id}")), :id => "comment_#{comment.id}" ) do
+        
+          content_tag(:div, comment.title) + 
+          content_tag(:div, comment.body) +
+          content_tag(:div, link_to('Show', post_comment_path(@post, comment))) +
+          content_tag(:div, link_to('Edit', edit_post_comment_path(@post, comment))) +
+          content_tag(:div, link_to('Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :remote => true)) +
+          content_tag(:div, (link_to('Reply', show_reply_post_comment_path(@post, comment), :remote => true, :class => "show_reply_fields") if comment.is_root_comment?) ) +
+          (content_tag(:div, "", :class => "reply_fields", :id => "reply_comment_#{comment.id}") if comment.is_root_comment?)
+      end
   end
 end
