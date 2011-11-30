@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
   # MUST STAY BEFORE :authenticate_user!
   # before_filter :sign_in_if_guest, :only => :create
+  respond_to :html, :only => [:index, :show, :new, :edit, :update]
+  respond_to :js, :except => [:index, :show, :new, :edit, :update]
+  
   
   before_filter :authenticate_user!, :only => [:create, :create_reply, :destroy, :update]
   # after_filter :destroy_guest, :only => :create
@@ -12,10 +15,10 @@ class CommentsController < ApplicationController
     @comments_count = @post.root_comments.count - (@comments.length + params[:offset].to_i)
     
     
-    respond_to do |format|
-      format.js
+    respond_with
+      # format.js
       # format.html { render :nothing => true, :status => 404}
-    end
+    
   end
   
   # GET /comments
@@ -62,10 +65,11 @@ class CommentsController < ApplicationController
     
     @reply = Comment.new
     
-    respond_to do |format|
+    respond_with
+    # respond_to do |format|
       # format.html { redirect_to reply_post_comment_path(@post, @comment, :anchor => "reply_comment_#{@comment.id}") }
-      format.js
-    end
+      # format.js
+    # end
   end
   
   # show the fields to write comment as a guest
@@ -74,12 +78,12 @@ class CommentsController < ApplicationController
     @new_comment = Comment.new
     @new_comment.user_id = -1
     
-    
-    respond_to do |format|
+    respond_with
+    # respond_to do |format|
       # format.html { redirect_to error_pages_javascript_disabled_path, :alert => "The guest posting is not authorized when javascript is disabled." }
       # format.html { redirect_to comment_as_guest_path(@post) }
-      format.js
-    end
+      # format.js
+    # end
   end
   
   # show the fields to write reply as a guest
@@ -89,11 +93,12 @@ class CommentsController < ApplicationController
     @reply = Comment.new
     @reply.user_id = -1
     
-    respond_to do |format|
+    respond_with
+    # respond_to do |format|
       # format.html { redirect_to error_pages_javascript_disabled_path, :alert => "The guest posting is not authorized when javascript is disabled." }
       # format.html { redirect_to reply_as_guest_path(@post) }
-      format.js
-    end
+      # format.js
+    # end
   end
   
   # GET /comments/1/edit
@@ -108,14 +113,18 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @new_comment = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
     
-
-    if @new_comment.save
-      redirect_to(@post, :notice => 'Comment was successfully created.')
-    else
-      @comments = @post.comment_threads
-      @tags = @post.tag_list
-      @votes_result = @post.plusminus
-      render :action => "posts/show"
+    respond_with do |format|
+      if @new_comment.save
+        # @comments = Comment.root_comments
+        flash[:notice] = 'Comment was successfully created.'
+        # redirect_to(@post, :notice => 'Comment was successfully created.')
+      else
+        flash[:alert] = 'Comment was not successfully created.'
+              # @comments = @post.comment_threads
+              # @tags = @post.tag_list
+              # @votes_result = @post.plusminus
+              # render :action => "posts/show"
+      end
     end
   end
   
@@ -124,14 +133,22 @@ class CommentsController < ApplicationController
     
     @new_comment = Comment.build_from_as_guest( @post, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website] )
     
-    if @new_comment.save
-      redirect_to(@post, :notice => 'Comment was successfully created as a guest comment.')
-    else
-      @comments = @post.comment_threads
-      @tags = @post.tag_list
-      @votes_result = @post.plusminus
-      render :action => "posts/show"
+    respond_with do |format|
+      if @new_comment.save
+        flash[:notice] = 'Comment was successfully created.'
+      else
+        flash[:alert] = 'Comment was not successfully created.'
+      end
     end
+    
+    # if @new_comment.save
+    #   redirect_to(@post, :notice => 'Comment was successfully created as a guest comment.')
+    # else
+    #   @comments = @post.comment_threads
+    #   @tags = @post.tag_list
+    #   @votes_result = @post.plusminus
+    #   render :action => "posts/show"
+    # end
   end
   
   def create_reply
@@ -140,16 +157,25 @@ class CommentsController < ApplicationController
     
     @reply = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
     
-    if @reply.save
-      @reply.move_to_child_of(@comment)
-      redirect_to(@post, :notice => 'Comment was successfully created.')
-    else
-      @new_comment = Comment.new
-      @comments = @post.comment_threads
-      @tags = @post.tag_list
-      @votes_result = @post.plusminus
-      render :action => "posts/show"
+    respond_with do |format|
+      if @reply.save
+        @reply.move_to_child_of(@comment)
+        flash[:notice] = 'Comment was successfully created.'
+      else
+        flash[:alert] = 'Comment was not successfully created.'
+      end
     end
+    
+    # if @reply.save
+    #   @reply.move_to_child_of(@comment)
+    #   redirect_to(@post, :notice => 'Comment was successfully created.')
+    # else
+    #   @new_comment = Comment.new
+    #   @comments = @post.comment_threads
+    #   @tags = @post.tag_list
+    #   @votes_result = @post.plusminus
+    #   render :action => "posts/show"
+    # end
   end
   
   def create_reply_as_guest
@@ -159,16 +185,25 @@ class CommentsController < ApplicationController
     
     @reply = Comment.build_from_as_guest( @post, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website] )
     
-    if @reply.save
-      @reply.move_to_child_of(@comment)
-      redirect_to(@post, :notice => 'Comment was successfully created as a guest comment.')
-    else
-      @new_comment = Comment.new
-      @comments = @post.comment_threads
-      @tags = @post.tag_list
-      @votes_result = @post.plusminus
-      render :action => "posts/show"
+    respond_with do |format|
+      if @reply.save
+        @reply.move_to_child_of(@comment)
+        flash[:notice] = 'Comment was successfully created.'
+      else
+        flash[:alert] = 'Comment was not successfully created.'
+      end
     end
+    
+    # if @reply.save
+    #   @reply.move_to_child_of(@comment)
+    #   redirect_to(@post, :notice => 'Comment was successfully created as a guest comment.')
+    # else
+    #   @new_comment = Comment.new
+    #   @comments = @post.comment_threads
+    #   @tags = @post.tag_list
+    #   @votes_result = @post.plusminus
+    #   render :action => "posts/show"
+    # end
   end
 
   # PUT /comments/1
@@ -177,15 +212,24 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
 
-    respond_to do |format|
-      if @comment.update_attributes(params[:comment])
-        format.html { redirect_to(@post, :notice => 'Comment was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
-      end
-    end
+    # respond_with do |format|
+    #   if @reply.save
+    #     @reply.move_to_child_of(@comment)
+    #     flash[:notice] = 'Comment was successfully created.'
+    #   else
+    #     flash[:alert] = 'Comment was not successfully created.'
+    #   end
+    # end
+    
+    # respond_to do |format|
+    #       if @comment.update_attributes(params[:comment])
+    #         format.html { redirect_to(@post, :notice => 'Comment was successfully updated.') }
+    #         format.xml  { head :ok }
+    #       else
+    #         format.html { render :action => "edit" }
+    #         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+    #       end
+    #     end
   end
 
   # DELETE /comments/1
@@ -201,10 +245,7 @@ class CommentsController < ApplicationController
     end
     @comment.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(@post, :notice => 'Comment was successfully updated.') }
-      format.js
-    end
+    respond_with
   end
   
   private
