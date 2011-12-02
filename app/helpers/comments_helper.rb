@@ -2,7 +2,7 @@ module CommentsHelper
   
   # This is to adapt as the comments maybe will be displayed another way !!
   def display_comments(comments, is_new = false)
-    sorted_keys = comments.keys.sort
+    sorted_keys = comments.keys.sort.reverse
     
     if comments.any? && sorted_keys.any?
       raw(

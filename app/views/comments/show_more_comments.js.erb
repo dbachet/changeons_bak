@@ -7,7 +7,7 @@ offset = $('a#show_more_comments_link').data('comment-offset');
 $('a#show_more_comments_link').attr('href', "/posts/<%= @post.cached_slug %>/show_more_comments?offset=" + offset);
 
 // Display the new posts
-$('div.display_comments > div:last').after("<%= escape_javascript(render :partial => 'comments/more_comments') %>");
+$('div#display_comments > div:last').after("<%= escape_javascript(render :partial => 'comments/more_comments') %>");
 
 $('div.new').hide();
 $('div.new').fadeIn(1500);

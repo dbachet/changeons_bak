@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
-  scope :recent, order('created_at desc').limit(APP_CONFIG['default_comment_offset'])
+  scope :recent, order('created_at desc')
+  
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
   
   validates_presence_of :body
@@ -65,21 +66,15 @@ class Comment < ActiveRecord::Base
     end
   end
   
-  # sort as {1=>[#<Comment>, #<Comment>], 8=>[#<Comment>]} where the first comment of each array is the root comment
-  def self.fetch_comments(post, offset)
-    comments = post.root_comments.recent.offset(offset)
-    
-    hash = {}
-    comments.each do |comment|
-      hash[comment.id] = [comment]
-      if comment.has_children?
-        comment.children.each do |child| # Add recent scope
-          hash[comment.id] << child
-        end
-      end
+  # sort as {1=>[#<Comment>, #<Comment>], 8=>[#<Comment>]} where the key is the id of each root comment
+  def self.fetch_comments(post, offset = 0, limitation = 0)
+    if limitation > 0
+      comments = post.root_comments.recent.offset(offset).limit(limitation)
+    else
+      comments = post.root_comments.recent.offset(offset)
     end
     
-    hash
+    fetch_children(comments)
   end
     
   #helper method to check if a comment has children
@@ -87,7 +82,29 @@ class Comment < ActiveRecord::Base
     self.children.size > 0 
   end
   
-  def is_root_comment? 
+  def is_root_comment?
     self.parent_id.nil?
   end
+  
+  def self.set_comment_hash(comment)
+    hash = {comment.id => [comment]}
+  end
+  
+  private
+  
+  def self.fetch_children(comments)
+    hash = {}
+    comments.each do |comment|
+      hash[comment.id] = [comment]
+      if comment.has_children?
+        comment.children.each do |child|
+          hash[comment.id] << child
+        end
+      end
+    end
+    
+    hash
+  end
+  
+
 end

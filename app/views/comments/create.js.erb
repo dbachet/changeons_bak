@@ -1,7 +1,14 @@
 $("form#new_comment").bind('ajax:success', function(evt, data, status, xhr) {
 	
+		window.location = '#display_comments';
 		
-		// $('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
+		$('div#display_comments > div:first').after("<%= escape_javascript(display_comments(@comment)) %>");
+		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
 		
+		$('div#comment_<%= @comment.keys.first %>').hide();
+		
+		$('div#comment_<%= @comment.keys.first %>').slideDown("slow");
+		
+		$('form#new_comment[data-validate], form#new_reply[data-validate]').validate();
 		
 });

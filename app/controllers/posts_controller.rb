@@ -58,11 +58,10 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     @default_comment_offset = APP_CONFIG['default_post_offset']
-    @post = Post.find(params[:id])    
+    @post = Post.find(params[:id])
     @new_comment = Comment.new
     
-    
-    @comments = Comment.fetch_comments(@post, 0)
+    @comments = Comment.fetch_comments(@post, 0, @default_comment_offset)
     @comments_count = @post.root_comments.count - @comments.length
     
     puts "@comments_count => #{@comments_count} / @post.root_comments.count => #{@post.root_comments.count} / @comments.length => #{@comments.length}"

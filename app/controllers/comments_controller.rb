@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   def show_more_comments
     @default_comment_offset = APP_CONFIG['default_post_offset']
     @post = Post.find(params[:post_id])
-    @comments = Comment.fetch_comments(@post, params[:offset])
+    @comments = Comment.fetch_comments(@post, params[:offset], @default_comment_offset)
     @comments_count = @post.root_comments.count - (@comments.length + params[:offset].to_i)
     
     
@@ -113,9 +113,11 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @new_comment = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
     
+    
     respond_with do |format|
       if @new_comment.save
-        # @comments = Comment.root_comments
+        @comment = Comment.set_comment_hash(@new_comment)
+        @new_comment= Comment.new
         flash[:notice] = 'Comment was successfully created.'
         # redirect_to(@post, :notice => 'Comment was successfully created.')
       else
@@ -135,7 +137,10 @@ class CommentsController < ApplicationController
     
     respond_with do |format|
       if @new_comment.save
+        @comment = Comment.set_comment_hash(@new_comment)
+        @new_comment= Comment.new
         flash[:notice] = 'Comment was successfully created.'
+        format.js { render :create }
       else
         flash[:alert] = 'Comment was not successfully created.'
       end
