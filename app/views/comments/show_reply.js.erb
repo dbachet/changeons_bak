@@ -1,23 +1,25 @@
-$('div.reply_fields').html("");
+$('form#new_reply').remove();
 
-$('div#reply_comment_<%= @comment.id %>').html("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
 
-$('div#reply_comment_<%= @comment.id %>').hide();
+var last_reply = $('div.reply_for_<%= @comment.id %>:last');
+if (last_reply[0]) {
+	window.location = "#" + $('div.reply_for_<%= @comment.id %>:last').attr("id");
+	
+	last_reply.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
+} else {
+	window.location = "#" + $('div#comment_<%= @comment.id %>').attr("id");
+	
+	$('div#comment_<%= @comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
+}
 
-$('div#reply_comment_<%= @comment.id %>').slideDown("slow");
-window.location = "#reply_comment_<%= @comment.id %>";
 
-$('a.fancybox_signin').fancybox({
-	closeClick: false,
-	afterShow:	function() {
-		$('form#user_new[data-validate]').validate();
-	}
-});
+$('form#new_reply').hide();
+
+$('form#new_reply').slideDown("slow");
+
 
 var post_id = $('form#new_comment input#comment_title').data('post-id');
 var comment_id = $('form#new_reply input#comment_title').data('comment-id');
 $('a.fancybox_signin').attr('href', '/users/sign_in?post_id=' + post_id + '&comment_id=' + comment_id);
-
-
 
 $('form#new_reply[data-validate], form#new_comment[data-validate]').validate();

@@ -1,13 +1,13 @@
 <h1>New reply</h1>
 
 
-<%= form_for(@reply, :url => create_reply_as_guest_path(@post, @comment, :anchor => "reply_comment_#{@comment.id}"), :html => {:id => "new_reply", :method => :post}, :validate => true) do |f| %>
-  <% if @reply.errors.any? %>
+<%= form_for(@new_reply, :url => create_reply_as_guest_path(@post, @comment, :anchor => "reply_comment_#{@comment.id}"), :html => {:id => "new_reply", :method => :post}, :validate => true, :remote => true) do |f| %>
+  <% if @new_reply.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@reply.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <h2><%= pluralize(@new_reply.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
       <ul>
-      <% @reply.errors.full_messages.each do |msg| %>
+      <% @new_reply.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

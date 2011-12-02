@@ -31,3 +31,4 @@ module CommentsHelper
       end
   end
 end
+# TRY TO WRAP THE CHILDREN INTO A ROOT DIV

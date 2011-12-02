@@ -1,0 +1,18 @@
+$("form#new_reply").bind('ajax:success', function(evt, data, status, xhr) {
+	
+		// window.location = '#display_comments';
+		$('div#reply_comment_<%= @comment.id %>').slideUp();
+		$('div#reply_comment_<%= @comment.id %>').remove();
+		
+		$('div.reply_for_<%= @comment.id %>:last').after("<%= escape_javascript(display_comments(@reply)) %>");
+		
+		$('div#comment_<%= @reply.keys.first %>').hide();
+		
+		var tttt = $('div.reply_for_<%= @comment.id %>').eq(-2).attr("id")
+		window.location = '#comment_' + tttt;
+		
+		$('div#comment_<%= @reply.keys.first %>').slideDown("slow");
+		
+		$('form#new_comment[data-validate], form#new_reply[data-validate]').validate();
+		
+});

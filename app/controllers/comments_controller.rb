@@ -63,7 +63,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     
-    @reply = Comment.new
+    @new_reply = Comment.new
     
     respond_with
     # respond_to do |format|
@@ -90,8 +90,8 @@ class CommentsController < ApplicationController
   def show_guest_fields_for_reply
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    @reply = Comment.new
-    @reply.user_id = -1
+    @new_reply = Comment.new
+    @new_reply.user_id = -1
     
     respond_with
     # respond_to do |format|
@@ -160,11 +160,12 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     
-    @reply = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
+    @new_reply = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
     
     respond_with do |format|
-      if @reply.save
-        @reply.move_to_child_of(@comment)
+      if @new_reply.save
+        @new_reply.move_to_child_of(@comment)
+        @reply = Comment.set_comment_hash(@new_reply, @comment)
         flash[:notice] = 'Comment was successfully created.'
       else
         flash[:alert] = 'Comment was not successfully created.'
@@ -188,11 +189,11 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @new_comment = Comment.new
     
-    @reply = Comment.build_from_as_guest( @post, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website] )
+    @new_reply = Comment.build_from_as_guest( @post, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website] )
     
     respond_with do |format|
-      if @reply.save
-        @reply.move_to_child_of(@comment)
+      if @new_reply.save
+        @new_reply.move_to_child_of(@comment)
         flash[:notice] = 'Comment was successfully created.'
       else
         flash[:alert] = 'Comment was not successfully created.'

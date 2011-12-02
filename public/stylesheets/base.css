@@ -314,6 +314,7 @@ div.comment_reply a.visited {
 }
 
 div.comment_reply {
+	margin: 20px;
 	background-color: yellow;
 	border-bottom: 1px solid black;
 }

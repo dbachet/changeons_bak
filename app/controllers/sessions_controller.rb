@@ -14,10 +14,10 @@ class SessionsController < Devise::SessionsController
     # SHOULDN'T BE HERE
     @post = Post.find(params[:user][:post_id]) unless params[:user][:post_id].empty? || params[:user][:post_id] == "undefined"
     @comment = Comment.find(params[:user][:comment_id]) unless params[:user][:comment_id].empty?|| params[:user][:comment_id] == "undefined"
-    @reply = Comment.new unless params[:user][:comment_id].empty?|| params[:user][:comment_id] == "undefined"
+    @new_reply = Comment.new unless params[:user][:comment_id].empty?|| params[:user][:comment_id] == "undefined"
     @new_comment = Comment.new unless params[:user][:post_id].empty? || params[:user][:post_id] == "undefined"
     # SHOULDN'T BE HERE
-        
+    
     return sign_in_and_redirect(resource_name, resource)
   end
   

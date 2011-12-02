@@ -23,13 +23,13 @@
 
 <h1>New comment</h1>
 
-<%= form_for(@reply, :url => create_reply_post_comment_path(@post, @comment), :method => :post) do |f| %>
-  <% if @reply.errors.any? %>
+<%= form_for(@new_reply, :url => create_reply_post_comment_path(@post, @comment), :method => :post) do |f| %>
+  <% if @new_reply.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@reply.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <h2><%= pluralize(@new_reply.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
       <ul>
-      <% @reply.errors.full_messages.each do |msg| %>
+      <% @new_reply.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
