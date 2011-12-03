@@ -12,10 +12,10 @@ class SessionsController < Devise::SessionsController
     !resource.nil? ? @result = true : @result = false
 
     # SHOULDN'T BE HERE
-    @post = Post.find(params[:user][:post_id]) unless params[:user][:post_id].empty? || params[:user][:post_id] == "undefined"
-    @comment = Comment.find(params[:user][:comment_id]) unless params[:user][:comment_id].empty?|| params[:user][:comment_id] == "undefined"
-    @new_reply = Comment.new unless params[:user][:comment_id].empty?|| params[:user][:comment_id] == "undefined"
-    @new_comment = Comment.new unless params[:user][:post_id].empty? || params[:user][:post_id] == "undefined"
+    @post = Post.find(params[:user][:post_id]) unless params[:user][:post_id].empty?
+    @comment = Comment.find(params[:user][:comment_id]) unless params[:user][:comment_id].empty?
+    @new_reply = Comment.new
+    @new_comment = Comment.new
     # SHOULDN'T BE HERE
     
     return sign_in_and_redirect(resource_name, resource)
@@ -37,7 +37,7 @@ class SessionsController < Devise::SessionsController
     resource ||= resource_or_scope
     sign_in(scope, resource) unless warden.user(scope) == resource
     
-    puts "Result -> #{@result}"
+    # puts "Result -> #{@result}"
     # return render :create => {:success => true, :redirect => stored_location_for(scope) || after_sign_in_path_for(resource)}
     # return render :sign_in_and_redirect => {:redirect => :back}
         respond_to do |format|

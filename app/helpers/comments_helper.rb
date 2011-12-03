@@ -6,6 +6,7 @@ module CommentsHelper
     
     if comments.any? && sorted_keys.any?
       raw(
+      # ("<h1 id='comments_title'>Listing comments</h1>" if title) +
       # Display the content of table
         sorted_keys.collect do |root_comment_key|
           comments[root_comment_key].collect do |c|
@@ -15,6 +16,10 @@ module CommentsHelper
           end
         end.join
         )
+    else
+      # raw(
+      #   content_tag(:div, "<h1 id='comments_title'>Listing comments</h1>Vous souhaitez commenter cet article, n'hésitez pas => " + (link_to 'Commenter', "#new_comment"))
+      # )
     end
   end
   

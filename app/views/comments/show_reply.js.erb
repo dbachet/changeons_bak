@@ -1,5 +1,6 @@
 $('form#new_reply').remove();
 
+$('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
 
 var last_reply = $('div.reply_for_<%= @comment.id %>:last');
 if (last_reply[0]) {
@@ -17,9 +18,5 @@ $('form#new_reply').hide();
 
 $('form#new_reply').slideDown("slow");
 
-
-var post_id = $('form#new_comment input#comment_title').data('post-id');
-var comment_id = $('form#new_reply input#comment_title').data('comment-id');
-$('a.fancybox_signin').attr('href', '/users/sign_in?post_id=' + post_id + '&comment_id=' + comment_id);
 
 $('form#new_reply[data-validate], form#new_comment[data-validate]').validate();

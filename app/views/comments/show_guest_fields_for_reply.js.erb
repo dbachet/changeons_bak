@@ -1,19 +1,27 @@
-var comment_title = $('div.reply_fields input#comment_title').val(),
-	comment_content = $('div.reply_fields textarea#comment_body').val(),
-	comment_guest_email = $('div.reply_fields input#comment_guest_email').val(),
-	comment_guest_website = $('div.reply_fields input#comment_guest_website').val();
+var comment_title = $('form#new_reply input#comment_title').val(),
+	comment_content = $('form#new_reply textarea#comment_body').val(),
+	comment_guest_email = $('form#new_reply input#comment_guest_email').val(),
+	comment_guest_website = $('form#new_reply input#comment_guest_website').val(),
+	last_reply = $('div.reply_for_<%= @comment.id %>:last');
 
-$('div#reply_comment_<%= @comment.id %>').html("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
+$('form#new_reply').remove();
+	
+if (last_reply[0]) {
 
-$('div#reply_comment_<%= @comment.id %>').hide();
+	last_reply.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
+} else {
 
-$('div#reply_comment_<%= @comment.id %>').fadeIn("slow");
-window.location = "#reply_comment_<%= @comment.id %>";
+	$('div#comment_<%= @comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
+}
+
+$('form#new_reply').hide();
+
+$('form#new_reply').fadeIn("slow");
 
 
-$('div.reply_fields input#comment_title').val(comment_title);
-$('div.reply_fields textarea#comment_body').val(comment_content);
-$('div.reply_fields input#comment_guest_email').val(comment_guest_email);
-$('div.reply_fields input#comment_guest_website').val(comment_guest_website);
+$('form#new_reply input#comment_title').val(comment_title);
+$('form#new_reply textarea#comment_body').val(comment_content);
+$('form#new_reply input#comment_guest_email').val(comment_guest_email);
+$('form#new_reply input#comment_guest_website').val(comment_guest_website);
 
 $('form#new_reply[data-validate], form#new_comment[data-validate]').validate();

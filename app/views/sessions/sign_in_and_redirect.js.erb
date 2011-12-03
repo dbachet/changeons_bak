@@ -6,13 +6,53 @@ $("form#user_new").bind('ajax:success', function(evt, data, status, xhr) {
 		//  For items on the new comment page 
 		// $('div#wrap_form_new_comment div.actions, div.reply_fields div.actions').html("<input id='comment_submit' name='commit' type='submit' value='Create Comment'>");
 		<% if @post %>
-		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
-		$('form#new_comment[data-validate]').validate();
+		var comment_title = $('form#new_comment input#comment_title').val(),
+			comment_content = $('form#new_comment textarea#comment_body').val(),
+			comment_guest_email = $('form#new_comment input#comment_guest_email').val(),
+			comment_guest_website = $('form#new_comment input#comment_guest_website').val();
+
+		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>").fadeIn();
+
+		$('form#new_comment').hide();
+
+		$('form#new_comment').fadeIn("slow");
+
+		$('form#new_comment input#comment_title').val(comment_title);
+		$('form#new_comment textarea#comment_body').val(comment_content);
+		$('form#new_comment input#comment_guest_email').val(comment_guest_email);
+		$('form#new_comment input#comment_guest_website').val(comment_guest_website);
 		<% end %>
 		
 		<% if @comment %>
-		$('div#reply_comment_<%= @comment.id %>').html("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
-		$('form#new_reply[data-validate]').validate();
+		var comment_title = $('form#new_reply input#comment_title').val(),
+			comment_content = $('form#new_reply textarea#comment_body').val(),
+			comment_guest_email = $('form#new_reply input#comment_guest_email').val(),
+			comment_guest_website = $('form#new_reply input#comment_guest_website').val(),
+			last_reply = $('div.reply_for_<%= @comment.id %>:last');
+
+		$('form#new_reply').remove();
+
+		if (last_reply[0]) {
+
+			last_reply.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
+		} else {
+
+			$('div#comment_<%= @comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
+		}
+
+		$('form#new_reply').hide();
+
+		$('form#new_reply').fadeIn("slow");
+
+
+		$('form#new_reply input#comment_title').val(comment_title);
+		$('form#new_reply textarea#comment_body').val(comment_content);
+		$('form#new_reply input#comment_guest_email').val(comment_guest_email);
+		$('form#new_reply input#comment_guest_website').val(comment_guest_website);		
 		<% end %>
 		
+		
+		$('form#new_comment[data-validate], form#new_reply[data-validate]').validate();
 });
+
+// CHANGE THE WAY THE FORM REPLY IS DISPLAYED WHEN LOGGING IN

@@ -1,4 +1,5 @@
 <%= form_for(@new_comment, :url => create_comment_as_guest_path(@post, :anchor => "new_comment"), :remote => true, :method => :post, :validate => true) do |f| %>
+<h1>New comment</h1>
   <% if @new_comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@new_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -15,7 +16,7 @@
 
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title, 'data-post-id' => @post.id %>
+    <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :body %><br />

@@ -194,7 +194,9 @@ class CommentsController < ApplicationController
     respond_with do |format|
       if @new_reply.save
         @new_reply.move_to_child_of(@comment)
+        @reply = Comment.set_comment_hash(@new_reply, @comment)
         flash[:notice] = 'Comment was successfully created.'
+        format.js { render :create_reply }
       else
         flash[:alert] = 'Comment was not successfully created.'
       end

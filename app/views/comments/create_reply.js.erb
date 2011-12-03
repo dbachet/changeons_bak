@@ -1,17 +1,21 @@
 $("form#new_reply").bind('ajax:success', function(evt, data, status, xhr) {
-	
-		// window.location = '#display_comments';
-		$('div#reply_comment_<%= @comment.id %>').slideUp();
-		$('div#reply_comment_<%= @comment.id %>').remove();
+		$('form#new_reply').remove();
+		$('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
 		
-		$('div.reply_for_<%= @comment.id %>:last').after("<%= escape_javascript(display_comments(@reply)) %>");
+		var last_reply = $('div.reply_for_<%= @comment.id %>:last');
 		
-		$('div#comment_<%= @reply.keys.first %>').hide();
+		if (last_reply[0]){
+			window.location = '#' + last_reply.attr("id");
+			last_reply.after("<%= escape_javascript(display_comments(@reply)) %>");
+		} else {
+			window.location = '#' + $('div#comment_<%= @comment.id %>').attr("id");
+			$('div#comment_<%= @comment.id %>').after("<%= escape_javascript(display_comments(@reply)) %>");
+		}
 		
-		var tttt = $('div.reply_for_<%= @comment.id %>').eq(-2).attr("id")
-		window.location = '#comment_' + tttt;
+		last_reply = $('div.reply_for_<%= @comment.id %>:last');
+		last_reply.hide();
 		
-		$('div#comment_<%= @reply.keys.first %>').slideDown("slow");
+		last_reply.slideDown("slow");
 		
 		$('form#new_comment[data-validate], form#new_reply[data-validate]').validate();
 		

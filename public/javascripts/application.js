@@ -53,31 +53,12 @@ $(document).ready(function() {
 	
 	// End fancyboxes
 
-var post_id = $('form#new_comment input#comment_title').data('post-id');
-if (post_id){
-	$('a.fancybox_signin').attr('href', '/users/sign_in?post_id=' + post_id);
-} else {
-	$('a.fancybox_signin').attr('href', '/users/sign_in');
-}
 
 $('form#new_comment[data-validate]').validate();
 $('form#new_reply[data-validate]').validate();
 
 
-   // $("a#show_more_posts_link").sendVar();
-
-
 });
 
 
-// 
-// $.fn.sendVar = function(){
-//     this.click( function() {
-//     var offset= 3;
-//        $.post('/posts/show_more_posts?offset=' + offset, function(data){
-// 
-//         })
-//        return false;
-//     });
-// }
 

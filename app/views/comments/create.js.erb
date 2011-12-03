@@ -1,13 +1,22 @@
 $("form#new_comment").bind('ajax:success', function(evt, data, status, xhr) {
+	var last_comment = $('div#display_comments > div:first');
 	
-		window.location = '#display_comments';
+	window.location = "#comments_title";
 		
-		$('div#display_comments > div:first').after("<%= escape_javascript(display_comments(@comment)) %>");
-		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
+	if (last_comment[0]){
+		last_comment.before("<%= escape_javascript(display_comments(@comment)) %>");
+		// window.location = '#' + $('div#comment_<%= @comment.keys.first %>').attr("id");
+		
+	} else {
+		$('div#display_comments').html("<%= escape_javascript(display_comments(@comment)) %>");
+		// window.location = '#' + $('div#comment_<%= @comment.keys.first %>').attr("id");
+	}
 		
 		$('div#comment_<%= @comment.keys.first %>').hide();
 		
 		$('div#comment_<%= @comment.keys.first %>').slideDown("slow");
+		
+		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
 		
 		$('form#new_comment[data-validate], form#new_reply[data-validate]').validate();
 		

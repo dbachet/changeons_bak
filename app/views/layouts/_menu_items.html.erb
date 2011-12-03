@@ -2,7 +2,10 @@
 <%= link_to('Home', root_path)%>
 </li>
 <li>
-<%= link_to('Posts', posts_path)%>
+<%= link_to('Contact', pages_contact_path)%>
+</li>
+<li>
+<%= link_to('Search', pages_search_path)%>
 </li>
 
 <% if user_signed_in? %>
@@ -17,6 +20,6 @@
   <%= link_to('Register', new_user_registration_path)  %>
   </li>
   <li>
-  <%= link_to('Login', new_user_session_path, :class => "fancybox_signin fancybox.ajax")  %>  
+  <%= link_to('Login', new_user_session_path(:post_id => @post, :comment_id => @comment), :class => "fancybox_signin fancybox.ajax")  %>
   </li>
 <% end %>
