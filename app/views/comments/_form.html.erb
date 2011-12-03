@@ -1,4 +1,4 @@
-<%= form_for(@new_comment, :url => {:action => "create", :controller => "comments", :post_id => @post, :anchor => "new_comment"}, :remote => true, :validate => (current_user ? true : false)) do |f| %>
+<%= form_for(@new_comment, :as => "comment",:url => {:action => "create", :controller => "comments", :post_id => @post, :anchor => "new_comment"}, :remote => true, :validate => (current_user ? true : false)) do |f| %>
 	
 	<h1>New comment</h1>
 

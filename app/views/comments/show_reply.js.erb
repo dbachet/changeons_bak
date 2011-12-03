@@ -1,4 +1,4 @@
-$('form#new_reply').remove();
+$('form#reply_new').remove();
 
 $('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
 
@@ -14,9 +14,9 @@ if (last_reply[0]) {
 }
 
 
-$('form#new_reply').hide();
+$('form#reply_new').hide();
 
-$('form#new_reply').slideDown("slow");
+$('form#reply_new').slideDown("slow");
 
 
-$('form#new_reply[data-validate], form#new_comment[data-validate]').validate();
+$('form#reply_new[data-validate], form#comment_new[data-validate]').validate();

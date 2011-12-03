@@ -15,7 +15,7 @@ $(document).ready(function() {
 			$('form#user_new[data-validate]').validate();
 		},
 		afterClose: function() {
-			$('form#new_reply[data-validate], form#new_comment[data-validate]').validate();
+			$('form#reply_new[data-validate], form#comment_new[data-validate]').validate();
 		}
 	});
 	
@@ -54,8 +54,8 @@ $(document).ready(function() {
 	// End fancyboxes
 
 
-$('form#new_comment[data-validate]').validate();
-$('form#new_reply[data-validate]').validate();
+$('form#comment_new[data-validate]').validate();
+$('form#reply_new[data-validate]').validate();
 
 
 });

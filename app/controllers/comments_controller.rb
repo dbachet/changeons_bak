@@ -160,7 +160,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     
-    @new_reply = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
+    @new_reply = Comment.build_from( @post, current_user, params[:reply][:body], params[:reply][:title] )
     
     respond_with do |format|
       if @new_reply.save
@@ -189,7 +189,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @new_comment = Comment.new
     
-    @new_reply = Comment.build_from_as_guest( @post, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website] )
+    @new_reply = Comment.build_from_as_guest( @post, params[:reply][:body], params[:reply][:title], params[:reply][:guest_email], params[:reply][:guest_website] )
     
     respond_with do |format|
       if @new_reply.save

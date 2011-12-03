@@ -1,5 +1,5 @@
 
-<%= form_for(@new_reply, :url => create_reply_post_comment_path(@post, @comment, :anchor => "reply_comment_#{@comment.id}"), :html => {:id => "new_reply", :method => :post}, :validate => (current_user ? true : false), :remote => true) do |f| %>
+<%= form_for(@new_reply, :as => "reply", :url => create_reply_post_comment_path(@post, @comment, :anchor => "reply_comment_#{@comment.id}"), :html => {:method => :post}, :validate => (current_user ? true : false), :remote => true) do |f| %>
 <h1>New reply</h1>
 
   

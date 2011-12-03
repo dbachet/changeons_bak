@@ -1,5 +1,5 @@
-$("form#new_reply").bind('ajax:success', function(evt, data, status, xhr) {
-		$('form#new_reply').remove();
+$("form#reply_new").bind('ajax:success', function(evt, data, status, xhr) {
+		$('form#reply_new').remove();
 		$('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
 		
 		var last_reply = $('div.reply_for_<%= @comment.id %>:last');
@@ -17,6 +17,6 @@ $("form#new_reply").bind('ajax:success', function(evt, data, status, xhr) {
 		
 		last_reply.slideDown("slow");
 		
-		$('form#new_comment[data-validate], form#new_reply[data-validate]').validate();
+		$('form#comment_new[data-validate], form#reply_new[data-validate]').validate();
 		
 });
