@@ -6,6 +6,10 @@ class SessionsController < Devise::SessionsController
     # config.http_authenticatable_on_xhr = false
     # config.navigational_formats = [:html, :json]
     #*********************************************#
+    
+    layout false, :only => :new
+    # respond_to :html, :except => [:new]
+    # respond_to :js, :only => [:new]
   
   def create
     resource = warden.authenticate!(:scope => resource_name, :recall => "sessions#failure")
@@ -21,6 +25,23 @@ class SessionsController < Devise::SessionsController
     return sign_in_and_redirect(resource_name, resource)
   end
   
+  # def new
+  #   # SHOULDN'T BE HERE
+  #   @post_id = params[:post_id]
+  #   @comment_id = params[:comment_id]
+  #   # SHOULDN'T BE HERE
+  #   
+  #   resource = build_resource
+  #   clean_up_passwords(resource)
+  #   respond_with_navigational(resource, stub_options(resource)){ render :fancy_login, :layout => false }
+  # end
+  
+  # def new
+  #   
+  # end
+  
+  # #######
+  # GET /resource/sign_in
   def new
     # SHOULDN'T BE HERE
     @post_id = params[:post_id]
@@ -29,8 +50,21 @@ class SessionsController < Devise::SessionsController
     
     resource = build_resource
     clean_up_passwords(resource)
-    respond_with_navigational(resource, stub_options(resource)){ render :fancy_login, :layout => false }
+    # respond_with(resource) do |format|
+    #   format.js {render :new}
+    #   # format.any(*navigational_formats, &stub_options(resource))
+    # end
+    respond_with_navigational(resource, stub_options(resource)){ render_with_scope :new }
   end
+
+  # POST /resource/sign_in
+  # def create
+  #   resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
+  #   set_flash_message(:notice, :signed_in) if is_navigational_format?
+  #   sign_in(resource_name, resource)
+  #   respond_with resource, :location => after_sign_in_path_for(resource)
+  # end
+  # #######
   
   def sign_in_and_redirect(resource_or_scope, resource=nil)
     scope = Devise::Mapping.find_scope!(resource_or_scope)

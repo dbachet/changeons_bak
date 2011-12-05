@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  ROLES = %w[user moderator admin]
   acts_as_voter
   
   # Include default devise modules. Others available are:
@@ -12,4 +13,8 @@ class User < ActiveRecord::Base
   
   has_many :posts
   has_many :comments
+  
+  def role?(role)
+    true if self.role == role
+  end
 end

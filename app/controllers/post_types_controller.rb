@@ -1,5 +1,6 @@
-class PostTypesController < ApplicationController
+class PostTypesController < AuthorizedController
   layout false, :only => :new
+  before_filter :authenticate_user!
   
   # GET /post_types
   # GET /post_types.xml

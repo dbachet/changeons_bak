@@ -3,7 +3,7 @@ Changeons::Application.routes.draw do
 
   resources :post_types
 
-  resources :types
+  # resources :types
 
   resources :categories
   
@@ -40,8 +40,7 @@ Changeons::Application.routes.draw do
 
   get "pages/search"
 
-  devise_for :users, :controllers => {:sessions => 'sessions'} do 
-    get "sessions/fancy_login"
+  devise_for :users, :controllers => {:sessions => 'sessions'} do
   end
 
   # The priority is based upon order of creation:

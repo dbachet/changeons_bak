@@ -1,0 +1,11 @@
+$.fancybox({
+            closeClick: false,
+			afterShow:	function() {
+				$('form#user_new[data-validate]').validate();
+			},
+			afterClose: function() {
+				$('form#reply_new[data-validate], form#comment_new[data-validate]').validate();
+			},
+            'type': 'ajax',
+            'href': '/users/sign_in'
+        });

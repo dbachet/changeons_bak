@@ -1,5 +1,6 @@
-class CategoriesController < ApplicationController
+class CategoriesController < AuthorizedController
    layout false, :only => :new
+   before_filter :authenticate_user!
    
   # GET /categories
   # GET /categories.xml

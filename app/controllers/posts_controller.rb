@@ -1,5 +1,7 @@
-class PostsController < ApplicationController
+class PostsController < AuthorizedController
   before_filter :authenticate_user!, :except => [:index, :show, :show_more_posts]
+  # load_and_authorize_resource
+  # before_filter :authenticate_user!
   
   def show_more_posts
     @default_post_offset = APP_CONFIG['default_post_offset']

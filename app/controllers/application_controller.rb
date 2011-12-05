@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  # before_filter :authenticate_user!
   
   # if user is logged in, return current_user, else return guest_user
   # def current_or_guest_user

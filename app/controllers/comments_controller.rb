@@ -1,11 +1,11 @@
-class CommentsController < ApplicationController
+class CommentsController < AuthorizedController
   # MUST STAY BEFORE :authenticate_user!
   # before_filter :sign_in_if_guest, :only => :create
-  respond_to :html, :only => [:index, :show, :new, :edit, :update]
-  respond_to :js, :except => [:index, :show, :new, :edit, :update]
+  # load_and_authorize_resource
+  respond_to :js
   
   
-  before_filter :authenticate_user!, :only => [:create, :create_reply, :destroy, :update]
+  before_filter :authenticate_user!, :only => [:edit, :create, :create_reply, :destroy, :update]
   # after_filter :destroy_guest, :only => :create
   
   def show_more_comments
@@ -21,42 +21,42 @@ class CommentsController < ApplicationController
     
   end
   
-  # GET /comments
-  # GET /comments.xml
-  def index
-    @comments = Comment.all
-    @post = Post.find(params[:post_id])
+  # # GET /comments
+  # # GET /comments.xml
+  # def index
+  #   @comments = Comment.all
+  #   @post = Post.find(params[:post_id])
+  # 
+  #   respond_to do |format|
+  #     format.html # index.html.erb
+  #     format.xml  { render :xml => @comments }
+  #   end
+  # end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @comments }
-    end
-  end
+  # # GET /comments/1
+  # # GET /comments/1.xml
+  # 
+  # # TO REMOVE IF THOUGHT AS OR REDIRECT TO POST/SHOW
+  # def show
+  #   @comment = Comment.find(params[:id])
+  #   @post = Post.find(params[:post_id])
+  #   
+  #   respond_to do |format|
+  #     format.html # show.html.erb
+  #     format.xml  { render :xml => @comment }
+  #   end
+  # end
 
-  # GET /comments/1
-  # GET /comments/1.xml
-  
-  # TO REMOVE IF THOUGHT AS OR REDIRECT TO POST/SHOW
-  def show
-    @comment = Comment.find(params[:id])
-    @post = Post.find(params[:post_id])
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @comment }
-    end
-  end
-
-  # GET /comments/new
-  # GET /comments/new.xml
-  def new
-    @comment = Comment.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @comment }
-    end
-  end
+  # # GET /comments/new
+  # # GET /comments/new.xml
+  # def new
+  #   @comment = Comment.new
+  # 
+  #   respond_to do |format|
+  #     format.html # new.html.erb
+  #     format.xml  { render :xml => @comment }
+  #   end
+  # end
   
   # show the reply fields
   def show_reply
