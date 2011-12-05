@@ -29,8 +29,8 @@ module CommentsHelper
           content_tag(:div, comment.title) + 
           content_tag(:div, comment.body) +
           content_tag(:div, link_to('Show', post_comment_path(@post, comment))) +
-          content_tag(:div, link_to('Edit', edit_post_comment_path(@post, comment))) +
-          content_tag(:div, link_to('Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :remote => true)) +
+          (content_tag(:div, link_to('Edit', edit_post_comment_path(@post, comment))) if can? :edit, Comment ) +
+          (content_tag(:div, link_to('Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :remote => true)) if can? :destroy, Comment) +
           content_tag(:div, (link_to('Reply', show_reply_post_comment_path(@post, comment), :remote => true, :class => "show_reply_fields") if comment.is_root_comment?) ) +
           (content_tag(:div, "", :class => "reply_fields", :id => "reply_comment_#{comment.id}") if comment.is_root_comment?)
       end

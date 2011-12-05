@@ -1,13 +1,18 @@
 class PostsController < AuthorizedController
+  # skip_load_and_authorize_resource :only => [:create]
   before_filter :authenticate_user!, :except => [:index, :show, :show_more_posts]
   # load_and_authorize_resource
   # before_filter :authenticate_user!
+  
   
   def show_more_posts
     @default_post_offset = APP_CONFIG['default_post_offset']
     @posts = Post.recent.offset(params[:offset])
     @posts_count = Post.count - (@posts.length + params[:offset].to_i)
     
+    # puts "posts => #{@posts.inspect}"
+    # puts "post => #{@post.inspect}"
+    # # authorize! :show_more_posts, @post
     
     respond_to do |format|
       format.js
@@ -17,8 +22,11 @@ class PostsController < AuthorizedController
   
   def vote_up
     begin
-      current_user.vote_exclusively_for(@post = Post.find(params[:id]))
+      current_user.vote_exclusively_for(@post)
       @votes_result = @post.plusminus
+      
+      # authorize! :vote_up, @post
+      
       respond_to do |format|
         format.js
       end
@@ -29,8 +37,11 @@ class PostsController < AuthorizedController
   
   def vote_down
     begin
-      current_user.vote_exclusively_against(@post = Post.find(params[:id]))
+      current_user.vote_exclusively_against(@post)
       @votes_result = @post.plusminus
+      
+      # authorize! :vote_down, @post
+      
       respond_to do |format|
         format.js
       end
@@ -48,6 +59,12 @@ class PostsController < AuthorizedController
     @tags =  ActsAsTaggableOn::Tag.all
     @posts_count = Post.count - @posts.length
     
+    # authorize! :index, @post
+    # authorize! :index, @posts_count
+    # authorize! :index, @posts
+    
+    # puts "posts => #{@posts.inspect}"
+    
     # TO REFACTOR
     
     respond_to do |format|
@@ -60,13 +77,13 @@ class PostsController < AuthorizedController
   # GET /posts/1.xml
   def show
     @default_comment_offset = APP_CONFIG['default_post_offset']
-    @post = Post.find(params[:id])
     @new_comment = Comment.new
     
     @comments = Comment.fetch_comments(@post, 0, @default_comment_offset)
     @comments_count = @post.root_comments.count - @comments.length
     
-    puts "@comments_count => #{@comments_count} / @post.root_comments.count => #{@post.root_comments.count} / @comments.length => #{@comments.length}"
+    # puts "post => #{@post.inspect}"
+    # puts "@comments_count => #{@comments_count} / @post.root_comments.count => #{@post.root_comments.count} / @comments.length => #{@comments.length}"
 
     @tags = @post.tag_list
     @votes_result = @post.plusminus
@@ -80,7 +97,7 @@ class PostsController < AuthorizedController
   # GET /posts/new
   # GET /posts/new.xml
   def new
-    @post = current_user.posts.new
+    # @post = Post.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -90,7 +107,10 @@ class PostsController < AuthorizedController
 
   # GET /posts/1/edit
   def edit
-    @post = current_user.posts.find(params[:id])
+    # @post = Post.find(params[:id])
+    # authorize! :edit, @post
+    # puts "post => #{@post.inspect}" # / comment => #{@comment.inspect}"
+    
   end
 
   # POST /posts
@@ -98,6 +118,8 @@ class PostsController < AuthorizedController
   def create
     @post = current_user.posts.new(params[:post])
     @post.tag_list = params[:post][:tag_list]
+    
+    # authorize! :create, @post
     
     respond_to do |format|
       if @post.save
@@ -115,7 +137,7 @@ class PostsController < AuthorizedController
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -135,7 +157,7 @@ class PostsController < AuthorizedController
   # DELETE /posts/1
   # DELETE /posts/1.xml
   def destroy
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
     @post.category_ids = []
     @post.tag_list = []
     @post.save

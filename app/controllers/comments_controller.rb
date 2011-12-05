@@ -2,6 +2,8 @@ class CommentsController < AuthorizedController
   # MUST STAY BEFORE :authenticate_user!
   # before_filter :sign_in_if_guest, :only => :create
   # load_and_authorize_resource
+  # skip_load_and_authorize_resource
+  
   respond_to :js
   
   
@@ -14,6 +16,10 @@ class CommentsController < AuthorizedController
     @comments = Comment.fetch_comments(@post, params[:offset], @default_comment_offset)
     @comments_count = @post.root_comments.count - (@comments.length + params[:offset].to_i)
     
+    
+    # authorize! :show_more_comments, @comments
+    # authorize! :show_more_comments, @post
+    # puts "post => #{@post.inspect} / comment => #{@comment.inspect}"
     
     respond_with
       # format.js
@@ -104,7 +110,9 @@ class CommentsController < AuthorizedController
   # GET /comments/1/edit
   def edit
     @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:id])
+    @new_comment = Comment.find(params[:id])
+    
+    puts "new_comment => #{@new_comment.inspect} / comment => #{@comment.inspect}"
   end
 
   # POST /comments

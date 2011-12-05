@@ -15,6 +15,6 @@ class User < ActiveRecord::Base
   has_many :comments
   
   def role?(role)
-    true if self.role == role
+    true if self.role == role.to_s
   end
 end
