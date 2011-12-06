@@ -2,7 +2,7 @@ var comment_title = $('form#reply_new input#reply_title').val(),
 	comment_content = $('form#reply_new textarea#reply_body').val(),
 	comment_guest_email = $('form#reply_new input#reply_guest_email').val(),
 	comment_guest_website = $('form#reply_new input#reply_guest_website').val(),
-	last_reply = $('div.reply_for_<%= @comment.id %>:last');
+	last_reply = $('div.reply_for_<%= @parent_comment.id %>:last');
 
 $('form#reply_new').remove();
 	
@@ -11,7 +11,7 @@ if (last_reply[0]) {
 	last_reply.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
 } else {
 
-	$('div#comment_<%= @comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
+	$('div#comment_<%= @parent_comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
 }
 
 $('form#reply_new').hide();

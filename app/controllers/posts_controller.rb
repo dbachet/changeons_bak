@@ -1,5 +1,5 @@
 class PostsController < AuthorizedController
-  # skip_load_and_authorize_resource :only => [:create]
+  # skip_load_and_authorize_resource :only => [:show]
   before_filter :authenticate_user!, :except => [:index, :show, :show_more_posts]
   # load_and_authorize_resource
   # before_filter :authenticate_user!
@@ -77,11 +77,13 @@ class PostsController < AuthorizedController
   # GET /posts/1.xml
   def show
     @default_comment_offset = APP_CONFIG['default_post_offset']
-    @new_comment = Comment.new
-    
+    @comment = Comment.new
+    # @post = Post.find(params[:id])
     @comments = Comment.fetch_comments(@post, 0, @default_comment_offset)
     @comments_count = @post.root_comments.count - @comments.length
     
+    # authorize! :index, @post
+    # authorize! :edit, :comment
     # puts "post => #{@post.inspect}"
     # puts "@comments_count => #{@comments_count} / @post.root_comments.count => #{@post.root_comments.count} / @comments.length => #{@comments.length}"
 

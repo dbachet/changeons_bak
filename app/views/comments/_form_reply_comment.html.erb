@@ -1,14 +1,14 @@
 
-<%= form_for(@new_reply, :as => "reply", :url => create_reply_post_comment_path(@post, @comment, :anchor => "reply_comment_#{@comment.id}"), :html => {:method => :post}, :validate => (current_user ? true : false), :remote => true) do |f| %>
+<%= form_for(@reply, :as => "reply", :url => create_reply_post_comment_path(@post, @parent_comment, :anchor => "reply_comment_#{@parent_comment.id}"), :html => {:method => :post}, :validate => (current_user ? true : false), :remote => true) do |f| %>
 <h1>New reply</h1>
 
   
-<% if @new_reply.errors.any? %>
+<% if @reply.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@new_reply.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <h2><%= pluralize(@reply.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
       <ul>
-      <% @new_reply.errors.full_messages.each do |msg| %>
+      <% @reply.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -16,7 +16,7 @@
   <% end %>
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title, 'data-post-id' => "@post.id", 'data-comment-id' => "@comment.id" %>
+    <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :body %><br />

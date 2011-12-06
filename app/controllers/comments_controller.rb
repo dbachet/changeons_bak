@@ -2,7 +2,7 @@ class CommentsController < AuthorizedController
   # MUST STAY BEFORE :authenticate_user!
   # before_filter :sign_in_if_guest, :only => :create
   # load_and_authorize_resource
-  # skip_load_and_authorize_resource
+  # skip_load_and_authorize_resource :except => [:destroy]
   
   respond_to :js
   
@@ -19,7 +19,7 @@ class CommentsController < AuthorizedController
     
     # authorize! :show_more_comments, @comments
     # authorize! :show_more_comments, @post
-    # puts "post => #{@post.inspect} / comment => #{@comment.inspect}"
+    # puts "post => #{@post.inspect} / comment => #{@comment.inspect} / comments => #{@comments}"
     
     respond_with
       # format.js
@@ -67,9 +67,13 @@ class CommentsController < AuthorizedController
   # show the reply fields
   def show_reply
     @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:id])
+    @parent_comment = Comment.find(params[:id])
     
-    @new_reply = Comment.new
+    @reply = Comment.new
+    
+    # authorize! :show_reply, @comment
+    # authorize! :show_reply, @post
+    # puts "post => #{@post.inspect} / comment => #{@comment.inspect}"
     
     respond_with
     # respond_to do |format|
@@ -81,8 +85,12 @@ class CommentsController < AuthorizedController
   # show the fields to write comment as a guest
   def show_guest_fields
     @post = Post.find(params[:post_id])
-    @new_comment = Comment.new
-    @new_comment.user_id = -1
+    @comment = Comment.new
+    @comment.user_id = -1
+    
+    # authorize! :show_reply, @comment
+    # authorize! :show_reply, @post
+    # puts "post => #{@post.inspect} / comment => #{@comment.inspect}"
     
     respond_with
     # respond_to do |format|
@@ -95,9 +103,13 @@ class CommentsController < AuthorizedController
   # show the fields to write reply as a guest
   def show_guest_fields_for_reply
     @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:id])
-    @new_reply = Comment.new
-    @new_reply.user_id = -1
+    @parent_comment = Comment.find(params[:id])
+    @reply = Comment.new
+    @reply.user_id = -1
+    
+    # authorize! :show_reply, @comment
+    # authorize! :show_reply, @post
+    # puts "post => #{@post.inspect} / comment => #{@comment.inspect}"
     
     respond_with
     # respond_to do |format|
@@ -110,8 +122,9 @@ class CommentsController < AuthorizedController
   # GET /comments/1/edit
   def edit
     @post = Post.find(params[:post_id])
-    @new_comment = Comment.find(params[:id])
+    # @comment = Comment.find(params[:id])
     
+    # authorize! :edit, :comment
     puts "new_comment => #{@new_comment.inspect} / comment => #{@comment.inspect}"
   end
 
@@ -119,13 +132,13 @@ class CommentsController < AuthorizedController
   # POST /comments.xml
   def create
     @post = Post.find(params[:post_id])
-    @new_comment = Comment.build_from( @post, current_user, params[:comment][:body], params[:comment][:title] )
-    
-    
+    @comment = Comment.build_from( @post, current_user.id, params[:comment][:body], params[:comment][:title] )
+        
     respond_with do |format|
-      if @new_comment.save
-        @comment = Comment.set_comment_hash(@new_comment)
-        @new_comment= Comment.new
+      if @comment.save
+        @comment_created = Comment.set_comment_hash(@comment)
+        puts "comment => #{@comment.inspect}"
+        @comment= Comment.new
         flash[:notice] = 'Comment was successfully created.'
         # redirect_to(@post, :notice => 'Comment was successfully created.')
       else
@@ -141,12 +154,12 @@ class CommentsController < AuthorizedController
   def create_comment_as_guest
     @post = Post.find(params[:post_id])
     
-    @new_comment = Comment.build_from_as_guest( @post, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website] )
+    @comment = Comment.build_from_as_guest( @post, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website] )
     
     respond_with do |format|
-      if @new_comment.save
-        @comment = Comment.set_comment_hash(@new_comment)
-        @new_comment= Comment.new
+      if @comment.save
+        @comment_created = Comment.set_comment_hash(@comment)
+        @comment= Comment.new
         flash[:notice] = 'Comment was successfully created.'
         format.js { render :create }
       else
@@ -166,14 +179,15 @@ class CommentsController < AuthorizedController
   
   def create_reply
     @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:id])
+    @parent_comment = Comment.find(params[:id])
     
-    @new_reply = Comment.build_from( @post, current_user, params[:reply][:body], params[:reply][:title] )
+    @reply = Comment.build_from( @post, current_user, params[:reply][:body], params[:reply][:title] )
+    
     
     respond_with do |format|
-      if @new_reply.save
-        @new_reply.move_to_child_of(@comment)
-        @reply = Comment.set_comment_hash(@new_reply, @comment)
+      if @reply.save
+        @reply.move_to_child_of(@parent_comment)
+        @reply = Comment.set_comment_hash(@reply, @parent_comment)
         flash[:notice] = 'Comment was successfully created.'
       else
         flash[:alert] = 'Comment was not successfully created.'
@@ -194,15 +208,14 @@ class CommentsController < AuthorizedController
   
   def create_reply_as_guest
     @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:id])
-    @new_comment = Comment.new
+    @parent_comment = Comment.find(params[:id])
     
-    @new_reply = Comment.build_from_as_guest( @post, params[:reply][:body], params[:reply][:title], params[:reply][:guest_email], params[:reply][:guest_website] )
+    @reply = Comment.build_from_as_guest( @post, params[:reply][:body], params[:reply][:title], params[:reply][:guest_email], params[:reply][:guest_website] )
     
     respond_with do |format|
-      if @new_reply.save
-        @new_reply.move_to_child_of(@comment)
-        @reply = Comment.set_comment_hash(@new_reply, @comment)
+      if @reply.save
+        @reply.move_to_child_of(@parent_comment)
+        @reply = Comment.set_comment_hash(@reply, @parent_comment)
         flash[:notice] = 'Comment was successfully created.'
         format.js { render :create_reply }
       else

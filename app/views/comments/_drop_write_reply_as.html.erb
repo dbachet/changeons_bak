@@ -2,7 +2,7 @@
 	Reply en tant que &nbsp; <span class="more_than">></span>
 	<ul class="sub_write_reply_as">
 		<li>
-			<%= link_to "Utilisateur enregistré", new_user_session_path(:post_id => @post, :comment_id => @comment), :id => "write_reply_as_login_link", :title => "Log in your favourite website!", :class => "fancybox_signin fancybox.ajax" %>
+			<%= link_to "Utilisateur enregistré", new_user_session_path(:post_id => @post, :parent_comment_id => @comment), :id => "write_reply_as_login_link", :title => "Log in your favourite website!", :class => "fancybox_signin fancybox.ajax" %>
 		</li>
 		<li>
 			<%= link_to "Invité", show_guest_fields_for_reply_path(@post, @comment), :remote => true, :id => "write_reply_as_guest_link" %>

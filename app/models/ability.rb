@@ -36,7 +36,8 @@ class Ability
     elsif user.role? :user
       can [:index, :show, :show_more_posts, :vote_up, :vote_down], Post
       can [:create_reply, :create, :show_reply, :show_more_comments], Comment # :edit, :update, :destroy if user.id is the same
-      can [:edit, :update, :destroy], Comment
+      can [:edit, :update, :destroy], Comment , :user_id => user.id
+      # can [:update, :destroy], Comment
     else
       can [:index, :show, :show_more_posts], Post
       can :manage, Comment

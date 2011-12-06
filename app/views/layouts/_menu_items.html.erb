@@ -20,6 +20,6 @@
   <%= link_to('Register', new_user_registration_path)  %>
   </li>
   <li>
-  <%= link_to('Login', new_user_session_path(:post_id => @post, :comment_id => @comment), :class => "fancybox_signin fancybox.ajax")  %>
+  <%= link_to('Login', new_user_session_path(:post_id => @post, :parent_comment_id => @comment), :class => "fancybox_signin fancybox.ajax")  %>
   </li>
 <% end %>

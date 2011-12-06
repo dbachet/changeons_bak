@@ -2,15 +2,15 @@ $('form#reply_new').remove();
 
 $('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
 
-var last_reply = $('div.reply_for_<%= @comment.id %>:last');
+var last_reply = $('div.reply_for_<%= @parent_comment.id %>:last');
 if (last_reply[0]) {
-	window.location = "#" + $('div.reply_for_<%= @comment.id %>:last').attr("id");
+	window.location = "#" + $('div.reply_for_<%= @parent_comment.id %>:last').attr("id");
 	
 	last_reply.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
 } else {
-	window.location = "#" + $('div#comment_<%= @comment.id %>').attr("id");
+	window.location = "#" + $('div#comment_<%= @parent_comment.id %>').attr("id");
 	
-	$('div#comment_<%= @comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
+	$('div#comment_<%= @parent_comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
 }
 
 

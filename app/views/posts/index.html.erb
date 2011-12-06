@@ -16,8 +16,8 @@
     <td><%= post.content %></td>
     <td><%= post.user_id %></td>
     <td><%= link_to 'Show', post %></td>
-    <td><% if can? :edit, Post %><%= link_to 'Edit', edit_post_path(post) %><% end %></td>
-    <td><% if can? :destroy, Post %><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %><% end %></td>
+    <td><% if can? :edit, post %><%= link_to 'Edit', edit_post_path(post) %><% end %></td>
+    <td><% if can? :destroy, post %><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %><% end %></td>
   </tr>
 <% end %>
 </table>
@@ -27,7 +27,7 @@
 
 <br />
 
-<% if can? :new, Post %><%= link_to 'New Post', new_post_path %><% end %>
+<% if can? :new, @post %><%= link_to 'New Post', new_post_path %><% end %>
 
 <h1>Listing tags</h1>
 

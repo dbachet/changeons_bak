@@ -4,17 +4,15 @@ $("form#comment_new").bind('ajax:success', function(evt, data, status, xhr) {
 	window.location = "#comments_title";
 		
 	if (last_comment[0]){
-		last_comment.before("<%= escape_javascript(display_comments(@comment)) %>");
-		// window.location = '#' + $('div#comment_<%= @comment.keys.first %>').attr("id");
+		last_comment.before("<%= escape_javascript(display_comments(@comment_created)) %>");
 		
 	} else {
-		$('div#display_comments').html("<%= escape_javascript(display_comments(@comment)) %>");
-		// window.location = '#' + $('div#comment_<%= @comment.keys.first %>').attr("id");
+		$('div#display_comments').html("<%= escape_javascript(display_comments(@comment_created)) %>");
 	}
 		
-		$('div#comment_<%= @comment.keys.first %>').hide();
+		$('div#comment_<%= @comment_created.keys.first %>').hide();
 		
-		$('div#comment_<%= @comment.keys.first %>').slideDown("slow");
+		$('div#comment_<%= @comment_created.keys.first %>').slideDown("slow");
 		
 		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
 		

@@ -17,9 +17,9 @@ class SessionsController < Devise::SessionsController
 
     # SHOULDN'T BE HERE
     @post = Post.find(params[:user][:post_id]) unless params[:user][:post_id].empty?
-    @comment = Comment.find(params[:user][:comment_id]) unless params[:user][:comment_id].empty?
-    @new_reply = Comment.new
-    @new_comment = Comment.new
+    @parent_comment = Comment.find(params[:user][:parent_comment_id]) unless params[:user][:parent_comment_id].empty?
+    @reply = Comment.new
+    @comment = Comment.new
     # SHOULDN'T BE HERE
     
     return sign_in_and_redirect(resource_name, resource)
@@ -45,7 +45,7 @@ class SessionsController < Devise::SessionsController
   def new
     # SHOULDN'T BE HERE
     @post_id = params[:post_id]
-    @comment_id = params[:comment_id]
+    @parent_comment_id = params[:parent_comment_id]
     # SHOULDN'T BE HERE
     
     resource = build_resource

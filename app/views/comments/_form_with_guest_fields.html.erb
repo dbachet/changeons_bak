@@ -1,11 +1,11 @@
-<%= form_for(@new_comment, :as => "comment", :url => create_comment_as_guest_path(@post, :anchor => "new_comment"), :remote => true, :method => :post, :validate => true) do |f| %>
+<%= form_for(@comment, :as => "comment", :url => create_comment_as_guest_path(@post), :remote => true, :method => :post, :validate => true) do |f| %>
 <h1>New comment</h1>
-  <% if @new_comment.errors.any? %>
+  <% if @comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@new_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
       <ul>
-      <% @new_comment.errors.full_messages.each do |msg| %>
+      <% @comment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

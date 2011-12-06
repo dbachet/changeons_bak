@@ -86,8 +86,8 @@ class Comment < ActiveRecord::Base
     self.parent_id.nil?
   end
   
-  def self.set_comment_hash(comment, parent = comment)
-    hash = {parent.id => [comment]}
+  def self.set_comment_hash(comment, parent_comment = comment)
+    hash = {parent_comment.id => [comment]}
   end
   
   private
