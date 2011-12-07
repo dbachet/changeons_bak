@@ -1,11 +1,37 @@
-// $.fancybox({
-//             closeClick: false,
-// 			afterShow:	function() {
-// 				$('form#user_new[data-validate]').validate();
-// 			},
-// 			afterClose: function() {
-// 				$('form#reply_new[data-validate], form#comment_new[data-validate]').validate();
-// 			},
-//             'type': 'ajax',
-//             'href': '/users/sign_in'
-//         });
+var offset = $('a#show_more_comments_link').data('comment-offset'),
+	root_comment_reply_form = $('form#reply_new'),
+	comment_form = $('form#comment_new');
+	
+	// **********************
+	// USE DATA IN THE FORM TO KEEP THE POST_ID AND ROOT_COMMENT_ID
+	// **********************	
+	
+	if (comment_form.length) {
+		var post_id = $('input#post_id').data('post-id');
+		// alert("There is_comment");
+	} else {
+		var post_id = false;
+	}
+	
+	if (root_comment_reply_form.length) {
+		var root_comment_id = $('input#comment_id').data('comment-id');
+		// root_comment_id = parseInt(root_comment_id.replace(/\D/g, ''), 10);
+		// alert("reply : " + root_comment_id);
+	}
+
+	// alert("check");
+
+$.fancybox({
+    closeClick: false,
+	afterShow:	function() {
+		$('form#user_new[data-validate]').validate();
+		$('form#user_new input#user_root_comment_id').val(root_comment_id);
+		$('form#user_new input#user_post_id').val(post_id);
+	},
+	afterClose: function() {
+		$('form#reply_new[data-validate], form#comment_new[data-validate]').validate();
+		
+	},
+        'type': 'ajax',
+        'href': '/users/sign_in'
+});

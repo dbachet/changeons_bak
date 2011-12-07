@@ -2,17 +2,17 @@ $("form#reply_new").bind('ajax:success', function(evt, data, status, xhr) {
 		$('form#reply_new').remove();
 		$('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
 		
-		var last_reply = $('div.reply_for_<%= @parent_comment.id %>:last');
+		var last_reply = $('div.reply_for_<%= @root_comment.id %>:last');
 		
 		if (last_reply[0]){
 			window.location = '#' + last_reply.attr("id");
 			last_reply.after("<%= escape_javascript(display_comments(@reply)) %>");
 		} else {
-			window.location = '#' + $('div#comment_<%= @parent_comment.id %>').attr("id");
-			$('div#comment_<%= @parent_comment.id %>').after("<%= escape_javascript(display_comments(@reply)) %>");
+			window.location = '#' + $('div#comment_<%= @root_comment.id %>').attr("id");
+			$('div#comment_<%= @root_comment.id %>').after("<%= escape_javascript(display_comments(@reply)) %>");
 		}
 		
-		last_reply = $('div.reply_for_<%= @parent_comment.id %>:last');
+		last_reply = $('div.reply_for_<%= @root_comment.id %>:last');
 		last_reply.hide();
 		
 		last_reply.slideDown("slow");

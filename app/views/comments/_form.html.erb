@@ -18,16 +18,13 @@
 
 	<div class="field">
 	  <%= f.label :title %><br />
-	  <%= f.text_field :title %>
+	  <%= f.text_field :title, 'data-post-id' => @post.id, :id => "post_id" %>
 	</div>
 	
 	<div class="field">
     	<%= f.label :body %><br />
     	<%= f.text_area :body, :validate => true %>
 	</div>
-
-	<div class="new_comment_guest_fields">
-  	</div>
 
 	<div class="actions">
 	<% if current_user %>

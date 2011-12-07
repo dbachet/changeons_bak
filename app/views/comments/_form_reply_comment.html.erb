@@ -1,5 +1,5 @@
 
-<%= form_for(@reply, :as => "reply", :url => create_reply_post_comment_path(@post, @parent_comment, :anchor => "reply_comment_#{@parent_comment.id}"), :html => {:method => :post}, :validate => (current_user ? true : false), :remote => true) do |f| %>
+<%= form_for(@reply, :as => "reply", :url => create_reply_post_comment_path(@post, @root_comment, :anchor => "reply_comment_#{@root_comment.id}"), :html => {:method => :post}, :validate => (current_user ? true : false), :remote => true) do |f| %>
 <h1>New reply</h1>
 
   
@@ -16,7 +16,7 @@
   <% end %>
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, 'data-comment-id' => @comment.id, :id => "comment_id" %>
   </div>
   <div class="field">
     <%= f.label :body %><br />

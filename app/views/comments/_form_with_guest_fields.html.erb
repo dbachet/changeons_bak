@@ -16,7 +16,7 @@
 
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, 'data-post-id' => @post.id, :id => "post_id" %>
   </div>
   <div class="field">
     <%= f.label :body %><br />

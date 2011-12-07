@@ -15,8 +15,8 @@
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
 
-  <%= f.hidden_field :post_id, :value => @post_id %>
-  <%= f.hidden_field :parent_comment_id, :value => @parent_comment_id %>
+  <%= f.hidden_field :post_id %>
+  <%= f.hidden_field :root_comment_id %>
 
 
   <div><%= f.submit "Sign in" %></div>

@@ -67,7 +67,7 @@ class CommentsController < AuthorizedController
   # show the reply fields
   def show_reply
     @post = Post.find(params[:post_id])
-    @parent_comment = Comment.find(params[:id])
+    @root_comment = Comment.find(params[:id])
     
     @reply = Comment.new
     
@@ -103,7 +103,7 @@ class CommentsController < AuthorizedController
   # show the fields to write reply as a guest
   def show_guest_fields_for_reply
     @post = Post.find(params[:post_id])
-    @parent_comment = Comment.find(params[:id])
+    @root_comment = Comment.find(params[:id])
     @reply = Comment.new
     @reply.user_id = -1
     
@@ -179,15 +179,15 @@ class CommentsController < AuthorizedController
   
   def create_reply
     @post = Post.find(params[:post_id])
-    @parent_comment = Comment.find(params[:id])
+    @root_comment = Comment.find(params[:id])
     
     @reply = Comment.build_from( @post, current_user, params[:reply][:body], params[:reply][:title] )
     
     
     respond_with do |format|
       if @reply.save
-        @reply.move_to_child_of(@parent_comment)
-        @reply = Comment.set_comment_hash(@reply, @parent_comment)
+        @reply.move_to_child_of(@root_comment)
+        @reply = Comment.set_comment_hash(@reply, @root_comment)
         flash[:notice] = 'Comment was successfully created.'
       else
         flash[:alert] = 'Comment was not successfully created.'
@@ -208,14 +208,14 @@ class CommentsController < AuthorizedController
   
   def create_reply_as_guest
     @post = Post.find(params[:post_id])
-    @parent_comment = Comment.find(params[:id])
+    @root_comment = Comment.find(params[:id])
     
     @reply = Comment.build_from_as_guest( @post, params[:reply][:body], params[:reply][:title], params[:reply][:guest_email], params[:reply][:guest_website] )
     
     respond_with do |format|
       if @reply.save
-        @reply.move_to_child_of(@parent_comment)
-        @reply = Comment.set_comment_hash(@reply, @parent_comment)
+        @reply.move_to_child_of(@root_comment)
+        @reply = Comment.set_comment_hash(@reply, @root_comment)
         flash[:notice] = 'Comment was successfully created.'
         format.js { render :create_reply }
       else

@@ -9,15 +9,15 @@ $(document).ready(function() {
 	
 	
 	// Fancyboxes
-	$('a.fancybox_signin').fancybox({
-		closeClick: false,
-		afterShow:	function() {
-			$('form#user_new[data-validate]').validate();
-		},
-		afterClose: function() {
-			$('form#reply_new[data-validate], form#comment_new[data-validate]').validate();
-		}
-	});
+	// $('a.fancybox_signin').fancybox({
+	// 	closeClick: false,
+	// 	afterShow:	function() {
+	// 		$('form#user_new[data-validate]').validate();
+	// 	},
+	// 	afterClose: function() {
+	// 		$('form#reply_new[data-validate], form#comment_new[data-validate]').validate();
+	// 	}
+	// });
 	
 	$('a.new_category_link').fancybox({
 		closeClick: false,

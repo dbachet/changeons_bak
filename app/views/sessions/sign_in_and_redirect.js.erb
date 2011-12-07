@@ -23,12 +23,12 @@ $("form#user_new").bind('ajax:success', function(evt, data, status, xhr) {
 		$('form#comment_new input#comment_guest_website').val(comment_guest_website);
 		<% end %>
 		
-		<% if @parent_comment %>
+		<% if @root_comment %>
 		var comment_title = $('form#reply_new input#reply_title').val(),
 			comment_content = $('form#reply_new textarea#reply_body').val(),
 			comment_guest_email = $('form#reply_new input#reply_guest_email').val(),
 			comment_guest_website = $('form#reply_new input#reply_guest_website').val(),
-			last_reply = $('div.reply_for_<%= @parent_comment.id %>:last');
+			last_reply = $('div.reply_for_<%= @root_comment.id %>:last');
 
 		$('form#reply_new').remove();
 
@@ -37,7 +37,7 @@ $("form#user_new").bind('ajax:success', function(evt, data, status, xhr) {
 			last_reply.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
 		} else {
 
-			$('div#comment_<%= @parent_comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
+			$('div#comment_<%= @root_comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
 		}
 
 		$('form#reply_new').hide();
