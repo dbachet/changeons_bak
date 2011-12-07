@@ -1,5 +1,5 @@
 // Change the custom data value which remembers how many comments are displayed
-$('a#show_more_comments_link').data('displayed-comments', <%= @displayed_comments %>);
+$('div#display_comments').data('displayed-comments', <%= @displayed_comments %>);
 
 // Change the param displayed_comments in url of link
 $('a#show_more_comments_link').attr('href', "/posts/<%= @post.cached_slug %>/show_more_comments?displayed_comments=" + <%= @displayed_comments %>);
