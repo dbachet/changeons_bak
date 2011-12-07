@@ -13,6 +13,6 @@ $('div.new').removeClass('new');
 
 
 // CHECK IF THERE ARE MORE COMMENT TO DISPLAY, IF NO, REMOVE THE BUTTON 'MORE COMMENTS'
-if (<%= @displayed_comments == 0 %>) {
+if (<%= @remaining_comments == 0 %>) {
 	$('a#show_more_comments_link').remove();
 }
