@@ -2,18 +2,23 @@ module CommentsHelper
   
   # This is to adapt as the comments maybe will be displayed another way !!
   def display_comments(comments, is_new = false)
-    sorted_keys = comments.keys.sort.reverse
     
-    if comments.any? && sorted_keys.any?
+    
+    if comments.any?
+      sorted_keys = comments.keys.sort.reverse
       raw(
       # ("<h1 id='comments_title'>Listing comments</h1>" if title) +
       # Display the content of table
         sorted_keys.collect do |root_comment_key|
-          comments[root_comment_key].collect do |c|
+          # raw(
+          content_tag(:div, :class => "root_comment_area") do
+            comments[root_comment_key].collect do |c|
             
-            display_comment(c, is_new)
+              display_comment(c, is_new)
             
+            end.join.html_safe
           end
+          # )
         end.join
         )
     else

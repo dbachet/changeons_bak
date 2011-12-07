@@ -10,10 +10,10 @@ Changeons::Application.routes.draw do
   match 'posts/:post_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "show_guest_fields"
   match 'posts/:post_id/comments/:id/show_guest_fields_for_reply' => 'comments#show_guest_fields_for_reply', :as => "show_guest_fields_for_reply"
   
-  match 'posts/:post_id/comments/comment_as_guest' => 'comments#comment_as_guest', :as => 'comment_as_guest', :via => 'get'
+  # match 'posts/:post_id/comments/comment_as_guest' => 'comments#comment_as_guest', :as => 'comment_as_guest', :via => 'get'
   match 'posts/:post_id/comments/create_comment_as_guest' => 'comments#create_comment_as_guest', :as => 'create_comment_as_guest', :via => 'post'
   
-  match 'posts/:post_id/comments/:id/reply_as_guest' => 'comments#reply_as_guest', :as => 'reply_as_guest', :via => 'get'
+  # match 'posts/:post_id/comments/:id/reply_as_guest' => 'comments#reply_as_guest', :as => 'reply_as_guest', :via => 'get'
   match 'posts/:post_id/comments/:id/create_reply_as_guest' => 'comments#create_reply_as_guest', :as => 'create_reply_as_guest', :via => 'post'
   
   post 'posts/show_more_posts', :as => 'show_more_posts'
@@ -21,7 +21,7 @@ Changeons::Application.routes.draw do
   match 'posts/:post_id/show_more_comments' => 'comments#show_more_comments', :as => 'show_more_comments', :via => 'post'
   
   resources :posts do
-    resources :comments do
+    resources :comments, :except => [:index, :show, :new] do
       member do
         get :show_reply
         get :reply

@@ -301,8 +301,15 @@ input, button, select {
 }
 
 /* Comment threads */
+div.root_comment_area {
+	background-color: black;
+	border-bottom: 1px solid red;
+	padding-top: 10px;
+}
+
 div.root_comment {
 	background-color: grey;
+	margin: 0px 10px 10px 10px;
 	border-bottom: 1px solid black;
 }
 
