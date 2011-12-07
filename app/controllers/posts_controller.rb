@@ -7,8 +7,11 @@ class PostsController < AuthorizedController
   
   def show_more_posts
     @default_post_offset = APP_CONFIG['default_post_offset']
-    @posts = Post.recent.offset(params[:offset])
-    @posts_count = Post.count - (@posts.length + params[:offset].to_i)
+    @posts = Post.recent.offset(params[:displayed_comments])
+    # @posts_count = Post.count - (@posts.length + params[:offset].to_i)
+    
+    @displayed_posts = @posts.length + params[:displayed_posts].to_i
+    @remaining_posts = Post.count - @displayed_posts
     
     # puts "posts => #{@posts.inspect}"
     # puts "post => #{@post.inspect}"
@@ -57,7 +60,9 @@ class PostsController < AuthorizedController
     @default_post_offset = APP_CONFIG['default_post_offset']
     @posts = Post.recent
     @tags =  ActsAsTaggableOn::Tag.all
-    @posts_count = Post.count - @posts.length
+    
+    @displayed_posts = @posts.length
+    @remaining_posts = Post.count - @displayed_posts
     
     # authorize! :index, @post
     # authorize! :index, @posts_count
