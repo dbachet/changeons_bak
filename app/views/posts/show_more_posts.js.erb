@@ -1,5 +1,5 @@
 // Change the custom data value which remembers how many posts are displayed
-$('a#show_more_posts_link').data('displayed-posts', <%= @displayed_posts %>);
+$('div#display_posts').data('displayed-posts', <%= @displayed_posts %>);
 
 // Change the param displayed_comments in url of link
 $('a#show_more_posts_link').attr('href', "/posts/show_more_posts?displayed_posts=" + <%= @displayed_posts %>);

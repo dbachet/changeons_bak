@@ -1,28 +1,32 @@
+<div id="page_info" data-action="index_post"></div>
+
 <h1>Listing posts</h1>
+<div id="display_posts" data-displayed-posts=<%= @displayed_posts %>>
+	<table id="post_table">
+	  <tr>
+	    <th>Title</th>
+	    <th>Content</th>
+	    <th>User</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
 
-<table id="post_table">
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<% @posts.each do |post| %>
+	  <tr>
+	    <td><%= post.title %></td>
+	    <td><%= post.content %></td>
+	    <td><%= post.user_id %></td>
+	    <td><%= link_to 'Show', post %></td>
+	    <td><% if can? :edit, post %><%= link_to 'Edit', edit_post_path(post) %><% end %></td>
+	    <td><% if can? :destroy, post %><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %><% end %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>
 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.content %></td>
-    <td><%= post.user_id %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><% if can? :edit, post %><%= link_to 'Edit', edit_post_path(post) %><% end %></td>
-    <td><% if can? :destroy, post %><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %><% end %></td>
-  </tr>
-<% end %>
-</table>
 <% if @remaining_posts != 0 %>
-<%= link_to "Voir plus d'articles", show_more_posts_path(:displayed_posts => @displayed_posts), :id => "show_more_posts_link", :method => :post, :remote => true, 'data-displayed-posts' => @displayed_posts %>
+<%= link_to "Voir plus d'articles", show_more_posts_path(:displayed_posts => @displayed_posts), :id => "show_more_posts_link", :method => :post, :remote => true %>
 <% end %>
 
 <br />
