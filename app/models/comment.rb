@@ -67,11 +67,11 @@ class Comment < ActiveRecord::Base
   end
   
   # sort as {1=>[#<Comment>, #<Comment>], 8=>[#<Comment>]} where the key is the id of each root comment
-  def self.fetch_comments(post, offset = 0, limitation = 0) # from, to
+  def self.fetch_comments(post, from = 0, limitation = 0) # from, to
     if limitation > 0
-      comments = post.root_comments.recent.offset(offset).limit(limitation)
+      comments = post.root_comments.recent.offset(from).limit(limitation)
     else
-      comments = post.root_comments.recent.offset(offset)
+      comments = post.root_comments.recent.offset(from)
     end
     
     fetch_children(comments)

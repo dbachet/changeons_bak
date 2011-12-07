@@ -13,9 +13,11 @@ class CommentsController < AuthorizedController
   def show_more_comments
     @default_comment_offset = APP_CONFIG['default_post_offset']
     @post = Post.find(params[:post_id])
-    @comments = Comment.fetch_comments(@post, params[:offset], @default_comment_offset)
-    @comments_count = @post.root_comments.count - (@comments.length + params[:offset].to_i)
+    @comments = Comment.fetch_comments(@post, params[:displayed_comments], @default_comment_offset)
+    # @comments_count = @post.root_comments.count - (@comments.length + params[:offset].to_i)
     
+    @displayed_comments = @comments.length + params[:displayed_comments].to_i
+    @remaining_comments = @post.root_comments.count - @displayed_comments
     
     # authorize! :show_more_comments, @comments
     # authorize! :show_more_comments, @post

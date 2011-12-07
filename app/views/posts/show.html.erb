@@ -44,8 +44,8 @@
 
 <br />
 
-<% if @comments_count != 0 %>
-<%= link_to "Voir plus de commentaires", show_more_comments_path(@post, :offset => @default_comment_offset), :id => "show_more_comments_link", :method => :post, :remote => true, 'data-comment-offset' => @default_comment_offset %>
+<% if @remaining_comments != 0 %>
+<%= link_to "Voir plus de commentaires", show_more_comments_path(@post, :displayed_comments => @displayed_comments), :id => "show_more_comments_link", :method => :post, :remote => true, 'data-displayed-comments' => @displayed_comments %>
 <% end %>
 
 <!-- New comment -->

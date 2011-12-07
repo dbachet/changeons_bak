@@ -79,9 +79,12 @@ class PostsController < AuthorizedController
     @default_comment_offset = APP_CONFIG['default_post_offset']
     @comment = Comment.new
     # @post = Post.find(params[:id])
-    @comments = Comment.fetch_comments(@post, 0, @default_comment_offset)
-    @comments_count = @post.root_comments.count - @comments.length
+    @from = 0
+    @limitation = @default_comment_offset
+    @comments = Comment.fetch_comments(@post, @from, @limitation)
     
+    @displayed_comments = @comments.length
+    @remaining_comments = @post.root_comments.count - @displayed_comments
     # authorize! :index, @post
     # authorize! :edit, :comment
     # puts "post => #{@post.inspect}"
