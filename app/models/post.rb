@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  scope :recent, order('created_at desc').limit(APP_CONFIG['default_post_offset'])
+  scope :recent, order('created_at desc')
   
   acts_as_taggable_on :tags
   acts_as_voteable

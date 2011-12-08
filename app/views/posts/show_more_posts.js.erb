@@ -12,6 +12,6 @@ $('tr.new_posts_background').fadeIn(1500);
 $('tr.new_posts_background').removeClass('new_posts_background');
 
 // CHECK IF THERE ARE MORE POSTS TO DISPLAY, IF NO, REMOVE THE BUTTON 'MORE POSTS'
-if (<%= @displayed_posts == 0 %>) {
+if (<%= @remaining_posts == 0 %>) {
 	$('a#show_more_posts_link').remove();
 }

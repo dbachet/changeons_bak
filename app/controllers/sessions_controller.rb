@@ -14,12 +14,29 @@ class SessionsController < Devise::SessionsController
   def create
     resource = warden.authenticate!(:scope => resource_name, :recall => "sessions#failure")
     !resource.nil? ? @result = true : @result = false
-
+    
+    
     # SHOULDN'T BE HERE
-    @post = Post.find(params[:user][:post_id]) unless params[:user][:post_id].empty?
-    @root_comment = Comment.find(params[:user][:root_comment_id]) unless params[:user][:root_comment_id].empty?
-    @reply = Comment.new
-    @comment = Comment.new
+    @action = params[:user][:action]
+    if !@action.blank?
+      if @action == "show_post"
+        @post = Post.find(params[:user][:post_id])
+        @root_comment = Comment.find(params[:user][:root_comment_id]) unless params[:user][:root_comment_id].empty?
+        @reply = Comment.new
+        @comment = Comment.new
+        
+        @displayed_comments = params[:user][:displayed_comments].to_i
+        @comments = Comment.fetch_comments(@post, 0, @displayed_comments)
+        @remaining_comments = @post.root_comments.count - @displayed_comments
+      elsif @action == "index_post"
+        @displayed_posts = params[:user][:displayed_posts].to_i
+        @posts = Post.recent.limit(@displayed_posts)
+        @remaining_posts = Post.count - @displayed_posts
+      end
+    end
+    
+    
+
     # SHOULDN'T BE HERE
     
     return sign_in_and_redirect(resource_name, resource)
@@ -44,8 +61,9 @@ class SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   def new
     # SHOULDN'T BE HERE
-    @post_id = params[:is_post_show_page]
-    @root_comment_id = params[:root_comment_id]
+    # @action = params[:action]
+    # @post_id = params[:post_id]
+    # @root_comment_id = params[:root_comment_id]
     # SHOULDN'T BE HERE
     
     resource = build_resource

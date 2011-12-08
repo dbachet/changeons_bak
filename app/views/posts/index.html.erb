@@ -2,27 +2,7 @@
 
 <h1>Listing posts</h1>
 <div id="display_posts" data-displayed-posts=<%= @displayed_posts %>>
-	<table id="post_table">
-	  <tr>
-	    <th>Title</th>
-	    <th>Content</th>
-	    <th>User</th>
-	    <th></th>
-	    <th></th>
-	    <th></th>
-	  </tr>
-
-	<% @posts.each do |post| %>
-	  <tr>
-	    <td><%= post.title %></td>
-	    <td><%= post.content %></td>
-	    <td><%= post.user_id %></td>
-	    <td><%= link_to 'Show', post %></td>
-	    <td><% if can? :edit, post %><%= link_to 'Edit', edit_post_path(post) %><% end %></td>
-	    <td><% if can? :destroy, post %><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %><% end %></td>
-	  </tr>
-	<% end %>
-	</table>
+	<%= render "posts/display_posts" %>
 </div>
 
 <% if @remaining_posts != 0 %>
