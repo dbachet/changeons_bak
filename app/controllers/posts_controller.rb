@@ -13,7 +13,6 @@ class PostsController < AuthorizedController
     @displayed_posts = @posts.length + params[:displayed_posts].to_i
     @remaining_posts = Post.count - @displayed_posts
     
-    puts "remaining_posts => #{@remaining_posts.inspect} / posts counter => #{Post.count}"
     # puts "post => #{@post.inspect}"
     # # authorize! :show_more_posts, @post
     

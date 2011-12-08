@@ -183,7 +183,7 @@ class CommentsController < AuthorizedController
     @post = Post.find(params[:post_id])
     @root_comment = Comment.find(params[:id])
     
-    @reply = Comment.build_from( @post, current_user, params[:reply][:body], params[:reply][:title] )
+    @reply = Comment.build_from( @post, current_user.id, params[:reply][:body], params[:reply][:title] )
     
     
     respond_with do |format|
