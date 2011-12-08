@@ -1,7 +1,7 @@
 $("form#comment_new").bind('ajax:success', function(evt, data, status, xhr) {
 	var last_comment = $('div#display_comments > div:first');
 	
-	window.location = "div#display_comments";
+	window.location = "#display_comments";
 		
 	if (last_comment[0]){
 		last_comment.before("<%= escape_javascript(display_comments(@comment_created)) %>");

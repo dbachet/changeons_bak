@@ -29,7 +29,7 @@ $(document).ready(function() {
 	$('a.edit_category_link').fancybox({
 		closeClick: false,
 		afterShow:	function() {
-			$('form.edit_category[data-validate]').validate()
+			$('form#edit_category[data-validate]').validate()
 		}
 	});
 	
@@ -43,7 +43,7 @@ $(document).ready(function() {
 	$('a.edit_post_type_link').fancybox({
 		closeClick: false,
 		afterShow:	function() {
-			$('form.edit_post_type[data-validate]').validate();
+			$('form#edit_post_type[data-validate]').validate();
 		}
 	});
 	
@@ -51,6 +51,12 @@ $(document).ready(function() {
 		closeClick: false
 	});
 	
+	$('a.edit_comment_link').fancybox({
+		closeClick: false,
+		afterShow:	function() {
+			$('form#comment_edit[data-validate]').validate()
+		}
+	});
 	// End fancyboxes
 
 

@@ -3,7 +3,7 @@ class CommentsController < AuthorizedController
   # before_filter :sign_in_if_guest, :only => :create
   # load_and_authorize_resource
   # skip_load_and_authorize_resource :except => [:destroy]
-  
+  layout false, :only => :edit
   respond_to :js
   
   
