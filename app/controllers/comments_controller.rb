@@ -243,14 +243,15 @@ class CommentsController < AuthorizedController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
 
-    # respond_with do |format|
-    #   if @reply.save
-    #     @reply.move_to_child_of(@comment)
-    #     flash[:notice] = 'Comment was successfully created.'
-    #   else
-    #     flash[:alert] = 'Comment was not successfully created.'
-    #   end
-    # end
+    respond_with do |format|
+      if @comment.update_attributes(params[:comment])
+        @comment_updated = @comment
+        # @comment_updated = Comment.set_comment_hash(@comment)
+        flash[:notice] = 'Comment was successfully updated.'
+      else
+        flash[:alert] = 'Comment was not successfully updated.'
+      end
+    end
     
     # respond_to do |format|
     #       if @comment.update_attributes(params[:comment])

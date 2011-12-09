@@ -1,0 +1,16 @@
+$("form#comment_edit").bind('ajax:success', function(evt, data, status, xhr) {
+	
+	$.fancybox.close();
+	window.location = '#comment_<%= @comment_updated.id %>';
+		
+
+		$('div#comment_<%= @comment_updated.id %>').replaceWith("<%= escape_javascript(display_comment(@comment_updated)) %>");
+	
+		
+		$('div#comment_<%= @comment_updated.id %>').hide();
+		
+		$('div#comment_<%= @comment_updated.id %>').fadeIn("slow");
+		
+		$('form#comment_new[data-validate], form#reply_new[data-validate]').validate();
+		
+});
