@@ -19,6 +19,14 @@ $(document).ready(function() {
 	// 	}
 	// });
 	
+	
+	$('a.admin_new_user_registration_link').fancybox({
+		closeClick: false,
+		afterShow:	function() {
+			$('form#user_new[data-validate]').validate()
+		}
+	});
+	
 	$('a.new_category_link').fancybox({
 		closeClick: false,
 		afterShow:	function() {

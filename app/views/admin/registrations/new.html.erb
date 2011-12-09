@@ -1,0 +1,17 @@
+<h2>Create a new user</h2>
+
+<%= form_for(@user, :as => "user", :url => admin_user_registration_path, :validate => true, :remote => true) do |f| %>
+  
+
+  <p><%= f.label :email %><br />
+  <%= f.email_field :email, :validate => { :presence => true } %></p>
+
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password, :validate => { :presence => true } %></p>
+
+  <p><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, :validate => { :presence => true } %></p>
+
+  <p><%= f.submit "Sign up" %></p>
+<% end %>
+

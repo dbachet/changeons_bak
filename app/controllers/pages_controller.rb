@@ -7,5 +7,8 @@ class PagesController < ApplicationController
 
   def search
   end
-
+  
+  def admin
+    
+  end
 end

@@ -1,6 +1,7 @@
 Changeons::Application.routes.draw do
   get "error_pages/javascript_disabled"
-
+  
+  
   resources :post_types
 
   # resources :types
@@ -41,8 +42,30 @@ Changeons::Application.routes.draw do
   get "pages/search"
 
   devise_for :users, :controllers => {:sessions => 'sessions'} do
+    match "admin/users/sign_up" => "admin/registrations#new", :as => :admin_new_user_registration, :via => :get
+    match "admin/users" => "admin/registrations#create", :as => :admin_user_registration, :via => :post
   end
-
+  
+  # namespace :admin do
+  #   resources :users# , :controllers => {:registrations => 'admin'}
+  # end
+  
+  # scope "/admin" do
+  #   devise_for :users, :controllers => {:registrations => 'registrations'}
+  # end :except => [:sessions, :registrations, :confirmations, :passwords]
+  
+  # , :only => :registrations
+  
+  match "admin" => "pages#admin", :as => :admin_page
+  
+  # namespace :admin do
+  #   # devise_for :users, :only => :registrations, :skip_helpers => true do
+  #   
+  #   match "users/sign_up" => "registrations#new", :as => :new_user_registration, :via => :get
+  #   post "users/:id" => "registrations#create", :as => :user_registration
+  #     # get   "private_customer/sign_in" => "main#index", :as => :private_customer_signin
+  #   # end
+  # end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

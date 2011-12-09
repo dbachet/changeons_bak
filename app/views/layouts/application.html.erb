@@ -14,8 +14,9 @@
 	</ul>
 <%= yield %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div id="notice_alert_fields">
+	<%= render 'layouts/flash_messages' %>
+</div>
 
 </body>
 </html>
