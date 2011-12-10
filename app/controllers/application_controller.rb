@@ -29,6 +29,14 @@ class ApplicationController < ActionController::Base
 
   private
   
+  def signed_in_as_admin?
+    user = current_user || User.new
+    if !user.role?("admin")
+      redirect_to root_path
+    end
+  end
+
+  
   # def create_guest_user
   #   u = User.new(:email => "guest_#{Time.now.to_i}#{rand(99)}@email_address.com", :role => "guest")
   #   u.skip_confirmation!

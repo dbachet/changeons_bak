@@ -7,9 +7,11 @@
 <li>
 <%= link_to('Search', pages_search_path)%>
 </li>
+<% if can? :admin, :admin_page %>
 <li>
 <%= link_to('Admin', admin_page_path)%>
 </li>
+<% end %>
 
 <% if user_signed_in? %>
   <li>

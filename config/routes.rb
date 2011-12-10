@@ -42,7 +42,10 @@ Changeons::Application.routes.draw do
   get "pages/search"
 
   devise_for :users, :controllers => {:sessions => 'sessions'} do
-    match "admin/users/sign_up" => "admin/registrations#new", :as => :admin_new_user_registration, :via => :get
+    match "admin/users/new" => "admin/registrations#new", :as => :admin_new_user_registration, :via => :get
+    match "admin/users/:id" => "admin/registrations#edit", :as => :admin_edit_user_registration, :via => :get
+    match "admin/users/:id" => "admin/registrations#update", :as => :admin_update_user_registration, :via => :put
+    match "admin/users" => "admin/registrations#index", :as => :admin_users, :via => :get
     match "admin/users" => "admin/registrations#create", :as => :admin_user_registration, :via => :post
   end
   

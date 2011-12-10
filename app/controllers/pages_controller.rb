@@ -1,4 +1,6 @@
-class PagesController < ApplicationController
+class PagesController < AuthorizedController
+  skip_load_and_authorize_resource
+  
   def home
   end
 
@@ -9,6 +11,6 @@ class PagesController < ApplicationController
   end
   
   def admin
-    
+    authorize! :admin, :admin_page
   end
 end

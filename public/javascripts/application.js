@@ -27,6 +27,13 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('a.admin_edit_user_registration_link').fancybox({
+		closeClick: false,
+		afterShow:	function() {
+			$('form#user_edit[data-validate]').validate()
+		}
+	});
+	
 	$('a.new_category_link').fancybox({
 		closeClick: false,
 		afterShow:	function() {
@@ -55,7 +62,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('a.index_categories_link, a.index_post_types_link').fancybox({
+	$('a.index_categories_link, a.index_post_types_link, a.admin_users_link').fancybox({
 		closeClick: false
 	});
 	

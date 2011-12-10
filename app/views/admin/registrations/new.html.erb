@@ -12,6 +12,9 @@
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation, :validate => { :presence => true } %></p>
 
+  <p><%= f.label :role %><br />
+  <%= f.select(:role, User::ROLES, {:selected => "user"}) %>
+
   <p><%= f.submit "Sign up" %></p>
 <% end %>
 

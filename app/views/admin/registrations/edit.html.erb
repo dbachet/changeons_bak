@@ -1,18 +1,13 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for([:admin, @user], :as => "user", :url => admin_user_registration_path, :html => { :method => :put }) do |f| %>
+<%= form_for([:admin, @user], :as => "user", :url => admin_update_user_registration_path(@user), :html => { :method => :put }, :validate => true, :remote => true) do |f| %>
 
   <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
+  <%= f.email_field :email, :validate => { :presence => true } %></p>
 
-  <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></p>
+  <p><%= f.label :role %><br />
 
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
-
-  <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></p>
+  <%= f.select(:role, User::ROLES, {:selected => @user.role}) %>
 
   <p><%= f.submit "Update" %></p>
 <% end %>

@@ -39,6 +39,7 @@ class Ability
       can [:edit, :update, :destroy], Comment , :user_id => user.id
       # can [:update, :destroy], Comment
     else
+      # can :new, :admin_registration
       can [:index, :show, :show_more_posts], Post
       can :manage, Comment
       cannot [:create_reply, :create, :edit, :update, :destroy], Comment
