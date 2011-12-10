@@ -5,11 +5,13 @@ class AuthorizedController < ApplicationController
   
   rescue_from CanCan::AccessDenied do |exception|
    flash[:error] = exception.message
-   redirect_to root_url
-   # respond_to do |format|
-   #   format.html { redirect_to new_user_session_path, :status => :unauthorized }
-   #   format.xml { render :xml => "...", :status => :unauthorized }
-   # end
+   
+   
+   # redirect_to root_url
+   respond_to do |format|
+     format.html { redirect_to root_url, :status => :unauthorized }
+     format.js { redirect_to new_user_session_path }
+   end
   end
   
   # rescue_from CanCan::AccessDenied do |exception|
