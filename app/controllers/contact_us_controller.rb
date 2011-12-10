@@ -7,7 +7,7 @@ class ContactUsController < ApplicationController
     @contact_form = ContactForm.new(params[:contact_form])
     
     if @contact_form.valid?
-      # Notifications.contact_us(@contact_form).deliver 
+      Notifications.contact_us(@contact_form).deliver 
       redirect_to root_path, :notice => "Email sent, we'll get back to you"
     else
       render :new
