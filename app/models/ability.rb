@@ -32,6 +32,7 @@ class Ability
       cannot [:show_guest_fields, :show_guest_fields_for_reply, :comment_as_guest, :create_comment_as_guest, :create_reply_as_guest], Comment
     elsif user.role? :moderator
       can :manage, :all
+      cannot [:new, :edit, :update, :destroy], :admin_registration
       cannot [:show_guest_fields, :show_guest_fields_for_reply, :comment_as_guest, :create_comment_as_guest, :create_reply_as_guest], Comment
     elsif user.role? :user
       can [:index, :show, :show_more_posts, :vote_up, :vote_down], Post
@@ -39,7 +40,6 @@ class Ability
       can [:edit, :update, :destroy], Comment , :user_id => user.id
       # can [:update, :destroy], Comment
     else
-      # can :new, :admin_registration
       can [:index, :show, :show_more_posts], Post
       can :manage, Comment
       cannot [:create_reply, :create, :edit, :update, :destroy], Comment

@@ -1,7 +1,11 @@
+<% if can? :new, :admin_registration %>
 <li>
 <%= link_to('Create a new user', admin_new_user_registration_path, :class => "admin_new_user_registration_link fancybox.ajax") %>
 </li>
+<% end %>
 
+<% if can? :user_index, :admin_dashboard %>
 <li>
 <%= link_to('List of users', admin_users_path, :class => "admin_users_link fancybox.ajax") %>
 </li>
+<% end %>

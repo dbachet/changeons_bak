@@ -40,12 +40,13 @@ Changeons::Application.routes.draw do
   get "pages/contact"
 
   get "pages/search"
+  
 
   devise_for :users, :controllers => {:sessions => 'sessions'} do
-    match "admin/users/new" => "admin/registrations#new", :as => :admin_new_user_registration, :via => :get
+    match "admin/users/sign_up" => "admin/registrations#new", :as => :admin_new_user_registration, :via => :get
+    match "admin/users/destroy/:id" => "admin/registrations#destroy", :as => :admin_destroy_user_registration, :via => :delete
     match "admin/users/:id" => "admin/registrations#edit", :as => :admin_edit_user_registration, :via => :get
     match "admin/users/:id" => "admin/registrations#update", :as => :admin_update_user_registration, :via => :put
-    match "admin/users" => "admin/registrations#index", :as => :admin_users, :via => :get
     match "admin/users" => "admin/registrations#create", :as => :admin_user_registration, :via => :post
   end
   
@@ -59,8 +60,12 @@ Changeons::Application.routes.draw do
   
   # , :only => :registrations
   
-  match "admin" => "pages#admin", :as => :admin_page
+  # match "admin" => "pages#admin", :as => :admin_page
   
+  namespace :admin do
+    match "dashboard" => "dashboards#index", :as => :dashboard_page, :via => :get
+    match "users" => "dashboards#user_index", :as => :users, :via => :get
+  end
   # namespace :admin do
   #   # devise_for :users, :only => :registrations, :skip_helpers => true do
   #   

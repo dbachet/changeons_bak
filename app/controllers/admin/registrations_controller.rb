@@ -1,7 +1,7 @@
 class Admin::RegistrationsController < Devise::RegistrationsController
   skip_before_filter :require_no_authentication
   # before_filter :signed_in_as_admin?
-  layout false, :only => :new
+  # layout false, :only => [:new, :edit]
   # authorize_resource :class => false
   
   rescue_from CanCan::AccessDenied do |exception|
@@ -19,17 +19,24 @@ class Admin::RegistrationsController < Devise::RegistrationsController
     authorize! :new, :admin_registration
     
     respond_with do |format|
-      format.html { render :new }
+      format.html { render :new, :layout => false }
     end
   end
   
   def edit
     @user = User.find(params[:id])
+    authorize! :edit, :admin_registration
+    
+    respond_with do |format|
+      format.html { render :edit, :layout => false }
+    end
   end
   
   def create
     @user = User.new(params[:user])
     @user.skip_confirmation!
+    
+    authorize! :create, :admin_registration
     
     if @user.save
       flash[:notice] = 'User was successfully created.'
@@ -39,12 +46,10 @@ class Admin::RegistrationsController < Devise::RegistrationsController
     end
   end
   
-  def index
-    @users = User.all
-  end
-  
   def update
     @user = User.find(params[:id])
+    
+    authorize! :update, :admin_registration
     
     if @user.update_attributes(params[:user])
       flash[:notice] = 'User was successfully updated.'
@@ -52,6 +57,17 @@ class Admin::RegistrationsController < Devise::RegistrationsController
     else
       render :action => "edit"
     end
+  end
+  
+  def destroy
+    @user = User.find(params[:id])
+    authorize! :destroy, :admin_registration
+    
+    if @user == current_user
+      sign_out(@user)
+    end
+    
+    @user.destroy
   end
 
 end
