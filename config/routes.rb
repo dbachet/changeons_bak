@@ -1,4 +1,8 @@
 Changeons::Application.routes.draw do
+  get "contact_us/new"
+
+  post "contact_us/send_email"
+
   get "error_pages/javascript_disabled"
   
   
