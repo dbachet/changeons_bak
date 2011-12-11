@@ -25,6 +25,10 @@
     	<%= f.label :body %><br />
     	<%= f.text_area :body, :validate => true %>
 	</div>
+	
+	<div class="field">
+    	<%= f.check_box :send_notification_when_reply_my_comment, :validate => true %><%= f.label "M'envoyer une notification lorsque quelqu'un répond à mon commentaire" %>
+	</div>
 
 	<div class="actions">
 	<% if current_user %>

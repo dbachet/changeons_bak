@@ -18,7 +18,7 @@ class Comment < ActiveRecord::Base
   # Helper class method that allows you to build a comment
   # by passing a commentable object, a user_id, and comment text
   # example in readme
-  def self.build_from(obj, user_id, comment, title)
+  def self.build_from(obj, user_id, comment, title, send_notification = -1)
     c = self.new
     c.commentable_id = obj.id
     c.commentable_type = obj.class.name
@@ -27,10 +27,11 @@ class Comment < ActiveRecord::Base
     c.user_id = user_id
     c.guest_email = nil
     c.guest_website = nil
+    c.send_notification_when_reply_my_comment = send_notification
     c
   end
   
-  def self.build_from_as_guest(obj, comment, title, guest_email, guest_website)
+  def self.build_from_as_guest(obj, comment, title, guest_email, guest_website, send_notification = -1)
     c = self.new
     c.commentable_id = obj.id 
     c.commentable_type = obj.class.name 
@@ -39,6 +40,7 @@ class Comment < ActiveRecord::Base
     c.user_id = -1 # user_id defined for guest
     c.guest_email = guest_email
     c.guest_website = guest_website
+    c.send_notification_when_reply_my_comment = send_notification
     c
   end
   

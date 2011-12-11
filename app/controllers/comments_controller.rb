@@ -134,7 +134,7 @@ class CommentsController < AuthorizedController
   # POST /comments.xml
   def create
     @post = Post.find(params[:post_id])
-    @comment = Comment.build_from( @post, current_user.id, params[:comment][:body], params[:comment][:title] )
+    @comment = Comment.build_from( @post, current_user.id, params[:comment][:body], params[:comment][:title], params[:comment][:send_notification_when_reply_my_comment] )
         
     respond_with do |format|
       if @comment.save
@@ -156,7 +156,7 @@ class CommentsController < AuthorizedController
   def create_comment_as_guest
     @post = Post.find(params[:post_id])
     
-    @comment = Comment.build_from_as_guest( @post, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website] )
+    @comment = Comment.build_from_as_guest( @post, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website], params[:comment][:send_notification_when_reply_my_comment] )
     
     respond_with do |format|
       if @comment.save
@@ -183,12 +183,45 @@ class CommentsController < AuthorizedController
     @post = Post.find(params[:post_id])
     @root_comment = Comment.find(params[:id])
     
-    @reply = Comment.build_from( @post, current_user.id, params[:reply][:body], params[:reply][:title] )
+    @reply = Comment.build_from( @post, current_user.id, params[:reply][:body], params[:reply][:title])
     
     
     respond_with do |format|
       if @reply.save
         @reply.move_to_child_of(@root_comment)
+        
+        puts "notify ? #{@root_comment.send_notification_when_reply_my_comment}"
+        if @root_comment.send_notification_when_reply_my_comment == 1
+          
+          @author_root_comment = User.find_by_id(@root_comment.user_id)
+          if @author_root_comment.nil?
+            @author_root_comment_email = @root_comment.guest_email || "unknown"
+          else
+            @author_root_comment_email = @author_root_comment.email
+          end
+          
+          if user_signed_in?
+            if @author_root_comment_email == current_user.email
+              @is_current_user_the_author_root_comment = true
+            else
+              @is_current_user_the_author_root_comment = false
+            end
+          elsif @author_root_comment_email == @reply.guest_email
+            @is_current_user_the_author_root_comment = true
+          else
+            @is_current_user_the_author_root_comment = false
+          end
+
+          puts "author email: #{@author_root_comment_email} / is_author: #{@is_current_user_the_author_root_comment}"
+          if (@author_root_comment_email != "unknown") && !@is_current_user_the_author_root_comment
+          puts "Send email"
+          # Check if send_notification_when_reply_my_comment is well assigned
+          
+          # Send a notification to the author of the root comment
+          Notifications.send_notification_that_somebody_replied_comment(@reply, @root_comment, @author_root_comment_email).deliver
+          end
+        end
+        
         @reply = Comment.set_comment_hash(@reply, @root_comment)
         flash[:notice] = 'Comment was successfully created.'
       else
@@ -217,6 +250,39 @@ class CommentsController < AuthorizedController
     respond_with do |format|
       if @reply.save
         @reply.move_to_child_of(@root_comment)
+        
+        puts "notify ? #{@root_comment.send_notification_when_reply_my_comment}"
+        if @root_comment.send_notification_when_reply_my_comment == 1
+          
+          @author_root_comment = User.find_by_id(@root_comment.user_id)
+          if @author_root_comment.nil?
+            @author_root_comment_email = @root_comment.guest_email || "unknown"
+          else
+            @author_root_comment_email = @author_root_comment.email
+          end
+          
+          if user_signed_in?
+            if @author_root_comment_email == current_user.email
+              @is_current_user_the_author_root_comment = true
+            else
+              @is_current_user_the_author_root_comment = false
+            end
+          elsif @author_root_comment_email == @reply.guest_email
+            @is_current_user_the_author_root_comment = true
+          else
+            @is_current_user_the_author_root_comment = false
+          end
+
+          puts "author email: #{@author_root_comment_email} / is_author: #{@is_current_user_the_author_root_comment}"
+          if (@author_root_comment_email != "unknown") && !@is_current_user_the_author_root_comment
+          puts "Send email"
+          # Check if send_notification_when_reply_my_comment is well assigned
+          
+          # Send a notification to the author of the root comment
+          Notifications.send_notification_that_somebody_replied_comment(@reply, @root_comment, @author_root_comment_email).deliver
+          end
+        end
+        
         @reply = Comment.set_comment_hash(@reply, @root_comment)
         flash[:notice] = 'Comment was successfully created.'
         format.js { render :create_reply }
