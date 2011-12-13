@@ -1,0 +1,6 @@
+Changeons.org - Quelqu'un a répondu à ce commentaire
+===============================================
+<%= @root_comment.body %>
+
+Pour voir la réponse, cliquez ci-dessous
+<%= post_url(@post, :anchor => "comment_#{@reply.id}") %>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Changeons.org - Quelqu'un a répondu à ce commentaire</h1>
+    <p>
+      <%= @root_comment.body %></br>
+    </p>
+	<p>Pour voir la réponse, cliquez ci-dessous</p>
+	<p>
+      <%= post_url(@post, :anchor => "comment_#{@reply.id}") %>
+    </p>
+  </body>
+</html>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111211005923) do
+ActiveRecord::Schema.define(:version => 20111211135109) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(:version => 20111211005923) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
   create_table "comments", :force => true do |t|
-    t.integer  "commentable_id",                          :default => 0
-    t.string   "commentable_type",                        :default => ""
-    t.string   "title",                                   :default => ""
-    t.text     "body",                                    :default => ""
-    t.string   "subject",                                 :default => ""
-    t.integer  "user_id",                                 :default => 0,  :null => false
+    t.integer  "commentable_id",                    :default => 0
+    t.string   "commentable_type",                  :default => ""
+    t.string   "title",                             :default => ""
+    t.text     "body",                              :default => ""
+    t.string   "subject",                           :default => ""
+    t.integer  "user_id",                           :default => 0,  :null => false
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20111211005923) do
     t.string   "guest_email"
     t.string   "guest_website"
     t.boolean  "written_as_guest"
-    t.integer  "send_notification_when_reply_my_comment"
+    t.integer  "send_notification_to_root_comment"
   end
 
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"

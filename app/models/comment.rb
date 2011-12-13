@@ -27,7 +27,7 @@ class Comment < ActiveRecord::Base
     c.user_id = user_id
     c.guest_email = nil
     c.guest_website = nil
-    c.send_notification_when_reply_my_comment = send_notification
+    c.send_notification_to_root_comment = send_notification
     c
   end
   
@@ -40,7 +40,7 @@ class Comment < ActiveRecord::Base
     c.user_id = -1 # user_id defined for guest
     c.guest_email = guest_email
     c.guest_website = guest_website
-    c.send_notification_when_reply_my_comment = send_notification
+    c.send_notification_to_root_comment = send_notification
     c
   end
   
@@ -88,8 +88,45 @@ class Comment < ActiveRecord::Base
     self.parent_id.nil?
   end
   
+  # Set the comments hash to be able to be used with the helper => display_comments(comments)
+  # Set it as fetch_comments method
   def self.set_comment_hash(comment, root_comment = comment)
     hash = {root_comment.id => [comment]}
+  end
+  
+  # Check if the author of the comment wants to receive notifications of the replies
+  def self.send_notification_to_root_comment?
+    self.send_notification_to_root_comment == 1 ? true : false
+  end
+  
+  def self.send_notification_to_root_comment(root_comment, reply)
+    root_comment_author_email = Comment.comment_author_email(root_comment)
+    reply_author_email = Comment.comment_author_email(reply)
+    
+    replier_is_the_root_comment_author = (root_comment_author_email == reply_author_email) ? true : false
+    
+    if (root_comment_author_email != "unknown") && !replier_is_the_root_comment_author
+    # Send a notification to the author of the root comment
+    Notifications.send_notification_to_root_comment(reply, root_comment, root_comment_author_email).deliver
+    end
+  end
+  
+  def self.is_the_same_author?(comment_1, comment_2)
+    comment_1_author_email = Comment.comment_author_email(comment_1)
+    comment_2_author_email = Comment.comment_author_email(comment_2)
+
+    (comment_1_author_email == comment_2_author_email) ? true : false
+  end
+  
+  # Returns author email or "unknown" if not found
+  def self.comment_author_email(comment)
+    comment_author = User.find_by_id(comment.user_id)
+    
+    if comment_author.nil?
+      comment.guest_email || "unknown"
+    else
+      comment_author.email
+    end
   end
   
   private
