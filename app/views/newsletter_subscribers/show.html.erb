@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @newsletter_subscriber.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_newsletter_subscriber_path(@newsletter_subscriber) %> |
+<%= link_to 'Back', newsletter_subscribers_path %>

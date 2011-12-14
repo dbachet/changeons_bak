@@ -9,7 +9,7 @@ class AuthorizedController < ApplicationController
    
    # redirect_to root_url
    respond_to do |format|
-     format.html { redirect_to root_url, :status => :unauthorized }
+     format.html { redirect_to root_url }
      format.js { redirect_to new_user_session_path }
    end
   end

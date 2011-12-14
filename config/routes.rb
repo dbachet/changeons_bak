@@ -1,4 +1,6 @@
 Changeons::Application.routes.draw do
+  resources :newsletter_subscribers, :except => [:show, :new]
+
   get "contact_us/new"
 
   post "contact_us/send_email"

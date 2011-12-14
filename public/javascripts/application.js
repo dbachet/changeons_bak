@@ -62,7 +62,14 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('a.index_categories_link, a.index_post_types_link, a.admin_users_link').fancybox({
+	$('a.edit_newsletter_subscribers_link').fancybox({
+		closeClick: false,
+		afterShow:	function() {
+			$('form.newsletter_subscriber[data-validate]').validate();
+		}
+	});
+	
+	$('a.index_categories_link, a.index_post_types_link, a.admin_users_link, a.admin_newsletter_subscribers_link').fancybox({
 		closeClick: false
 	});
 	

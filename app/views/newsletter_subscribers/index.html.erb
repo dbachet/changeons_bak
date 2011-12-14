@@ -1,0 +1,21 @@
+<h1>Listing newsletter_subscribers</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @newsletter_subscribers.each do |newsletter_subscriber| %>
+  <tr>
+    <td><%= newsletter_subscriber.email %></td>
+    <td><%= link_to 'Edit', edit_newsletter_subscriber_path(newsletter_subscriber), :class => "edit_newsletter_subscribers_link fancybox.ajax" %></td>
+    <td><%= link_to 'Destroy', newsletter_subscriber, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

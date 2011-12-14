@@ -9,3 +9,9 @@
 <%= link_to('List of users', admin_users_path, :class => "admin_users_link fancybox.ajax") %>
 </li>
 <% end %>
+
+<% if can? :index, NewsletterSubscriber %>
+<li>
+<%= link_to('List of guys who subscribed the newsletter', newsletter_subscribers_path, :class => "admin_newsletter_subscribers_link fancybox.ajax") %>
+</li>
+<% end %>

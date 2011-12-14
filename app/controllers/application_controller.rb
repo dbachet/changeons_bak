@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  # before_filter :authenticate_user!
+  before_filter :newsletter_subscriber
   
   # if user is logged in, return current_user, else return guest_user
   # def current_or_guest_user
@@ -28,6 +28,10 @@ class ApplicationController < ActionController::Base
   # end
 
   private
+  
+  def newsletter_subscriber
+    @newsletter_subscriber = NewsletterSubscriber.new
+  end
   
   def signed_in_as_admin?
     user = current_user || User.new

@@ -12,6 +12,20 @@
 	<ul id="hmenu">
 		<%= render 'layouts/menu_items' %>
 	</ul>
+	
+	<ul>
+	<%= simple_form_for(@newsletter_subscriber, :validate => true) do |f| %>
+	  <%= f.error_notification %>
+
+	  <div class="inputs">
+	    <%= f.input :email, :validate => true %>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.button :submit %>
+	  </div>
+	<% end %>	
+	</ul>
 <%= yield %>
 
 <div id="notice_alert_fields">
