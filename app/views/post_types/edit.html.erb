@@ -1,5 +1,25 @@
 <h1>Editing post_type</h1>
 
-<%= render 'form' %>
+<%= form_for(@post_type, :remote => true, :validate => true) do |f| %>
+  <% if @post_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post_type.errors.count, "error") %> prohibited this post_type from being saved:</h2>
+
+      <ul>
+      <% @post_type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :validate => true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Back', post_types_path, :class => "edit_post_type_link fancybox.ajax" %>

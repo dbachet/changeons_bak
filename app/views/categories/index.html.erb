@@ -10,7 +10,7 @@
   </tr>
 
 <% @categories.each do |category| %>
-  <tr class="category_raw" id="<%= category.id %>">
+  <tr id="category_<%= category.id %>">
     <td><%= category.name %></td>
     <td><%= category.cached_slug %></td>
     <td><%= link_to 'Edit', edit_category_path(category), :class => "edit_category_link fancybox.ajax" %></td>

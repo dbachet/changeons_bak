@@ -10,10 +10,9 @@
   </tr>
 
 <% @post_types.each do |post_type| %>
-  <tr class="post_type_raw" id="<%= post_type.id %>">
+  <tr id="post_type_<%= post_type.id %>">
     <td><%= post_type.name %></td>
     <td><%= post_type.cached_slug %></td>
-    <td><%= link_to 'Show', post_type %></td>
     <td><%= link_to 'Edit', edit_post_type_path(post_type), :class => "edit_post_type_link fancybox.ajax" %></td>
     <td><%= link_to 'Destroy', post_type, :confirm => 'Are you sure?', :method => :delete, :remote => true %></td>
   </tr>
@@ -22,4 +21,4 @@
 
 <br />
 
-<%= link_to 'New Post type', new_post_type_path %>
+<%= link_to "Créer un nouveau type", new_post_type_path, :class => "new_post_type_link fancybox.ajax" %>

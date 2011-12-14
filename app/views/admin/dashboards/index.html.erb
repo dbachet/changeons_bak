@@ -15,3 +15,15 @@
 <%= link_to('List of guys who subscribed the newsletter', newsletter_subscribers_path, :class => "index_newsletter_subscribers_link fancybox.ajax") %>
 </li>
 <% end %>
+
+<% if can? :manage, Category %>
+<li>
+<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax" %> <%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax" %>
+</li>
+<% end %>
+
+<% if can? :manage, PostType %>
+<li>
+<%= link_to "Créer un nouveau type", new_post_type_path, :class => "new_post_type_link fancybox.ajax" %> <%= link_to "Afficher tous les types de post", post_types_path, :class => "index_post_types_link fancybox.ajax" %>
+</li>
+<% end %>

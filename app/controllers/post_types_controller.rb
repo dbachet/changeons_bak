@@ -1,38 +1,34 @@
 class PostTypesController < AuthorizedController
   layout false, :only => :new
   before_filter :authenticate_user!
+  respond_to :html, :only => [:index, :new, :edit]
+  respond_to :js, :only => [:create, :update, :destroy]
   
   # GET /post_types
   # GET /post_types.xml
   def index
     @post_types = PostType.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @post_types }
-    end
+    respond_with
   end
 
   # GET /post_types/1
   # GET /post_types/1.xml
-  def show
-    @post_type = PostType.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @post_type }
-    end
-  end
+  # def show
+  #   @post_type = PostType.find(params[:id])
+  # 
+  #   respond_to do |format|
+  #     format.html # show.html.erb
+  #     format.xml  { render :xml => @post_type }
+  #   end
+  # end
 
   # GET /post_types/new
   # GET /post_types/new.xml
   def new
     @post_type = PostType.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @post_type }
-    end
+    respond_with
   end
 
   # GET /post_types/1/edit
@@ -45,7 +41,7 @@ class PostTypesController < AuthorizedController
   def create
     @post_type = PostType.new(params[:post_type])
 
-    respond_to do |format|
+    respond_with do |format|
       if @post_type.save
         format.js
         # format.html { redirect_to(@post_type, :notice => 'Post type was successfully created.') }
@@ -61,13 +57,11 @@ class PostTypesController < AuthorizedController
   def update
     @post_type = PostType.find(params[:id])
 
-    respond_to do |format|
+    respond_with do |format|
       if @post_type.update_attributes(params[:post_type])
-        format.html { redirect_to(@post_type, :notice => 'Post type was successfully updated.') }
-        format.xml  { head :ok }
+        format.js
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @post_type.errors, :status => :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -78,9 +72,6 @@ class PostTypesController < AuthorizedController
     @post_type = PostType.find(params[:id])
     @post_type.destroy
 
-    respond_to do |format|
-      # format.html { redirect_to(post_types_url) }
-      format.js
-    end
+    respond_with
   end
 end
