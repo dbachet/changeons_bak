@@ -13,7 +13,6 @@
   <tr class="category_raw" id="<%= category.id %>">
     <td><%= category.name %></td>
     <td><%= category.cached_slug %></td>
-    <td><%= link_to 'Show', category %></td>
     <td><%= link_to 'Edit', edit_category_path(category), :class => "edit_category_link fancybox.ajax" %></td>
     <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete, :remote => true %></td>
   </tr>
@@ -22,4 +21,4 @@
 
 <br />
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax" %>

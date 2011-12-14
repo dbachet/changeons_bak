@@ -1,37 +1,34 @@
 class CategoriesController < AuthorizedController
    layout false, :only => :new
    before_filter :authenticate_user!
+   respond_to :html, :only => [:index, :new, :edit]
+   respond_to :js, :only => [:create, :update, :destroy]
    
   # GET /categories
   # GET /categories.xml
   def index
     @categories = Category.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @categories }
-    end
+    respond_with
   end
 
   # GET /categories/1
   # GET /categories/1.xml
-  def show
-    @category = Category.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @category }
-    end
-  end
+  # def show
+  #   @category = Category.find(params[:id])
+  # 
+  #   respond_to do |format|
+  #     format.html # show.html.erb
+  #     format.xml  { render :xml => @category }
+  #   end
+  # end
 
   # GET /categories/new
   # GET /categories/new.xml
   def new
     @category = Category.new
 
-    respond_to do |format|
-      format.html
-    end
+    respond_with
   end
 
   # GET /categories/1/edit
@@ -44,7 +41,7 @@ class CategoriesController < AuthorizedController
   def create
     @category = Category.new(params[:category])
 
-    respond_to do |format|
+    respond_with do |format|
       if @category.save
         format.js
         # format.html { redirect_to(@category, :notice => 'Category was successfully created.') }
@@ -60,13 +57,11 @@ class CategoriesController < AuthorizedController
   def update
     @category = Category.find(params[:id])
 
-    respond_to do |format|
+    respond_with do |format|
       if @category.update_attributes(params[:category])
-        format.html { redirect_to(@category, :notice => 'Category was successfully updated.') }
-        format.xml  { head :ok }
+        format.js
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @category.errors, :status => :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -77,9 +72,6 @@ class CategoriesController < AuthorizedController
     @category = Category.find(params[:id])
     @category.destroy
 
-    respond_to do |format|
-      # format.html { redirect_to(categories_url) }
-      format.js
-    end
+    respond_with
   end
 end
