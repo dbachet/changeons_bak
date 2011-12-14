@@ -69,7 +69,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('a.index_categories_link, a.index_post_types_link, a.admin_users_link, a.admin_newsletter_subscribers_link').fancybox({
+	$('a.index_categories_link, a.index_post_types_link, a.admin_users_link, a.index_newsletter_subscribers_link').fancybox({
 		closeClick: false
 	});
 	

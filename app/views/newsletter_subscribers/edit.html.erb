@@ -1,6 +1,6 @@
 <h1>Editing newsletter_subscriber</h1>
 
-<%= simple_form_for(@newsletter_subscriber, :validate => true) do |f| %>
+<%= simple_form_for(@newsletter_subscriber, :validate => true, :remote => true) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
@@ -10,4 +10,10 @@
   <div class="actions">
     <%= f.button :submit %>
   </div>
+<% end %>
+
+<% if can? :index, NewsletterSubscriber %>
+<li>
+<%= link_to('Back', newsletter_subscribers_path, :class => "index_newsletter_subscribers_link fancybox.ajax") %>
+</li>
 <% end %>

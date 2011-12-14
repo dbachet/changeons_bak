@@ -9,10 +9,14 @@
   </tr>
 
 <% @newsletter_subscribers.each do |newsletter_subscriber| %>
-  <tr>
+  <tr id="newsletter_subscriber_<%= newsletter_subscriber.id %>">
     <td><%= newsletter_subscriber.email %></td>
+<% if can? :edit, NewsletterSubscriber %>
     <td><%= link_to 'Edit', edit_newsletter_subscriber_path(newsletter_subscriber), :class => "edit_newsletter_subscribers_link fancybox.ajax" %></td>
-    <td><%= link_to 'Destroy', newsletter_subscriber, :confirm => 'Are you sure?', :method => :delete %></td>
+<% end %>
+<% if can? :destroy, NewsletterSubscriber %>
+    <td><%= link_to 'Destroy', newsletter_subscriber, :confirm => 'Are you sure?', :method => :delete, :remote => true %></td>
+<% end %>
   </tr>
 <% end %>
 </table>

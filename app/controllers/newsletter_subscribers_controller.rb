@@ -1,10 +1,14 @@
 class NewsletterSubscribersController < AuthorizedController
+  
+  respond_to :html, :only => [:index, :edit, :create]
+  respond_to :js, :only => [:update, :destroy]
+  
   # GET /newsletter_subscribers
   # GET /newsletter_subscribers.xml
   def index
     @newsletter_subscribers = NewsletterSubscriber.all
 
-    respond_to do |format|
+    respond_with do |format|
       format.html { render :index, :layout => false }
     end
   end
@@ -35,7 +39,7 @@ class NewsletterSubscribersController < AuthorizedController
   def edit
     @newsletter_subscriber = NewsletterSubscriber.find(params[:id])
     
-    respond_to do |format|
+    respond_with do |format|
       format.html { render :edit, :layout => false }
     end
   end
@@ -45,7 +49,7 @@ class NewsletterSubscribersController < AuthorizedController
   def create
     @newsletter_subscriber = NewsletterSubscriber.new(params[:newsletter_subscriber])
 
-    respond_to do |format|
+    respond_with do |format|
       if @newsletter_subscriber.save
         format.html { redirect_to(root_path, :notice => 'Newsletter subscriber was successfully created.') }
       else
@@ -59,13 +63,12 @@ class NewsletterSubscribersController < AuthorizedController
   def update
     @newsletter_subscriber = NewsletterSubscriber.find(params[:id])
 
-    respond_to do |format|
+    
+    respond_with do |format|
       if @newsletter_subscriber.update_attributes(params[:newsletter_subscriber])
-        format.html { redirect_to(@newsletter_subscriber, :notice => 'Newsletter subscriber was successfully updated.') }
-        format.xml  { head :ok }
+        format.js
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @newsletter_subscriber.errors, :status => :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -76,9 +79,6 @@ class NewsletterSubscribersController < AuthorizedController
     @newsletter_subscriber = NewsletterSubscriber.find(params[:id])
     @newsletter_subscriber.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(newsletter_subscribers_url) }
-      format.xml  { head :ok }
-    end
+    respond_with
   end
 end
