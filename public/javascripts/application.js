@@ -44,7 +44,7 @@ $(document).ready(function() {
 	$('a.edit_category_link').fancybox({
 		closeClick: false,
 		afterShow:	function() {
-			$('form#edit_category[data-validate]').validate()
+			$('form.edit_category[data-validate]').validate()
 		}
 	});
 	
@@ -58,7 +58,7 @@ $(document).ready(function() {
 	$('a.edit_post_type_link').fancybox({
 		closeClick: false,
 		afterShow:	function() {
-			$('form#edit_post_type[data-validate]').validate();
+			$('form.edit_post_type[data-validate]').validate();
 		}
 	});
 	
