@@ -1,15 +1,15 @@
 // Change the custom data value which remembers how many posts are displayed
-$('div#display_posts').data('displayed-posts', <%= @displayed_posts %>);
+$('section#posts_home').data('displayed-posts', <%= @displayed_posts %>);
 
 // Change the param displayed_comments in url of link
 $('a#show_more_posts_link').attr('href', "/posts/show_more_posts?displayed_posts=" + <%= @displayed_posts %>);
 
 // Display the new posts
-$('table#post_table tr:last').after("<%= escape_javascript(render :partial => 'posts/more_posts') %>");
+$('section#posts_home article:last').after("<%= escape_javascript(render :partial => 'posts/posts') %>");
 
-$('tr.new_posts_background').hide();
-$('tr.new_posts_background').fadeIn(1500);
-$('tr.new_posts_background').removeClass('new_posts_background');
+// $('tr.new_posts_background').hide();
+// $('tr.new_posts_background').fadeIn(1500);
+// $('tr.new_posts_background').removeClass('new_posts_background');
 
 // CHECK IF THERE ARE MORE POSTS TO DISPLAY, IF NO, REMOVE THE BUTTON 'MORE POSTS'
 if (<%= @remaining_posts == 0 %>) {

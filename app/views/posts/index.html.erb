@@ -1,17 +1,19 @@
 <div id="page_info" data-action="index_post"></div>
 
-<h1>Listing posts</h1>
-<div id="display_posts" data-displayed-posts=<%= @displayed_posts %>>
-	<%= render "posts/display_posts" %>
-</div>
+<section id="posts_home" data-displayed-posts=<%= @displayed_posts %>>
+	<header>
+		<h1>Listing posts</h1>
+	</header>
+	<%= render "posts/posts" %>
 
-<% if @remaining_posts != 0 %>
-<%= link_to "Voir plus d'articles", show_more_posts_path(:displayed_posts => @displayed_posts), :id => "show_more_posts_link", :method => :post, :remote => true %>
-<% end %>
+	<% if @remaining_posts != 0 %>
+		<%= link_to "Voir plus d'articles", show_more_posts_path(:displayed_posts => @displayed_posts), :id => "show_more_posts_link", :method => :post, :remote => true %>
+	<% end %>
 
-<br />
+	<br />
 
-<% if can? :new, @post %><%= link_to 'New Post', new_post_path %><% end %>
+	<% if can? :new, @post %><%= link_to 'New Post', new_post_path %><% end %>
+</section>
 
 <h1>Listing tags</h1>
 

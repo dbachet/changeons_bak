@@ -86,6 +86,17 @@ input, button, select {
   vertical-align: middle; /* Solution pb. d'alignement. (9) */
 }
 
+/* hmenu */
+ul#hmenu{
+	margin: 0 auto;
+	height: 50px;
+	width
+/*	background: #321D17;*/
+	background-image: url('/images/blur.png');
+/*	opacity: 0.6;*/
+
+}
+
 /* button to comment as */
 .drop_write_as {
 	display: block;

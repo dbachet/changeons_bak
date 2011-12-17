@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
   <title>Changeons</title>
   <%= stylesheet_link_tag :all %>
@@ -9,9 +9,17 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-	<ul id="hmenu">
-		<%= render 'layouts/menu_items' %>
-	</ul>
+	<header>
+		<nav>
+			<ul id="hmenu">
+			<%= render 'layouts/menu_items' %>
+			</ul>
+		</nav>
+	</header>
+	
+	<div id="notice_alert_fields">
+		<%= render 'layouts/flash_messages' %>
+	</div>
 	
 	<ul>
 	<%= simple_form_for(@newsletter_subscriber, :validate => true) do |f| %>
@@ -28,9 +36,6 @@
 	</ul>
 <%= yield %>
 
-<div id="notice_alert_fields">
-	<%= render 'layouts/flash_messages' %>
-</div>
 
 </body>
 </html>
