@@ -16,5 +16,5 @@ class Post < ActiveRecord::Base
   
   attr_accessible :category_ids, :post_type_id, :title, :content
   
-  validates_presence_of :title, :content, :categories, :post_type, :tag_list
+  validates_presence_of :title, :content, :category_ids, :post_type_id, :tag_list
 end
