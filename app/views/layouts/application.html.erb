@@ -10,15 +10,18 @@
 </head>
 <body>
 
-	<header id="top_menu">
-		<nav>
-			
+	<header>
+		<nav id="hmenu">
+			<span>Changeons.org</span>
 			<ul id="hmenu">
 			<%= render 'layouts/menu_items' %>
 			</ul>
 		</nav>
 	</header>
 	<div id="main">
+		<section id="top_banner">
+			<%= image_tag('/images/test_image.png', :height => "150px", :width => "100%") %>
+		</section>
 		<div id="notice_alert_fields">
 			<%= render 'layouts/flash_messages' %>
 		</div>

@@ -41,26 +41,9 @@ html {
 
 body {
 	background-color: rgb(60,130,60);
-	padding-top: 60px;
+	padding-top: 80px;
 	padding-bottom: 35px;
 	width: 100%;
-}
-
-ul#hmenu {
-  list-style: none;	
-  margin: 0 0 2em;
-  padding: 0;
-}
-
-ul#hmenu span{
-	font-size: 43px;
-	font-family: "GoLong";
-	color: beige;
-}
-
-ul#hmenu li {
-	display: inline;
-	font-family: "GoLong";  
 }
 
 a{
@@ -90,17 +73,21 @@ div#main{
 }
 
 /* hmenu */
-header#top_menu{
+header{
+
+}
+
+header nav#hmenu{
 	position: fixed;
 	top: 0px;
-	height: 60px;
+	height: 80px;
 	text-align: center;
 	width: 100%;
 	z-index: 999;
-	
+
 	background-image: url('/images/top_nav2.png');
 	background-color: rgba(27,20,17,0.9);
-	
+
 /*
 	-webkit-border-bottom-left-radius: 5px;
 	-webkit-border-bottom-right-radius: 5px;
@@ -108,11 +95,42 @@ header#top_menu{
 	-moz-border-radius-bottomleft: 5px;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;*/
-	
+
 
 	-webkit-box-shadow: 0px 10px 10px #282b1f;
 	-moz-box-shadow: 0px 10px 10px #282b1f;
 	box-shadow: 0px 10px 10px #282b1f;
+}
+
+header nav#hmenu span{
+	font-size: 43px;
+	font-family: "GoLong";
+	color: beige;
+}
+
+ul#hmenu {
+	list-style: none;	
+	margin: 0 0 2em;
+	padding: 0;
+
+}
+
+ul#hmenu li {
+	display: inline;
+	font-family: "GoLong";  
+}
+
+section#top_banner{
+	padding: 15px;
+	background-color: rgb(70,140,70);
+	
+	border: 1px solid rgb(55, 120, 70);
+	height: 150px;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
 }
 
 /* button to comment as */
