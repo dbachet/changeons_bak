@@ -12,6 +12,7 @@ body {
   font-size: .8em; /* À adapter pour la police choisie. (3) */
   line-height: 1.4; /* À adapter au design. (4) */
   color: black;
+  padding-top: 60px;
 }
 
 /* Titres */
@@ -93,9 +94,13 @@ div#main{
 }
 
 /* hmenu */
-ul#hmenu{
+header#top_menu{
+	position: fixed;
+	top: 0px;
 	height: 60px;
 	text-align: center;
+	width: 100%;
+	z-index: 999;
 	
 	background-image: url('/images/top_nav2.png');
 	background-color: rgba(27,20,17,0.9);
