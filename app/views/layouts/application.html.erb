@@ -9,14 +9,16 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+
 	<header>
 		<nav>
+			
 			<ul id="hmenu">
 			<%= render 'layouts/menu_items' %>
 			</ul>
 		</nav>
 	</header>
-	
+	<div id="main">
 	<div id="notice_alert_fields">
 		<%= render 'layouts/flash_messages' %>
 	</div>
@@ -36,6 +38,6 @@
 	</ul>
 <%= yield %>
 
-
+	</div>
 </body>
 </html>

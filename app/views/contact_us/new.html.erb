@@ -1,4 +1,7 @@
-<h1>Contact Us</h1> 
+<section id="contact_us">
+	<header>
+		<h1>Contact Us</h1>
+	</header>
 <%= form_for  @contact_form, :url => contact_us_send_email_path, :validate => true do |f| %> 
   <div class="field"> 
     <%= f.label :name %><br /> 
@@ -16,3 +19,4 @@
     <%= f.submit %> 
   </div> 
 <% end %>
+</section>

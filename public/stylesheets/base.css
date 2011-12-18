@@ -86,15 +86,40 @@ input, button, select {
   vertical-align: middle; /* Solution pb. d'alignement. (9) */
 }
 
+/* main div */
+div#main{
+	margin: 0 auto;
+	width:1000px;
+}
+
 /* hmenu */
 ul#hmenu{
-	margin: 0 auto;
-	height: 50px;
-	width
-/*	background: #321D17;*/
-	background-image: url('/images/blur.png');
+	height: 60px;
+	text-align: center;
+	
+	background-image: url('/images/top_nav2.png');
+	background-color: rgba(27,20,17,0.9);
+	
+/*
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;*/
+	
+
+	-webkit-box-shadow: 0px 5px 10px #282b1f;
+	-moz-box-shadow: 0px 5px 10px #282b1f;
+	box-shadow: 0px 5px 10px #282b1f;
+
+	
 /*	opacity: 0.6;*/
 
+}
+
+ul#hmenu span{
+	font-size: 43px;
 }
 
 /* button to comment as */
@@ -318,20 +343,21 @@ div.root_comment_area {
 	padding-top: 10px;
 }
 
-div.root_comment {
+article.root_comment {
 	background-color: grey;
 	margin: 0px 10px 10px 10px;
 	border-bottom: 1px solid black;
 }
 
-div.root_comment a,
-div.root_comment a.visited,
-div.comment_reply a,
-div.comment_reply a.visited {
+
+article.root_comment a,
+article.root_comment a.visited,
+article.comment_reply a,
+article.comment_reply a.visited {
 	color: red;
 }
 
-div.comment_reply {
+article.comment_reply {
 	margin: 20px;
 	background-color: yellow;
 	border-bottom: 1px solid black;
