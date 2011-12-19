@@ -121,16 +121,28 @@ ul#hmenu li {
 }
 
 section#top_banner{
-	padding: 15px;
-	background-color: rgb(70,140,70);
+/*	padding: 15px;*/
+/*	background-color: rgb(70,140,70);*/
 	
-	border: 1px solid rgb(55, 120, 70);
+/*	border: 3px solid rgb(55, 120, 55);*/
 	height: 150px;
+/*	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;*/
+	
+}
+
+section#top_banner img{
+	border: 10px solid rgb(70,140,70);
 	
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	
+	-webkit-box-shadow: 0px 3px 3px #377837;
+	-moz-box-shadow: 0px 3px 3px #377837;
+	box-shadow: 0px 3px 3px #377837;
 }
 
 /* button to comment as */
@@ -404,10 +416,10 @@ footer {
 
 	
 	
-	-webkit-border-top-left-radius: 5px;
+/*	-webkit-border-top-left-radius: 5px;
 	-webkit-border-top-right-radius: 5px;
 	-moz-border-radius-topright: 5px;
 	-moz-border-radius-topleft: 5px;
 	border-top-right-radius: 5px;
-	border-top-left-radius: 5px;
+	border-top-left-radius: 5px;*/
 }
