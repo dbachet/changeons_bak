@@ -39,12 +39,15 @@ class Ability
       can [:index, :show, :show_more_posts, :vote_up, :vote_down], Post
       can [:create_reply, :create, :show_reply, :show_more_comments], Comment
       can [:edit, :update, :destroy], Comment , :user_id => user.id
+      can [:about, :search], :pages
+      can :archives, Post
     else
       can [:create], NewsletterSubscriber
       can [:index, :show, :show_more_posts], Post
       can :manage, Comment
       cannot [:create_reply, :create, :edit, :update, :destroy], Comment
-      
+      can [:about, :search], :pages
+      can :archives, Post
     end
   end
 end

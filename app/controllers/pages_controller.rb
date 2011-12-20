@@ -8,9 +8,14 @@ class PagesController < AuthorizedController
   end
 
   def search
+    authorize! :search, :pages
   end
   
   def admin
     authorize! :admin, :admin_page
+  end
+  
+  def about
+    authorize! :about, :pages
   end
 end

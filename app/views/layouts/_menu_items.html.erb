@@ -1,12 +1,39 @@
-<li>
-<%= link_to('Home', root_path)%>
+<li><%= 
+		link_to_unless_current("Accueil", root_path) do
+			link_to("Accueil", root_path, :class => "current")
+		end 
+	%>
 </li>
-<li>
-<%= link_to('Contact', contact_us_new_path)%>
+
+<li><%=
+		link_to_unless_current("Contact", contact_us_new_path) do
+			link_to("Contact", contact_us_new_path, :class => "current")
+		end
+	%>
 </li>
-<li>
-<%= link_to('Search', pages_search_path)%>
+
+<li><%=
+		link_to_unless_current("À propos", pages_about_path) do
+			link_to("À propos", pages_about_path, :class => "current")
+		end
+	%>
 </li>
+
+<li><%=
+		link_to_unless_current("Archives", posts_archives_path) do
+			link_to("Archives", posts_archives_path, :class => "current")
+		end
+	%>
+</li>
+
+<li><%=
+		link_to_unless_current("Recherche avancée", pages_search_path) do
+			link_to("Recherche avancée", pages_search_path, :class => "current")
+		end
+	%>
+</li>
+
+
 <% if can? :index, :admin_dashboard %>
 <li>
 <%= link_to('Admin', admin_dashboard_page_path)%>
@@ -14,9 +41,15 @@
 <% end %>
 
 <% if user_signed_in? %>
-  <li>
-  <%= link_to('Edit registration', edit_user_registration_path) %>
-  </li>
+
+<li><%=
+		link_to_unless_current("Edit registration", edit_user_registration_path) do
+			link_to("Edit registration", edit_user_registration_path, :class => "current")
+		end
+	%>
+</li>
+
+
   <li>
   <%= link_to('Logout', destroy_user_session_path) %>        
   </li>

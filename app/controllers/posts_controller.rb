@@ -1,6 +1,6 @@
 class PostsController < AuthorizedController
   # skip_load_and_authorize_resource :only => [:show]
-  before_filter :authenticate_user!, :except => [:index, :show, :show_more_posts]
+  before_filter :authenticate_user!, :except => [:index, :show, :show_more_posts, :archives]
   # load_and_authorize_resource
   # before_filter :authenticate_user!
   
@@ -52,6 +52,9 @@ class PostsController < AuthorizedController
     end
   end
   
+  def archives
+    authorize! :archives, Post
+  end
   
   # GET /posts
   # GET /posts.xml

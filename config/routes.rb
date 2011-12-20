@@ -26,6 +26,8 @@ Changeons::Application.routes.draw do
   post 'posts/show_more_posts', :as => 'show_more_posts'
   # post 'comments/show_more_comments', :as => 'show_more_comments'
   match 'posts/:post_id/show_more_comments' => 'comments#show_more_comments', :as => 'show_more_comments', :via => 'post'
+  get 'posts/archives'
+  
   
   resources :posts do
     resources :comments, :except => [:index, :show, :new] do
@@ -42,7 +44,9 @@ Changeons::Application.routes.draw do
   end
 
   get "pages/home"
-
+  
+  get "pages/about"
+  
   get "pages/contact"
 
   get "pages/search"
