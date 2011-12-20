@@ -10,40 +10,49 @@
 </head>
 <body>
 
-	<header>
-		<nav id="hmenu">
-			<span>Changeons.org</span>
+	<header id="top_menu">
+		<nav>
 			<ul id="hmenu">
 			<%= render 'layouts/menu_items' %>
 			</ul>
 		</nav>
-	</header>
-	<div id="main">
-		<section id="top_banner">
-			<%= image_tag('/images/test_image.png', :height => "120px", :width => "100%") %>
-		</section>
+	</header>	
 		<div id="notice_alert_fields">
 			<%= render 'layouts/flash_messages' %>
 		</div>
-		<section id="newsletter_form">
-			<ul>
-			<%= simple_form_for(@newsletter_subscriber, :validate => true) do |f| %>
-			  <%= f.error_notification %>
-
-			  <div class="inputs">
-			    <%= f.input :email, :validate => true %>
-			  </div>
-
-			  <div class="actions">
-			    <%= f.button :submit %>
-			  </div>
-			<% end %>	
-			</ul>
+	<div id="main">
+		<section id="top_banner">
+			<div id="changeons">hangeons.org</div>
+			<div id="tree"></div><div id="grass"></div>
+			<div id="banner">
+				<%= image_tag('/images/test_image.png', :height => "220px", :width => "980px") %>
+			</div>
 		</section>
-	<%= yield %>
+		<div id="yield">
+		<%= yield %>
+		</div>
+		<div id="right_bar">
+			<section id="newsletter_form">
+				<ul>
+				<%= simple_form_for(@newsletter_subscriber, :validate => true) do |f| %>
+				  <%= f.error_notification %>
+
+				  <div class="inputs">
+				    <%= f.input :email, :validate => true, :input_html => { :size => 30 }, :label => false %>
+				  </div>
+
+				  <div class="actions">
+				    <%= f.button :submit %>
+				  </div>
+				<% end %>	
+				</ul>
+			</section>
+		</div>
 
 	</div>
 	<footer>
+		<nav>
+		</nav>
 		All rights reserved © 2012
 	</footer>
 </body>

@@ -2,7 +2,7 @@
 
 <section id="posts_home" data-displayed-posts=<%= @displayed_posts %>>
 	<header>
-		<h1>Listing posts</h1>
+		<h1>Derniers articles</h1>
 	</header>
 	<%= render "posts/posts" %>
 
@@ -14,20 +14,3 @@
 
 	<% if can? :new, @post %><%= link_to 'New Post', new_post_path %><% end %>
 </section>
-
-<h1>Listing tags</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-  </tr>
-
-<% @tags.each do |tag| %>
-  <tr>
-    <td><%= tag.name %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
