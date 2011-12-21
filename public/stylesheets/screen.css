@@ -77,13 +77,16 @@ html {
 
 body {
 /*	background-color: rgb(60,130,60);*/
-	background-color: rgb(190,225,190);
+/*	background-color: green;*/
 	padding-top: 50px;
 	padding-bottom: 35px;
 	width: 100%;
 	font-family: "verdana";
 	color: #888888;
-	background: url("/images/paint.png") left no-repeat, url("/images/background_top_left.png") left top no-repeat, url("/images/background_top_right.png") right top no-repeat, url("/images/background_bottom.png") bottom no-repeat, url("/images/background_eoliennes3.png") bottom right no-repeat, rgb(160,195,160);
+	
+	
+	background: url("/images/paint.png") left no-repeat, url("/images/background_top_left.png") left top no-repeat, url("/images/background_top_right.png") right top no-repeat, url("/images/background_bottom.png") bottom no-repeat, url("/images/background_eoliennes3.png") bottom right no-repeat, url("/images/background_bois.png") left top repeat-x;
+background-color: rgba(160,195,160, 1);
 /*	background-position: left top, left top;
 	background-repeat: repeat, no-repeat;*/
 }
@@ -236,17 +239,17 @@ section#top_banner{
 
 section#top_banner img{
 /*	border: 10px solid rgb(70,140,70);*/
-	border: 10px solid rgb(200,235,200);
+	border: 10px solid rgb(100,155,90);
 /*	border-bottom: 0px;*/
 	display: block;
-/*	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;*/
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
 	z-index: 1;
 	
-	-webkit-box-shadow: 0px 3px 3px #aacdaa;
-	-moz-box-shadow: 0px 3px 3px #aacdaa;
-	box-shadow: 0px 3px 3px #aacdaa;
+	-webkit-box-shadow: 3px 3px 3px rgb(80,135,70);
+	-moz-box-shadow: 3px 3px 3px rgb(80,135,70);
+	box-shadow: 3px 3px 3px rgb(80,135,70);
 }
 
 section#top_banner div#tree{
@@ -311,10 +314,14 @@ div#right_bar{
 section#newsletter_form{
 	padding: 10px;
 	height: 215px; 
-	background-color: rgb(240,255,240); 
-	border: 5px solid rgb(185,220,185);
+/*	background-color: rgb(240,255,240); */
+/*	border: 5px solid rgb(185,220,185);*/
 /*	display: inline-block;*/
-	
+/*	background-color: rgba(0,0,0,0.7);*/
+	background-image: url("/images/noise.png");
+/*		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;*/
 }
 
 /* Comment threads */
@@ -349,10 +356,11 @@ section#posts_home{
 /*	float: left; */ 
 	min-height: 215px; 
 /*	display: inline; */
-	background-color: rgb(240,255,240); 
-	border: 5px solid rgb(185,210,185); 
+	background-color: rgba(0,0,0,0.9);
+/*	background-color: rgb(240,255,240); */
+/*	border: 5px solid rgb(185,210,185); */
 /*	margin-right: 30px;*/
-	padding: 0px 20px 0px 20px;
+	padding: 20px;
 	display: block;
 	
 /*	border-bottom: 2px dotted rgb(240,255,240);*/
@@ -370,7 +378,7 @@ section#posts_home{
 }
 
 section#posts_home h1{
-	margin: 0;
+/*	margin: 0;*/
 	color: #a2cf4b;
 }
 
