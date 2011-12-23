@@ -84,9 +84,11 @@ body {
 	font-family: "verdana";
 	color: #888888;
 	
-	
-	background: url("/images/paint.png") left no-repeat, url("/images/background_top_left.png") left top no-repeat, url("/images/background_top_right.png") right top no-repeat, url("/images/background_bottom.png") bottom no-repeat, url("/images/background_eoliennes3.png") bottom right no-repeat, url("/images/background_bois.png") left top repeat-x;
-background-color: rgba(160,195,160, 1);
+	background-color: rgba(160,195,160, 0.9);	
+	background: url("/images/paint.png") left no-repeat, url("/images/background_top_left.png") left top no-repeat, url("/images/background_top_right.png") right top no-repeat, url("/images/background_bottom.png") bottom no-repeat, url("/images/background_bois3.jpg") repeat;
+
+
+/*	background-color: #7FBB8C;*/
 /*	background-position: left top, left top;
 	background-repeat: repeat, no-repeat;*/
 }
@@ -113,7 +115,7 @@ h2 {
 /* main div */
 div#main{
 	margin: 0 auto;
-	width:1000px;
+	width: 1000px;
 	padding: 30px 30px 0 30px;
 	display: block;
 /*	border: 1px solid #a2cf4b;*/
@@ -220,15 +222,15 @@ section#top_banner{
 	
 /*	border: 3px solid rgb(55, 120, 55);*/
 	height: 250px;
-	display: inline-block;
+	display: block;
 	width: 100%;
 	font-family: "3DumbRegular";
 /*	font-family: "HVDComicSerifProRegular";*/
-/*	position: relative;*/
-	
-	
+	position: relative;
+/*	background: url("/images/background_eoliennes3.png") left no-repeat, url("/images/grass.png") bottom repeat-x;*/
+/*	z-index: 800;*/
 /*	border-bottom: 1px dotted #a2cf4b;*/
-/*	margin-bottom: 10px;*/
+/*	margin: 1em 25%;*/
 	
 /*	
 	-webkit-border-radius: 5px;
@@ -239,24 +241,37 @@ section#top_banner{
 
 section#top_banner img{
 /*	border: 10px solid rgb(70,140,70);*/
-	border: 10px solid rgb(100,155,90);
+	border: 10px solid rgb(190,220,180);
 /*	border-bottom: 0px;*/
-	display: block;
+	top: 0px;
+	position: relative;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	z-index: 1;
 	
-	-webkit-box-shadow: 3px 3px 3px rgb(80,135,70);
-	-moz-box-shadow: 3px 3px 3px rgb(80,135,70);
-	box-shadow: 3px 3px 3px rgb(80,135,70);
+	-webkit-box-shadow: 0px 3px 3px rgb(160,190,150);
+	-moz-box-shadow: 0px 3px 3px rgb(160,190,150);
+	box-shadow: 0px 3px 3px rgb(160,190,150);
+}
+
+section#top_banner div#eoliennes{
+	background: url("/images/background_eoliennes3.png") no-repeat;
+	height: 300px;
+	width: 340px;
+	display: block;
+	position: relative;
+	z-index: 800;
+	top: -498px;
+	left: -45px;
 }
 
 section#top_banner div#tree{
 	background: url("/images/tree.png") left no-repeat;
 	height: 325px;
 	width: 1000px;
-	position: absolute;
+	display: block;
+	position: relative;
 	z-index: 800;
 	top: 50px;
 	left: 64px;
@@ -264,12 +279,14 @@ section#top_banner div#tree{
 
 section#top_banner div#changeons{
 	height: 274px;
-	width: 800px;
-	position: absolute;
+	width: 616px;
+	position: relative;
 	z-index: 801;
-	top: 195px;
-	font-size:85px;
-	left: 510px;
+	display: block;
+	
+	top: -240px;
+	font-size:50px;
+	left: 620px;
 	color: #A2CF4B;
 }
 
@@ -279,21 +296,21 @@ section#top_banner div#changeons{
 }*/
 
 section#top_banner div#grass{
-	background: url("/images/grass.png") bottom repeat-x;
+	background: url("/images/grass.png") repeat-x;
 	height: 255px;
 	width: 980px;
-	position: absolute;
+	position: relative;
 	z-index: 802;
-	top: 65px;
-	left: 142px;
+	top: -657px;
+	left: 10px;
 /*	left: 66px;*/
 }
 
-section#top_banner div#banner{
-/*	background: url("/images/tree.png") left no-repeat;*/
+/*section#top_banner div#banner{
+	background: url("/images/tree.png") left no-repeat;
 	z-index: 1;
 	position: absolute;
-}
+}*/
 
 div#yield{
 	display: inline-block;
@@ -613,9 +630,9 @@ footer {
 	color: beige;
 	font-size: 12px;
 	
-	-webkit-box-shadow: inset 0px 5px 5px #282b1f;
-	-moz-box-shadow: inset 0px 5px 5px #282b1f;
-	box-shadow: inset 0px 5px 5px #282b1f;
+	-webkit-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
+	-moz-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
+	box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
 	
 
 	
