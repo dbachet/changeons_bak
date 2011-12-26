@@ -1,18 +1,22 @@
 <ul>
-	<li><%=
+	<li class="first"><%=
 			link_to_unless_current("CONTACT", contact_us_new_path) do
 				link_to("CONTACT", contact_us_new_path, :class => "current")
 			end
 		%>
 	</li>
 
-	<li><%=
+	<li class="second"><%=
 			link_to_unless_current("A PROPOS", pages_about_path) do
 				link_to("A PROPOS", pages_about_path, :class => "current")
 			end
 		%>
 	</li>
-	<li>
-		All rights reserved © 2012
+	<li class="third"><%=
+			link_to_unless_current("ARCHIVES", posts_archives_path) do
+				link_to("ARCHIVES", posts_archives_path, :class => "current")
+			end
+		%>
 	</li>
 </ul>
+<span>All rights reserved © 2012</span>

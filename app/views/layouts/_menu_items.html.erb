@@ -1,51 +1,56 @@
-<li><%= 
-		link_to_unless_current("Accueil", root_path) do
-			link_to("Accueil", root_path, :class => "current")
-		end 
-	%>
-</li>
+<ul id="hmenu">
+	<li><%= 
+			link_to_unless_current("Accueil", root_path) do
+				link_to("Accueil", root_path, :class => "current")
+			end 
+		%>
+	</li>
 
 
 
-<li><%=
-		link_to_unless_current("Archives", posts_archives_path) do
-			link_to("Archives", posts_archives_path, :class => "current")
-		end
-	%>
-</li>
+	<li><%=
+			link_to_unless_current("Archives", posts_archives_path) do
+				link_to("Archives", posts_archives_path, :class => "current")
+			end
+		%>
+	</li>
 
-<li><%=
-		link_to_unless_current("Recherche avancée", pages_search_path) do
-			link_to("Recherche avancée", pages_search_path, :class => "current")
-		end
-	%>
-</li>
+	<li><%=
+			link_to_unless_current("Recherche avancée", pages_search_path) do
+				link_to("Recherche avancée", pages_search_path, :class => "current")
+			end
+		%>
+	</li>
 
 
-<% if can? :index, :admin_dashboard %>
-<li>
-<%= link_to('Admin', admin_dashboard_page_path)%>
-</li>
-<% end %>
+	<% if can? :index, :admin_dashboard %>
+	<li>
+	<%= link_to('Admin', admin_dashboard_page_path)%>
+	</li>
+	<% end %>
 
+	
+</ul>
 <% if user_signed_in? %>
 
-<li><%=
-		link_to_unless_current("Edit registration", edit_user_registration_path) do
-			link_to("Edit registration", edit_user_registration_path, :class => "current")
-		end
-	%>
-</li>
+<ul>
+	<li><%=
+			link_to_unless_current("Edit registration", edit_user_registration_path) do
+				link_to("Edit registration", edit_user_registration_path, :class => "current")
+			end
+		%>
+	</li>
 
 
-  <li>
-  <%= link_to('Logout', destroy_user_session_path) %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Register', new_user_registration_path)  %>
-  </li>
-  <li>
-  <%= link_to('Login', new_user_session_path, :remote => true, :class => "fancybox_signin fancybox.ajax")  %>
-  </li>
-<% end %>
+	  <li>
+	  <%= link_to('Logout', destroy_user_session_path) %>        
+	  </li>
+	<% else %>
+	  <li>
+	  <%= link_to('Register', new_user_registration_path)  %>
+	  </li>
+	  <li>
+	  <%= link_to('Login', new_user_session_path, :remote => true, :class => "fancybox_signin fancybox.ajax")  %>
+	  </li>
+	<% end %>
+</ul>
