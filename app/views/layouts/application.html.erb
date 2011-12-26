@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<header id="top_menu">
+	<header>
 		<nav>
 			<ul id="hmenu">
 			<%= render 'layouts/menu_items' %>
@@ -21,13 +21,13 @@
 			<%= render 'layouts/flash_messages' %>
 		</div>
 	<div id="main">
-		<section id="top_banner">
+		<header id="top_banner">
 			<%= image_tag('/images/test_image_top_banner.png', :height => "220px", :width => "980px") %>
 			<div id="changeons">Changeons.org</div>
 			<div id="eoliennes"></div>
 			<div id="grass"></div>
 			
-		</section>
+		</header>
 		<div id="yield">
 		<%= yield %>
 		</div>
@@ -52,8 +52,8 @@
 	</div>
 	<footer>
 		<nav>
+			<%= render 'layouts/footer_menu_items' %>
 		</nav>
-		All rights reserved © 2012
 	</footer>
 </body>
 </html>

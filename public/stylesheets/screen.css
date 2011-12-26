@@ -127,7 +127,7 @@ div#main{
 header{
 }
 
-header#top_menu nav{
+header nav{
 	font-family: "GoLong";
 	position: fixed;
 	top: 0px;
@@ -160,7 +160,7 @@ header#top_menu nav{
 	color: beige;
 }*/
 
-header#top_menu nav ul#hmenu {
+header nav ul#hmenu {
 	text-transform: uppercase;
 	list-style: none;	
 	margin: 0;
@@ -172,7 +172,7 @@ header#top_menu nav ul#hmenu {
 	height: 45px;
 }
 
-header#top_menu nav ul#hmenu li {
+header nav ul#hmenu li {
 /*	padding: 10px;*/
 /*	height: 100%;*/
 	display: inline-block;
@@ -180,19 +180,19 @@ header#top_menu nav ul#hmenu li {
 /*		background: green;*/
 }
 
-header#top_menu nav ul#hmenu li:hover {
+header nav ul#hmenu li:hover {
 	
 	
 }
 
-header#top_menu nav ul#hmenu li a {
+header nav ul#hmenu li a {
 	display: inline-block;
 	height: 34px;
 	padding: 17px 16px 0px;
 	
 }
 
-header#top_menu nav ul#hmenu li a:hover {
+header nav ul#hmenu li a:hover {
 	background-color: rgba(51,51,153, 0.4);
 	transition-property: background-color;
 	transition-duration: .5s;
@@ -206,7 +206,7 @@ header#top_menu nav ul#hmenu li a:hover {
 	box-shadow: 0px 2px 5px #A2CF4B;
 }
 
-header#top_menu nav ul#hmenu li a.current {
+header nav ul#hmenu li a.current {
 	background-color: rgba(51,51,153, 0.7);
 	color: #A2CF4B;
 	-webkit-box-shadow: 0px 2px 5px #A2CF4B;
@@ -216,7 +216,7 @@ header#top_menu nav ul#hmenu li a.current {
 
 /* END hmenu*/
 
-section#top_banner{
+header#top_banner{
 /*	padding: 15px;*/
 /*	background-color: rgb(70,140,70);*/
 	
@@ -230,7 +230,7 @@ section#top_banner{
 /*	background: url("/images/background_eoliennes3.png") left no-repeat, url("/images/grass.png") bottom repeat-x;*/
 /*	z-index: 800;*/
 /*	border-bottom: 1px dotted #a2cf4b;*/
-/*	margin: 1em 25%;*/
+/*	margin: 5px;*/
 	
 /*	
 	-webkit-border-radius: 5px;
@@ -239,7 +239,7 @@ section#top_banner{
 	
 }
 
-section#top_banner img{
+header#top_banner img{
 /*	border: 10px solid rgb(70,140,70);*/
 	border: 10px solid rgb(190,220,180);
 /*	border-bottom: 0px;*/
@@ -255,7 +255,7 @@ section#top_banner img{
 	box-shadow: 0px 3px 3px rgb(160,190,150);
 }
 
-section#top_banner div#eoliennes{
+header#top_banner div#eoliennes{
 	background: url("/images/background_eoliennes3.png") no-repeat;
 	height: 300px;
 	width: 340px;
@@ -266,7 +266,7 @@ section#top_banner div#eoliennes{
 	left: -45px;
 }
 
-section#top_banner div#tree{
+header#top_banner div#tree{
 	background: url("/images/tree.png") left no-repeat;
 	height: 325px;
 	width: 1000px;
@@ -277,9 +277,9 @@ section#top_banner div#tree{
 	left: 64px;
 }
 
-section#top_banner div#changeons{
+header#top_banner div#changeons{
 	height: 274px;
-	width: 616px;
+	width: 370px;
 	position: relative;
 	z-index: 801;
 	display: block;
@@ -295,9 +295,9 @@ section#top_banner div#changeons{
 	font-size:185px;
 }*/
 
-section#top_banner div#grass{
+header#top_banner div#grass{
 	background: url("/images/grass.png") repeat-x;
-	height: 255px;
+	height: 67px;
 	width: 980px;
 	position: relative;
 	z-index: 802;
@@ -373,14 +373,15 @@ section#posts_home{
 /*	float: left; */ 
 	min-height: 215px; 
 /*	display: inline; */
-	background-color: rgba(0,0,0,0.9);
+	background-color: rgba(0,0,0,0.7);
 /*	background-color: rgb(240,255,240); */
 /*	border: 5px solid rgb(185,210,185); */
-/*	margin-right: 30px;*/
+/*	margin: 5px;*/
 	padding: 20px;
 	display: block;
 	
-/*	border-bottom: 2px dotted rgb(240,255,240);*/
+/*	border-bottom: 1px dotted rgb(240,255,240);*/
+	
 /*	margin-bottom: 10px;*/
 /*	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -623,12 +624,12 @@ footer {
 	width: 100%;
 	z-index: 1000;
 	padding: 10px;
-	
+	font-family: "GoLong";
 	background-color: rgba(51,51,51, 1);
 /*	background-color: rgba(40,25,20, 0.7);*/
 	height: 15px;
-	color: beige;
-	font-size: 12px;
+	font-size: 16px;
+	color: #A2CF4B;
 	
 	-webkit-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
 	-moz-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
@@ -643,4 +644,51 @@ footer {
 	-moz-border-radius-topleft: 5px;
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;*/
+}
+
+footer a:hover{
+  color: #A2CF4B;
+}
+
+footer a, a:active, a:visited  {
+	color: #A2CF4B;
+
+/*	padding: 17px 16px 0px;*/
+}
+
+footer a{
+	display: inline-block;
+	height: 16px;
+	padding: 10px 20px 10px;
+}
+
+footer a:hover{
+	background-color: rgba(51,51,153, 0.4);
+	transition-property: background-color;
+	transition-duration: .5s;
+	-webkit-transition-property: background-color;
+	-webkit-transition-duration: .5s;
+	-moz-transition-property: background-color;
+	-moz-transition-duration: .5s;
+
+	-webkit-box-shadow: 0px -2px 5px #A2CF4B;
+	-moz-box-shadow: 0px -2px 5px #A2CF4B;
+	box-shadow: 0px -2px 5px #A2CF4B;
+}
+
+footer nav ul {
+	margin: -4px;
+}
+
+footer nav ul li{
+	display: inline-block;
+	
+}
+
+footer nav ul li a.current {
+	background-color: rgba(51,51,153, 0.7);
+	color: #A2CF4B;
+	-webkit-box-shadow: 0px -2px 5px #A2CF4B;
+	-moz-box-shadow: 0px -2px 5px #A2CF4B;
+	box-shadow: 0px -2px 5px #A2CF4B;
 }
