@@ -1,7 +1,7 @@
 <ul id="hmenu">
 	<li><%= 
-			link_to_unless_current("Accueil", root_path) do
-				link_to("Accueil", root_path, :class => "current")
+			link_to_unless_current("", root_path, :class => "home") do
+				link_to("", root_path, :class => "home current")
 			end 
 		%>
 	</li>
@@ -23,17 +23,21 @@
 	</li>
 
 
+
+
+	
+</ul>
+<ul id="user_menu_items">
+<% if user_signed_in? %>
+
+
+	
 	<% if can? :index, :admin_dashboard %>
 	<li>
 	<%= link_to('Admin', admin_dashboard_page_path)%>
 	</li>
 	<% end %>
-
 	
-</ul>
-<% if user_signed_in? %>
-
-<ul>
 	<li><%=
 			link_to_unless_current("Edit registration", edit_user_registration_path) do
 				link_to("Edit registration", edit_user_registration_path, :class => "current")
@@ -42,15 +46,15 @@
 	</li>
 
 
-	  <li>
-	  <%= link_to('Logout', destroy_user_session_path) %>        
-	  </li>
-	<% else %>
-	  <li>
-	  <%= link_to('Register', new_user_registration_path)  %>
-	  </li>
-	  <li>
-	  <%= link_to('Login', new_user_session_path, :remote => true, :class => "fancybox_signin fancybox.ajax")  %>
-	  </li>
-	<% end %>
+	<li>
+	<%= link_to('Logout', destroy_user_session_path) %>        
+	</li>
+<% else %>
+	<li>
+	<%= link_to('Register', new_user_registration_path)  %>
+	</li>
+	<li>
+	<%= link_to('Login', new_user_session_path, :remote => true, :class => "fancybox_signin fancybox.ajax")  %>
+	</li>
+<% end %>
 </ul>

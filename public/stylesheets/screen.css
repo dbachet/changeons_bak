@@ -178,7 +178,18 @@ header nav ul#hmenu li {
 	display: inline-block;
 	margin-left: -11px;
 	margin-right: 1px;
+	height: 36px;
 /*		background: green;*/
+}
+
+header nav ul#user_menu_items{
+	position:absolute;
+	top: 0px;
+	right: 60px;
+}
+
+header nav ul#user_menu_items li{
+	display: inline-block;
 }
 
 header nav ul#hmenu li:hover {
@@ -188,7 +199,7 @@ header nav ul#hmenu li:hover {
 
 header nav ul#hmenu li a {
 	display: inline-block;
-	height: 36px;
+/*	height: 36px;*/
 	padding: 17px 16px 0px;
 	
 /*	-webkit-border-bottom-left-radius: 2px;
@@ -213,6 +224,30 @@ header nav ul#hmenu li a:hover {
 	box-shadow: 0px 2px 5px #A2CF4B;*/
 }
 
+header nav ul#hmenu li a.home {
+/*	display: inline-block;*/
+	padding: 0px 16px 36px;
+	width: 80px;
+	height: 23px;
+	background: url('/images/home_blue_36.png') 40px 16px no-repeat;
+}
+
+header nav ul#hmenu li a.home:hover {
+/*	width: 80px;*/
+/*	height: 29px;*/
+	background: url('/images/home_yellow_36.png') 40px 16px no-repeat;
+	background-color: rgba(51,51,153, 0.4);
+}
+
+header nav ul#hmenu li a.home.current {
+/*	width: 80px;*/
+/*	height: 29px;*/
+/*	height: 16px;*/
+	background: url('/images/home_yellow_36.png') 40px 16px no-repeat;
+	background-color: rgba(51,51,153, 0.7);
+}
+
+
 header nav ul#hmenu li a.current {
 	background-color: rgba(51,51,153, 0.7);
 	color: #A2CF4B;
@@ -220,6 +255,8 @@ header nav ul#hmenu li a.current {
 	-moz-box-shadow: 0px 2px 5px #A2CF4B;
 	box-shadow: 0px 2px 5px #A2CF4B;*/
 }
+
+
 
 /* END hmenu*/
 
