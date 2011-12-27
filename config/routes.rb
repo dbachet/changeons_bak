@@ -51,6 +51,8 @@ Changeons::Application.routes.draw do
 
   get "pages/search"
   
+  get "pages/tips"
+  
 
   devise_for :users, :controllers => {:sessions => 'sessions'} do
     match "admin/users/sign_up" => "admin/registrations#new", :as => :admin_new_user_registration, :via => :get

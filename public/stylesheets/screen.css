@@ -231,13 +231,13 @@ header nav ul#hmenu li a.home {
 	padding: 0px 16px 36px;
 	width: 80px;
 	height: 23px;
-	background: url('/images/home_blue_36.png') 40px 16px no-repeat;
+	background: url('/images/home_blue_36.png') 40px 13px no-repeat;
 }
 
 header nav ul#hmenu li a.home:hover {
 /*	width: 80px;*/
 /*	height: 29px;*/
-	background: url('/images/home_yellow_36.png') 40px 16px no-repeat;
+	background: url('/images/home_yellow_36.png') 40px 13px no-repeat;
 	background-color: rgba(51,51,153, 0.4);
 }
 
@@ -245,7 +245,7 @@ header nav ul#hmenu li a.home.current {
 /*	width: 80px;*/
 /*	height: 29px;*/
 /*	height: 16px;*/
-	background: url('/images/home_yellow_36.png') 40px 16px no-repeat;
+	background: url('/images/home_yellow_36.png') 40px 13px no-repeat;
 	background-color: rgba(51,51,153, 0.7);
 }
 

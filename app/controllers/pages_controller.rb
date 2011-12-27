@@ -18,4 +18,8 @@ class PagesController < AuthorizedController
   def about
     authorize! :about, :pages
   end
+  
+  def tips
+    authorize! :tips, :pages
+  end
 end
