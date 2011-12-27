@@ -64,7 +64,7 @@ $("form#user_new").bind('ajax:success', function(evt, data, status, xhr) {
 		$('div#display_posts').data('displayed-posts', <%= @displayed_posts %>);
 
 		// Display the new posts
-		$('div#display_posts').html("<%= escape_javascript(render :partial => 'posts/display_posts') %>");
+		$('div#display_posts').html("<%= escape_javascript(render :partial => 'posts/posts') %>");
 		
 		// Change the param displayed_comments in url of link
 		$('a#show_more_posts_link').attr('href', "/posts/show_more_posts?displayed_posts=" + <%= @displayed_posts %>);

@@ -161,6 +161,8 @@ header nav{
 }*/
 
 header nav ul#hmenu {
+	float: left;
+	padding-left: 40px;
 	text-transform: uppercase;
 	list-style: none;	
 	margin: 0;
@@ -301,12 +303,12 @@ header#top_banner img{
 
 header#top_banner div#eoliennes{
 	background: url("/images/background_eoliennes3.png") no-repeat;
-	height: 300px;
+	height: 187px;
 	width: 340px;
 	display: block;
 	position: relative;
 	z-index: 800;
-	top: -498px;
+	top: -287px;
 	left: -45px;
 }
 
@@ -322,7 +324,7 @@ header#top_banner div#tree{
 }
 
 header#top_banner div#changeons{
-	height: 274px;
+	height: 70px;
 	width: 370px;
 	position: relative;
 	z-index: 801;
@@ -345,7 +347,7 @@ header#top_banner div#grass{
 	width: 980px;
 	position: relative;
 	z-index: 802;
-	top: -657px;
+	top: -340px;
 	left: 10px;
 /*	left: 66px;*/
 }
