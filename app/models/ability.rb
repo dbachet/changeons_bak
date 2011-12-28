@@ -46,7 +46,7 @@ class Ability
       can [:index, :show, :show_more_posts], Post
       can :manage, Comment
       cannot [:create_reply, :create, :edit, :update, :destroy], Comment
-      can [:about, :search], :pages
+      can [:tips, :about, :search], :pages
       can :archives, Post
     end
   end
