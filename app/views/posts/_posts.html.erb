@@ -1,8 +1,8 @@
 <% @posts.each do |post| %>
 <article id="post_<%= post %>">
 	<header>
-    <%= post.title %> 
-	</br>écrit par <%= post.user.email %>
+    <h1><%= post.title %></h1>
+	<span>écrit par</span> <%= post.user.email %>
 	</header>
 	
     <div class="short_description"><%= post.short_description %></div>
