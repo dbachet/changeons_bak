@@ -1,13 +1,13 @@
 <% @posts.each do |post| %>
 <article id="post_<%= post %>">
 	<header>
-    <%= post.title %>
-    <p><%= post.user_id %></p>
+    <%= post.title %> 
+	</br>écrit par <%= post.user.email %>
 	</header>
 	
-    <p><%= post.content %></p>
-    <p><%= link_to 'Show', post %></p>
-    <p><% if can? :edit, post %><%= link_to 'Edit', edit_post_path(post) %><% end %></p>
-    <p><% if can? :destroy, post %><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %><% end %></p>
+    <div class="short_description"><%= post.short_description %></div>
+    <%= link_to 'Show', post %>
+    <% if can? :edit, post %><%= link_to '| Edit', edit_post_path(post) %><% end %>
+    <% if can? :destroy, post %><%= link_to '| Destroy', post, :confirm => 'Are you sure?', :method => :delete %><% end %>
 </article>
 <% end %>

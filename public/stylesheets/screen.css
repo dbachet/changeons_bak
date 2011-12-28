@@ -71,6 +71,30 @@
 
 }
 
+@font-face {
+    font-family: 'XenophoneRegular';
+    src: url('/fonts/xenophone-webfont.eot');
+    src: url('/fonts/xenophone-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/xenophone-webfont.woff') format('woff'),
+         url('/fonts/xenophone-webfont.ttf') format('truetype'),
+         url('/fonts/xenophone-webfont.svg#XenophoneRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SansitaOneRegular';
+    src: url('/fonts/SansitaOne-webfont.eot');
+    src: url('/fonts/SansitaOne-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/SansitaOne-webfont.woff') format('woff'),
+         url('/fonts/SansitaOne-webfont.ttf') format('truetype'),
+         url('/fonts/SansitaOne-webfont.svg#SansitaOneRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 html {
 	width: 100%;
 }
@@ -129,7 +153,7 @@ header{
 }
 
 header nav{
-	font-family: "GoLong";
+	font-family: "SansitaOneRegular";
 	position: fixed;
 	top: 0px;
 /*	height: 40px;*/
@@ -150,9 +174,9 @@ header nav{
 	border-bottom-left-radius: 5px;*/
 
 
-	-webkit-box-shadow: 0px 10px 10px rgba(17,10,7,1);
-	-moz-box-shadow: 0px 10px 10px rgba(17,10,7,1);
-	box-shadow: 0px 10px 10px rgba(17,10,7,1);
+	-webkit-box-shadow: 0px 10px 10px rgba(23,15,13, 1);
+	-moz-box-shadow: 0px 10px 10px rgba(23,15,13, 1);
+	box-shadow: 0px 10px 10px rgba(23,15,13, 1);
 }
 
 /*header nav#hmenu span{
@@ -164,10 +188,10 @@ header nav{
 header nav ul#hmenu {
 	float: left;
 	padding-left: 40px;
-	text-transform: uppercase;
+/*	text-transform: uppercase;*/
 	list-style: none;	
 	margin: 0;
-	font-size: 30px;
+	font-size: 33px;
 	color: #339;
 
 /*	padding: 0;*/
@@ -179,7 +203,7 @@ header nav ul#hmenu li {
 /*	padding: 10px;*/
 /*	height: 100%;*/
 	display: inline-block;
-	margin-left: -11px;
+	margin-left: -8px;
 	margin-right: 1px;
 	height: 36px;
 /*		background: green;*/
@@ -203,7 +227,7 @@ header nav ul#hmenu li:hover {
 header nav ul#hmenu li a {
 	display: inline-block;
 /*	height: 36px;*/
-	padding: 17px 16px 0px;
+	padding: 13px 16px 0px;
 	
 /*	-webkit-border-bottom-left-radius: 2px;
 	-webkit-border-bottom-right-radius: 2px;
@@ -342,10 +366,25 @@ header#top_banner div#changeons{
 }
 
 header#top_banner div#changeons a, 
-header#top_banner div#changeons a:visited,
-header#top_banner div#changeons a:hover{
+header#top_banner div#changeons a:visited{
 	color: #A2CF4B;
 }
+
+
+header#top_banner div#changeons a:hover{
+	color: #A2CF4B;
+/*	-webkit-transform: rotate(12);
+	-moz-transform: rotate(12);
+	transform: rotate(12);*/
+	
+/*	-webkit-transition
+	-moz-transition  
+	transition*/
+}
+
+
+
+
 
 /*section#top_banner div#changeons span{
 	color: #2c2719;
@@ -750,6 +789,9 @@ footer a:hover{
 /*	-webkit-box-shadow: 0px -2px 5px white;
 	-moz-box-shadow: 0px -2px 5px white;
 	box-shadow: 0px -2px 5px white;*/
+/*	-webkit-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
+	-moz-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
+	box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);*/
 	
 }
 
@@ -767,15 +809,24 @@ footer nav ul li{
 }
 
 footer nav ul li.first{
-	background-color: rgba(62, 62, 62, 0.2);
+	background-color: rgba(42, 42, 42, 1);
+/*	-webkit-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
+	-moz-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
+	box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);*/
 }
 
 footer nav ul li.second{
-	background-color: rgba(102, 102, 102, 0.2);
+	background-color: rgba(62, 62, 62, 1);
+/*	-webkit-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
+	-moz-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
+	box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);*/
 }
 
 footer nav ul li.third{
-	background-color: rgba(142, 142, 142, 0.2);
+	background-color: rgba(102, 102, 102, 1);
+	-webkit-box-shadow: 5px 0px 5px rgba(25,25,25, 1);
+	-moz-box-shadow: 5px 0px 5px rgba(25,25,25, 1);
+	box-shadow: 5px 0px 5px rgba(25,25,25, 1);
 }
 
 footer nav span{
@@ -794,5 +845,8 @@ footer nav ul li a.current {
 /*	-webkit-box-shadow: 0px -2px 5px white;
 	-moz-box-shadow: 0px -2px 5px white;
 	box-shadow: 0px -2px 5px white;*/
+	-webkit-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
+	-moz-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
+	box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
 
 }
