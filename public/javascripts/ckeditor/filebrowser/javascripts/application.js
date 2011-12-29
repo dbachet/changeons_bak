@@ -10,7 +10,7 @@
     }
     return b;
   })(window.location.search.substr(1).split('&'))
-})(jQuery);
+})($);
 
 $(document).ready(function(){
   $("div.gal-item div.gal-inner-holder")
