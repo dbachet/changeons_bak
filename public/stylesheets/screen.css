@@ -656,7 +656,7 @@ section#posts_home{
 /*	background-color: rgb(240,255,240); */
 /*	border: 5px solid rgb(185,210,185); */
 /*	margin: 5px;*/
-	padding: 20px 50px 20px 50px;
+	padding: 20px 50px 20px 40px;
 	display: block;
 /*	font-family: "ITCKabelRegular";*/
 	
@@ -687,10 +687,42 @@ section#posts_home header{
 /*	border-bottom: 1px solid;*/
 }
 
+section#posts_home article {
+	height: 150px;
+	width: 410px;
+	padding: 0px;
+	/*position: relative;*/
+	
+	-webkit-transition: width 0.3s linear, background 0.2s ease;
+	-moz-transition: width 0.3s linear, background 0.2s ease;
+	-o-transition: width 0.3s linear, background 0.2s ease;
+	transition: width 0.3s linear, background 0.2s ease;
+	
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	
+}
+section#posts_home article:hover{
+	background: #d0d0c6; 
+	background: rgba(8, 8, 8, 0.4);
+}
+
+
+section#posts_home article div.post_content{
+	display:inline-block;
+	width: 310px;
+	border-bottom: none;
+	border-top: 1px dotted;
+}
+
 section#posts_home article header{
 	padding-top:10px;
-	border-bottom: none;
-	border-top: 1px solid;
+	display: block;
+	
 }
 
 section#posts_home article header span{
@@ -709,6 +741,45 @@ section#posts_home article header h1{
 
 section#posts_home article div.short_description{
 	font-family: 'CaviarDreamsItalic';
+	display: block;
+/*	width: 400px;*/
+/*	height: 100px;*/
+/*	background-color: beige;*/
+}
+
+
+section#posts_home article div.post_image{
+	margin-right: 20px;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	
+	vertical-align: top;
+	margin-top: 12px;
+}
+
+section#posts_home article div.post_image img{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+	border: 3px solid beige;
+	
+	opacity: 0.5;
+}
+
+section#posts_home article div.post_image img:hover{
+/*	-webkit-transform: translate(-25px, 0px);
+	-moz-transform: translate(-25px, 0px);
+	transform: translate(-25px, 0px);
+	opacity: 1;*/
+/*	transform: rotate(-15deg);*/
+/*	border: 3px solid red;*/
+}
+
+
+section#posts_home article div.post_image p{
+	margin: 0;
 }
 
 /* button to comment as */

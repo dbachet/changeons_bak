@@ -50,7 +50,11 @@ CKEDITOR.editorConfig = function( config )
   
   /* Toolbars */
   config.toolbar = 'Easy';
-  
+
+  config.toolbar_PostImage =
+	[
+        ['Source'],['Image']
+    ];
   config.toolbar_Easy =
     [
         ['Source','-','Preview'],

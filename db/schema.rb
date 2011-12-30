@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228131111) do
+ActiveRecord::Schema.define(:version => 20111229114654) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20111228131111) do
     t.string   "cached_slug"
     t.integer  "post_type_id"
     t.text     "short_description"
+    t.text     "post_image"
   end
 
   create_table "slugs", :force => true do |t|

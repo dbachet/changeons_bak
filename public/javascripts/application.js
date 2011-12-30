@@ -81,6 +81,28 @@ $(document).ready(function() {
 	});
 	// End fancyboxes
 
+	$('section#posts_home article').hover(
+	function() {
+	  	$('img', this).animate({
+	    	opacity: 1,
+			marginLeft: '-30px'// ,
+			// 			width: '75px',
+			// 			height: '75px'
+		}, 200);
+	},
+	function() {
+		$('img', this).animate({
+		  	opacity: 0.5,
+			marginLeft: '0px'// ,
+			// 			width: '50px',
+			// 			height: '50px'
+		}, 100);
+	}
+	);
+
+	
+
+
 
 $('form#comment_new[data-validate]').validate();
 $('form#reply_new[data-validate]').validate();
