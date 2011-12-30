@@ -1,16 +1,19 @@
 <% @posts.each do |post| %>
 <article id="post_<%= post.id %>">
 
-	<div class="post_image post_<%= post.id %>"><%= raw(post.post_image) %></div>
+	<div class="post_left">
+		<div class="post_image"><%= raw(post.post_image) %></div>
+		<div class="post_date"><span class="day"><%= post.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(post.created_at.strftime("%m")) %></span></br><span class="year"><%= post.created_at.strftime("%Y") %></span></div>
+	</div>
 	<div class="post_content">
 		<header>
 	    	<h1><%= post.title %></h1>
 			<span>écrit par</span> <%= post.user.email %>
 		</header>
 	    <div class="short_description"><%= raw(post.short_description) %></div>
-	    <%= link_to 'Show', post %>
-	    <% if can? :edit, post %><%= link_to '| Edit', edit_post_path(post) %><% end %>
-	    <% if can? :destroy, post %><%= link_to '| Destroy', post, :confirm => 'Are you sure?', :method => :delete %><% end %>
+	    <%= link_to 'Voir', post %>
+	    <% if can? :edit, post %><%= link_to '| Éditer', edit_post_path(post) %><% end %>
+	    <% if can? :destroy, post %><%= link_to '| Supprimer', post, :confirm => 'Are you sure?', :method => :delete %><% end %>
 	</div>
 </article>
 <% end %>

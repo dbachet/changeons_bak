@@ -94,10 +94,13 @@ GEM
     thor (0.14.6)
     thumbs_up (0.4.4)
       activerecord
+    timeliness (0.3.4)
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.31)
+    validates_timeliness (3.0.8)
+      timeliness (~> 0.3.4)
     warden (1.1.0)
       rack (>= 1.0)
 
@@ -118,3 +121,4 @@ DEPENDENCIES
   simple_form
   sqlite3-ruby (= 1.2.5)
   thumbs_up
+  validates_timeliness (~> 3.0.8)

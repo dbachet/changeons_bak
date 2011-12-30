@@ -13,3 +13,4 @@ gem 'client_side_validations'
 gem "ckeditor"
 gem "paperclip"
 gem "cancan"
+gem 'validates_timeliness', '~> 3.0.8'
