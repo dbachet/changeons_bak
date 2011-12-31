@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div id="page_info" data-action="index_post"></div>
+
+<section id="posts_home" data-displayed-posts=<%= @displayed_posts %>>
+	<header>
+		<h1>Derniers articles</h1>
+	</header>
+	<%= render "posts/posts" %>
+
+	<% if @remaining_posts != 0 %>
+		<%= link_to "Voir plus d'articles", show_more_posts_path(:displayed_posts => @displayed_posts), :id => "show_more_posts_link", :method => :post, :remote => true %>
+	<% end %>
+
+	<br />
+
+	<% if can? :new, @post %><%= link_to 'New Post', new_post_path %><% end %>
+</section>

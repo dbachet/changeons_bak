@@ -36,17 +36,18 @@ class Ability
       cannot [:new, :edit, :update, :destroy], :admin_registration
       cannot [:show_guest_fields, :show_guest_fields_for_reply, :comment_as_guest, :create_comment_as_guest, :create_reply_as_guest], Comment
     elsif user.role? :user
+      can [:create], NewsletterSubscriber
       can [:index, :show, :show_more_posts, :vote_up, :vote_down], Post
       can [:create_reply, :create, :show_reply, :show_more_comments], Comment
       can [:edit, :update, :destroy], Comment , :user_id => user.id
-      can [:about, :search], :pages
+      can [:home, :tips, :about, :search], :pages
       can :archives, Post
     else
       can [:create], NewsletterSubscriber
       can [:index, :show, :show_more_posts], Post
       can :manage, Comment
       cannot [:create_reply, :create, :edit, :update, :destroy], Comment
-      can [:tips, :about, :search], :pages
+      can [:home, :tips, :about, :search], :pages
       can :archives, Post
     end
   end
