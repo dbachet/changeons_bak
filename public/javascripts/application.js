@@ -81,8 +81,8 @@ $(document).ready(function() {
 	});
 	// End fancyboxes
 
-	$('section#posts_home article').hover(
-	function() {
+	$('section#posts_home article').live({
+	mouseenter: function() {
 	  	$('img', this).animate({
 	    	opacity: 1,
 			marginLeft: '-30px'// ,
@@ -90,7 +90,7 @@ $(document).ready(function() {
 			// 			height: '75px'
 		}, 200);
 	},
-	function() {
+	mouseleave: function() {
 		$('img', this).animate({
 		  	opacity: 0.5,
 			marginLeft: '0px'// ,
@@ -98,10 +98,7 @@ $(document).ready(function() {
 			// 			height: '50px'
 		}, 100);
 	}
-	);
-
-	
-
+	});
 
 
 $('form#comment_new[data-validate]').validate();
