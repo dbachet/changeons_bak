@@ -1,4 +1,10 @@
 Changeons::Application.routes.draw do
+  
+
+  resources :questions do
+    resources :answers
+  end
+
   resources :newsletter_subscribers, :except => [:show, :new]
 
   get "contact_us/new"

@@ -25,12 +25,16 @@
 				</ul>
 				<div>
 				    <h2><a name="t1" id="t1">Voici ce que les utilisateurs de Changeons.org voudraient changer</a></h2>
-				    <p>Test to prove that more than one menu is possible</p>
+				    <% @changeons_quoi.each do |answer| %>
+						<li><%= answer.content %></li>
+					<% end %>
 				    <p><a href="#top">back to menu</a></p>
 				</div>
 				<div>
 				    <h2><a name="t2" id="t2">Voici pourquoi les utilisateurs de Changeons.org voudraient changer</a></h2>
-				    <p>Test to prove that more than one menu is possible</p>
+				    <% @changeons_pourquoi.each do |answer| %>
+						<li><%= answer.content %></li>
+					<% end %>
 				    <p><a href="#top">back to menu</a></p>
 				</div>
 			</div>
