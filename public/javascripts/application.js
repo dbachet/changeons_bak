@@ -99,6 +99,24 @@ $(document).ready(function() {
 		}, 100);
 	}
 	});
+	
+
+	jQuery(function($){ 
+	  	$('ul#items_1').easyPaginate({
+			auto: true,
+			pause: 7000,
+			numeric: true,
+			controls: 'pagination_1',
+			clickstop: false
+		}),
+		$('ul#items_2').easyPaginate({
+			auto: true,
+			pause: 7000,
+			numeric: true,
+			controls: 'pagination_2',
+			clickstop: false
+		});
+	  });
 
 
 $('form#comment_new[data-validate]').validate();
