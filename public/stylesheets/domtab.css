@@ -19,7 +19,9 @@
 		ul.domtabs{
 			float:left;
 			width:100%;
-			margin:0 0 0 0;				
+			margin:0 0 0 0;
+/*			font-family: 'SansitaOneRegular';*/
+			color: rgba(85, 85, 225, 1);			
 		}
 		ul.domtabs li{
 			font-size: 20px;
@@ -34,8 +36,8 @@
 /*			width:100%;*/
 			padding:.1em 0.2em;
 			display:block;
-			background:#666;
-			color:#ccc;
+			background:rgba(70, 70, 70, 0.5);
+			color: rgba(85, 85, 225, 1);
 			height:3em;
 			font-weight:bold;
 			text-decoration:none;
@@ -48,21 +50,21 @@
 			min-height:1.5em;
 		}
 		ul.domtabs a:hover{
-			background:#696;
+			background:rgba(8, 8, 8, 0.4);
 		}
 		div.domtab div{
 			clear:both;
 			width:auto;
-			background:#696;
-			color:#fff;
+			background:rgba(8, 8, 8, 0.4);
+			color:#888;
 			padding:1em 3em;
 		}
 		ul.domtabs li.active a:link,
 		ul.domtabs li.active a:visited,
 		ul.domtabs li.active a:active,
 		ul.domtabs li.active a:hover{
-			background:#696;
-			color:#fff;
+			background:rgba(8, 8, 8, 0.4);
+			color: rgba(85, 85, 225, 1);
 		}
 		#domtabprintview{
 			float:right;
@@ -73,7 +75,7 @@
 		#domtabprintview a:visited,
 		#domtabprintview a:active,
 		#domtabprintview a:hover{
-			color:#fff;
+			background:rgba(8, 8, 8, 0.4);
 		}
 /*		p{
 			margin:0 0 .5em 0;
@@ -104,7 +106,7 @@
 		div.domtab div a:visited,
 		div.domtab div a:active
 		{
-			color:#fff;
+			color:#888;
 			display:block;
 			padding:1em .5em;
 			font-weight:bold;
@@ -114,51 +116,14 @@
 		div.domtab div h2 a:hover,
 		div.domtab div h2 a:active
 		{
-			color:#cfc;
+			color:#A2CF4B;
 			display:inline;
 			padding:0;
 			font-weight:normal;
 			font-size:1em;
 		}
 		
-/* other scheme! */
-#other{
-	font-size:.8em;
-	margin-left:.3em;
-	width:60em;
-	margin-bottom:3em;
-	float:left;
-}
-div#other.domtab div{
-	clear:both;
-	width:54em;
-	background:#669;
-	color:#fff;
-	padding:1em 3em;
-}
-		
-#other ul.domtabs a:hover{
-	background:#669;
-}
-div#other ul.domtabs li.active a:link,
-div#other ul.domtabs li.active a:visited,
-div#other ul.domtabs li.active a:active,
-div#other ul.domtabs li.active a:hover{
-	background:#669;
-	color:#fff;
-}
-#other div{
-	float:left;
-}
-ul.prevnext{
-	float:left;
-	width:100%;
-}
-ul.prevnext li{
-	float:left;
-	width:49%;
-}
-ul.prevnext li.next{
-	float:right;
-	text-align:right;
-}
+		div.domtab div h2
+		{
+			font-family: "CaviarDreamsRegular", verdana, arial;
+		}

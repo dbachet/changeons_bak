@@ -303,7 +303,7 @@ a{
 }
 
 h1 { 
-	font-family: "DustismoRegular";
+	font-family: "arial";
 }
 
 h2 { 
@@ -844,7 +844,7 @@ article.comment_reply {
 	}
 
 		section#changeons_home header{
-			border-bottom: 1px dotted;
+/*			border-bottom: 1px dotted;*/
 		}
 	
 			section#changeons_home header h1{
@@ -856,7 +856,7 @@ article.comment_reply {
 			}
 			
 			section#changeons_home header{
-				border-bottom: 1px dotted;
+/*				border-bottom: 1px dotted;*/
 			}
 			
 /*				section#changeons_home header nav#changeons{
