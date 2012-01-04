@@ -27,7 +27,7 @@
 			font-size: 20px;
 			display: inline-block;
 			float:left;
-			padding:0 .5em 0 0;
+			padding:0 .4em 0 0;
 		}
 		ul.domtabs a:link,
 		ul.domtabs a:visited,
@@ -114,16 +114,19 @@
 		}
 		div.domtab div h2 a,
 		div.domtab div h2 a:hover,
-		div.domtab div h2 a:active
+		div.domtab div h2 a:active,
+		div.domtab div h2
 		{
 			color:#A2CF4B;
 			display:inline;
 			padding:0;
 			font-weight:normal;
 			font-size:1em;
+			word-wrap: break-word;
 		}
 		
 		div.domtab div h2
 		{
 			font-family: "CaviarDreamsRegular", verdana, arial;
+			font-size:1.2em;		
 		}

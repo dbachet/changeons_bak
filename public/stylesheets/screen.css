@@ -652,9 +652,9 @@ article.comment_reply {
 
 	section#posts_home{
 	/*	float: left; */ 
-		min-height: 215px; 
+		min-height: 365px; 
 		/*		display: inline; */
-		width: 400px;
+		width: 415px;
 		background-color: rgba(190,220,180, 0.1);
 		/*		background-color: rgba(0,0,0,0.7);*/
 		/*		background-color: rgb(240,255,240); */
@@ -662,6 +662,8 @@ article.comment_reply {
 		/*		margin: 5px;*/
 		padding: 20px 50px 20px 40px;
 		display: inline-block;
+		
+		border: 8px solid rgba(155, 205, 35, 0.2);
 		/*		font-family: "ITCKabelRegular";*/
 			
 		/*		border-bottom: 1px dotted rgb(240,255,240);*/
@@ -682,7 +684,7 @@ article.comment_reply {
 		section#posts_home h1{
 		/*	margin: 0;*/
 			font-family: 'SansitaOneRegular';
-			font-size: 30px;
+			font-size: 27px;
 			margin-top: 0px;
 			color: #A2CF4B;
 		}
@@ -835,12 +837,13 @@ article.comment_reply {
 	
 	section#changeons_home{
 		background-color: rgba(190,220,180, 0.1);
-		width: 300px;
-		height: 350px;
+		width: 270px;
+		height: 365px;
 		display: inline-block;
 		vertical-align: top;
 		margin: 0px 0px 0px 5px;
-		padding: 20px 20px 20px 20px;
+		padding: 20px 10px 20px 10px;
+		border: 8px solid rgba(155, 205, 35, 0.2);
 	}
 
 		section#changeons_home header{
@@ -850,7 +853,7 @@ article.comment_reply {
 			section#changeons_home header h1{
 			/*	margin: 0;*/
 				font-family: 'SansitaOneRegular';
-				font-size: 30px;
+				font-size: 27px;
 				margin-top: 0px;
 				color: #A2CF4B;
 			}
