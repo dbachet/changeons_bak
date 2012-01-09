@@ -1,22 +1,26 @@
 <div id="page_info" data-action="show_post"></div>
+
 <section id="post">
-	<div id="vote_down">
-		<%= link_to(image_tag("thumbs_up.png", :width => "60px", :height => "60px"), vote_up_post_path(@post), :method => :post, :remote => true, :class => "vote_up") %>
-	</div>
-
-	<p id="votes_result">
-		<%= render "posts/votes_result" %>
-	</p>
-
-	<div id="vote_down">
-		<%= link_to(image_tag("thumbs_down.png", :width => "60px", :height => "60px"), vote_down_post_path(@post), :method => :post, :remote => true, :class => "vote_down") %>
-	</div>
-
+	<div class="inset_shadow">
 	<header>
-	  <b>Title:</b>
-	  <%= @post.title %>
+	  <h1><%= @post.title %></h1>
 	</header>
+	<div id="post_vote">
+		<div id="vote_down">
+			<%= link_to(image_tag("thumbs_up.png", :width => "60px", :height => "60px"), vote_up_post_path(@post), :method => :post, :remote => true, :class => "vote_up") %>
+		</div>
 
+		<p id="votes_result">
+			<%= render "posts/votes_result" %>
+		</p>
+
+		<div id="vote_down">
+			<%= link_to(image_tag("thumbs_down.png", :width => "60px", :height => "60px"), vote_down_post_path(@post), :method => :post, :remote => true, :class => "vote_down") %>
+		</div>
+	</div>
+
+	
+	<div id="post_wrap">
 	<p>
 	  <b>Content:</b>
 		<div class="post_content">
@@ -48,6 +52,8 @@
 	</table>
 
 	<br />
+	</div>
+	</div>
 </section>
 
 <section id="comments">

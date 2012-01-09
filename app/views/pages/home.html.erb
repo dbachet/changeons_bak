@@ -1,6 +1,7 @@
 <div id="page_info" data-action="index_post"></div>
 
 <section id="posts_home" data-displayed-posts=<%= @displayed_posts %>>
+	<div class="inset_shadow">
 	<header>
 		<h1>Derniers articles</h1>
 	</header>
@@ -13,8 +14,11 @@
 	<br />
 
 	<% if can? :new, @post %><%= link_to 'New Post', new_post_path %><% end %>
+	</div>
 </section>
+
 <section id="changeons_home">
+	<div class="inset_shadow">
 	<header>
 		<h1>Envie de changer ?</h1>
 		<nav id="changeons">
@@ -49,5 +53,6 @@
 			<h2>Vous, aussi, exprimez pourquoi vous voulez changer !</h2>
 			<%= link_to "Changeons - Pourquoi ?", new_question_answer_path(2) %>
 		</div>
+	</div>
 	</div>
 </section>

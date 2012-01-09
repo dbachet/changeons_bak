@@ -21,7 +21,7 @@
 			width:100%;
 			margin:0 0 0 0;
 /*			font-family: 'SansitaOneRegular';*/
-			color: rgba(85, 85, 225, 1);			
+			color: #55AACF;			
 		}
 		ul.domtabs li{
 			font-size: 20px;
@@ -37,7 +37,7 @@
 			padding:.1em 0.2em;
 			display:block;
 			background:rgba(70, 70, 70, 0.5);
-			color: rgba(85, 85, 225, 1);
+			color: #55AACF;
 			height:3em;
 			font-weight:bold;
 			text-decoration:none;
@@ -64,7 +64,7 @@
 		ul.domtabs li.active a:active,
 		ul.domtabs li.active a:hover{
 			background:rgba(8, 8, 8, 0.4);
-			color: rgba(85, 85, 225, 1);
+			color: #55AACF;
 		}
 		#domtabprintview{
 			float:right;
