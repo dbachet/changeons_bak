@@ -24,7 +24,11 @@ class PostsController < AuthorizedController
   
   def vote_up
     begin
-      current_user.vote_exclusively_for(@post)
+      if current_user.voted_for?(@post)
+        current_user.clear_votes(@post)
+      else
+        current_user.vote_exclusively_for(@post)
+      end
       @votes_result = @post.plusminus
       
       # authorize! :vote_up, @post
@@ -39,7 +43,11 @@ class PostsController < AuthorizedController
   
   def vote_down
     begin
-      current_user.vote_exclusively_against(@post)
+      if current_user.voted_against?(@post)
+        current_user.clear_votes(@post)
+      else
+        current_user.vote_exclusively_against(@post)
+      end
       @votes_result = @post.plusminus
       
       # authorize! :vote_down, @post
