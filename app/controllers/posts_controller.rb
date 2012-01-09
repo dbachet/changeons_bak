@@ -104,7 +104,9 @@ class PostsController < AuthorizedController
     # authorize! :edit, :comment
     # puts "post => #{@post.inspect}"
     # puts "@comments_count => #{@comments_count} / @post.root_comments.count => #{@post.root_comments.count} / @comments.length => #{@comments.length}"
-
+    
+    @categories = @post.categories
+    @post_type = @post.post_type.name
     @tags = @post.tag_list
     @votes_result = @post.plusminus
     
