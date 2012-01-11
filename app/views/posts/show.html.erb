@@ -26,21 +26,17 @@
 		</div>
 	</header>
 	<div id="post_vote">
-		<div id="vote_down">
-			<%= link_to(image_tag("thumbs_up.png", :width => "60px", :height => "60px"), vote_up_post_path(@post), :method => :post, :remote => true, :class => "vote_up") %>
+		<div id="vote_up">
+			<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_post_path(@post), :method => :post, :remote => true) %>
 		</div>
 
-		<p id="votes_result">
+		<div id="votes_result">
 			<%= render "posts/votes_result" %>
-		</p>
-
-		<div id="vote_down">
-			<%= link_to(image_tag("thumbs_down.png", :width => "60px", :height => "60px"), vote_down_post_path(@post), :method => :post, :remote => true, :class => "vote_down") %>
 		</div>
 	</div>
 
 	
-	<div id="post_wrap">
+	<div id="post_content_wrap">
 	<p>
 	  <b>Content:</b>
 		<div class="post_content">

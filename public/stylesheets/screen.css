@@ -544,7 +544,7 @@ header#top_banner div#eoliennes{
 	display: block;
 	position: relative;
 	z-index: 800;
-	top: -287px;
+	top: -315px;
 	left: -45px;
 }
 
@@ -560,12 +560,12 @@ header#top_banner div#tree{
 }
 
 header#top_banner div#changeons{
-	height: 70px;
+	height: 99px;
 	width: 370px;
 	position: relative;
 	z-index: 801;
 	display: block;
-	
+	background: url('/images/changeons.png') 0px 10px no-repeat;
 	top: -240px;
 	font-size:50px;
 	left: 12px;
@@ -597,7 +597,7 @@ header#top_banner div#grass{
 	width: 820px;
 	position: relative;
 	z-index: 802;
-	top: -340px;
+	top: -369px;
 	left: 10px;
 /*	left: 66px;*/
 }
@@ -1044,11 +1044,22 @@ article#post{
 	article#post div#post_vote{
 		display: inline-block;
 		vertical-align: top;
-		height: 200px;
+		height: 90px;
 		width: 80px;
+		background: url('/images/changeons2.png') no-repeat;
 	}
 	
-	article#post div#post_wrap{
+		article#post div#post_vote div#vote_up{
+			padding: 22px 0 0 50px;
+			height: 40px;
+		}
+		
+		article#post div#post_vote div#votes_result{
+			padding: 0 23px 0 9px;
+			text-align: center;
+		}
+		
+	article#post div#post_content_wrap{
 		display: inline-block;
 		width: 690px;
 		padding: 5px;

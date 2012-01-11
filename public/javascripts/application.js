@@ -81,6 +81,7 @@ $(document).ready(function() {
 	});
 	// End fancyboxes
 
+	// post list for home page
 	$('section#posts_home article').live({
 	mouseenter: function() {
 	  	$('img', this).animate({
@@ -97,6 +98,23 @@ $(document).ready(function() {
 			// 			width: '50px',
 			// 			height: '50px'
 		}, 100);
+	}
+	});
+	// END - post list for home page
+	
+	
+	$('article#post div#post_vote').live({
+	mouseenter: function() {
+	  	$('img', this).animate({
+	    	width: '36px',
+			height: '34px'
+		}, 0);
+	},
+	mouseleave: function() {
+		$('img', this).animate({
+		  	width: '30px',
+			height: '29px'
+		}, 0);
 	}
 	});
 	
@@ -117,6 +135,8 @@ $(document).ready(function() {
 			clickstop: false
 		});
 	  });
+	
+	
 
 
 $('form#comment_new[data-validate]').validate();
