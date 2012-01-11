@@ -30,9 +30,13 @@ module CommentsHelper
   
   def display_comment(comment, is_new = false)
       content_tag(:article, :class => (comment.is_root_comment? ? (is_new ? "root_comment new" : "root_comment") : (is_new ? "comment_reply new reply_for_#{comment.parent_id}" : "comment_reply reply_for_#{comment.parent_id}")), :id => "comment_#{comment.id}" ) do
-        
-          content_tag(:header, comment.title) +
-          content_tag(:p, comment.body) +
+          content_tag(:div, :class => "comment_content") do
+            content_tag(:header, comment.title) +
+            content_tag(:div, comment.body, :class => "comment_body")
+          end +
+          content_tag(:div, "", :class => "arrow_comment") +
+          content_tag(:div, "#{comment.user.email}, le #{comment.created_at.strftime("%e")} #{getMonthFromNumber(comment.created_at.strftime("%m"))} #{comment.created_at.strftime("%Y")}", :class => "author_comment_name") +
+          content_tag(:div, content_tag(:img, "", :src => "/images/default_user_image.jpg", :class => "avatar"), :class => "author_comment_image") +
           (content_tag(:p, link_to('Edit', edit_post_comment_path(@post, comment), :class => "edit_comment_link fancybox.ajax")) if can? :edit, comment ) +
           (content_tag(:p, link_to('Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete, :remote => true)) if can? :destroy, comment) +
           content_tag(:p, (link_to('Reply', show_reply_post_comment_path(@post, comment), :remote => true, :class => "show_reply_fields") if comment.is_root_comment?) ) +

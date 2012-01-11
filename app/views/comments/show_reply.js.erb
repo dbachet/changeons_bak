@@ -1,6 +1,6 @@
 $('form#reply_new').remove();
 
-$('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
+// $('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
 
 var last_reply = $('div.reply_for_<%= @root_comment.id %>:last');
 if (last_reply[0]) {
@@ -8,9 +8,9 @@ if (last_reply[0]) {
 	
 	last_reply.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
 } else {
-	window.location = "#" + $('div#comment_<%= @root_comment.id %>').attr("id");
+	window.location = "#" + $('article#comment_<%= @root_comment.id %>').attr("id");
 	
-	$('div#comment_<%= @root_comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
+	$('article#comment_<%= @root_comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
 }
 
 

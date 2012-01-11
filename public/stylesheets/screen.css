@@ -646,31 +646,116 @@ section#newsletter_form{
 }
 
 /* Comment threads */
-div.root_comment_area {
-	background-color: black;
+div#display_comments div.root_comment_area {
+/*	background-color: rgba(0,0,0,0.3);*/
 	border-bottom: 1px solid red;
 	padding-top: 10px;
 }
+	
+	/* ROOT COMMENT */
+	div#display_comments article.root_comment {
+/*		background-color: rgba(0,0,0,0.3);*/
+		margin: 0px 10px 10px 10px;
+/*		border-bottom: 1px solid black;*/
+	}
 
-article.root_comment {
-	background-color: grey;
-	margin: 0px 10px 10px 10px;
-	border-bottom: 1px solid black;
-}
-
+	div#display_comments article.root_comment div.comment_content{
+		border: 8px solid rgba(0,0,0,0.1);
+		width: 600px;
+		margin: 0 0 0 100px;
+		background-color: rgba(0,0,0,0.2);
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		padding: 0 0 30px 0px;
+	}
+		
+		div#display_comments article.root_comment div.arrow_comment{
+			height: 11px;
+			width: 100%;
+			background: url('/images/arrow_comment.png') no-repeat 250px 0px;
+		}
+	
+		div#display_comments article.root_comment div.comment_content header{
+			background-color: rgba(200,200,200,0.1);
+			min-height:20px;
+			padding: 10px;
+		}
+		
+		div#display_comments article.root_comment div.comment_content div.comment_body{
+			margin: 0 0 0 50px;
+			padding: 10px 0 0 20px;
+		}
+		
+		div#display_comments article.root_comment div.author_comment_name{
+			padding: 0px 20px 0 220px;
+		}
+		
+		div#display_comments article.root_comment div.author_comment_image{
+			margin: -101px 0 -50px 84px;
+			-webkit-transform: rotate(-5deg); 
+			-moz-transform: rotate(-5deg);
+			transform: rotate(-5deg);
+			
+		}
+	/* END - ROOT COMMENT */	
+	
 
 article.root_comment a,
 article.root_comment a.visited,
 article.comment_reply a,
 article.comment_reply a.visited {
-	color: red;
+/*	color: red;*/
 }
 
-article.comment_reply {
-	margin: 20px;
-	background-color: yellow;
-	border-bottom: 1px solid black;
-}
+	/* COMMENT REPLY */
+	div#display_comments article.comment_reply {
+		margin: 20px;
+/*		background-color: rgba(0,0,0,0.6);*/
+/*		border-bottom: 1px solid black;*/
+	}
+	
+	div#display_comments article.comment_reply div.comment_content{
+		border: 8px solid rgba(0,0,0,0.1);
+		width: 600px;
+		margin: 0 0 0 200px;
+		background-color: rgba(0,0,0,0.2);
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		padding: 0 0 30px 0px;
+	}
+
+	div#display_comments article.comment_reply div.arrow_comment{
+		height: 11px;
+		width: 100%;
+		background: url('/images/arrow_reply.png') no-repeat 550px 0px;
+	}
+
+	div#display_comments article.comment_reply div.comment_content header{
+		background-color: rgba(200,200,200,0.1);
+		min-height:20px;
+		padding: 10px;
+	}
+	
+	div#display_comments article.comment_reply div.comment_content div.comment_body{
+		margin: 0 0 0 50px;
+		padding: 10px 0 0 20px;
+	}
+	
+	div#display_comments article.comment_reply div.author_comment_name{
+		padding: 0px 20px 0 520px;
+	}
+	
+	div#display_comments article.comment_reply div.author_comment_image{
+		margin: -83px 0 50px 770px;
+		-webkit-transform: rotate(5deg); 
+		-moz-transform: rotate(5deg);
+		transform: rotate(5deg);
+		
+	}
+	/* END - COMMENT REPLY */
+/* End - Comment threads */
 
 /* Home */
 
