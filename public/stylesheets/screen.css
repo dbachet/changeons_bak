@@ -1040,24 +1040,31 @@ article#post{
 			background-color: rgba(0,0,0,0.3);
 			border: 1px dotted #55AACF;
 		}
-
-	article#post div#post_vote{
-		display: inline-block;
-		vertical-align: top;
-		height: 90px;
-		width: 80px;
-		background: url('/images/changeons2.png') no-repeat;
-	}
 	
-		article#post div#post_vote div#vote_up{
-			padding: 22px 0 0 50px;
-			height: 40px;
+	article#post div#post_share{
+		display: inline-block;
+		background-color: rgba(0,0,0,0.3);
+		height: 250px;
+		width: 80px;
+		vertical-align: top;
+	}
+		article#post div#post_vote{
+			display: inline-block;
+			vertical-align: top;
+			height: 90px;
+			width: 80px;
+			background: url('/images/changeons2.png') no-repeat;
 		}
+	
+			article#post div#post_vote div#vote_up{
+				padding: 22px 0 0 50px;
+				height: 40px;
+			}
 		
-		article#post div#post_vote div#votes_result{
-			padding: 0 23px 0 9px;
-			text-align: center;
-		}
+			article#post div#post_vote div#votes_result{
+				padding: 0 23px 0 9px;
+				text-align: center;
+			}
 		
 	article#post div#post_content_wrap{
 		display: inline-block;
