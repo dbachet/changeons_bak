@@ -655,7 +655,7 @@ div#display_comments div.root_comment_area {
 	/* ROOT COMMENT */
 	div#display_comments article.root_comment {
 /*		background-color: rgba(0,0,0,0.3);*/
-		margin: 0px 10px 40px 10px;
+		margin: 0px 10px 75px 10px;
 /*		border-bottom: 1px solid black;*/
 	}
 
@@ -690,20 +690,41 @@ div#display_comments div.root_comment_area {
 			
 		}
 		
+			div#display_comments article.root_comment div.comment_content header a.edit_comment_link{
+				float:right;
+				background: url('/images/edit.png') no-repeat;
+				padding: 3px 10px 10px 27px;
+/*				margin-right: 10px;*/
+				height: 21px;
+				width: 35px;
+			}
+			
+			div#display_comments article.root_comment div.comment_content header a.delete_comment_link{
+				float:right;
+				background: url('/images/delete.png') no-repeat 10px 2px;
+				padding: 3px 10px 0px 35px;
+/*				margin: 0 10px;*/
+				height: 20px;
+				width: 60px;
+				border-left: 1px solid rgba(163,207,75,0.3);
+			}
+		
 		div#display_comments article.root_comment div.comment_content div.comment_body{
 			margin: 0 0 0 50px;
 			padding: 10px 0 0 20px;
 		}
 		
 		div#display_comments article.root_comment div.author_comment_name{
-			padding: 0px 20px 0 220px;
+			padding: 0px 20px 0 155px;
 		}
 		
 		div#display_comments article.root_comment div.author_comment_image{
-			margin: -113px 0 -50px 84px;
+			margin: -80px 0 -50px 84px;
 			-webkit-transform: rotate(-5deg); 
 			-moz-transform: rotate(-5deg);
 			transform: rotate(-5deg);
+			width: 60px;
+			height: 60px;
 		}
 		
 		div#display_comments article.root_comment div.author_comment_image img{
@@ -723,7 +744,7 @@ article.comment_reply a.visited {
 
 	/* COMMENT REPLY */
 	div#display_comments article.comment_reply {
-		margin: 20px 20px 40px 20px;
+		margin: 20px 20px 115px 20px;
 /*		background-color: rgba(0,0,0,0.6);*/
 /*		border-bottom: 1px solid black;*/
 	}
@@ -750,7 +771,7 @@ article.comment_reply a.visited {
 	div#display_comments article.comment_reply div.arrow_comment{
 		height: 11px;
 		width: 100%;
-		background: url('/images/arrow_reply.png') no-repeat 550px 0px;
+		background: url('/images/arrow_reply.png') no-repeat 605px 0px;
 	}
 
 	div#display_comments article.comment_reply div.comment_content header{
@@ -758,21 +779,43 @@ article.comment_reply a.visited {
 		min-height:20px;
 		padding: 10px;
 	}
-	
+
+		div#display_comments article.comment_reply div.comment_content header a.edit_comment_link{
+			float:right;
+			background: url('/images/edit.png') no-repeat;
+			padding: 3px 10px 10px 27px;
+			margin: 0 10px;
+			height: 21px;
+			width: 35px;
+		}
+		
+		div#display_comments article.comment_reply div.comment_content header a.delete_comment_link{
+			float:right;
+			background: url('/images/delete.png') no-repeat 10px 2px;
+			padding: 3px 10px 0px 35px;
+/*				margin: 0 10px;*/
+			height: 20px;
+			width: 60px;
+			border-left: 1px solid rgba(163,207,75,0.3);
+		}
+		
 	div#display_comments article.comment_reply div.comment_content div.comment_body{
 		margin: 0 70px 0 0px;
 		padding: 10px 0 0 20px;
 	}
 	
 	div#display_comments article.comment_reply div.author_comment_name{
-		padding: 0px 20px 0 520px;
+		padding: 0px 40px 0 0;
+		float: right;
 	}
 	
 	div#display_comments article.comment_reply div.author_comment_image{
-		margin: -85px 0 -50px 725px;
-		-webkit-transform: rotate(5deg); 
+		margin: -80px 0 -50px 725px;
+		-webkit-transform: rotate(5deg);
 		-moz-transform: rotate(5deg);
 		transform: rotate(5deg);
+		width: 60px;
+		height: 60px;
 	}
 	
 	div#display_comments article.comment_reply div.author_comment_image img{
