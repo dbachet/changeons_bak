@@ -288,9 +288,10 @@ body {
 	font-family: "CaviarDreamsRegular", verdana, arial;
 	color: #888888;
 	
-	background-color: rgba(160,195,160, 0.9);	
+/*	background-color: rgba(220, 34, 66, 1);	VACHEMENT SYMPA CETTE COULEUR*/
+	background-color: rgba(123, 202, 0, 1);
 /*	background: url("/images/paint.png") left no-repeat, url("/images/background_top_left.png") left top no-repeat, url("/images/background_top_right.png") right top no-repeat, url("/images/background_bottom.png") bottom no-repeat, url("/images/background_bois_dark_green.jpg") repeat;*/
-	background: url("/images/background_bois_marron_clair.jpg") repeat;
+/*	background: url("/images/background_bois_marron_clair.jpg") repeat;*/
 
 
 /*	background-color: #7FBB8C;*/
@@ -334,8 +335,7 @@ section#posts_home,
 section#changeons_home, 
 article#post{
 	background-color: rgba(190,220,180, 0.1);
-	border: 8px solid rgba(155, 205, 35, 0.2);
-	
+	border: 8px solid rgba(149, 40, 31, 1);
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
@@ -368,8 +368,8 @@ header nav#top_page{
 	z-index: 999;
 /*	padding: 10px;*/
 
-	background-image: url('/images/top_nav2.png');
-	background-color: rgba(27,20,17,0.9);
+/*	background-image: url('/images/top_nav2.png');*/
+	background-color: rgba(175, 77, 5, 1);
 
 /*
 	-webkit-border-bottom-left-radius: 5px;
@@ -380,9 +380,9 @@ header nav#top_page{
 	border-bottom-left-radius: 5px;*/
 
 
-	-webkit-box-shadow: 0px 10px 10px rgba(23,15,13, 1);
-	-moz-box-shadow: 0px 10px 10px rgba(23,15,13, 1);
-	box-shadow: 0px 10px 10px rgba(23,15,13, 1);
+	-webkit-box-shadow: 0px 4px 7px rgba(120,30,13, 1);
+	-moz-box-shadow: 0px 4px 7px rgba(120,30,13, 1);
+	box-shadow: 0px 4px 7px rgba(120,30,13, 1);
 }
 
 /*header nav#hmenu span{
@@ -402,7 +402,7 @@ header nav ul#hmenu {
 
 /*	padding: 0;*/
 /*	line-height: 1;*/
-	height: 45px;
+	height: 35px;
 }
 
 header nav ul#hmenu li {
@@ -519,7 +519,7 @@ header#top_banner{
 
 header#top_banner img{
 /*	border: 10px solid rgb(70,140,70);*/
-	border: 10px solid rgba(190,220,180, 0.1);
+	border: 10px solid rgba(176, 216, 0, 1);
 /*	border-bottom: 0px;*/
 	top: 0px;
 	position: relative;
@@ -1608,7 +1608,7 @@ footer {
 	z-index: 1000;
 	padding: 10px;
 	font-family: "GoLong";
-	background-color: rgba(41,41,41, 1);
+	background-color: rgba(140,10,80, 1);
 /*	background-color: rgba(40,25,20, 0.7);*/
 	height: 15px;
 	font-size: 16px;
@@ -1655,7 +1655,7 @@ footer a:hover{
   	color: #A2CF4B;
 /*	color: white;*/
 	
-	background-color: rgba(51,51,153, 0.4);
+	background-color: rgba(123, 202, 0, 1);
 	transition-property: background-color;
 	transition-duration: .5s;
 	-webkit-transition-property: background-color;
@@ -1686,18 +1686,18 @@ footer nav ul li{
 }
 
 footer nav ul li.first{
-	background-color: rgba(42, 42, 42, 1);
+	background-color: rgba(149, 40, 31, 1);
 }
 
 footer nav ul li.second{
-	background-color: rgba(62, 62, 62, 1);
+	background-color: rgba(175, 77, 5, 1);
 }
 
 footer nav ul li.third{
-	background-color: rgba(102, 102, 102, 1);
-	-webkit-box-shadow: 5px 0px 5px rgba(25,25,25, 1);
-	-moz-box-shadow: 5px 0px 5px rgba(25,25,25, 1);
-	box-shadow: 5px 0px 5px rgba(25,25,25, 1);
+	background-color: rgba(176, 216, 0, 1);
+	-webkit-box-shadow: 5px 3px 5px rgba(25,25,25, 1);
+	-moz-box-shadow: 5px 3px 5px rgba(25,25,25, 1);
+	box-shadow: 5px 3px 5px rgba(25,25,25, 1);
 }
 
 footer nav span{
@@ -1721,3 +1721,11 @@ footer nav ul li a.current {
 	box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
 
 }
+
+/* 
+Jaune:  rgba(190, 220, 0, 0.8) or rgba(176, 216, 0, 1)
+Rouge: rgba(155, 0, 35, 0.8) or rgba(149, 40, 31, 1)
+Vert: rgba(123, 202, 0, 1)
+Orange: rgba(175, 77, 5, 1)
+Fuschia: rgba(140, 10, 80, 1)
+*/
