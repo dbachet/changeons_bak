@@ -863,6 +863,122 @@ article.comment_reply a.visited {
 		box-shadow: 0px 0px 10px rgba(0,0,0, 1);
 	}
 	/* END - COMMENT REPLY */
+
+	/* Comment form */
+	div#wrap_form_new_comment{
+/*		-webkit-transform: rotate(-5deg);
+		-moz-transform: rotate(-5deg);
+		transform: rotate(-5deg);*/
+/*		background: url('/images/light.png');*/
+	}
+	
+	form#comment_new label{
+/*		display: none;*/
+	}
+	
+	form#comment_new h1{
+		font-family: 'CaviarDreamsBold', 'Verdana', 'Arial';
+	}
+	
+	form#comment_new textarea{
+		border: 0;
+/*		background: none;*/
+		-webkit-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
+		-mox-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
+		box-shadow: 3px -3px 5px rgba(0,0,0, 1);
+		width: 430px;
+		outline: none!important;
+	}
+	
+	form#comment_new input[type=text]{
+		border: 0;
+/*		background: none;*/
+		-webkit-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
+		-mox-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
+		box-shadow: 3px -3px 5px rgba(0,0,0, 1);
+		width: 430px;
+		height: 24px;
+		outline: none!important;
+	}
+	
+	form#comment_new input#comment_guest_email{
+		background: url('/images/form_field_email.png') no-repeat 330px;
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	
+	form#comment_new input#comment_guest_website{
+		background: url('/images/form_field_website.png') no-repeat 310px;
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	
+	form#comment_new input#comment_title{
+		background: url('/images/form_field_title.png') no-repeat 370px;
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	
+	form#comment_new textarea#comment_body{
+		background: url('/images/form_field_comment.png') no-repeat 260px 10px;
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	/* End - Comment form */
+	
+	/* Reply form */
+		div#wrap_form_new_comment{
+	/*		-webkit-transform: rotate(-5deg);
+			-moz-transform: rotate(-5deg);
+			transform: rotate(-5deg);*/
+	/*		background: url('/images/light.png');*/
+		}
+
+		form#reply_new label{
+	/*		display: none;*/
+		}
+
+		form#reply_new h1{
+			font-family: 'CaviarDreamsBold', 'Verdana', 'Arial';
+		}
+
+		form#reply_new textarea{
+			border: 0;
+	/*		background: none;*/
+			-webkit-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
+			-mox-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
+			box-shadow: 3px -3px 5px rgba(0,0,0, 1);
+			width: 430px;
+			outline: none!important;
+		}
+
+		form#reply_new input[type=text]{
+			border: 0;
+	/*		background: none;*/
+			-webkit-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
+			-mox-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
+			box-shadow: 3px -3px 5px rgba(0,0,0, 1);
+			width: 430px;
+			height: 24px;
+			outline: none!important;
+		}
+
+		form#reply_new input#reply_guest_email{
+			background: url('/images/form_field_email.png') no-repeat 330px;
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		form#reply_new input#reply_guest_website{
+			background: url('/images/form_field_website.png') no-repeat 310px;
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		form#reply_new input#reply_title{
+			background: url('/images/form_field_title.png') no-repeat 370px;
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		form#reply_new textarea#reply_body{
+			background: url('/images/form_field_comment.png') no-repeat 260px 10px;
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+	/* End - Reply form */
 /* End - Comment threads */
 
 /* Home */
