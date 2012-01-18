@@ -102,6 +102,27 @@ $(document).ready(function() {
 	});
 	// END - post list for home page
 	
+	// form hover
+	
+	$('form#comment_new input, form#comment_new textarea, form#reply_new input, form#reply_new textarea, input#newsletter_subscriber_email').live({
+	mouseenter: function() {
+	  	$(this).animate({
+	    	opacity: 1// ,
+			// 			width: '75px',
+			// 			height: '75px'
+		}, 200);
+	},
+	mouseleave: function() {
+		$(this).animate({
+		  	opacity: 0.5// ,
+			// 			width: '50px',
+			// 			height: '50px'
+		}, 100);
+	}
+	});
+	
+	// END - form hover
+	
 	
 	$('article#post div#post_vote').live({
 	mouseenter: function() {
