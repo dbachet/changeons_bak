@@ -104,7 +104,7 @@ $(document).ready(function() {
 	
 	// form hover
 	
-	$('form#comment_new input, form#comment_new textarea, form#reply_new input, form#reply_new textarea, input#newsletter_subscriber_email').live({
+	$('form#comment_new input, form#comment_new textarea, form#reply_new input, form#reply_new textarea, section#newsletter_form, section#sponsors').live({
 	mouseenter: function() {
 	  	$(this).animate({
 	    	opacity: 1// ,
@@ -114,7 +114,7 @@ $(document).ready(function() {
 	},
 	mouseleave: function() {
 		$(this).animate({
-		  	opacity: 0.5// ,
+		  	opacity: 0.7// ,
 			// 			width: '50px',
 			// 			height: '50px'
 		}, 100);

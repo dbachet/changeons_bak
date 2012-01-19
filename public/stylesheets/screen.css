@@ -679,7 +679,7 @@ header#top_banner div#changeons a:hover{
 header#top_banner div#grass{
 	background: url("/images/grass.png") repeat-x;
 	height: 67px;
-	width: 820px;
+	width: 802px;
 	position: relative;
 	z-index: 802;
 	top: -369px;
@@ -694,6 +694,7 @@ header#top_banner div#right_top_banner{
 	border: 1px dashed black;
 	display: inline-block;
 /*	float: right;*/
+	margin-left: 18px;
 }
 
 /*section#top_banner div#banner{
@@ -714,35 +715,69 @@ div#right_bar{
 /*	display: inline-block;*/
 	width: 254px;
 	height: 250px;
-	overflow: auto;
+/*	overflow: auto;*/
 	margin: 10px 0;
 }
 
 /* NEWSLETTER FORM */
 
-section#newsletter_form{
+section#newsletter_form,
+section#sponsors{
 	padding: 10px;
-	height: 215px;
+	min-height: 107px;
+	background-color: rgba(0,0,0,0.3);
+	opacity: 0.7;
+	margin-bottom: 10px;
 }
+
+		section#newsletter_form header h1,
+		section#sponsors header h1{
+			font-family: "CaviarDreamsBold", verdana, arial;
+			font-size: 27px;
+			text-align: right;
+			border-bottom: 3px solid #95281F;
+			margin-top: 0px;
+			color: #95281F;
+		}
 
 input#newsletter_subscriber_email{
 	border: 0;
 /*	background: none;*/
-	-webkit-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
-	-mox-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
-	box-shadow: 3px -3px 5px rgba(0,0,0, 1);
-	width: 200px;
+	-webkit-box-shadow: 0 0 7px rgba(0,0,3, 1);
+	-mox-box-shadow: 0 0 7px rgba(0,0,3, 1);
+	box-shadow: 0 0 7px rgba(0,0,3, 1);
+	width: 232px;
 	height: 24px;
 	outline: none!important;
 	margin-left: 0px;
 	margin-bottom: 10px;
-	background: url('/images/form_field_email.png') no-repeat 102px;
-	opacity: 0.5;
+	background: url('/images/form_field_email.png') no-repeat 132px;
+	background-color: rgba(255, 255, 255, 0.6);
 }
 
 input#newsletter_subscriber_submit{
-	width: 200px;
+	width: 232px;
 }
+	
+	section#sponsors div{
+		padding: 0px 2.6em 0px;
+		display: inline-block;
+	}
+		
+	section#sponsors article.sponsor{
+		display: inline-block;
+		font-size: 14px;
+		text-align: center;
+		border: 1px dashed black;
+		color: black;
+		height: 70px;
+		width: 80px;
+		padding-top: 10px;
+		-webkit-border-radius: 3px; 
+		-moz-border-radius: 3px; 
+		-o-border-radius: 3px; 
+		border-radius: 3px;
+	}
 
 /* END - NEWSLETTER FORM */
 
@@ -1250,7 +1285,7 @@ article.comment_reply a.visited {
 		min-height: 365px;
 		display: inline-block;
 		vertical-align: top;
-		margin: 0px 0px 0px 5px;
+		margin: 0px 0px 0px 20px;
 		padding: 20px;
 /*		padding: 20px 10px 20px 10px;*/
 		
@@ -1795,7 +1830,7 @@ footer nav ul li a.current {
 /* 
 Jaune:  rgba(190, 220, 0, 0.8) or rgba(176, 216, 0, 1)
 Jaune clair: #A2CF4B
-Rouge: rgba(155, 0, 35, 0.8) or rgba(149, 40, 31, 1)
+Rouge: rgba(155, 0, 35, 0.8) or rgba(149, 40, 31, 1) or #95281F
 Vert: rgba(123, 202, 0, 1) or #7BCA00
 Vert foncé: #31AD31
 Orange: rgba(175, 77, 5, 1) or #AF4D05

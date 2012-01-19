@@ -27,7 +27,7 @@
 		</div>
 	<div id="main">
 		<header id="top_banner">
-			<%= image_tag('/images/test_image_top_banner.png', :height => "220px", :width => "820px") %>
+			<%= image_tag('/images/test_image_top_banner.png', :height => "220px", :width => "802px") %>
 			<div id="right_top_banner"></div>
 			<div id="changeons"></div>
 			<div id="eoliennes"></div>
@@ -38,7 +38,9 @@
 		</div>
 		<div id="right_bar">
 			<section id="newsletter_form">
-				<ul>
+				<header>
+					<h1>NEWSLETTER</h1>
+				</header>
 				<%= simple_form_for(@newsletter_subscriber, :validate => true) do |f| %>
 				  <%= f.error_notification %>
 
@@ -49,8 +51,18 @@
 				  <div class="actions">
 				    <%= f.button :submit, "S'inscrire", :class => "awesome orange" %>
 				  </div>
-				<% end %>	
-				</ul>
+				<% end %>
+			</section>
+			<section id="sponsors">
+				<header>
+					<h1>SPONSORS</h1>
+				</header>
+				<div>
+					<article class="sponsor">Sponsorisez ce site web
+					</article>
+					<article class="sponsor">Sponsorisez ce site web
+					</article>
+				</div>
 			</section>
 		</div>
 
