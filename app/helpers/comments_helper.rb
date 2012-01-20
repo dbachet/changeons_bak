@@ -42,7 +42,7 @@ module CommentsHelper
           content_tag(:div, "#{comment.user.email}, le #{comment.created_at.strftime("%e")} #{getMonthFromNumber(comment.created_at.strftime("%m"))} #{comment.created_at.strftime("%Y")}", :class => "author_comment_name") +
           content_tag(:div, content_tag(:img, "", :src => "/images/default_user_image.jpg", :class => "avatar"), :class => "author_comment_image") +
           
-          (link_to('Répondre', show_reply_post_comment_path(@post, comment), :remote => true, :class => "show_reply_fields gradient") if comment.is_root_comment?) +
+          (link_to('Répondre', show_reply_post_comment_path(@post, comment), :remote => true, :class => "show_reply_fields awesome orange") if comment.is_root_comment?) +
           (content_tag(:p, "", :class => "reply_fields", :id => "reply_comment_#{comment.id}") if comment.is_root_comment?)
       end
   end
