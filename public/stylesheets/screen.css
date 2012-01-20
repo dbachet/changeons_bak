@@ -343,9 +343,9 @@ article#post{
 		display: inline-block;
 		vertical-align: top;*/
 	
-	-webkit-box-shadow:  0 0 7px rgba(0,0,3, 1);
-	-mox-box-shadow:  0 0 7px rgba(0,0,3, 1);
-	box-shadow:  0 0 7px rgba(0,0,3, 1);
+	-webkit-box-shadow:  0 0 7px #000;
+	-mox-box-shadow:  0 0 7px #000;
+	box-shadow:  0 0 7px #000;
 }
 
 form#comment_new input[type=text],
@@ -353,6 +353,16 @@ form#comment_new textarea,
 form#reply_new input[type=text],
 form#reply_new textarea{
 	opacity: 0.5;
+	border: 0;
+	-webkit-box-shadow: 0 0 7px #000;
+	-mox-box-shadow: 0 0 7px #000;
+	box-shadow: 0 0 7px #000;
+	width: 430px;
+	outline: none!important;
+	-webkit-border-radius: 2px; 
+	-moz-border-radius: 2px; 
+	-o-border-radius: 2px; 
+	border-radius: 2px;
 }
 
 .awesome{
@@ -743,16 +753,20 @@ section#sponsors{
 input#newsletter_subscriber_email{
 	border: 0;
 /*	background: none;*/
-	-webkit-box-shadow: 0 0 7px rgba(0,0,3, 1);
-	-mox-box-shadow: 0 0 7px rgba(0,0,3, 1);
-	box-shadow: 0 0 7px rgba(0,0,3, 1);
+	-webkit-box-shadow: 0 0 7px #000;
+	-mox-box-shadow: 0 0 7px #000;
+	box-shadow: 0 0 7px #000;
 	width: 232px;
 	height: 24px;
 	outline: none!important;
 	margin-left: 0px;
 	margin-bottom: 10px;
 	background: url('/images/form_field_email.png') no-repeat 132px;
-	background-color: rgba(255, 255, 255, 0.6);
+	background-color: #BBD199;
+	-webkit-border-radius: 2px; 
+	-moz-border-radius: 2px; 
+	-o-border-radius: 2px; 
+	border-radius: 2px;
 }
 
 input#newsletter_subscriber_submit{
@@ -760,7 +774,7 @@ input#newsletter_subscriber_submit{
 }
 	
 	section#sponsors div{
-		padding: 0px 2.6em 0px;
+		padding: 0px 2.5em 0px;
 		display: inline-block;
 	}
 		
@@ -1009,30 +1023,18 @@ article.comment_reply a.visited {
 	
 		form#comment_new textarea,
 		form#reply_new textarea{
-			border: 0;
-/*			background: none;*/
-			-webkit-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
-			-mox-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
-			box-shadow: 3px -3px 5px rgba(0,0,0, 1);
-			width: 430px;
-			outline: none!important;
+
 		}
 	
 		form#comment_new input[type=text],
 		form#reply_new input[type=text]{
-			border: 0;
-/*			background: none;*/
-			-webkit-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
-			-mox-box-shadow: 3px -3px 5px rgba(0,0,0, 1);
-			box-shadow: 3px -3px 5px rgba(0,0,0, 1);
-			width: 430px;
+
 			height: 24px;
-			outline: none!important;
 		}
 	
 		form#comment_new input#comment_guest_email{
 			background: url('/images/form_field_email.png') no-repeat 330px;
-			background-color: rgba(255, 255, 255, 0.1);
+			background-color: #BBD199;
 		}
 		
 /*		form#comment_new input#comment_title:hover{
@@ -1046,17 +1048,17 @@ article.comment_reply a.visited {
 	
 		form#comment_new input#comment_guest_website{
 			background: url('/images/form_field_website.png') no-repeat 310px;
-			background-color: rgba(255, 255, 255, 0.1);
+			background-color: #BBD199;
 		}
 	
 		form#comment_new input#comment_title{
 			background: url('/images/form_field_title.png') no-repeat 370px;
-			background-color: rgba(255, 255, 255, 0.1);
+			background-color: #BBD199;
 		}
 	
 		form#comment_new textarea#comment_body{
 			background: url('/images/form_field_comment.png') no-repeat 260px 10px;
-			background-color: rgba(255, 255, 255, 0.1);
+			background-color: #BBD199;
 		}
 	/* End - Comment form */
 	
@@ -1064,22 +1066,22 @@ article.comment_reply a.visited {
 
 			form#reply_new input#reply_guest_email{
 				background: url('/images/form_field_email.png') no-repeat 330px;
-				background-color: rgba(255, 255, 255, 0.1);
+				background-color: #BBD199;
 			}
 
 			form#reply_new input#reply_guest_website{
 				background: url('/images/form_field_website.png') no-repeat 310px;
-				background-color: rgba(255, 255, 255, 0.1);
+				background-color: #BBD199;
 			}
 
 			form#reply_new input#reply_title{
 				background: url('/images/form_field_title.png') no-repeat 370px;
-				background-color: rgba(255, 255, 255, 0.1);
+				background-color: #BBD199;
 			}
 
 			form#reply_new textarea#reply_body{
 				background: url('/images/form_field_comment.png') no-repeat 260px 10px;
-				background-color: rgba(255, 255, 255, 0.1);
+				background-color: #BBD199;
 			}
 	/* End - Reply form */
 /* End - Comment threads */
