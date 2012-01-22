@@ -1,6 +1,6 @@
 <%= form_for(@comment, :as => "comment",:url => post_comments_path(@post), :remote => true, :validate => (current_user ? true : false)) do |f| %>
 	
-	<h1>Nouveau commentaire</h1>
+	<h1>Nouveau commentaire à propos de "<%= @post.title %>"</h1>
 
 	<% if @comment.errors.any? %>
 		<div id="error_explanation">
@@ -14,7 +14,7 @@
 		</div>
 	<% end %>
 
-
+<div class="left">
 	<div class="field">
 	  <%= f.label :title %><br />
 	  <%= f.text_field :title, 'data-post-id' => @post.id %>
@@ -38,4 +38,12 @@
 		</div>
 	<% end %>
 	</div>
+</div>
+<div class="right">
+	ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+		ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+			ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+				ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+					ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+</div>
 <% end %>

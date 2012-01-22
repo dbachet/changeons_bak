@@ -2,21 +2,22 @@ var comment_title = $('form#reply_new input#reply_title').val(),
 	comment_content = $('form#reply_new textarea#reply_body').val(),
 	comment_guest_email = $('form#reply_new input#reply_guest_email').val(),
 	comment_guest_website = $('form#reply_new input#reply_guest_website').val(),
-	last_reply = $('div.reply_for_<%= @root_comment.id %>:last');
+	last_reply = $('article.reply_for_<%= @root_comment.id %>:last');
 
-$('form#reply_new').remove();
+$('div#wrap_form_new_reply').remove();
 	
 if (last_reply[0]) {
-
+	window.location = "#" + last_reply.attr("id");
 	last_reply.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
 } else {
-
-	$('div#comment_<%= @root_comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
+	var root_com = $('article#comment_<%= @root_comment.id %>');
+	window.location = "#" + root_com.attr("id");
+	root_com.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
 }
 
-$('form#reply_new').hide();
+$('div#wrap_form_new_reply').hide();
 
-$('form#reply_new').fadeIn("slow");
+$('div#wrap_form_new_reply').fadeIn("slow");
 
 
 $('form#reply_new input#reply_title').val(comment_title);

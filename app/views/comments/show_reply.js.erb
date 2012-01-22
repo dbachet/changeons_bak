@@ -1,22 +1,23 @@
-$('form#reply_new').remove();
+$('div#wrap_form_new_reply').remove();
 
 // $('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
 
-var last_reply = $('div.reply_for_<%= @root_comment.id %>:last');
+var last_reply = $('article.reply_for_<%= @root_comment.id %>:last');
 if (last_reply[0]) {
-	window.location = "#" + $('div.reply_for_<%= @root_comment.id %>:last').attr("id");
+	window.location = "#" + last_reply.attr("id");
 	
 	last_reply.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
 } else {
-	window.location = "#" + $('article#comment_<%= @root_comment.id %>').attr("id");
+	var root_com = $('article#comment_<%= @root_comment.id %>');
+	window.location = "#" + root_com.attr("id");
 	
-	$('article#comment_<%= @root_comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
+	root_com.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
 }
 
 
-$('form#reply_new').hide();
+$('div#wrap_form_new_reply').hide();
 
-$('form#reply_new').slideDown("slow");
+$('div#wrap_form_new_reply').slideDown("slow");
 
 
 $('form#reply_new[data-validate], form#comment_new[data-validate]').validate();

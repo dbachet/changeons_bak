@@ -114,7 +114,7 @@ $(document).ready(function() {
 	},
 	mouseleave: function() {
 		$(this).animate({
-		  	opacity: 0.7// ,
+		  	opacity: 0.5// ,
 			// 			width: '50px',
 			// 			height: '50px'
 		}, 100);

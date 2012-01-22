@@ -357,7 +357,7 @@ form#reply_new textarea{
 	-webkit-box-shadow: 0 0 7px #000;
 	-mox-box-shadow: 0 0 7px #000;
 	box-shadow: 0 0 7px #000;
-	width: 430px;
+	width: 400px;
 	outline: none!important;
 	-webkit-border-radius: 2px; 
 	-moz-border-radius: 2px; 
@@ -735,7 +735,7 @@ header#top_banner div#right_top_banner{
 div#yield{
 	display: inline-block;
 	min-height: 100px;
-	width: 840px;
+	width: 822px;
 	margin: 10px 0;
 }
 
@@ -796,10 +796,58 @@ input#newsletter_subscriber_submit{
 /* END - NEWSLETTER FORM */
 
 /* Comment threads */
+
+div#wrap_form_new_comment{
+	background-color: rgba(140, 10, 80, 1);
+	padding: 20px 28px;
+	vertical-align: top;
+}
+
+div#wrap_form_new_comment div.left{
+	display: inline-block;
+	border-right: 1px solid #888;
+	width: 34em;
+	vertical-align: top;
+	margin-top: 1em;
+}
+
+div#wrap_form_new_comment div.right{
+	display: inline-block;
+	width: 23em;
+	padding-left: 2.3em;
+	text-align: justify;
+	vertical-align: top;
+	margin-top: 1em;
+}
+
+div#wrap_form_new_reply{
+	background-color: #AF4D05;
+	padding: 20px 28px;
+	vertical-align: top;
+}
+
+div#wrap_form_new_reply div.left{
+	display: inline-block;
+	padding-right: 2.4em;
+	width: 23em;
+	vertical-align: top;
+	text-align: justify;
+	margin-top: 1em;
+}
+
+div#wrap_form_new_reply div.right{
+	display: inline-block;
+	width: 31.8em;
+	border-left: 1px solid #888;
+	padding-left: 2.4em;
+	vertical-align: top;
+	margin-top: 1em;
+}
+	
 section#comments header h1{
 	font-family: "CaviarDreamsBold", verdana, arial;
 	font-size: 27px;
-	border-bottom: 3px solid #95281F;
+	border-bottom: 7px solid #95281F;
 	color: #95281F;
 }
 
@@ -812,7 +860,7 @@ div#display_comments div.root_comment_area {
 	/* ROOT COMMENT */
 	div#display_comments article.root_comment {
 /*		background-color: rgba(0,0,0,0.3);*/
-		margin: 0px 10px 75px 10px;
+		margin: 0px 10px 33px 10px;
 /*		border-bottom: 1px solid black;*/
 	}
 
@@ -913,7 +961,7 @@ article.comment_reply a.visited {
 
 	/* COMMENT REPLY */
 	div#display_comments article.comment_reply {
-		margin: 20px 20px 115px 20px;
+		margin: 20px 20px 102px 20px;
 /*		background-color: rgba(0,0,0,0.6);*/
 /*		border-bottom: 1px solid black;*/
 	}
@@ -999,11 +1047,13 @@ article.comment_reply a.visited {
 		form#comment_new h1,
 		form#reply_new h1{
 			font-family: 'CaviarDreamsBold', 'Verdana', 'Arial';
+			margin: 0;
+			padding: 0;
 		}
 	
 		form#comment_new textarea,
 		form#reply_new textarea{
-
+			height: 150px;
 		}
 	
 		form#comment_new input[type=text],
@@ -1013,8 +1063,9 @@ article.comment_reply a.visited {
 		}
 	
 		form#comment_new input#comment_guest_email{
-			background: url('/images/form_field_email.png') no-repeat 330px;
+			background: url('/images/form_field_email.png') no-repeat 195px;
 			background-color: #BBD199;
+			width: 295px;
 		}
 		
 /*		form#comment_new input#comment_title:hover{
@@ -1027,17 +1078,18 @@ article.comment_reply a.visited {
 		}*/
 	
 		form#comment_new input#comment_guest_website{
-			background: url('/images/form_field_website.png') no-repeat 310px;
+			background: url('/images/form_field_website.png') no-repeat 175px;
 			background-color: #BBD199;
+			width: 295px;
 		}
 	
 		form#comment_new input#comment_title{
-			background: url('/images/form_field_title.png') no-repeat 370px;
+			background: url('/images/form_field_title.png') no-repeat 340px;
 			background-color: #BBD199;
 		}
 	
 		form#comment_new textarea#comment_body{
-			background: url('/images/form_field_comment.png') no-repeat 260px 10px;
+			background: url('/images/form_field_comment.png') no-repeat 230px 10px;
 			background-color: #BBD199;
 		}
 	/* End - Comment form */
@@ -1045,22 +1097,24 @@ article.comment_reply a.visited {
 	/* Reply form */
 
 			form#reply_new input#reply_guest_email{
-				background: url('/images/form_field_email.png') no-repeat 330px;
+				background: url('/images/form_field_email.png') no-repeat 195px;
 				background-color: #BBD199;
+				width: 295px;
 			}
 
 			form#reply_new input#reply_guest_website{
-				background: url('/images/form_field_website.png') no-repeat 310px;
+				background: url('/images/form_field_website.png') no-repeat 175px;
 				background-color: #BBD199;
+				width: 295px;
 			}
 
 			form#reply_new input#reply_title{
-				background: url('/images/form_field_title.png') no-repeat 370px;
+				background: url('/images/form_field_title.png') no-repeat 340px;
 				background-color: #BBD199;
 			}
 
 			form#reply_new textarea#reply_body{
-				background: url('/images/form_field_comment.png') no-repeat 260px 10px;
+				background: url('/images/form_field_comment.png') no-repeat 230px 10px;
 				background-color: #BBD199;
 			}
 	/* End - Reply form */
@@ -1814,6 +1868,7 @@ Jaune:  rgba(190, 220, 0, 0.8) or rgba(176, 216, 0, 1)
 Jaune clair: #A2CF4B
 Rouge: rgba(155, 0, 35, 0.8) or rgba(149, 40, 31, 1) or #95281F
 Vert: rgba(123, 202, 0, 1) or #7BCA00
+Nouveau VERT pour background: #5fca00
 Vert foncé: #31AD31
 Orange: rgba(175, 77, 5, 1) or #AF4D05
 Fuschia: rgba(140, 10, 80, 1)

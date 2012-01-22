@@ -1,39 +1,47 @@
-<%= form_for(@reply, :as => "reply", :url => create_reply_as_guest_path(@post, @root_comment), :html => {:method => :post}, :validate => true, :remote => true) do |f| %>
+<div id="wrap_form_new_reply">
+	<%= form_for(@reply, :as => "reply", :url => create_reply_as_guest_path(@post, @root_comment), :html => {:method => :post}, :validate => true, :remote => true) do |f| %>
 
-<h1>New reply</h1>
+	<h1>Votre réponse à <%= Comment.comment_author_email(@root_comment) %></h1>
 
-  <% if @reply.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@reply.errors.count, "error") %> prohibited this comment from being saved:</h2>
+	  <% if @reply.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@reply.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-      <ul>
-      <% @reply.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title, 'data-comment-id' => @comment.id %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body, :validate => true %>
-  </div>
-
-	<div class="new_reply_guest_fields">
-		<div class="field">
-	    <%= f.label :guest_email %><br />
-	    <%= f.text_field :guest_email, :validate => true %>
+	      <ul>
+	      <% @reply.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	
+	<div class="left">
+		<div class="new_reply_guest_fields">
+		  <div class="field">
+		    <%= f.label :guest_email %><br />
+		    <%= f.text_field :guest_email, :validate => true %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :guest_website %><br />
+		    <%= f.text_field :guest_website, :validate => true %>
+		  </div>
+		</div>
+	</div>
+	<div class="right">
+	  <div class="field">
+	    <%= f.label :title %><br />
+	    <%= f.text_field :title, 'data-comment-id' => @comment.id %>
 	  </div>
 	  <div class="field">
-	    <%= f.label :guest_website %><br />
-	    <%= f.text_field :guest_website, :validate => true %>
+	    <%= f.label :body %><br />
+	    <%= f.text_area :body, :validate => true %>
+	  </div>
+
+
+	
+	  <div class="actions">
+	    <%= f.submit %>
 	  </div>
 	</div>
-	
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+	<% end %>
+</div>
