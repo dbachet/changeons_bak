@@ -1,7 +1,7 @@
 <ul id="hmenu">
 	<li><%= 
-			link_to_unless_current("HOME", root_path, :class => "home awesome orange top_menu") do
-				link_to("HOME", root_path, :class => "home awesome orange current top_menu")
+			link_to_unless_current(raw("Change"+"&nbsp;&nbsp;"+"ns"), root_path, :class => "changeons ") do
+				link_to(raw("Change"+"&nbsp;&nbsp;"+"ns"), root_path, :class => "changeons current")
 			end 
 		%>
 	</li>
@@ -9,15 +9,15 @@
 
 
 	<li><%=
-			link_to_unless_current("Astuces", pages_tips_path, :class => "awesome orange top_menu") do
-				link_to("Astuces", pages_tips_path, :class => "current awesome orange top_menu")
+			link_to_unless_current("Astuces", pages_tips_path, :class => "awesome top_menu") do
+				link_to("Astuces", pages_tips_path, :class => "current awesome top_menu")
 			end
 		%>
 	</li>
 
 	<li><%=
-			link_to_unless_current("Recherche avancée", pages_search_path, :class => "awesome orange top_menu") do
-				link_to("Recherche avancée", pages_search_path, :class => "current awesome orange top_menu")
+			link_to_unless_current("Recherche", pages_search_path, :class => "awesome top_menu") do
+				link_to("Recherche", pages_search_path, :class => "current awesome top_menu")
 			end
 		%>
 	</li>
