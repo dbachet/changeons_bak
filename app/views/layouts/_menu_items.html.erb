@@ -6,7 +6,12 @@
 		%>
 	</li>
 
-
+	<li><%=
+			link_to_unless_current("Articles", posts_path, :class => "awesome top_menu") do
+				link_to("Articles", posts_path, :class => "current awesome top_menu")
+			end
+		%>
+	</li>
 
 	<li><%=
 			link_to_unless_current("Astuces", pages_tips_path, :class => "awesome top_menu") do
@@ -16,8 +21,15 @@
 	</li>
 
 	<li><%=
-			link_to_unless_current("Recherche", pages_search_path, :class => "awesome top_menu") do
-				link_to("Recherche", pages_search_path, :class => "current awesome top_menu")
+			link_to_unless_current("Tests", pages_search_path, :class => "awesome top_menu") do
+				link_to("Tests", pages_search_path, :class => "current awesome top_menu")
+			end
+		%>
+	</li>
+	
+	<li><%=
+			link_to_unless_current("Évènements", pages_search_path, :class => "awesome top_menu") do
+				link_to("Évènements", pages_search_path, :class => "current awesome top_menu")
 			end
 		%>
 	</li>
