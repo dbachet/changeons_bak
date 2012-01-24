@@ -2,8 +2,8 @@
   <%= f.error_notification %>
 
   <div class="inputs">
-    <%= f.input :title %>
-    <%= f.input :description %>
+    <%= f.input :title, :label => false %>
+    <%= f.input :description, :label => false %>
 	<%= f.association :categories, :label => false, :as => :check_boxes %>
   </div>
 
