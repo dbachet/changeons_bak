@@ -15,8 +15,10 @@ article:
 	vote
 	
 	titre
+	auteur
 	description
 	date
+	
 	Y serez-vous?
 	sources
 
@@ -28,8 +30,12 @@ Test produit
 	modèle
 	Référence
 	description
+	opinion
 	Avantages
 	Inconvénients
+	prix_indicatf
+	
+	image
 	sources
 
 Astuces:			

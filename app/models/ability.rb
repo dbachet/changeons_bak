@@ -43,6 +43,7 @@ class Ability
       can [:home, :tips, :about, :search], :pages
       can :archives, Post
       can :manage, Tip, :user_id => user.id
+      can :manage, Event, :user_id => user.id
     else
       can [:create], NewsletterSubscriber
       can [:index, :show, :show_more_posts], Post
@@ -51,6 +52,7 @@ class Ability
       can [:home, :tips, :about, :search], :pages
       can :archives, Post
       can [:index, :show], Tip
+      can [:index, :show], Event
     end
   end
 end

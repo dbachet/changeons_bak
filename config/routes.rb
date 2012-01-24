@@ -1,6 +1,8 @@
 Changeons::Application.routes.draw do
   
 
+  resources :events
+
   resources :tips
 
   resources :questions do

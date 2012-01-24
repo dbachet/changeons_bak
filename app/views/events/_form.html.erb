@@ -1,0 +1,14 @@
+<%= simple_form_for(@event, :validate => true) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :title, :label => false %>
+    <%= f.input :description, :label => false %>
+    <%= f.input :event_date, :label => false %>
+	<%= f.association :categories, :label => false, :as => :check_boxes %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
