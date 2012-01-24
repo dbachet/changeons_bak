@@ -42,6 +42,7 @@ class Ability
       can [:edit, :update, :destroy], Comment , :user_id => user.id
       can [:home, :tips, :about, :search], :pages
       can :archives, Post
+      can :manage, Tip, :user_id => user.id
     else
       can [:create], NewsletterSubscriber
       can [:index, :show, :show_more_posts], Post
@@ -49,6 +50,7 @@ class Ability
       cannot [:create_reply, :create, :edit, :update, :destroy], Comment
       can [:home, :tips, :about, :search], :pages
       can :archives, Post
+      can [:index, :show], Tip
     end
   end
 end
