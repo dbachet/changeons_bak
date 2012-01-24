@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120124114449) do
+ActiveRecord::Schema.define(:version => 20120124120244) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(:version => 20120124114449) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cached_slug"
   end
 
   create_table "users", :force => true do |t|
