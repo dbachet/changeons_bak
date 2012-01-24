@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   attr_accessor :post_id, :root_comment_id, :action, :displayed_comments, :displayed_posts
   
   has_many :posts
+  has_many :tips
   has_many :comments
   
   def role?(role)

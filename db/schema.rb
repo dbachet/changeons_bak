@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102003852) do
+ActiveRecord::Schema.define(:version => 20120124114449) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -127,6 +127,21 @@ ActiveRecord::Schema.define(:version => 20120102003852) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "tip_categorizations", :force => true do |t|
+    t.integer  "tip_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tips", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

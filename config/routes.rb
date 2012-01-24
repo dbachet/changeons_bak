@@ -1,6 +1,8 @@
 Changeons::Application.routes.draw do
   
 
+  resources :tips
+
   resources :questions do
     resources :answers
   end

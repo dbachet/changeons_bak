@@ -1,0 +1,47 @@
+article:
+	vote
+	
+	titre
+	description courte
+	auteur
+	contenu
+	fichiers
+	dates à retenir + description
+	
+	questions à débattre	
+	sources
+
+évènement:
+	vote
+	
+	titre
+	description
+	date
+	Y serez-vous?
+	sources
+
+Test produit
+	vote
+	
+	intitulé
+	marque
+	modèle
+	Référence
+	description
+	Avantages
+	Inconvénients
+	sources
+
+Astuces:			
+	titre
+	description
+	auteur
+	sources
+	
+	
+	MUST BE LOCKED UNTIL MODERATION
+	vote	
+	
+source
+
+Scaffold, relationships, friendly_id, source, security, validation, inline validation, css
