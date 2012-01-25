@@ -1,0 +1,18 @@
+<%= simple_form_for(@product_test) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :brand %>
+    <%= f.input :product_model %>
+    <%= f.input :product_ref %>
+    <%= f.input :description %>
+    <%= f.input :opinion %>
+    <%= f.input :advantages %>
+    <%= f.input :drawbacks %>
+    <%= f.input :recommended_price %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

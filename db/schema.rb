@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125074542) do
+ActiveRecord::Schema.define(:version => 20120125085206) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -113,6 +113,20 @@ ActiveRecord::Schema.define(:version => 20120125074542) do
     t.integer  "post_type_id"
     t.text     "short_description"
     t.text     "post_image"
+  end
+
+  create_table "product_tests", :force => true do |t|
+    t.string   "brand"
+    t.string   "product_model"
+    t.string   "product_ref"
+    t.text     "description"
+    t.text     "opinion"
+    t.text     "advantages"
+    t.text     "drawbacks"
+    t.decimal  "recommended_price", :precision => 7, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cached_slug"
   end
 
   create_table "questions", :force => true do |t|

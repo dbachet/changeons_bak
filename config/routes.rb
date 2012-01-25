@@ -1,6 +1,8 @@
 Changeons::Application.routes.draw do
   
 
+  resources :product_tests
+
   resources :events
 
   resources :tips

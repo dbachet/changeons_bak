@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  brand: MyString
+  product_model: MyString
+  product_ref: MyString
+  description: MyText
+  opinion: MyText
+  advantages: MyText
+  drawbacks: MyText
+  recommended_price: 9.99
+
+two:
+  brand: MyString
+  product_model: MyString
+  product_ref: MyString
+  description: MyText
+  opinion: MyText
+  advantages: MyText
+  drawbacks: MyText
+  recommended_price: 9.99

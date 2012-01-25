@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Brand:</b>
+  <%= @product_test.brand %>
+</p>
+
+<p>
+  <b>Product model:</b>
+  <%= @product_test.product_model %>
+</p>
+
+<p>
+  <b>Product ref:</b>
+  <%= @product_test.product_ref %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product_test.description %>
+</p>
+
+<p>
+  <b>Opinion:</b>
+  <%= @product_test.opinion %>
+</p>
+
+<p>
+  <b>Advantages:</b>
+  <%= @product_test.advantages %>
+</p>
+
+<p>
+  <b>Drawbacks:</b>
+  <%= @product_test.drawbacks %>
+</p>
+
+<p>
+  <b>Recommended price:</b>
+  <%= @product_test.recommended_price %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_test_path(@product_test) %> |
+<%= link_to 'Back', product_tests_path %>
