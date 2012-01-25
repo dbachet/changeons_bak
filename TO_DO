@@ -16,6 +16,12 @@ article:
 	
 	titre
 	auteur
+	
+	addr_street
+	addr_postcode
+	addr_city
+	addr_country
+	
 	description
 	date
 	
@@ -52,3 +58,5 @@ Astuces:
 source
 
 Scaffold, relationships, friendly_id, source, security, validation, inline validation, css
+
+Changeons.org, un site à consonnance BIO, à la disposition de la communauté. Partager des idées, développer un savoir, réunir et trouver des informations utiles dans un seul et même but, le bien-être de tous ! 

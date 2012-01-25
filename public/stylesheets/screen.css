@@ -288,7 +288,8 @@ body {
 	font-family: "CaviarDreamsRegular", verdana, arial;
 	color: #888888;
 /*	background-color: rgba(123, 202, 0, 1);*/
-	background: url('/images/bg_body.jpg') top repeat-x, #c1efba;
+/*	background: url('/images/bg_body.jpg') top repeat-x, #c1efba;*/
+	background: #c1efba;
 	
 /*	background-color: rgba(220, 34, 66, 1);	VACHEMENT SYMPA CETTE COULEUR*/
 	
@@ -516,16 +517,17 @@ header nav#top_page{
 	z-index: 999;
 /*	padding: 10px;*/
 
-background: rgb(195,95,25); /* Old browsers */
+background: #e17d37; /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2MzNWYxOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhZjRiMDUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-background: -moz-linear-gradient(top, rgba(195,95,25,1) 0%, rgba(175,75,5,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(195,95,25,1)), color-stop(100%,rgba(175,75,5,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, rgba(195,95,25,1) 0%,rgba(175,75,5,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, rgba(195,95,25,1) 0%,rgba(175,75,5,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, rgba(195,95,25,1) 0%,rgba(175,75,5,1) 100%); /* IE10+ */
-background: linear-gradient(top, rgba(195,95,25,1) 0%,rgba(175,75,5,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c35f19', endColorstr='#af4b05',GradientType=0 ); /* IE6-8 */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UxN2QzNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhZjRiMDUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top, #e17d37 0%, #af4b05 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e17d37), color-stop(100%,#af4b05)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #e17d37 0%,#af4b05 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #e17d37 0%,#af4b05 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #e17d37 0%,#af4b05 100%); /* IE10+ */
+background: linear-gradient(top, #e17d37 0%,#af4b05 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e17d37', endColorstr='#af4b05',GradientType=0 ); /* IE6-8 */
+
 	height: 3.5em;
 /*	padding-top: 4px;*/
 /*

@@ -5,6 +5,9 @@
     <%= f.input :title, :label => false %>
     <%= f.input :description, :label => false %>
     <%= f.input :event_date, :label => false %>
+	<%= f.input :addr_street, :label => false %>
+	<%= f.input :addr_postcode, :label => false %>
+	<%= f.input :addr_city, :label => false %>
 	<%= f.association :categories, :label => false, :as => :check_boxes %>
   </div>
 
