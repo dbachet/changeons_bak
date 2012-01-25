@@ -19,13 +19,6 @@
 			end
 		%>
 	</li>
-
-	<li><%=
-			link_to_unless_current("Tests", product_tests_path, :class => "awesome top_menu") do
-				link_to("Tests", product_tests_path, :class => "current awesome top_menu")
-			end
-		%>
-	</li>
 	
 	<li><%=
 			link_to_unless_current("Évènements", events_path, :class => "awesome top_menu") do
@@ -34,8 +27,12 @@
 		%>
 	</li>
 
-
-
+	<li><%=
+			link_to_unless_current("Tests", product_tests_path, :class => "awesome top_menu") do
+				link_to("Tests", product_tests_path, :class => "current awesome top_menu")
+			end
+		%>
+	</li>
 
 	
 </ul>

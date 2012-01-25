@@ -451,7 +451,7 @@ section#sponsors{
 /*	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;*/
-/*	background: none;*/
+	background: none;
 }
 
 .awesome.top_menu:active,
@@ -629,25 +629,27 @@ header nav ul#hmenu li a.changeons {
 		height: 23px;*/
 		font-family: '3DumbRegular';
 		display: inline-block;
-		font-size: 1.8em;
+		font-size: 2.2em;
 		color: #EAC895; /*#9B9BBD #55AACF*/
 		position: relative;
 /*		cursor: pointer;*/
-/*		line-height: 1.2;*/
+		line-height: 1.2;
 	vertical-align: bottom;
 	
 	
 
 	
 /*	text-indent: -9999px;*/
-	width: 180px;
+	width: 220px;
 	height: 45px;
 /*	background: url('/images/home.png') 0px 0px no-repeat;*/
-	background: url('/images/recycle.png') 112px 6px no-repeat;
+	background: url('/images/recycle.png') 141px 6px no-repeat;
 	
 	-webkit-text-shadow: 0 0px 4px rgba(0,0,0,0.1);
 	-moz-text-shadow: 0 0px 4px rgba(0,0,0,0.1);
 	text-shadow: 0 0px 4px rgba(0,0,0,0.1);
+	
+	margin-right: 1em;
 	
 /*	-webkit-text-shadow: 0px 0px 5px #000;
 		-moz-text-shadow: 0px 0px 5px #000;
@@ -669,7 +671,6 @@ header nav ul#hmenu li a.changeons.current {
 		height: 23px;*/
 /*		cursor: pointer;*/
 /*	background: url('/images/home.png') 0px 0px no-repeat;*/
-	background: url('/images/recycle.png') 112px 6px no-repeat;
 	color: #EAC895;
 /*	-webkit-text-shadow: 2px 2px 5px #fff;
 	-moz-text-shadow: 2px 2px 5px #fff;
