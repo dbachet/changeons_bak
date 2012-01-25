@@ -7,7 +7,7 @@
 	</div>
 	<div class="product_test_content">
 		<header>
-	    	<h1><%= "#{product_test.brand || "Sans marque"} #{product_test.product_model}" %></h1>
+	    	<h1><%= "#{product_test.brand || "Marque non détaillée"} #{product_test.product_model}" %></h1>
 			<span>écrit par</span> <%= product_test.user.email %>
 		</header>
 	    <div class="description"><%= raw(product_test.description) %></div>

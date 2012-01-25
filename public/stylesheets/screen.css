@@ -341,7 +341,8 @@ section#product_tests,
 section#changeons_home, 
 article#post,
 article#tip,
-article#event{
+article#event,
+article#product_test{
 	background-color: rgba(149, 40, 31, 1);
 /*	border: 8px solid rgba(149, 40, 31, 1);*/
 	-webkit-border-radius: 2px;
@@ -1286,7 +1287,8 @@ article.comment_reply a.visited {
 
 	/* 	Posts Home
 	 	Tips Index
-		Events Index */
+		Events Index
+		Product Test Index */
 
 	section#posts_home,
 	section#tips,
@@ -1534,7 +1536,8 @@ article.comment_reply a.visited {
 				}
 	/* End - 	Posts Home
 	 			Tips Index
-				Events Index */
+				Events Index
+				Product Test Index */
 	
 	/* Changeons Home */
 	
@@ -1623,7 +1626,7 @@ section#tips{
 article#post,
 article#tip,
 article#event,
-article#post{
+article#product_test{
 	padding: 20px;
 /*	background-color: rgba(190,220,180, 0.1);*/
 /*	padding: 20px 50px 20px 40px;*/
@@ -1655,7 +1658,7 @@ article#post{
 	article#post header div.left,
 	article#tip header div.left,
 	article#event header div.left,
-	article#post header div.left{
+	article#product_test header div.left{
 		display: inline-block;
 		vertical-align: top;
 	}
@@ -1663,7 +1666,7 @@ article#post{
 	article#post header div.right,
 	article#tip header div.right,
 	article#event header div.right,
-	article#post header div.right{
+	article#product_test header div.right{
 		display: inline-block;
 		vertical-align: top;
 		width: 48em;
@@ -1674,7 +1677,7 @@ article#post{
 		article#post header div.etiquette_post,
 		article#tip header div.etiquette_tip,
 		article#event header div.etiquette_event,
-		article#post header div.etiquette_post_type{
+		article#product_test header div.etiquette_product_test{
 			background: url('/images/etiquette.png') no-repeat;
 			width: 84px;
 			height: 27px;
@@ -1693,7 +1696,7 @@ article#post{
 		article#post header div.post_date,
 		article#tip header div.tip_date,
 		article#event header div.event_date,
-		article#post header div.post_date{
+		article#product_test header div.product_test_date{
 			padding: 0px 0px 0px 45px;
 			display: block;
 			height: 43px;
@@ -1719,28 +1722,28 @@ article#post{
 			article#post header div.post_date span.day,
 			article#tip header div.tip_date span.day,
 			article#event header div.event_date span.day,
-			article#post header div.post_date span.day{
+			article#product_test header div.product_test_date span.day{
 				font-size: 16px;
 			}
 
 			article#post header div.post_date span.month,
 			article#tip header div.tip_date span.month,
 			article#event header div.event_date span.month,
-			article#post header div.post_date span.month{
+			article#product_test header div.product_test_date span.month{
 				font-size: 20px;
 			}
 
 			article#post header div.post_date span.year,
 			article#tip header div.tip_date span.year,
 			article#event header div.event_date span.year,
-			article#post header div.post_date span.year{
+			article#product_test header div.product_test_date span.year{
 				font-size: 25px;
 			}
 		
 		article#post header h1,
 		article#tip header h1,
 		article#event header h1,
-		article#post header h1{
+		article#product_test header h1{
 /*			margin: 0;*/
 			font-family: 'CaviarDreamsBold';
 			font-size: 27px;
@@ -1756,7 +1759,7 @@ article#post{
 			article#post header div.written_by span,
 			article#tip header div.written_by span,
 			article#event header div.written_by span,
-			article#post header div.written_by span{
+			article#product_test header div.written_by span{
 				color: #A2CF4B; 
 				font-family: 'SansitaOneRegular';
 			}
@@ -1775,7 +1778,7 @@ article#post{
 	article#post div#post_share,
 	article#tip div#tip_share,
 	article#event div#event_share,
-	article#post div#post_share{
+	article#product_test div#product_test_share{
 		display: inline-block;
 		background-color: rgba(0,0,0,0.3);
 		height: 250px;
@@ -1785,7 +1788,7 @@ article#post{
 		article#post div#post_vote,
 		article#tip div#tip_vote,
 		article#event div#event_vote,
-		article#post div#post_vote{
+		article#product_test div#product_test_vote{
 			display: inline-block;
 			vertical-align: top;
 			height: 90px;
@@ -1796,7 +1799,7 @@ article#post{
 			article#post div#post_vote div#vote_up,
 			article#tip div#tip_vote div#vote_up,
 			article#event div#event_vote div#vote_up,
-			article#post div#post_vote div#vote_up{
+			article#product_test div#product_test_vote div#vote_up{
 				padding: 22px 0 0 50px;
 				height: 40px;
 			}
@@ -1804,7 +1807,7 @@ article#post{
 			article#post div#post_vote div#votes_result,
 			article#tip div#tip_vote div#votes_result,
 			article#event div#event_vote div#votes_result,
-			article#post div#post_vote div#votes_result{
+			article#product_test div#product_test_vote div#votes_result{
 				padding: 0 23px 0 9px;
 				text-align: center;
 			}
@@ -1812,7 +1815,7 @@ article#post{
 	article#post div#post_content_wrap,
 	article#tip div#tip_content_wrap,
 	article#event div#event_content_wrap,
-	article#post div#post_content_wrap{
+	article#product_test div#product_test_content_wrap{
 		display: inline-block;
 		width: 53em;
 		padding: 5px;

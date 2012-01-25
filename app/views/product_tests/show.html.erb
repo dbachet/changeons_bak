@@ -1,45 +1,45 @@
-<p id="notice"><%= notice %></p>
+<article id="product_test">
+	<header>
+		<div class="left">
+			<div class="etiquette_product_test">Test</div>
+			<div class="product_test_date">
+				<span class="day"><%= @product_test.created_at.strftime("%d") %></span>
+				<span class="month"><%= getMonthFromNumber(@product_test.created_at.strftime("%m")) %></span>
+				</br>
+				<span class="year"><%= @product_test.created_at.strftime("%Y") %></span>
+			</div>
+		</div>
+		<div class="right">
+			<h1><%= "#{@product_test.brand || "Marque non détaillée"} #{@product_test.product_model}" %></h1>
+			<div class="written_by"><span>écrit par</span> <%= @product_test.user.email %></div>
+			<div class="product_test_categories">Catégories: 
+				<% @categories.each do |category| %>
+					<%= category.name %> 
+				<% end %>
+			</div>
+		</div>
+	</header>
+	<div id="product_test_share">
+		<div id="product_test_vote">
+			<div id="vote_up">
+				
+			</div>
 
-<p>
-  <b>Brand:</b>
-  <%= @product_test.brand %>
-</p>
+			<div id="votes_result">
+				
+			</div>
+		</div>
+	</div>
+	
+	<div id="product_test_content_wrap">
+	<p>
+		<div class="product_test_content">
+	  <%= @product_test.description.html_safe %>
+		</div>
+	</p>
 
-<p>
-  <b>Product model:</b>
-  <%= @product_test.product_model %>
-</p>
+	<%= link_to 'Edit', edit_product_test_path(@product_test) %>
 
-<p>
-  <b>Product ref:</b>
-  <%= @product_test.product_ref %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @product_test.description %>
-</p>
-
-<p>
-  <b>Opinion:</b>
-  <%= @product_test.opinion %>
-</p>
-
-<p>
-  <b>Advantages:</b>
-  <%= @product_test.advantages %>
-</p>
-
-<p>
-  <b>Drawbacks:</b>
-  <%= @product_test.drawbacks %>
-</p>
-
-<p>
-  <b>Recommended price:</b>
-  <%= @product_test.recommended_price %>
-</p>
-
-
-<%= link_to 'Edit', edit_product_test_path(@product_test) %> |
-<%= link_to 'Back', product_tests_path %>
+	<br />
+	</div>
+</article>

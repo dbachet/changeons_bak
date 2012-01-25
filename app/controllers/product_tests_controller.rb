@@ -16,6 +16,7 @@ class ProductTestsController < AuthorizedController
   # GET /product_tests/1.xml
   def show
     @product_test = ProductTest.find(params[:id])
+    @categories = @product_test.categories
 
     respond_to do |format|
       format.html # show.html.erb
