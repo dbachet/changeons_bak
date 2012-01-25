@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :tips
   has_many :events
+  has_many :product_tests
   has_many :comments
   
   def role?(role)

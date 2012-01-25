@@ -1,4 +1,4 @@
-<%= simple_form_for(@product_test) do |f| %>
+<%= simple_form_for(@product_test, :validate => true) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
@@ -10,6 +10,7 @@
     <%= f.input :advantages %>
     <%= f.input :drawbacks %>
     <%= f.input :recommended_price %>
+	<%= f.association :categories, :label => false, :as => :check_boxes %>
   </div>
 
   <div class="actions">

@@ -1,4 +1,6 @@
-class ProductTestsController < ApplicationController
+class ProductTestsController < AuthorizedController
+  before_filter :authenticate_user!, :except => [:index, :show]
+  
   # GET /product_tests
   # GET /product_tests.xml
   def index
@@ -40,10 +42,11 @@ class ProductTestsController < ApplicationController
   # POST /product_tests
   # POST /product_tests.xml
   def create
-    @product_test = ProductTest.new(params[:product_test])
+    @product_test = current_user.product_tests.new(params[:product_test])
 
     respond_to do |format|
       if @product_test.save
+        @product_test.category_ids = params[:product_test][:category_ids]
         format.html { redirect_to(@product_test, :notice => 'Product test was successfully created.') }
         format.xml  { render :xml => @product_test, :status => :created, :location => @product_test }
       else
