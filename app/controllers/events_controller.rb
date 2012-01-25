@@ -17,6 +17,7 @@ class EventsController < AuthorizedController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
+    @categories = @event.categories
 
     respond_to do |format|
       format.html # show.html.erb

@@ -339,7 +339,9 @@ section#tips,
 section#events,
 section#product_tests,
 section#changeons_home, 
-article#post{
+article#post,
+article#tip,
+article#event{
 	background-color: rgba(149, 40, 31, 1);
 /*	border: 8px solid rgba(149, 40, 31, 1);*/
 	-webkit-border-radius: 2px;
@@ -1618,6 +1620,9 @@ section#tips{
 
 
 /* Post Show */
+article#post,
+article#tip,
+article#event,
 article#post{
 	padding: 20px;
 /*	background-color: rgba(190,220,180, 0.1);*/
@@ -1647,11 +1652,17 @@ article#post{
 		padding: 20px;
 	}*/
 	
+	article#post header div.left,
+	article#tip header div.left,
+	article#event header div.left,
 	article#post header div.left{
 		display: inline-block;
 		vertical-align: top;
 	}
 	
+	article#post header div.right,
+	article#tip header div.right,
+	article#event header div.right,
 	article#post header div.right{
 		display: inline-block;
 		vertical-align: top;
@@ -1660,6 +1671,9 @@ article#post{
 		padding-bottom: 15px;
 	}
 	
+		article#post header div.etiquette_post,
+		article#tip header div.etiquette_tip,
+		article#event header div.etiquette_event,
 		article#post header div.etiquette_post_type{
 			background: url('/images/etiquette.png') no-repeat;
 			width: 84px;
@@ -1676,6 +1690,9 @@ article#post{
 			
 		}
 		
+		article#post header div.post_date,
+		article#tip header div.tip_date,
+		article#event header div.event_date,
 		article#post header div.post_date{
 			padding: 0px 0px 0px 45px;
 			display: block;
@@ -1699,18 +1716,30 @@ article#post{
 
 		}
 
+			article#post header div.post_date span.day,
+			article#tip header div.tip_date span.day,
+			article#event header div.event_date span.day,
 			article#post header div.post_date span.day{
 				font-size: 16px;
 			}
 
+			article#post header div.post_date span.month,
+			article#tip header div.tip_date span.month,
+			article#event header div.event_date span.month,
 			article#post header div.post_date span.month{
 				font-size: 20px;
 			}
 
+			article#post header div.post_date span.year,
+			article#tip header div.tip_date span.year,
+			article#event header div.event_date span.year,
 			article#post header div.post_date span.year{
 				font-size: 25px;
 			}
 		
+		article#post header h1,
+		article#tip header h1,
+		article#event header h1,
 		article#post header h1{
 /*			margin: 0;*/
 			font-family: 'CaviarDreamsBold';
@@ -1724,15 +1753,17 @@ article#post{
 /*			text-transform:uppercase;*/
 		}
 		
-		article#post header div.written_by{
-			
-		}
-		
+			article#post header div.written_by span,
+			article#tip header div.written_by span,
+			article#event header div.written_by span,
 			article#post header div.written_by span{
 				color: #A2CF4B; 
 				font-family: 'SansitaOneRegular';
 			}
 			
+		article#post header div.short_description,
+		article#post header div.short_description,
+		article#post header div.short_description,
 		article#post header div.short_description{
 			padding: 5px;
 			margin-top: 5px;
@@ -1741,6 +1772,9 @@ article#post{
 			border: 1px dotted #55AACF;
 		}
 	
+	article#post div#post_share,
+	article#tip div#tip_share,
+	article#event div#event_share,
 	article#post div#post_share{
 		display: inline-block;
 		background-color: rgba(0,0,0,0.3);
@@ -1748,6 +1782,9 @@ article#post{
 		width: 80px;
 		vertical-align: top;
 	}
+		article#post div#post_vote,
+		article#tip div#tip_vote,
+		article#event div#event_vote,
 		article#post div#post_vote{
 			display: inline-block;
 			vertical-align: top;
@@ -1756,16 +1793,25 @@ article#post{
 			background: url('/images/changeons2.png') no-repeat;
 		}
 	
+			article#post div#post_vote div#vote_up,
+			article#tip div#tip_vote div#vote_up,
+			article#event div#event_vote div#vote_up,
 			article#post div#post_vote div#vote_up{
 				padding: 22px 0 0 50px;
 				height: 40px;
 			}
 		
+			article#post div#post_vote div#votes_result,
+			article#tip div#tip_vote div#votes_result,
+			article#event div#event_vote div#votes_result,
 			article#post div#post_vote div#votes_result{
 				padding: 0 23px 0 9px;
 				text-align: center;
 			}
 		
+	article#post div#post_content_wrap,
+	article#tip div#tip_content_wrap,
+	article#event div#event_content_wrap,
 	article#post div#post_content_wrap{
 		display: inline-block;
 		width: 53em;

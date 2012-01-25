@@ -17,6 +17,7 @@ class TipsController < AuthorizedController
   # GET /tips/1.xml
   def show
     @tip = Tip.find(params[:id])
+    @categories = @tip.categories
 
     respond_to do |format|
       format.html # show.html.erb

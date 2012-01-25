@@ -3,7 +3,7 @@
 <article id="post">
 	<header>
 		<div class="left">
-			<div class="etiquette_post_type"><%= @post_type %></div>
+			<div class="etiquette_post"><%= @post_type %></div>
 			<div class="post_date">
 				<span class="day"><%= @post.created_at.strftime("%d") %></span>
 				<span class="month"><%= getMonthFromNumber(@post.created_at.strftime("%m")) %></span>
