@@ -1,3 +1,14 @@
+<section id="events" >
+	<header>
+		<h1>Derniers évènements ajoutées</h1>
+	</header>
+	<%= render "events/events" %>
+
+
+
+	<% if can? :new, @event %><%= link_to 'New Event', new_event_path %><% end %>
+</section>
+
 <h1>Listing events</h1>
 
 <table>

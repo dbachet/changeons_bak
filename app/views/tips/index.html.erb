@@ -1,4 +1,13 @@
-<h1>Listing tips</h1>
+<section id="tips" >
+	<header>
+		<h1>Dernières astuces ajoutées</h1>
+	</header>
+	<%= render "tips/tips" %>
+
+
+
+	<% if can? :new, @tip %><%= link_to 'New Post', new_tip_path %><% end %>
+</section>
 
 <table>
   <tr>

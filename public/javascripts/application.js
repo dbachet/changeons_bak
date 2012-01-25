@@ -104,7 +104,7 @@ $(document).ready(function() {
 	
 	// form hover
 	
-	$('form#comment_new input, form#comment_new textarea, form#reply_new input, form#reply_new textarea, section#newsletter_form, section#sponsors').live({
+	$('form#comment_new input, form#comment_new textarea, form#reply_new input, form#reply_new textarea').live({
 	mouseenter: function() {
 	  	$(this).animate({
 	    	opacity: 1// ,

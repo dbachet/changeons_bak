@@ -1,0 +1,19 @@
+<% @product_tests.each do |product_test| %>
+<article id="product_test<%= product_test.id %>">
+
+	<div class="product_test_left">
+		<div class="product_test_image"><%=  %></div>
+		<div class="product_test_date"><span class="day"><%= product_test.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(product_test.created_at.strftime("%m")) %></span></br><span class="year"><%= product_test.created_at.strftime("%Y") %></span></div>
+	</div>
+	<div class="product_test_content">
+		<header>
+	    	<h1><%= "#{product_test.brand || "Sans marque"} #{product_test.product_model}" %></h1>
+			<span>écrit par</span> <%= product_test.user.email %>
+		</header>
+	    <div class="description"><%= raw(product_test.description) %></div>
+	    <%= link_to 'Voir', product_test %>
+	    <% if can? :edit, product_test %><%= link_to '| Éditer', edit_product_test_path(product_test) %><% end %>
+	    <% if can? :destroy, product_test %><%= link_to '| Supprimer', product_test, :confirm => 'Are you sure?', :method => :delete %><% end %>
+	</div>
+</article>
+<% end %>

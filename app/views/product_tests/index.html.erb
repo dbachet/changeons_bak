@@ -1,3 +1,14 @@
+<section id="product_tests" >
+	<header>
+		<h1>Derniers tests de produits</h1>
+	</header>
+	<%= render "product_tests/product_tests" %>
+
+
+
+	<% if can? :new, @product_test %><%= link_to 'New product test', new_product_test_path %><% end %>
+</section>
+
 <h1>Listing product_tests</h1>
 
 <table>
