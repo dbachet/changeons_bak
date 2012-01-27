@@ -41,6 +41,7 @@ class ApplicationController < ActionController::Base
   end
 
   
+  
   # def create_guest_user
   #   u = User.new(:email => "guest_#{Time.now.to_i}#{rand(99)}@email_address.com", :role => "guest")
   #   u.skip_confirmation!

@@ -1,5 +1,5 @@
 <div id="wrap_form_new_reply">
-	<%= form_for(@reply, :as => "reply", :url => create_reply_post_comment_path(@post, @root_comment, :anchor => "reply_comment_#{@root_comment.id}"), :html => {:method => :post}, :validate => (current_user ? true : false), :remote => true) do |f| %>
+	<%= form_for(@reply, :as => "reply", :url => create_reply_link, :html => {:method => :post}, :validate => (current_user ? true : false), :remote => true) do |f| %>
 	<h1>Votre réponse à <%= Comment.comment_author_email(@root_comment) %></h1>
 
   

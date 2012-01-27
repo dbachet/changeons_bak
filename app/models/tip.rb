@@ -1,6 +1,10 @@
 class Tip < ActiveRecord::Base
   belongs_to :user
   
+  
+  acts_as_commentable
+  # acts_as_voteable
+  
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
   
   has_many :tip_categorizations

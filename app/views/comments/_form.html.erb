@@ -1,6 +1,5 @@
-<%= form_for(@comment, :as => "comment",:url => post_comments_path(@post), :remote => true, :validate => (current_user ? true : false)) do |f| %>
+<%= form_for(@comment, :as => "comment",:url => polymorphic_path([(@tip || @post || @event || @product_test), @comment]), :remote => true, :validate => (current_user ? true : false)) do |f| %>
 	
-	<h1>Nouveau commentaire à propos de "<%= @post.title %>"</h1>
 
 	<% if @comment.errors.any? %>
 		<div id="error_explanation">
@@ -17,7 +16,7 @@
 <div class="left">
 	<div class="field">
 	  <%= f.label :title %><br />
-	  <%= f.text_field :title, 'data-post-id' => @post.id %>
+	  <%= f.text_field :title, 'data-post-id' => ((@tip || @post || @event || @product_test).id) %>
 	</div>
 	
 	<div class="field">

@@ -1,4 +1,4 @@
-<%= form_for(@comment, :as => "comment", :url => create_comment_as_guest_path(@post), :remote => true, :method => :post, :validate => true) do |f| %>
+<%= form_for(@comment, :as => "comment", :url => create_comment_as_guest_link, :remote => true, :method => :post, :validate => true) do |f| %>
 <h1>Nouveau commentaire</h1>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
@@ -16,7 +16,7 @@
 <div class="left">
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title, 'data-post-id' => @post.id %>
+    <%= f.text_field :title, 'data-post-id' => ((@commentable).id) %>
   </div>
   <div class="field">
     <%= f.label :body %><br />

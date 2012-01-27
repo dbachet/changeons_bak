@@ -5,7 +5,15 @@ Changeons::Application.routes.draw do
 
   resources :events
 
-  resources :tips
+  resources :tips do
+    resources :comments, :except => [:index, :show, :new] do
+      member do
+        get :show_reply
+        get :reply
+        post :create_reply
+      end
+    end
+  end
 
   resources :questions do
     resources :answers
@@ -26,14 +34,27 @@ Changeons::Application.routes.draw do
 
   resources :categories
   
-  match 'posts/:post_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "show_guest_fields"
-  match 'posts/:post_id/comments/:id/show_guest_fields_for_reply' => 'comments#show_guest_fields_for_reply', :as => "show_guest_fields_for_reply"
+  match 'posts/:post_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "post_show_guest_fields"
+  match 'tips/:tip_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "tip_show_guest_fields"
+  match 'events/:event_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "event_show_guest_fields"
+  match 'posts/:product_test_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "product_test_show_guest_fields"
+  
+  match 'posts/:post_id/comments/:id/show_guest_fields_for_reply' => 'comments#show_guest_fields_for_reply', :as => "post_show_guest_fields_for_reply"
+  match 'tips/:tip_id/comments/:id/show_guest_fields_for_reply' => 'comments#show_guest_fields_for_reply', :as => "tip_show_guest_fields_for_reply"
+  match 'events/:event_id/comments/:id/show_guest_fields_for_reply' => 'comments#show_guest_fields_for_reply', :as => "event_show_guest_fields_for_reply"
+  match 'product_tests/:product_test_id/comments/:id/show_guest_fields_for_reply' => 'comments#show_guest_fields_for_reply', :as => "product_test_show_guest_fields_for_reply"
   
   # match 'posts/:post_id/comments/comment_as_guest' => 'comments#comment_as_guest', :as => 'comment_as_guest', :via => 'get'
-  match 'posts/:post_id/comments/create_comment_as_guest' => 'comments#create_comment_as_guest', :as => 'create_comment_as_guest', :via => 'post'
+  match 'posts/:post_id/comments/create_comment_as_guest' => 'comments#create_comment_as_guest', :as => 'post_create_comment_as_guest', :via => 'post'
+  match 'tips/:tip_id/comments/create_comment_as_guest' => 'comments#create_comment_as_guest', :as => 'tip_create_comment_as_guest', :via => 'post'
+  match 'events/:event_id/comments/create_comment_as_guest' => 'comments#create_comment_as_guest', :as => 'event_create_comment_as_guest', :via => 'post'
+  match 'product_tests/:product_test_id/comments/create_comment_as_guest' => 'comments#create_comment_as_guest', :as => 'product_test_create_comment_as_guest', :via => 'post'
   
   # match 'posts/:post_id/comments/:id/reply_as_guest' => 'comments#reply_as_guest', :as => 'reply_as_guest', :via => 'get'
-  match 'posts/:post_id/comments/:id/create_reply_as_guest' => 'comments#create_reply_as_guest', :as => 'create_reply_as_guest', :via => 'post'
+  match 'posts/:post_id/comments/:id/create_reply_as_guest' => 'comments#create_reply_as_guest', :as => 'post_create_reply_as_guest', :via => 'post'
+  match 'tips/:tip_id/comments/:id/create_reply_as_guest' => 'comments#create_reply_as_guest', :as => 'tip_create_reply_as_guest', :via => 'post'
+  match 'events/:event_id/comments/:id/create_reply_as_guest' => 'comments#create_reply_as_guest', :as => 'event_create_reply_as_guest', :via => 'post'
+  match 'product_tests/:product_test_id/comments/:id/create_reply_as_guest' => 'comments#create_reply_as_guest', :as => 'product_test_create_reply_as_guest', :via => 'post'
   
   post 'posts/show_more_posts', :as => 'show_more_posts'
   # post 'comments/show_more_comments', :as => 'show_more_comments'

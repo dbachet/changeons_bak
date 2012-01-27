@@ -18,6 +18,18 @@ class TipsController < AuthorizedController
   def show
     @tip = Tip.find(params[:id])
     @categories = @tip.categories
+    
+    @default_comment_offset = APP_CONFIG['default_post_offset']
+    @comment = Comment.new
+    @from = 0
+    @limitation = @default_comment_offset
+    @comments = Comment.fetch_comments(@tip, @from, @limitation)
+    
+    
+    
+    @displayed_comments = @comments.length
+    @remaining_comments = @tip.root_comments.count - @displayed_comments
+    
 
     respond_to do |format|
       format.html # show.html.erb
