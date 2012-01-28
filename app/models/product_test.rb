@@ -2,7 +2,7 @@ class ProductTest < ActiveRecord::Base
   belongs_to :user
   
   acts_as_commentable
-  # acts_as_voteable
+  acts_as_voteable
   
   has_friendly_id :brand_and_product_model, :use_slug => true, :approximate_ascii => true
 

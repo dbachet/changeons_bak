@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   belongs_to :user
   
   acts_as_commentable
+  acts_as_voteable
   
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
   

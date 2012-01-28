@@ -2,6 +2,26 @@ class TipsController < AuthorizedController
   
   before_filter :authenticate_user!, :except => [:index, :show]
   
+  
+  def vote_up
+    begin
+      if current_user.voted_for?(@tip)
+        current_user.clear_votes(@tip)
+      else
+        current_user.vote_exclusively_for(@tip)
+      end
+      @votes_result = @tip.plusminus
+      
+      # authorize! :vote_up, @post
+      
+      respond_to do |format|
+        format.js { render 'layouts/vote_up'}
+      end
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
+  
   # GET /tips
   # GET /tips.xml
   def index
@@ -30,7 +50,9 @@ class TipsController < AuthorizedController
     @displayed_comments = @comments.length
     @remaining_comments = @tip.root_comments.count - @displayed_comments
     
-
+    
+    @votes_result = @tip.plusminus
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @tip }

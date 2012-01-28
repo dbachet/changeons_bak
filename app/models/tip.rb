@@ -3,7 +3,7 @@ class Tip < ActiveRecord::Base
   
   
   acts_as_commentable
-  # acts_as_voteable
+  acts_as_voteable
   
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
   

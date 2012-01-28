@@ -1,6 +1,25 @@
 class ProductTestsController < AuthorizedController
   before_filter :authenticate_user!, :except => [:index, :show]
   
+  def vote_up
+    begin
+      if current_user.voted_for?(@product_test)
+        current_user.clear_votes(@product_test)
+      else
+        current_user.vote_exclusively_for(@product_test)
+      end
+      @votes_result = @product_test.plusminus
+      
+      # authorize! :vote_up, @post
+      
+      respond_to do |format|
+        format.js { render 'layouts/vote_up'}
+      end
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
+  
   # GET /product_tests
   # GET /product_tests.xml
   def index
@@ -29,6 +48,7 @@ class ProductTestsController < AuthorizedController
     @displayed_comments = @comments.length
     @remaining_comments = @product_test.root_comments.count - @displayed_comments
 
+    @votes_result = @product_test.plusminus
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @product_test }

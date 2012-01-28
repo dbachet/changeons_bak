@@ -22,11 +22,11 @@
 	<div id="product_test_share">
 		<div id="product_test_vote">
 			<div id="vote_up">
-				
+				<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_product_test_path(@product_test), :method => :post, :remote => true) %>
 			</div>
 
 			<div id="votes_result">
-				
+				<%= render "layouts/votes_result" %>
 			</div>
 		</div>
 	</div>

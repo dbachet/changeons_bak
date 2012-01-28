@@ -2,6 +2,25 @@ class EventsController < AuthorizedController
   
   before_filter :authenticate_user!, :except => [:index, :show]
   
+  def vote_up
+    begin
+      if current_user.voted_for?(@event)
+        current_user.clear_votes(@event)
+      else
+        current_user.vote_exclusively_for(@event)
+      end
+      @votes_result = @event.plusminus
+      
+      # authorize! :vote_up, @post
+      
+      respond_to do |format|
+        format.js { render 'layouts/vote_up'}
+      end
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
+  
   # GET /events
   # GET /events.xml
   def index
@@ -29,6 +48,8 @@ class EventsController < AuthorizedController
     
     @displayed_comments = @comments.length
     @remaining_comments = @event.root_comments.count - @displayed_comments
+    
+    @votes_result = @event.plusminus
 
     respond_to do |format|
       format.html # show.html.erb

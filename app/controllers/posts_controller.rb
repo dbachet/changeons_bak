@@ -34,7 +34,7 @@ class PostsController < AuthorizedController
       # authorize! :vote_up, @post
       
       respond_to do |format|
-        format.js
+        format.js { render 'layouts/vote_up'}
       end
     rescue ActiveRecord::RecordInvalid
       render :nothing => true, :status => 404

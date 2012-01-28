@@ -9,6 +9,10 @@ Changeons::Application.routes.draw do
         post :create_reply
       end
     end
+    member do
+      post :vote_up
+      post :vote_down
+    end
   end
 
   resources :events do
@@ -18,6 +22,10 @@ Changeons::Application.routes.draw do
         get :reply
         post :create_reply
       end
+    end
+    member do
+      post :vote_up
+      post :vote_down
     end    
   end
 
@@ -28,6 +36,10 @@ Changeons::Application.routes.draw do
         get :reply
         post :create_reply
       end
+    end
+    member do
+      post :vote_up
+      post :vote_down
     end
   end
 
