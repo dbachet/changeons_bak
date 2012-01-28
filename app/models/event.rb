@@ -1,7 +1,11 @@
 class Event < ActiveRecord::Base
   belongs_to :user
   
+  acts_as_commentable
+  
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
+  
+  has_many :comments
   
   has_many :event_categorizations
   has_many :categories, :through => :event_categorizations

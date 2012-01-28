@@ -17,6 +17,17 @@ class ProductTestsController < AuthorizedController
   def show
     @product_test = ProductTest.find(params[:id])
     @categories = @product_test.categories
+    
+    @default_comment_offset = APP_CONFIG['default_post_offset']
+    @comment = Comment.new
+    @from = 0
+    @limitation = @default_comment_offset
+    @comments = Comment.fetch_comments(@product_test, @from, @limitation)
+    
+    
+    
+    @displayed_comments = @comments.length
+    @remaining_comments = @product_test.root_comments.count - @displayed_comments
 
     respond_to do |format|
       format.html # show.html.erb

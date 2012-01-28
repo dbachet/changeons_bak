@@ -44,3 +44,30 @@
 	</div>
 </article>
 
+<section id="comments">
+	<!-- Comments -->
+	<header>
+	<h1>Commentaires</h1>
+	</header>
+	
+	<div id="display_comments" data-displayed-comments=<%= @displayed_comments %>>
+	
+		<%= display_comments(@comments) %>
+	</div>
+
+
+	<br />
+
+
+
+
+	<!-- New comment -->
+
+
+
+	<div id="wrap_form_new_comment">
+	
+		<%= render 'comments/form' %>
+
+	</div>
+</section>

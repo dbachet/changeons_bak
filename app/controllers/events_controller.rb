@@ -18,6 +18,17 @@ class EventsController < AuthorizedController
   def show
     @event = Event.find(params[:id])
     @categories = @event.categories
+    
+    @default_comment_offset = APP_CONFIG['default_post_offset']
+    @comment = Comment.new
+    @from = 0
+    @limitation = @default_comment_offset
+    @comments = Comment.fetch_comments(@event, @from, @limitation)
+    
+    
+    
+    @displayed_comments = @comments.length
+    @remaining_comments = @event.root_comments.count - @displayed_comments
 
     respond_to do |format|
       format.html # show.html.erb

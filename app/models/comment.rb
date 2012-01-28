@@ -14,6 +14,9 @@ class Comment < ActiveRecord::Base
   # NOTE: Comments belong to a user
   belongs_to :user
   belongs_to :post
+  belongs_to :tip
+  belongs_to :event
+  belongs_to :product_test
   
   # Helper class method that allows you to build a comment
   # by passing a commentable object, a user_id, and comment text
