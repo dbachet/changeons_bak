@@ -61,4 +61,3 @@ Scaffold, relationships, friendly_id, source, security, validation, inline valid
 Changeons.org, un site à consonnance BIO(mais pas seulement), à la disposition de la communauté. Partager des idées, développer un savoir, regrouper, créer des informations utiles dans un seul et même but, le bien-être de tous ! Entre le blog et le site d'actualités, Changeons.org cherche avant tout la conversation et le raisonnement. Pour arriver à cela, le site essaie d'être simple et intuitif. Changeons.org n'est qu'un site de plus pour répandre l'information. Changeons.org se veut être une petite contribution
 
 refactor the comment.comment_author_email
-refactor the way to get parent_comment (comment_parent)

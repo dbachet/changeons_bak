@@ -53,20 +53,20 @@ module CommentsHelper
   end
   
   def create_reply_link
-    model_name = @commentable.class.to_s.underscore
-    eval("create_reply_#{model_name}_comment_path(#{@commentable.id}, #{@root_comment.id})")
+    model_name = @comment_parent_object.class.to_s.underscore
+    eval("create_reply_#{model_name}_comment_path(#{@comment_parent_object.id}, #{@root_comment.id})")
     # create_reply_post_comment_path(@post, @root_comment, :anchor => "reply_comment_#{@root_comment.id}")
   end
   
   def create_comment_as_guest_link
-    model_name = @commentable.class.to_s.underscore
-    eval("#{model_name}_create_comment_as_guest_path(#{@commentable.id})")
+    model_name = @comment_parent_object.class.to_s.underscore
+    eval("#{model_name}_create_comment_as_guest_path(#{@comment_parent_object.id})")
     # create_comment_as_guest_path(@post)
   end
   
   def create_reply_as_guest_link
-    model_name = @commentable.class.to_s.underscore
-    eval("#{model_name}_create_reply_as_guest_path(#{@commentable.id}, #{@root_comment.id})")
+    model_name = @comment_parent_object.class.to_s.underscore
+    eval("#{model_name}_create_reply_as_guest_path(#{@comment_parent_object.id}, #{@root_comment.id})")
     # create_reply_as_guest_path(@post, @root_comment)
   end
   

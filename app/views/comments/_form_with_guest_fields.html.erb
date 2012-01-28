@@ -16,7 +16,7 @@
 <div class="left">
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title, 'data-post-id' => ((@commentable).id) %>
+    <%= f.text_field :title, 'data-post-id' => ((@comment_parent_object).id) %>
   </div>
   <div class="field">
     <%= f.label :body %><br />

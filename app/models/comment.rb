@@ -123,12 +123,17 @@ class Comment < ActiveRecord::Base
   
   # Returns author email or "unknown" if not found
   def self.comment_author_email(comment)
-    comment_author = User.find_by_id(comment.user_id)
     
-    if comment_author.nil?
-      comment.guest_email || "unknown"
+    
+    if !comment.guest_email.blank?
+      comment.guest_email
     else
-      comment_author.email
+      comment_author = User.find_by_id(comment.user_id)
+       if !comment_author.nil?
+         comment_author.email
+       else
+          "unknown"
+       end
     end
   end
   

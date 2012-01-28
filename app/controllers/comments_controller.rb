@@ -71,7 +71,7 @@ class CommentsController < AuthorizedController
   # show the reply fields
   def show_reply
     # @post = Post.find(params[:post_id])
-    @commentable = parent_comment
+    @comment_parent_object = comment_parent_object
     @root_comment = Comment.find(params[:id])
     
     @reply = Comment.new
@@ -90,7 +90,7 @@ class CommentsController < AuthorizedController
   # show the fields to write comment as a guest
   def show_guest_fields
     # @post = Post.find(params[:post_id])
-    @commentable = parent_comment
+    @comment_parent_object = comment_parent_object
     @comment = Comment.new
     @comment.user_id = -1
     
@@ -109,7 +109,7 @@ class CommentsController < AuthorizedController
   # show the fields to write reply as a guest
   def show_guest_fields_for_reply
     # @post = Post.find(params[:post_id])
-    @commentable = parent_comment
+    @comment_parent_object = comment_parent_object
     @root_comment = Comment.find(params[:id])
     @reply = Comment.new
     @reply.user_id = -1
@@ -141,9 +141,9 @@ class CommentsController < AuthorizedController
     # model_name = ("Post" if params[:post_id]) || ("Tip" if params[:tip_id]) || ("Event" if params[:event_id]) || ("ProductTest" if params[:product_test_id])
     # puts parent_comment
     # @commentable = Tip.find((params[:post_id] || params[:tip_id] || params[:event_id] || params[:product_test_id]))
-    @commentable = parent_comment
+    @comment_parent_object = comment_parent_object
     # @commentable = Post.find(params[:post_id])
-    @comment = Comment.build_from(@commentable, current_user.id, params[:comment][:body], params[:comment][:title], params[:comment][:send_notification_to_root_comment] )
+    @comment = Comment.build_from(@comment_parent_object, current_user.id, params[:comment][:body], params[:comment][:title], params[:comment][:send_notification_to_root_comment] )
         
     respond_with do |format|
           if @comment.save
@@ -163,9 +163,9 @@ class CommentsController < AuthorizedController
   
   def create_comment_as_guest
     # @post = Post.find(params[:post_id])
-    @commentable = parent_comment
+    @comment_parent_object = comment_parent_object
     
-    @comment = Comment.build_from_as_guest( @commentable, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website], params[:comment][:send_notification_to_root_comment] )
+    @comment = Comment.build_from_as_guest(@comment_parent_object, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website], params[:comment][:send_notification_to_root_comment] )
     
     respond_with do |format|
       if @comment.save
@@ -190,10 +190,10 @@ class CommentsController < AuthorizedController
   
   def create_reply
     # @post = Post.find(params[:post_id])
-    @commentable = parent_comment
+    @comment_parent_object = comment_parent_object
     @root_comment = Comment.find(params[:id])
     
-    @reply = Comment.build_from(@commentable, current_user.id, params[:reply][:body], params[:reply][:title])
+    @reply = Comment.build_from(@comment_parent_object, current_user.id, params[:reply][:body], params[:reply][:title])
     
     
     respond_with do |format|
@@ -225,10 +225,10 @@ class CommentsController < AuthorizedController
   
   def create_reply_as_guest
     # @post = Post.find(params[:post_id])
-    @commentable = parent_comment
+    @comment_parent_object = comment_parent_object
     @root_comment = Comment.find(params[:id])
     
-    @reply = Comment.build_from_as_guest(@commentable, params[:reply][:body], params[:reply][:title], params[:reply][:guest_email], params[:reply][:guest_website] )
+    @reply = Comment.build_from_as_guest(@comment_parent_object, params[:reply][:body], params[:reply][:title], params[:reply][:guest_email], params[:reply][:guest_website] )
     
     respond_with do |format|
       if @reply.save
@@ -304,7 +304,7 @@ class CommentsController < AuthorizedController
   
   private
 
-    def parent_comment
+    def comment_parent_object
       case
         when params[:post_id] then Post.find(params[:post_id])
         when params[:tip_id] then Tip.find(params[:tip_id])
@@ -312,6 +312,7 @@ class CommentsController < AuthorizedController
         when params[:product_test_id] then ProductTest.find(params[:product_test_id])
       end    
     end  
+
     
     # def parent_comment_show_reply(parent)
     #   case
