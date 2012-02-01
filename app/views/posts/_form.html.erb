@@ -1,10 +1,43 @@
 <%= simple_form_for(@post, :validate => true) do |f| %>
-    <%= f.input :title, :label => false %><br />
-	<%= f.input :short_description, :label => false %><br />
+<header>
+	<div class="left">
+		<div class="etiquette_post">Actualité</div>
+		<div class="post_date">
+			<span class="day"><%= Time.now.strftime("%d") %></span>
+			<span class="month"><%= getMonthFromNumber(Time.now.strftime("%m")) %></span>
+			</br>
+			<span class="year"><%= Time.now.strftime("%Y") %></span>
+		</div>
+	</div>
+	<div class="right">
+		<h1>Titre*</h1>
+		<%= f.input :title, :label => false, :as => :text %>
+		<div class="written_by"><span>écrit par</span> <%= (@post.user.email if @post.user) || current_user.email %></div>
+
+		<div class="short_description">
+			<h1>Courte description*</h1>
+			<%= f.input :short_description, :label => false %>
+		</div>
+	</div>
+	
+</header>
+<div id="categories_post_image">
+	<div id="categories">
+		<h1>Catégories</h1>
+		<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
+		
+		<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list"} %>
+	</div>
+	<div id="post_image">
+		<h1>Image de l'article</h1>
+	</div>
+</div>
+	
+    
 	<%= f.ckeditor :post_image, :label => false, :input_html => { :toolbar => 'PostImage', :width=>'200px', :height=>'200px' } %>
     <%= f.ckeditor :content, :label => false, :input_html => { :toolbar => 'Easy', :width=>'700px', :height=>'500px' } %><br />
-	<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax" %> <%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax" %>
-    <%= f.association :categories, :label => false, :as => :check_boxes %><br />
+
+    
 	<%= link_to "Créer un nouveau type", new_post_type_path, :class => "new_post_type_link fancybox.ajax" %> <%= link_to "Afficher tous les types de post", post_types_path, :class => "index_post_types_link fancybox.ajax" %>
 	<%= f.association :post_type, :label => false, :as => :select %>
 	<%= f.input :tag_list, :label => false %>
