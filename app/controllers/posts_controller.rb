@@ -138,14 +138,17 @@ class PostsController < AuthorizedController
   # POST /posts
   # POST /posts.xml
   def create
-    @post = current_user.posts.new(params[:post])
+    @post = current_user.posts.create(params[:post])
     @post.tag_list = params[:post][:tag_list]
-    
+    @post.category_ids = params[:post][:category_ids]
     # authorize! :create, @post
     
     respond_to do |format|
+      if params[:post_form]
+        puts "YEAAH"
+      end
       if @post.save
-        @post.category_ids = params[:post][:category_ids]
+        
         
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }

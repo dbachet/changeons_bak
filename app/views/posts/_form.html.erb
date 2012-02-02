@@ -1,4 +1,4 @@
-<%= simple_form_for(@post, :validate => true) do |f| %>
+<%= simple_form_for(@post, :validate => true, :html => { :multipart => true }) do |f| %>
 <header>
 	<div class="left">
 		<div class="etiquette_post">Actualité</div>
@@ -10,38 +10,40 @@
 		</div>
 	</div>
 	<div class="right">
-		<h1>Titre*</h1>
-		<%= f.input :title, :label => false, :as => :text %>
+		<h1>1. Titre*</h1>
+		<%= f.input :title, :label => false, :as => :text, :input_html => {:class => "post_input"} %>
 		<div class="written_by"><span>écrit par</span> <%= (@post.user.email if @post.user) || current_user.email %></div>
+		<div id="short_description_post_image">
+			<div class="short_description">
+				<h1>2. Courte description*</h1>
+				<%= f.input :short_description, :label => false, :input_html => {:class => "post_input"} %>
+			</div>
+			<div id="post_image">
+				<h1>3. Image de l'article*</h1>
+				<div class="post_input">
+				<%= image_tag @post.post_picture.url(:thumb) %></br>
+				<%= f.input :post_picture, :as => :file, :label => false %>
+				</div>
 
-		<div class="short_description">
-			<h1>Courte description*</h1>
-			<%= f.input :short_description, :label => false %>
+			</div>
 		</div>
 	</div>
 	
 </header>
-<div id="categories_post_image">
-	<div id="categories">
-		<h1>Catégories</h1>
-		<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
-		
-		<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list"} %>
-	</div>
-	<div id="post_image">
-		<h1>Image de l'article</h1>
-	</div>
+
+<div id="categories">
+	<h1>4. Catégories*</h1>
+	<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
+	
+	<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list", :class => "post_input"} %>
 </div>
 	
-    
-	<%= f.ckeditor :post_image, :label => false, :input_html => { :toolbar => 'PostImage', :width=>'200px', :height=>'200px' } %>
+    <h1>5. Contenu de l'article*</h1>
     <%= f.ckeditor :content, :label => false, :input_html => { :toolbar => 'Easy', :width=>'700px', :height=>'500px' } %><br />
 
-    
-	<%= link_to "Créer un nouveau type", new_post_type_path, :class => "new_post_type_link fancybox.ajax" %> <%= link_to "Afficher tous les types de post", post_types_path, :class => "index_post_types_link fancybox.ajax" %>
-	<%= f.association :post_type, :label => false, :as => :select %>
+    <h1>6. Tags*</h1>
 	<%= f.input :tag_list, :label => false %>
-    <%= f.button :submit %>
+    <%= f.button :submit, :name => "post_form" %>
 <% end %>
 
 

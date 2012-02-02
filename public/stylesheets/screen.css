@@ -1680,7 +1680,7 @@ article#product_test{
 	article#product_test header div.right{
 		display: inline-block;
 		vertical-align: top;
-		width: 48em;
+		width: 84%;
 /*		border-bottom: 1px dotted white;*/
 		padding-bottom: 15px;
 	}
@@ -1791,33 +1791,60 @@ article#product_test{
 			border: none;
 			background: none;
 			padding: 0;
+			width: 300px;
+			display: inline-block;
+			padding-right: 30px;
+			vertical-align: top;
 		}
 		
 		article#post.new header div.written_by,
 		article#post.edit header div.written_by{
-			border-bottom: 1px solid #772018;
 			padding-bottom: 20px;
 		}
 		
 		article#post.new h1,
 		article#post.edit h1{
 			font-family: 'CaviarDreamsRegular';
-			color:#888;
-			margin-top:20px;
+			color: #A2CF4B;
+			font-size: 1.6em;
+			margin-top: 5px;
+			margin-bottom: 5px;
 		}
 		
+		article#post.new h1.top,
+		article#post.edit h1.top{
+			color: #fff;
+			font-size: 2.5em;
+			background-color: rgba(255, 255, 255, 0.3);
+			padding: 10px;
+			margin-bottom: 20px;
+			line-height: 0.7;
+		}
+		
+		article#post.new h1.top span,
+		article#post.edit h1.top span{
+			font-size: .5em;
+			color: #95281F;
+		}
 		article#post.new header textarea#post_short_description,
 		article#post.edit header textarea#post_short_description{
 /*			background-color: transparent;*/
-			background-color: rgba(100, 0, 0, 0.4);
+/*			background-color: rgba(100, 0, 0, 0.4);*/
 			padding: 5px;
-			margin-top: 5px;
 			font-family: 'CaviarDreamsItalic';
 /*			border: 1px dotted #55AACF;*/
 			border: none;
-			width: 98%;
+/*			width: 300px;*/
 			height: 59px;
 			outline: none!important;
+			font-size: 1em;
+			color: #888;
+			overflow:hidden;
+/*			display: inline-block;*/
+		}
+		
+		article#post .post_input{
+			background-color: rgba(100, 0, 0, 0.4);
 			-webkit-box-shadow: inset 0 0 7px #000;
 			-mox-box-shadow: inset 0 0 7px #000;
 			box-shadow: inset 0 0 7px #000;
@@ -1825,9 +1852,8 @@ article#product_test{
 			-moz-border-radius: 2px;
 			-o-border-radius: 2px;
 			border-radius: 2px;
-			font-size: 1em;
-			color: #888;
-			overflow:hidden;
+			padding: 10px;
+			
 		}
 		
 		article#post.new header div.right textarea#post_title,
@@ -1840,61 +1866,45 @@ article#product_test{
 			line-height: 1;
 			margin: 0px 0px 0px 0px;
 /*			background: url('/images/form_field_title.png') no-repeat 520px 6px;*/
-			background-color: rgba(100, 0, 0, 0.4);
+/*			background-color: rgba(100, 0, 0, 0.4);*/
 			border: none;
-			width: 100%;
+/*			width: 97%;*/
 			max-height: 60px;
 			outline: none!important;
-			-webkit-box-shadow: inset 0 0 7px #000;
+/*			-webkit-box-shadow: inset 0 0 7px #000;
 			-mox-box-shadow: inset 0 0 7px #000;
 			box-shadow: inset 0 0 7px #000;
 			-webkit-border-radius: 2px;
 			-moz-border-radius: 2px;
 			-o-border-radius: 2px;
-			border-radius: 2px;
+			border-radius: 2px;*/
 			overflow:hidden;
 /*			vertical-align: top;*/
 		}
 
-	article#post div#categories_post_image {
+	article#post div#short_description_post_image {
 /*		border-top: 1px solid #85231B;*/
-		margin: 30px 0;
-		padding: 20px;
-	}
-	
-	article#post div#categories_post_image h1{
-		margin: 5px;
+		display: block;
+		padding: 20px 0 0 0;
+		min-height: 145px;
 	}
 		
-	article#post div#categories_post_image div#categories {
-		display: inline-block;
-		width: 450px;
-		margin: 0 0 10px 0;
-		border-right: 1px solid #772018;	/*#85231B*/
-		padding-right: 20px;
+	article#post div#categories {
+		display: block;
+		margin: 0 0 30px 0;
 	}
 
-	article#post div#categories_post_image div#post_image {
+	article#post div#short_description_post_image div#post_image {
 		display: inline-block;
 		vertical-align: top;
-		padding-left: 20px;
+		padding-left: 30px;
+		margin-top: 5px;
+		border-left: 1px solid #772018;	/*#85231B*/
+		padding-bottom: 10px;
 	}
 		
-	article#post div#categories_post_image div#categories a.new_category_link {
-		margin-right: 10px;
-	}
-	
-	article#post div#categories_post_image div#categories div#category_list {
-		padding: 10px;
-		-webkit-box-shadow: inset 0 0 7px #000;
-		-mox-box-shadow: inset 0 0 7px #000;
-		box-shadow: inset 0 0 7px #000;
-		-webkit-border-radius: 2px;
-		-moz-border-radius: 2px;
-		-o-border-radius: 2px;
-		border-radius: 2px;
-		background-color: rgba(100, 0, 0, 0.4);
-		margin: 10px 10px 10px 0;
+	article#post div#categories a {
+		margin: 0 10px 10px 0;
 	}
 	
 	article#post div#categories_post_image div#categories div#category_list span{

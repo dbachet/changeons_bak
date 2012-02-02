@@ -1,6 +1,8 @@
 Changeons::Application.routes.draw do
   
 
+  resources :upload_pictures
+
   resources :product_tests do
     resources :comments, :except => [:index, :show, :new] do
       member do
@@ -48,6 +50,7 @@ Changeons::Application.routes.draw do
   end
   
   resources :posts do
+    resources :upload_pictures
     resources :comments, :except => [:index, :show, :new] do
       member do
         get :show_reply
