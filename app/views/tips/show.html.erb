@@ -34,7 +34,7 @@
 	<div id="content_wrap">
 	<p>
 		<div class="content">
-	  <%= @tip.description.html_safe %>
+	  <%= simple_format(h @tip.description) %>
 		</div>
 	</p>
 
