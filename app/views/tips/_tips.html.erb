@@ -1,11 +1,11 @@
 <% @tips.each do |tip| %>
 <article id="tip_<%= tip.id %>">
 
-	<div class="tip_left">
-		<div class="tip_image"><%=  %></div>
-		<div class="tip_date"><span class="day"><%= tip.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(tip.created_at.strftime("%m")) %></span></br><span class="year"><%= tip.created_at.strftime("%Y") %></span></div>
+	<div class="left">
+		<div class="image"><%=  %></div>
+		<div class="date"><span class="day"><%= tip.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(tip.created_at.strftime("%m")) %></span></br><span class="year"><%= tip.created_at.strftime("%Y") %></span></div>
 	</div>
-	<div class="tip_content">
+	<div class="content">
 		<header>
 	    	<h1><%= tip.title %></h1>
 			<span>écrit par</span> <%= tip.user.email %>

@@ -1,11 +1,11 @@
 <% @product_tests.each do |product_test| %>
-<article id="product_test<%= product_test.id %>">
+<article id="product_test_<%= product_test.id %>">
 
-	<div class="product_test_left">
-		<div class="product_test_image"><%=  %></div>
-		<div class="product_test_date"><span class="day"><%= product_test.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(product_test.created_at.strftime("%m")) %></span></br><span class="year"><%= product_test.created_at.strftime("%Y") %></span></div>
+	<div class="left">
+		<div class="image"><%=  %></div>
+		<div class="date"><span class="day"><%= product_test.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(product_test.created_at.strftime("%m")) %></span></br><span class="year"><%= product_test.created_at.strftime("%Y") %></span></div>
 	</div>
-	<div class="product_test_content">
+	<div class="content">
 		<header>
 	    	<h1><%= "#{product_test.brand || "Marque non détaillée"} #{product_test.product_model}" %></h1>
 			<span>écrit par</span> <%= product_test.user.email %>
