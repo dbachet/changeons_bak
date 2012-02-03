@@ -1,4 +1,36 @@
-<%= simple_form_for(@tip, :validate => true) do |f| %>
+<%= simple_form_for(@tip, :validate => true, :html => { :multipart => true }) do |f| %>
+<header>
+	<div class="left">
+		<div class="etiquette_post">Astuce</div>
+		<div class="post_date">
+			<span class="day"><%= Time.now.strftime("%d") %></span>
+			<span class="month"><%= getMonthFromNumber(Time.now.strftime("%m")) %></span>
+			</br>
+			<span class="year"><%= Time.now.strftime("%Y") %></span>
+		</div>
+	</div>
+	<div class="right">
+		<h1>1. Titre*</h1>
+		<%= f.input :title, :label => false, :as => :text, :input_html => {:class => "post_input"} %>
+		<div class="written_by"><span>écrit par</span> <%= (@tip.user.email if @tip.user) || current_user.email %></div>
+		<div id="short_description_post_image">
+			<div class="short_description">
+				<h1>2. Description*</h1>
+				<%= f.input :description, :label => false, :input_html => {:class => "post_input"} %>
+			</div>
+			<div id="post_image">
+				<h1>3. Image de l'article*</h1>
+				<div class="post_input">
+				<%= image_tag @post.post_picture.url(:thumb) %></br>
+				<%= f.input :post_picture, :as => :file, :label => false %>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+</header>
+
   <%= f.error_notification %>
 
   <div class="inputs">
