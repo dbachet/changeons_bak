@@ -219,6 +219,7 @@ section#sponsors{
 		-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.6);
 		box-shadow: inset 0 1px 3px rgba(0,0,0,0.6);
 		padding: 7px 10px 5px;
+		background-color: rgba(255, 255, 255, 0.1);
 	}
 
 	/* Sizes ---------- */
@@ -725,122 +726,9 @@ input#newsletter_subscriber_submit{
 				section#product_tests article div.date span.year{
 					font-size: 25px;
 				}
-	/* Post index */
-	
-	section#posts{
-		background-color: rgba(149, 40, 31, 1);
-		border: 1px solid rgba(119, 10, 1, 1);
-	}
-	
-	section#posts h1{
-		color: #A2CF4B;
-	}
-	
-	section#posts article header{
-		color: #55AACF;
-	}
-	
-	section#posts article header h1{
-		color: #55AACF;
-	}
-	
-	section#posts article header span{
-		color: #A2CF4B;
-	}
-	
-	section#posts article div.date{
-		color: #CCCCCC;
-	}
-	
-	/* End - Post index */
 
-	/* Product tests index */
 
-	section#product_tests{
-		background-color: rgba(0, 77, 175, 1);
-		border: 1px solid rgba(0, 37, 135, 1);
-	}
-	
-	section#product_tests h1{
-		color: #A2CF4B;
-	}
-	
-	section#product_tests article header{
-		color: #55AACF;
-	}
-	
-	section#product_tests article header h1{
-		color: #55AACF;
-	}
-	
-	section#product_tests article header span{
-		color: #A2CF4B;
-	}
-	
-	section#product_tests article div.date{
-		color: #CCCCCC;
-	}
 
-	/* Product tests index */
-
-	/* Events index */
-
-	section#events{
-		background-color: rgba(175, 77, 5, 1);
-		border: 1px solid rgba(135, 37, 5, 1);
-	}
-	
-	section#events h1{
-		color: #A2CF4B;
-	}
-	
-	section#events article header{
-		color: #55AACF;
-	}
-	
-	section#events article header h1{
-		color: #55AACF;
-	}
-	
-	section#events article header span{
-		color: #A2CF4B;
-	}
-	
-	section#events article div.date{
-		color: #CCCCCC;
-	}
-	
-	/* Events index */
-
-	/* Tips index */
-
-	section#tips{
-		background-color: rgba(93, 172, 0, 1);
-		border: 1px solid rgba(63, 143, 0, 1);
-		color: rgba(160, 225, 70, 1);
-	}
-	
-	section#tips h1{
-		color: rgba(255, 220, 20, 1);
-	}
-	
-	section#tips article header{
-		color: rgba(255, 220, 20, 1);
-	}
-	
-	section#tips article header h1{
-		color: rgba(255, 220, 20, 1);
-	}
-	
-	section#tips article header span{
-		color: #63C0DC;
-	}
-	
-	section#tips article div.date{
-		color: #CCCCCC;
-	}
-	
-	/* Tips index */
 	
 	/* Changeons Home */
 	
@@ -898,10 +786,10 @@ article#product_test{
 		padding-bottom: 15px;
 	}
 	
-		article#post header div.etiquette_post,
-		article#tip header div.etiquette_tip,
-		article#event header div.etiquette_event,
-		article#product_test header div.etiquette_product_test{
+		article#post header div.etiquette,
+		article#tip header div.etiquette,
+		article#event header div.etiquette,
+		article#product_test header div.etiquette{
 			height: 27px;
 			display: inline-block;
 			font-size: 15px;
@@ -913,10 +801,10 @@ article#product_test{
 			
 		}
 		
-		article#post header div.post_date,
-		article#tip header div.tip_date,
-		article#event header div.event_date,
-		article#product_test header div.product_test_date{
+		article#post header div.date,
+		article#tip header div.date,
+		article#event header div.date,
+		article#product_test header div.date{
 			padding: 0px 0px 0px 12px;
 			display: block;
 			height: 43px;
@@ -934,24 +822,24 @@ article#product_test{
 
 		}
 
-			article#post header div.post_date span.day,
-			article#tip header div.tip_date span.day,
-			article#event header div.event_date span.day,
-			article#product_test header div.product_test_date span.day{
+			article#post header div.date span.day,
+			article#tip header div.date span.day,
+			article#event header div.date span.day,
+			article#product_test header div.date span.day{
 				font-size: 16px;
 			}
 
-			article#post header div.post_date span.month,
-			article#tip header div.tip_date span.month,
-			article#event header div.event_date span.month,
-			article#product_test header div.product_test_date span.month{
+			article#post header div.date span.month,
+			article#tip header div.date span.month,
+			article#event header div.date span.month,
+			article#product_test header div.date span.month{
 				font-size: 20px;
 			}
 
-			article#post header div.post_date span.year,
-			article#tip header div.tip_date span.year,
-			article#event header div.event_date span.year,
-			article#product_test header div.product_test_date span.year{
+			article#post header div.date span.year,
+			article#tip header div.date span.year,
+			article#event header div.date span.year,
+			article#product_test header div.date span.year{
 				font-size: 25px;
 			}
 		
@@ -962,7 +850,6 @@ article#product_test{
 			font-family: 'CaviarDreamsBold';
 			font-size: 27px;
 			margin-top: 0px;
-			color: #55AACF;									/*ee*/
 			display: inline-block;
 			line-height: 1;
 			margin: 0px 0px 0px 0px;
@@ -973,7 +860,6 @@ article#product_test{
 			article#tip header div.written_by span,
 			article#event header div.written_by span,
 			article#product_test header div.written_by span{
-				color: #A2CF4B; 									/*ee*/
 				font-family: 'SansitaOneRegular';
 			}
 			
@@ -1095,20 +981,20 @@ article#product_test{
 		margin-right: 10px;
 	}
 	
-	article#post div#post_share,
-	article#tip div#tip_share,
-	article#event div#event_share,
-	article#product_test div#product_test_share{
+	article#post div#share,
+	article#tip div#share,
+	article#event div#share,
+	article#product_test div#share{
 		display: inline-block;
 		background-color: rgba(0,0,0,0.3);								/*ee*/
 		height: 250px;
 		width: 80px;
 		vertical-align: top;
 	}
-		article#post div#post_vote,
-		article#tip div#tip_vote,
-		article#event div#event_vote,
-		article#product_test div#product_test_vote{
+		article#post div#vote,
+		article#tip div#vote,
+		article#event div#vote,
+		article#product_test div#vote{
 			display: inline-block;
 			vertical-align: top;
 			height: 90px;
@@ -1116,26 +1002,26 @@ article#product_test{
 			background: url('/images/changeons2.png') no-repeat;
 		}
 	
-			article#post div#post_vote div#vote_up,
-			article#tip div#tip_vote div#vote_up,
-			article#event div#event_vote div#vote_up,
-			article#product_test div#product_test_vote div#vote_up{
+			article#post div#vote div#vote_up,
+			article#tip div#vote div#vote_up,
+			article#event div#vote div#vote_up,
+			article#product_test div#vote div#vote_up{
 				padding: 22px 0 0 50px;
 				height: 40px;
 			}
 		
-			article#post div#post_vote div#votes_result,
-			article#tip div#tip_vote div#votes_result,
-			article#event div#event_vote div#votes_result,
-			article#product_test div#product_test_vote div#votes_result{
+			article#post div#vote div#votes_result,
+			article#tip div#vote div#votes_result,
+			article#event div#vote div#votes_result,
+			article#product_test div#vote div#votes_result{
 				padding: 0 23px 0 9px;
 				text-align: center;
 			}
 		
-	article#post div#post_content_wrap,
-	article#tip div#tip_content_wrap,
-	article#event div#event_content_wrap,
-	article#product_test div#product_test_content_wrap{
+	article#post div#content_wrap,
+	article#tip div#content_wrap,
+	article#event div#content_wrap,
+	article#product_test div#content_wrap{
 		display: inline-block;
 		width: 53em;
 		padding: 5px;
@@ -1144,30 +1030,94 @@ article#product_test{
 /* End - Show */
 
 /* Post show */
-article#post{
+article#post,
+section#posts{
 	background-color: rgba(149, 40, 31, 1);
 	border: 1px solid rgba(119, 10, 1, 1);
 }
 
+article#post header h1,
+article#post header div.written_by,
+section#posts article header,
+section#posts article header h1{
+	color: rgb(225,130,115);
+}
+
+article#post header div.written_by span,
+section#posts article header span,
+section#posts header h1{
+	color: #A2CF4B;
+}
+
 /* End - Post show */
+
+/* Product test show */
+article#product_test,
+section#product_tests{
+	background-color: rgba(0, 77, 175, 1);
+	border: 1px solid rgba(0, 37, 135, 1);
+}
+
+article#product_test header h1,
+article#product_test header div.written_by,
+section#product_tests article header,
+section#product_tests article header h1{
+	color: #55AACF;
+}
+
+article#product_test header div.written_by span,
+section#product_tests article header span,
+section#product_tests header h1{
+	color: #A2CF4B;
+}
+
+/* End - Product test show */
 
 /* Tip show */
 
-article#tip{
+article#tip,
+section#tips{
 	background-color: rgba(93, 172, 0, 1);
 	border: 1px solid rgba(63, 143, 0, 1);
-	color: rgba(160,225,70,1);
 }
 
-article#tip header h1{
+article#tip header h1,
+article#tip header div.written_by,
+section#tips article header,
+section#tips article header h1{
+	color: #A2CF4B;
+}
+
+article#tip header div.written_by span,
+section#tips article header span,
+section#tips header h1{
 	color: rgba(255,220,20,1);
 }
 
-article#tip header div.written_by span{
-	color: #63C0DC;
+/* Event show */
+
+article#event,
+section#events{
+	background-color: rgba(175, 77, 5, 1);
+	border: 1px solid rgba(135, 37, 5, 1);
 }
 
-/* Tip show */
+article#event header h1,
+article#event header div.written_by,
+section#events article header,
+section#events article header h1{
+	color: rgba(225,125,75,1);
+}
+
+article#event header div.written_by span,
+section#events article header span,
+section#events header h1{
+	color: #A2CF4B;
+}
+
+/* End - Event show */
+
+
 
 /* Comment threads */
 
