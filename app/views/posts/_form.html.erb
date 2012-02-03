@@ -1,8 +1,8 @@
 <%= simple_form_for(@post, :validate => true, :html => { :multipart => true }) do |f| %>
 <header>
 	<div class="left">
-		<div class="etiquette_post">Actualité</div>
-		<div class="post_date">
+		<div class="etiquette">Actualité</div>
+		<div class="date">
 			<span class="day"><%= Time.now.strftime("%d") %></span>
 			<span class="month"><%= getMonthFromNumber(Time.now.strftime("%m")) %></span>
 			</br>
@@ -21,8 +21,8 @@
 			<div id="post_image">
 				<h1>3. Image de l'article*</h1>
 				<div class="post_input">
-				<%= image_tag @post.post_picture.url(:thumb) %></br>
-				<%= f.input :post_picture, :as => :file, :label => false %>
+				<%= image_tag @post.picture.url(:thumb) %></br>
+				<%= f.input :picture, :as => :file, :label => false %>
 				</div>
 
 			</div>

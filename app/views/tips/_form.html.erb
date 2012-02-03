@@ -1,8 +1,8 @@
 <%= simple_form_for(@tip, :validate => true, :html => { :multipart => true }) do |f| %>
 <header>
 	<div class="left">
-		<div class="etiquette_post">Astuce</div>
-		<div class="post_date">
+		<div class="etiquette">Astuce</div>
+		<div class="date">
 			<span class="day"><%= Time.now.strftime("%d") %></span>
 			<span class="month"><%= getMonthFromNumber(Time.now.strftime("%m")) %></span>
 			</br>
