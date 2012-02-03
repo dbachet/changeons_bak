@@ -5,8 +5,10 @@
 // });
 
 $(document).ready(function() {
-
 	
+	$(function() {
+			$( ".datepicker" ).datepicker();
+		});
 	
 	// Fancyboxes
 	// $('a.fancybox_signin').fancybox({

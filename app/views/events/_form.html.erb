@@ -24,18 +24,20 @@
 				<%= image_tag @event.picture.url(:thumb) %></br>
 				<%= f.input :picture, :as => :file, :label => false %>
 				</div>
-
+				<h1>4. Date de début*</h1>
+				<%= f.input :event_start_date, :label => false, :as => :string, :input_html => {:class => "datepicker new_form_input", :value => "jj/mm/aaaa", :maxlength => 8} %>
+				<h1>5. Date de fin</h1>
+				<%= f.input :event_end_date, :label => false, :as => :string, :input_html => {:class => "datepicker new_form_input", :value => "jj/mm/aaaa"} %>
 			</div>
 		</div>
 	</div>
 	
 </header>
 
-<%= f.input :event_start_date, :label => false %>
-<%= f.input :event_end_date, :label => false %>
-<%= f.input :addr_street, :label => false %>
-<%= f.input :addr_postcode, :label => false %>
-<%= f.input :addr_city, :label => false %>
+<h1>6. Adresse</h1>
+<h2>Rue</h2><%= f.input :addr_street, :label => false, :input_html => {:class => "new_form_input"} %>
+<h2>Code postal</h2><%= f.input :addr_postcode, :label => false, :input_html => {:class => "new_form_input"} %>
+<h2>Ville</h2><%= f.input :addr_city, :label => false, :input_html => {:class => "new_form_input"} %>
 
 <div id="categories">
 	<h1>4. Catégories*</h1>

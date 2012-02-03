@@ -5,7 +5,8 @@ class ProductTest < ActiveRecord::Base
   acts_as_voteable
   
   has_friendly_id :brand_and_product_model, :use_slug => true, :approximate_ascii => true
-
+  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "50x50>" }, :default_url => '/images/post_picture_missing.png'
+  
   def brand_and_product_model
     "#{brand} #{product_model}"
   end
@@ -20,5 +21,5 @@ class ProductTest < ActiveRecord::Base
   #                                                   :less_than_or_equal_to => 99000.99,
   #                                                   :if => Proc.new {|p| p.recommended_price.blank?}
   
-  validates_presence_of :product_model, :description, :opinion, :category_ids 
+  validates_presence_of :product_model, :description, :opinion, :category_ids
 end

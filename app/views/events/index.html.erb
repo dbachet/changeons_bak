@@ -8,31 +8,3 @@
 
 	<% if can? :new, @event %><%= link_to 'New Event', new_event_path %><% end %>
 </section>
-
-<h1>Listing events</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Event date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.title %></td>
-    <td><%= event.description %></td>
-    <td><%= event.event_start_date %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Event', new_event_path %>

@@ -101,15 +101,6 @@ a{
 	text-decoration:none;
 }
 
-h1 { 
-	font-family: "arial";
-}
-
-h2 { 
-	font-family: "arial";
-	color: grey;
-}
-
 /* main div */
 div#main{
 	margin: 0 auto;
@@ -141,7 +132,6 @@ div#right_bar{
 	form#reply_new input[type=text],
 	form#reply_new textarea{
 		opacity: 0.5;
-		border: 0;
 		-webkit-box-shadow: 0 0 7px #000;
 		-mox-box-shadow: 0 0 7px #000;
 		box-shadow: 0 0 7px #000;
@@ -486,7 +476,6 @@ header#top_banner{
 /* NEWSLETTER FORM + Sponsor */
 
 input#newsletter_subscriber_email{
-	border: 0;
 	-webkit-box-shadow: 0 0 7px #000;
 	-mox-box-shadow: 0 0 7px #000;
 	box-shadow: 0 0 7px #000;
@@ -501,11 +490,16 @@ input#newsletter_subscriber_email{
 	-moz-border-radius: 2px; 
 	-o-border-radius: 2px; 
 	border-radius: 2px;
+}
+
+input,
+textarea{
 	border: 1px solid transparent;
 }
 
-input#newsletter_subscriber_email:focus{
-	border: 1px solid #55AACF;
+input:focus,
+textarea:focus{
+	border: 1px solid #55CEFF;
 }
 
 input#newsletter_subscriber_submit{
@@ -1013,8 +1007,8 @@ section#events header h1{
 /* forms */
 article#post.form header div.short_description,
 article#tip.form header div.description,
-article#event.form header div.description{
-	border: none;
+article#event.form header div.description,
+article#product_test.form header div.description{
 	background: none;
 	padding: 0;
 	width: 300px;
@@ -1025,13 +1019,15 @@ article#event.form header div.description{
 
 article#post.form header div.written_by,
 article#tip.form header div.written_by,
-article#event.form header div.written_by{
+article#event.form header div.written_by,
+article#product_test.form header div.written_by{
 	padding-bottom: 20px;
 }
 
 article#post.form h1,
 article#tip.form h1,
-article#event.form h1{
+article#event.form h1,
+article#product_test.form h1{
 	font-family: 'CaviarDreamsRegular';
 	font-size: 1.6em;
 	margin-top: 5px;
@@ -1040,7 +1036,8 @@ article#event.form h1{
 
 article#post.form h1.top,
 article#tip.form h1.top,
-article#event.form h1.top{
+article#event.form h1.top,
+article#product_test.form h1.top{
 	font-size: 2.5em;
 	padding: 10px;
 	margin-bottom: 20px;
@@ -1049,52 +1046,56 @@ article#event.form h1.top{
 
 article#post.form h1.top span,
 article#tip.form h1.top span,
-article#event.form h1.top span{
+article#event.form h1.top span,
+article#product_test.form h1.top span{
 	font-size: .5em;
 }
 
 article#post.form header textarea#post_short_description,
 article#tip.form header textarea#tip_description,
-article#event.form header textarea#event_description{
+article#event.form header textarea#event_description,
+article#product_test.form header textarea#product_test_description{
 	padding: 5px;
 	font-family: 'CaviarDreamsItalic';
-	border: none;
 	height: 59px;
-	outline: none!important;
 	font-size: 1em;
-	overflow:hidden;
+/*	overflow:hidden;*/
 }
 
 article#post.form .new_form_input,
 article#tip.form .new_form_input,
-article#event.form .new_form_input{
-	-webkit-box-shadow: inset 0 0 7px #000;
-	-mox-box-shadow: inset 0 0 7px #000;
-	box-shadow: inset 0 0 7px #000;
+article#event.form .new_form_input,
+article#product_test.form .new_form_input{
+	-webkit-box-shadow:  0 0 7px #000;
+	-mox-box-shadow:  0 0 7px #000;
+	box-shadow:  0 0 7px #000;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	-o-border-radius: 2px;
 	border-radius: 2px;
 	padding: 10px;
+	outline: none!important;
+	margin: 15px 0 30px 0;
 }
 
 article#post.form header div.right textarea#post_title,
 article#tip.form header div.right textarea#tip_title,
-article#event.form header div.right textarea#event_title{
+article#event.form header div.right textarea#event_title,
+article#product_test.form header div.right input#product_test_brand,
+article#product_test.form header div.right input#product_test_model{
 	font-family: 'CaviarDreamsBold';
 	font-size: 27px;
 	margin-top: 0px;
 	line-height: 1;
 	margin: 0px 0px 0px 0px;
-	border: none;
 	max-height: 60px;
-	outline: none!important;
 	overflow:hidden;
 }
 
 article#post.form div.group_items,
 article#tip.form div.group_items,
-article#event.form div.group_items{
+article#event.form div.group_items,
+article#product_test.form div.group_items{
 	display: block;
 	padding: 20px 0 0 0;
 	min-height: 145px;
@@ -1102,30 +1103,33 @@ article#event.form div.group_items{
 	
 article#post.form div#categories,
 article#tip.form div#categories,
-article#event.form div#categories{
+article#event.form div#categories,
+article#product_test.form div#categories{
 	display: block;
 	margin: 0 0 30px 0;
 }
 
 article#post.form div.group_items div#image,
 article#tip.form div.group_items div#image,
-article#event.form div.group_items div#image {
+article#event.form div.group_items div#image,
+article#product_test.form div.group_items div#image{
 	display: inline-block;
 	vertical-align: top;
 	padding-left: 30px;
-	margin-top: 5px;
 	padding-bottom: 10px;
 }
 	
 article#post.form div#categories a,
 article#tip.form div#categories a,
-article#event.form div#categories a{
+article#event.form div#categories a,
+article#product_test.form div#categories a{
 	margin: 0 10px 10px 0;
 }
 
 article#post.form div#categories div#category_list span,
 article#tip.form div#categories div#category_list span,
-article#event.form div#categories div#category_list span{
+article#event.form div#categories div#category_list span,
+article#product_test.form div#categories div#category_list span{
 	margin-right: 10px;
 }
 
@@ -1207,6 +1211,7 @@ article#event.form div#categories div#category_list span{
 
 	article#event.form header textarea#event_description{
 		color: #888;
+		height: 300px;
 	}
 
 	article#event.form .new_form_input{
@@ -1220,11 +1225,61 @@ article#event.form div#categories div#category_list span{
 	article#event.form div.group_items div#image{
 		border-left: 1px solid #772018;
 	}
+	
+	article#event.form input#event_event_end_date,
+	article#event.form input#event_event_start_date,
+	article#event.form input#event_addr_street,
+	article#event.form input#event_addr_postcode,
+	article#event.form input#event_addr_city{
+		margin: 5px 0 20px 50px;
+	}
+	
+	article#event.form input#event_event_end_date,
+	article#event.form input#event_event_start_date{
+		width: 68px;
+		margin: 10px 0 20px 0px;
+	}
+	
+	article#event.form h2{
+		font-size: 1.2em;
+		
+	}
+	
 	/* End - Event form */
 	
+	/* Product test form */
+	article#product_test.form h1{
+		color: #A2CF4B;
+	}
+	
+	article#product_test.form h1.top{
+		color: #fff;
+		background-color: rgba(255, 255, 255, 0.3);
+	}
+	
+	article#product_test.form h1.top span{
+		color: #95281F;
+	}
+
+	article#product_test.form header textarea#product_test_description{
+		color: #888;
+	}
+
+	article#product_test.form .new_form_input{
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+
+	article#product_test.form header div.right input#product_test_brand,
+	article#product_test.form header div.right input#product_test_model{
+		color: #55AACF;
+	}
+	
+	article#product_test.form div.group_items div#image{
+		border-left: 1px solid #6DB41A;
+	}
+	/* End - Product test form */
 	
 /* End forms */
-
 
 /* Comment threads */
 
