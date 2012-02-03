@@ -1,17 +1,48 @@
-<%= simple_form_for(@event, :validate => true) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for(@event, :validate => true, :html => { :multipart => true }) do |f| %>
+<header>
+	<div class="left">
+		<div class="etiquette">Évènement</div>
+		<div class="date">
+			<span class="day"><%= Time.now.strftime("%d") %></span>
+			<span class="month"><%= getMonthFromNumber(Time.now.strftime("%m")) %></span>
+			</br>
+			<span class="year"><%= Time.now.strftime("%Y") %></span>
+		</div>
+	</div>
+	<div class="right">
+		<h1>1. Titre*</h1>
+		<%= f.input :title, :label => false, :as => :text, :input_html => {:class => "new_form_input"} %>
+		<div class="written_by"><span>écrit par</span> <%= (@event.user.email if @event.user) || current_user.email %></div>
+		<div class="group_items">
+			<div class="description">
+				<h1>2. Description*</h1>
+				<%= f.input :description, :label => false, :input_html => {:class => "new_form_input"} %>
+			</div>
+			<div id="image">
+				<h1>3. Image de l'évènement</h1>
+				<div class="new_form_input">
+				<%= image_tag @event.picture.url(:thumb) %></br>
+				<%= f.input :picture, :as => :file, :label => false %>
+				</div>
 
-  <div class="inputs">
-    <%= f.input :title, :label => false %>
-    <%= f.input :description, :label => false %>
-    <%= f.input :event_date, :label => false %>
-	<%= f.input :addr_street, :label => false %>
-	<%= f.input :addr_postcode, :label => false %>
-	<%= f.input :addr_city, :label => false %>
-	<%= f.association :categories, :label => false, :as => :check_boxes %>
-  </div>
+			</div>
+		</div>
+	</div>
+	
+</header>
 
-  <div class="actions">
+<%= f.input :event_start_date, :label => false %>
+<%= f.input :event_end_date, :label => false %>
+<%= f.input :addr_street, :label => false %>
+<%= f.input :addr_postcode, :label => false %>
+<%= f.input :addr_city, :label => false %>
+
+<div id="categories">
+	<h1>4. Catégories*</h1>
+	<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
+	
+	<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list", :class => "new_form_input"} %>
+</div>
+	
     <%= f.button :submit %>
-  </div>
 <% end %>

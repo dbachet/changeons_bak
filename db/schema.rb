@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120203113844) do
+ActiveRecord::Schema.define(:version => 20120203134715) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(:version => 20120203113844) do
   create_table "events", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "event_date"
+    t.datetime "event_start_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cached_slug"
@@ -88,6 +88,11 @@ ActiveRecord::Schema.define(:version => 20120203113844) do
     t.string   "addr_postcode"
     t.string   "addr_city"
     t.string   "addr_country"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.datetime "event_end_date"
   end
 
   create_table "newsletter_subscribers", :force => true do |t|

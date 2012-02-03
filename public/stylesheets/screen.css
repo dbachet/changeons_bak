@@ -1012,7 +1012,8 @@ section#events header h1{
 
 /* forms */
 article#post.form header div.short_description,
-article#tip.form header div.description{
+article#tip.form header div.description,
+article#event.form header div.description{
 	border: none;
 	background: none;
 	padding: 0;
@@ -1023,12 +1024,14 @@ article#tip.form header div.description{
 }
 
 article#post.form header div.written_by,
-article#tip.form header div.written_by{
+article#tip.form header div.written_by,
+article#event.form header div.written_by{
 	padding-bottom: 20px;
 }
 
 article#post.form h1,
-article#tip.form h1{
+article#tip.form h1,
+article#event.form h1{
 	font-family: 'CaviarDreamsRegular';
 	font-size: 1.6em;
 	margin-top: 5px;
@@ -1036,7 +1039,8 @@ article#tip.form h1{
 }
 
 article#post.form h1.top,
-article#tip.form h1.top{
+article#tip.form h1.top,
+article#event.form h1.top{
 	font-size: 2.5em;
 	padding: 10px;
 	margin-bottom: 20px;
@@ -1044,12 +1048,14 @@ article#tip.form h1.top{
 }
 
 article#post.form h1.top span,
-article#tip.form h1.top span{
+article#tip.form h1.top span,
+article#event.form h1.top span{
 	font-size: .5em;
 }
 
 article#post.form header textarea#post_short_description,
-article#tip.form header textarea#tip_description{
+article#tip.form header textarea#tip_description,
+article#event.form header textarea#event_description{
 	padding: 5px;
 	font-family: 'CaviarDreamsItalic';
 	border: none;
@@ -1060,7 +1066,8 @@ article#tip.form header textarea#tip_description{
 }
 
 article#post.form .new_form_input,
-article#tip.form .new_form_input{
+article#tip.form .new_form_input,
+article#event.form .new_form_input{
 	-webkit-box-shadow: inset 0 0 7px #000;
 	-mox-box-shadow: inset 0 0 7px #000;
 	box-shadow: inset 0 0 7px #000;
@@ -1072,7 +1079,8 @@ article#tip.form .new_form_input{
 }
 
 article#post.form header div.right textarea#post_title,
-article#tip.form header div.right textarea#tip_title{
+article#tip.form header div.right textarea#tip_title,
+article#event.form header div.right textarea#event_title{
 	font-family: 'CaviarDreamsBold';
 	font-size: 27px;
 	margin-top: 0px;
@@ -1085,20 +1093,23 @@ article#tip.form header div.right textarea#tip_title{
 }
 
 article#post.form div.group_items,
-article#tip.form div.group_items {
+article#tip.form div.group_items,
+article#event.form div.group_items{
 	display: block;
 	padding: 20px 0 0 0;
 	min-height: 145px;
 }
 	
 article#post.form div#categories,
-article#tip.form div#categories {
+article#tip.form div#categories,
+article#event.form div#categories{
 	display: block;
 	margin: 0 0 30px 0;
 }
 
 article#post.form div.group_items div#image,
-article#tip.form div.group_items div#image {
+article#tip.form div.group_items div#image,
+article#event.form div.group_items div#image {
 	display: inline-block;
 	vertical-align: top;
 	padding-left: 30px;
@@ -1107,12 +1118,14 @@ article#tip.form div.group_items div#image {
 }
 	
 article#post.form div#categories a,
-article#tip.form div#categories a {
+article#tip.form div#categories a,
+article#event.form div#categories a{
 	margin: 0 10px 10px 0;
 }
 
 article#post.form div#categories div#category_list span,
-article#tip.form div#categories div#category_list span{
+article#tip.form div#categories div#category_list span,
+article#event.form div#categories div#category_list span{
 	margin-right: 10px;
 }
 
@@ -1161,7 +1174,7 @@ article#tip.form div#categories div#category_list span{
 		color: #95281F;
 	}
 
-	article#tip.form header textarea#post_short_description{
+	article#tip.form header textarea#tip_description{
 		color: #888;
 	}
 
@@ -1169,14 +1182,45 @@ article#tip.form div#categories div#category_list span{
 		background-color: rgba(255, 255, 255, 0.4);
 	}
 
-	article#tip.form header div.right textarea#post_title{
+	article#tip.form header div.right textarea#tip_title{
 		color: #55AACF;
 	}
 	
 	article#tip.form div.group_items div#image{
 		border-left: 1px solid #6DB41A;
 	}
-	/* End - Post form */
+	/* End - Tip form */
+	
+	/* Event form */
+	article#event.form h1{
+		color: #A2CF4B;
+	}
+	
+	article#event.form h1.top{
+		color: #fff;
+		background-color: rgba(255, 255, 255, 0.3);
+	}
+	
+	article#event.form h1.top span{
+		color: #95281F;
+	}
+
+	article#event.form header textarea#event_description{
+		color: #888;
+	}
+
+	article#event.form .new_form_input{
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+
+	article#event.form header div.right textarea#event_title{
+		color: #55AACF;
+	}
+	
+	article#event.form div.group_items div#image{
+		border-left: 1px solid #772018;
+	}
+	/* End - Event form */
 	
 	
 /* End forms */

@@ -2,7 +2,7 @@
 <article id="tip_<%= tip.id %>">
 
 	<div class="left">
-		<div class="image"><%=  %></div>
+		<div class="image"><%= image_tag tip.picture.url(:thumb) %></div>
 		<div class="date"><span class="day"><%= tip.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(tip.created_at.strftime("%m")) %></span></br><span class="year"><%= tip.created_at.strftime("%Y") %></span></div>
 	</div>
 	<div class="content">
