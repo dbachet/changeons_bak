@@ -135,24 +135,6 @@ div#right_bar{
 
 /* Common */
 
-section#posts,
-section#tips,
-section#events,
-section#product_tests,
-section#changeons_home, 
-article#post,
-article#tip,
-article#event,
-article#product_test{
-	background-color: rgba(149, 40, 31, 1);
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	-webkit-box-shadow: 0 0 4px #000;
-	-mox-box-shadow: 0 0 4px #000;
-	box-shadow: 0 0 4px #000;
-	border: 1px solid rgba(119, 10, 1, 1);
-}
 
 	form#comment_new input[type=text],
 	form#comment_new textarea,
@@ -551,6 +533,557 @@ input#newsletter_subscriber_submit{
 
 /* END - NEWSLETTER FORM */
 
+/* Home */
+	section#posts,
+	section#tips,
+	section#events,
+	section#product_tests,
+	section#changeons_home, 
+	article#post,
+	article#tip,
+	article#event,
+	article#product_test{
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		border-radius: 2px;
+		-webkit-box-shadow: 0 0 4px #000;
+		-mox-box-shadow: 0 0 4px #000;
+		box-shadow: 0 0 4px #000;
+	}
+	
+
+	section#posts,
+	section#tips,
+	section#events,
+	section#product_tests{
+		min-height: 365px;
+		padding: 20px 40px;
+		width: 31.2em;
+		display: inline-block;
+	}
+	
+		section#posts h1,
+		section#tips h1,
+		section#events h1,
+		section#product_tests h1{
+			font-family: 'SansitaOneRegular';
+			font-size: 27px;
+			margin-top: 0px;
+			color: #A2CF4B;			/*ee*/
+		}
+
+		section#posts article,
+		section#tips article,
+		section#events article,
+		section#product_tests article{
+			height: 150px;
+			width: 410px;
+			padding: 0px;
+			-webkit-transition: width 0.3s linear, background 0.2s ease;
+			-moz-transition: width 0.3s linear, background 0.2s ease;
+			-o-transition: width 0.3s linear, background 0.2s ease;
+			transition: width 0.3s linear, background 0.2s ease;
+			-webkit-border-top-right-radius: 5px;
+			-webkit-border-bottom-right-radius: 5px;
+			-moz-border-radius-topright: 5px;
+			-moz-border-radius-bottomright: 5px;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+
+		section#posts article:hover,
+		section#tips article:hover,
+		section#events article:hover,
+		section#product_tests article:hover{
+			background: #d0d0c6; 
+			background: rgba(8, 8, 8, 0.4);
+		}
+
+			section#posts article div.post_left,
+			section#tips article div.tip_left,
+			section#events article div.event_left,
+			section#product_tests article div.product_test_left{
+				display:inline-block;
+				vertical-align: top;
+				height: 100px;
+				width: 65px;
+			}
+			
+			section#posts article div.post_content,
+			section#tips article div.tip_content,
+			section#events article div.event_content,
+			section#product_tests article div.product_test_content{
+				display:inline-block;
+				width: 330px;
+				border-bottom: none;
+				border-top: 1px dotted;
+			}
+
+			section#posts article header,
+			section#tips article header,
+			section#events article header,
+			section#product_tests article header{
+				padding-top:10px;
+				display: block;
+				font-size: 11px;
+				color: #55AACF;				/*ee*/
+			}
+
+				section#posts article header span,
+				section#tips article header span,
+				section#events article header span,
+				section#product_tests article header span{
+					color: #A2CF4B; 		/*ee*/
+					font-family: 'SansitaOneRegular';
+				}
+
+				section#posts article header h1,
+				section#tips article header h1,
+				section#events article header h1,
+				section#product_tests article header h1{
+					font-family: 'CaviarDreamsBold';
+					font-size: 15px;
+					margin-top: 0px;
+					color: #55AACF;			/*ee*/
+					margin-bottom: 0px;
+				}
+
+			section#posts article div.short_description,
+			section#tips article div.description,
+			section#events article div.description,
+			section#product_tests article div.description{
+				font-family: 'CaviarDreamsItalic';
+				display: block;
+				font-size: 13px;
+				text-align: justify;
+				line-height: 1.2;
+			}
+
+
+			section#posts article div.post_image,
+			section#tips article div.tip_image,
+			section#events article div.event_image,
+			section#product_tests article div.product_test_image{
+				margin-right: 20px;
+				display: inline-block;
+				width: 65px;
+				height: 56px;
+				margin-top: 12px;
+			}
+
+				section#posts article div.post_image img,
+				section#tips article div.tip_image img,
+				section#events article div.event_image img,
+				section#product_tests article div.product_test_image img{
+					-webkit-border-radius: 5px;
+					-moz-border-radius: 5px;
+					border-radius: 5px;
+					border: 3px solid beige;
+					opacity: 0.5;
+				}
+
+				section#posts article div.post_image p,
+				section#tips article div.tip_image p,
+				section#events article div.event_image p,
+				section#product_tests article div.product_test_image p{
+					margin: 0;
+				}
+
+			section#posts article div.post_date,
+			section#tips article div.tip_date,
+			section#events article div.event_date,
+			section#product_tests article div.product_test_date{
+				padding: 2px 0px 0px 2px;
+				margin: 10px 0px 0px 0px;
+				display: block;
+				height: 43px;
+				width: 60px;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				font-family: 'CaviarDreamsBold';
+				line-height: 0.9;
+				text-align: center;
+				color: #CCCCCC;			/*ee*/
+				-webkit-text-shadow: 2px 2px #000;
+				-moz-text-shadow: 2px 2px #000;
+				text-shadow: 2px 2px #000;
+			}
+
+				section#posts article div.post_date span.day,
+				section#tips article div.tip_date span.day,
+				section#events article div.event_date span.day,
+				section#product_tests article div.product_test_date span.day{
+					font-size: 16px;
+				}
+
+				section#posts article div.post_date span.month,
+				section#tips article div.tip_date span.month,
+				section#events article div.event_date span.month,
+				section#product_tests article div.product_test_date span.month{
+					font-size: 20px;
+				}
+
+				section#posts article div.post_date span.year,
+				section#tips article div.tip_date span.year,
+				section#events article div.event_date span.year,
+				section#product_tests article div.product_test_date span.year{
+					font-size: 25px;
+				}
+	/* Post index */
+	
+	section#posts{
+		background-color: rgba(149, 40, 31, 1);
+		border: 1px solid rgba(119, 10, 1, 1);
+	}
+	
+	/* End - Post index */
+
+	/* Product tests index */
+
+	section#product_tests{
+		background-color: rgba(0, 77, 175, 1);
+		border: 1px solid rgba(0, 37, 135, 1);
+	}
+
+	/* Product tests index */
+
+	/* Events index */
+
+	section#events{
+		background-color: rgba(175, 77, 5, 1);
+		border: 1px solid rgba(135, 37, 5, 1);
+	}
+
+	/* Events index */
+
+	/* Tips index */
+
+	section#tips{
+		background-color: rgba(93, 172, 0, 1);
+		border: 1px solid rgba(63, 143, 0, 1);
+	}
+
+	/* Tips index */
+	
+	/* Changeons Home */
+	
+	section#changeons_home{
+		background-color: rgba(149, 40, 31, 1);
+		border: 1px solid rgba(119, 10, 1, 1);
+		width: 21.4em;
+		min-height: 365px;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0px 0px 0px 20px;
+		padding: 20px;
+	}
+	
+			section#changeons_home header h1{
+				font-family: 'SansitaOneRegular';
+				font-size: 27px;
+				margin-top: 0px;
+				color: #A2CF4B;
+			}
+	
+	/* End - Changeons Home */
+
+/* End - Home */
+
+/* Post/Tip/Event/Product test Show */
+article#post,
+article#tip,
+article#event,
+article#product_test{
+	padding: 20px;
+}
+	
+	article#post header div.left,
+	article#tip header div.left,
+	article#event header div.left,
+	article#product_test header div.left{
+		display: inline-block;
+		vertical-align: top;
+		background: url('/images/etiquette_2.png') no-repeat;
+		height: 105px;
+		width: 85px;
+		margin-left: -80px;
+		padding: 15px 15px 0 55px;
+		text-align: center;
+	}
+	
+	article#post header div.right,
+	article#tip header div.right,
+	article#event header div.right,
+	article#product_test header div.right{
+		display: inline-block;
+		vertical-align: top;
+		width: 84%;
+		padding-bottom: 15px;
+	}
+	
+		article#post header div.etiquette_post,
+		article#tip header div.etiquette_tip,
+		article#event header div.etiquette_event,
+		article#product_test header div.etiquette_product_test{
+			height: 27px;
+			display: inline-block;
+			font-size: 15px;
+			color: rgba(149, 40, 31, 1);
+			-webkit-text-shadow: 1px 1px rgba(60, 0, 0, 1);
+			-moz-text-shadow: 1px 1px rgba(60, 0, 0, 1);
+			text-shadow: 1px 1px rgba(60, 0, 0, 1);
+			word-wrap:break-word;
+			
+		}
+		
+		article#post header div.post_date,
+		article#tip header div.tip_date,
+		article#event header div.event_date,
+		article#product_test header div.product_test_date{
+			padding: 0px 0px 0px 12px;
+			display: block;
+			height: 43px;
+			width: 60px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			font-family: 'CaviarDreamsBold';
+			line-height: 0.9;
+			text-align: center;
+			color: #CCCCCC;
+			-webkit-text-shadow: 2px 2px #000;
+			-moz-text-shadow: 2px 2px #000;
+			text-shadow: 2px 2px #000;
+
+		}
+
+			article#post header div.post_date span.day,
+			article#tip header div.tip_date span.day,
+			article#event header div.event_date span.day,
+			article#product_test header div.product_test_date span.day{
+				font-size: 16px;
+			}
+
+			article#post header div.post_date span.month,
+			article#tip header div.tip_date span.month,
+			article#event header div.event_date span.month,
+			article#product_test header div.product_test_date span.month{
+				font-size: 20px;
+			}
+
+			article#post header div.post_date span.year,
+			article#tip header div.tip_date span.year,
+			article#event header div.event_date span.year,
+			article#product_test header div.product_test_date span.year{
+				font-size: 25px;
+			}
+		
+		article#post header h1,
+		article#tip header h1,
+		article#event header h1,
+		article#product_test header h1{
+			font-family: 'CaviarDreamsBold';
+			font-size: 27px;
+			margin-top: 0px;
+			color: #55AACF;
+			display: inline-block;
+			line-height: 1;
+			margin: 0px 0px 0px 0px;
+			vertical-align: top;
+		}
+		
+			article#post header div.written_by span,
+			article#tip header div.written_by span,
+			article#event header div.written_by span,
+			article#product_test header div.written_by span{
+				color: #A2CF4B; 
+				font-family: 'SansitaOneRegular';
+			}
+			
+		article#post header div.short_description,
+		article#post header div.short_description,
+		article#post header div.short_description,
+		article#post header div.short_description{
+			padding: 5px;
+			margin-top: 5px;
+			font-family: 'CaviarDreamsItalic';
+			background-color: rgba(0,0,0,0.3);
+			border: 1px dotted #55AACF;
+		}
+		
+		article#post.new header div.short_description,
+		article#post.edit header div.short_description{
+			border: none;
+			background: none;
+			padding: 0;
+			width: 300px;
+			display: inline-block;
+			padding-right: 30px;
+			vertical-align: top;
+		}
+		
+		article#post.new header div.written_by,
+		article#post.edit header div.written_by{
+			padding-bottom: 20px;
+		}
+		
+		article#post.new h1,
+		article#post.edit h1{
+			font-family: 'CaviarDreamsRegular';
+			color: #A2CF4B;
+			font-size: 1.6em;
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+		
+		article#post.new h1.top,
+		article#post.edit h1.top{
+			color: #fff;
+			font-size: 2.5em;
+			background-color: rgba(255, 255, 255, 0.3);
+			padding: 10px;
+			margin-bottom: 20px;
+			line-height: 0.7;
+		}
+		
+		article#post.new h1.top span,
+		article#post.edit h1.top span{
+			font-size: .5em;
+			color: #95281F;
+		}
+		article#post.new header textarea#post_short_description,
+		article#post.edit header textarea#post_short_description{
+			padding: 5px;
+			font-family: 'CaviarDreamsItalic';
+			border: none;
+			height: 59px;
+			outline: none!important;
+			font-size: 1em;
+			color: #888;
+			overflow:hidden;
+		}
+		
+		article#post .post_input{
+			background-color: rgba(100, 0, 0, 0.4);
+			-webkit-box-shadow: inset 0 0 7px #000;
+			-mox-box-shadow: inset 0 0 7px #000;
+			box-shadow: inset 0 0 7px #000;
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			-o-border-radius: 2px;
+			border-radius: 2px;
+			padding: 10px;
+			
+		}
+		
+		article#post.new header div.right textarea#post_title,
+		article#post.edit header div.right textarea#post_title{
+			font-family: 'CaviarDreamsBold';
+			font-size: 27px;
+			margin-top: 0px;
+			color: #55AACF;
+			line-height: 1;
+			margin: 0px 0px 0px 0px;
+			border: none;
+			max-height: 60px;
+			outline: none!important;
+			overflow:hidden;
+		}
+
+	article#post div#short_description_post_image {
+		display: block;
+		padding: 20px 0 0 0;
+		min-height: 145px;
+	}
+		
+	article#post div#categories {
+		display: block;
+		margin: 0 0 30px 0;
+	}
+
+	article#post div#short_description_post_image div#post_image {
+		display: inline-block;
+		vertical-align: top;
+		padding-left: 30px;
+		margin-top: 5px;
+		border-left: 1px solid #772018;	/*#85231B*/
+		padding-bottom: 10px;
+	}
+		
+	article#post div#categories a {
+		margin: 0 10px 10px 0;
+	}
+	
+	article#post div#categories_post_image div#categories div#category_list span{
+		margin-right: 10px;
+	}
+	
+	article#post div#post_share,
+	article#tip div#tip_share,
+	article#event div#event_share,
+	article#product_test div#product_test_share{
+		display: inline-block;
+		background-color: rgba(0,0,0,0.3);
+		height: 250px;
+		width: 80px;
+		vertical-align: top;
+	}
+		article#post div#post_vote,
+		article#tip div#tip_vote,
+		article#event div#event_vote,
+		article#product_test div#product_test_vote{
+			display: inline-block;
+			vertical-align: top;
+			height: 90px;
+			width: 80px;
+			background: url('/images/changeons2.png') no-repeat;
+		}
+	
+			article#post div#post_vote div#vote_up,
+			article#tip div#tip_vote div#vote_up,
+			article#event div#event_vote div#vote_up,
+			article#product_test div#product_test_vote div#vote_up{
+				padding: 22px 0 0 50px;
+				height: 40px;
+			}
+		
+			article#post div#post_vote div#votes_result,
+			article#tip div#tip_vote div#votes_result,
+			article#event div#event_vote div#votes_result,
+			article#product_test div#product_test_vote div#votes_result{
+				padding: 0 23px 0 9px;
+				text-align: center;
+			}
+		
+	article#post div#post_content_wrap,
+	article#tip div#tip_content_wrap,
+	article#event div#event_content_wrap,
+	article#product_test div#product_test_content_wrap{
+		display: inline-block;
+		width: 53em;
+		padding: 5px;
+	}
+
+/* End - Show */
+
+/* Post show */
+article#post{
+	background-color: rgba(149, 40, 31, 1);
+	border: 1px solid rgba(119, 10, 1, 1);
+}
+
+/* End - Post show */
+
+/* Tip show */
+
+article#tip{
+	background-color: rgba(93, 172, 0, 1);
+	border: 1px solid rgba(63, 143, 0, 1);
+}
+
+/* Tip show */
+
 /* Comment threads */
 
 div#wrap_form_new_comment{
@@ -865,527 +1398,6 @@ div#display_comments div.root_comment_area {
 			}
 	/* End - Reply form */
 /* End - Comment threads */
-
-/* Home */
-
-	section#posts,
-	section#tips,
-	section#events,
-	section#product_tests{
-		min-height: 365px;
-		padding: 20px 40px;
-		width: 31.2em;
-		display: inline-block;
-	}
-	
-		section#posts h1,
-		section#tips h1,
-		section#events h1,
-		section#product_tests h1{
-			font-family: 'SansitaOneRegular';
-			font-size: 27px;
-			margin-top: 0px;
-			color: #A2CF4B;			/*ee*/
-		}
-
-		section#posts article,
-		section#tips article,
-		section#events article,
-		section#product_tests article{
-			height: 150px;
-			width: 410px;
-			padding: 0px;
-			-webkit-transition: width 0.3s linear, background 0.2s ease;
-			-moz-transition: width 0.3s linear, background 0.2s ease;
-			-o-transition: width 0.3s linear, background 0.2s ease;
-			transition: width 0.3s linear, background 0.2s ease;
-			-webkit-border-top-right-radius: 5px;
-			-webkit-border-bottom-right-radius: 5px;
-			-moz-border-radius-topright: 5px;
-			-moz-border-radius-bottomright: 5px;
-			border-top-right-radius: 5px;
-			border-bottom-right-radius: 5px;
-		}
-
-		section#posts article:hover,
-		section#tips article:hover,
-		section#events article:hover,
-		section#product_tests article:hover{
-			background: #d0d0c6; 
-			background: rgba(8, 8, 8, 0.4);
-		}
-
-			section#posts article div.post_left,
-			section#tips article div.tip_left,
-			section#events article div.event_left,
-			section#product_tests article div.product_test_left{
-				display:inline-block;
-				vertical-align: top;
-				height: 100px;
-				width: 65px;
-			}
-			
-			section#posts article div.post_content,
-			section#tips article div.tip_content,
-			section#events article div.event_content,
-			section#product_tests article div.product_test_content{
-				display:inline-block;
-				width: 330px;
-				border-bottom: none;
-				border-top: 1px dotted;
-			}
-
-			section#posts article header,
-			section#tips article header,
-			section#events article header,
-			section#product_tests article header{
-				padding-top:10px;
-				display: block;
-				font-size: 11px;
-				color: #55AACF;				/*ee*/
-			}
-
-				section#posts article header span,
-				section#tips article header span,
-				section#events article header span,
-				section#product_tests article header span{
-					color: #A2CF4B; 		/*ee*/
-					font-family: 'SansitaOneRegular';
-				}
-
-				section#posts article header h1,
-				section#tips article header h1,
-				section#events article header h1,
-				section#product_tests article header h1{
-					font-family: 'CaviarDreamsBold';
-					font-size: 15px;
-					margin-top: 0px;
-					color: #55AACF;			/*ee*/
-					margin-bottom: 0px;
-				}
-
-			section#posts article div.short_description,
-			section#tips article div.description,
-			section#events article div.description,
-			section#product_tests article div.description{
-				font-family: 'CaviarDreamsItalic';
-				display: block;
-				font-size: 13px;
-				text-align: justify;
-				line-height: 1.2;
-			}
-
-
-			section#posts article div.post_image,
-			section#tips article div.tip_image,
-			section#events article div.event_image,
-			section#product_tests article div.product_test_image{
-				margin-right: 20px;
-				display: inline-block;
-				width: 65px;
-				height: 56px;
-				margin-top: 12px;
-			}
-
-				section#posts article div.post_image img,
-				section#tips article div.tip_image img,
-				section#events article div.event_image img,
-				section#product_tests article div.product_test_image img{
-					-webkit-border-radius: 5px;
-					-moz-border-radius: 5px;
-					border-radius: 5px;
-					border: 3px solid beige;
-					opacity: 0.5;
-				}
-
-				section#posts article div.post_image p,
-				section#tips article div.tip_image p,
-				section#events article div.event_image p,
-				section#product_tests article div.product_test_image p{
-					margin: 0;
-				}
-
-			section#posts article div.post_date,
-			section#tips article div.tip_date,
-			section#events article div.event_date,
-			section#product_tests article div.product_test_date{
-				padding: 2px 0px 0px 2px;
-				margin: 10px 0px 0px 0px;
-				display: block;
-				height: 43px;
-				width: 60px;
-				-webkit-border-radius: 5px;
-				-moz-border-radius: 5px;
-				border-radius: 5px;
-				font-family: 'CaviarDreamsBold';
-				line-height: 0.9;
-				text-align: center;
-				color: #CCCCCC;			/*ee*/
-				-webkit-text-shadow: 2px 2px #000;
-				-moz-text-shadow: 2px 2px #000;
-				text-shadow: 2px 2px #000;
-			}
-
-				section#posts article div.post_date span.day,
-				section#tips article div.tip_date span.day,
-				section#events article div.event_date span.day,
-				section#product_tests article div.product_test_date span.day{
-					font-size: 16px;
-				}
-
-				section#posts article div.post_date span.month,
-				section#tips article div.tip_date span.month,
-				section#events article div.event_date span.month,
-				section#product_tests article div.product_test_date span.month{
-					font-size: 20px;
-				}
-
-				section#posts article div.post_date span.year,
-				section#tips article div.tip_date span.year,
-				section#events article div.event_date span.year,
-				section#product_tests article div.product_test_date span.year{
-					font-size: 25px;
-				}
-	/* End - 	Posts Home
-	 			Tips Index
-				Events Index
-				Product Test Index */
-
-/* Product tests index */
-
-section#product_tests{
-	background-color: rgba(0, 77, 175, 1);
-	border: 1px solid rgba(0, 37, 135, 1);
-}
-
-/* Product tests index */
-
-/* Events index */
-
-section#events{
-	background-color: rgba(175, 77, 5, 1);
-	border: 1px solid rgba(135, 37, 5, 1);
-}
-
-/* Events index */
-
-/* Tips index */
-
-section#tips{
-	background-color: rgba(93, 172, 0, 1);
-	border: 1px solid rgba(63, 143, 0, 1);
-}
-
-/* Tips index */
-	
-	/* Changeons Home */
-	
-	section#changeons_home{
-		width: 21.4em;
-		min-height: 365px;
-		display: inline-block;
-		vertical-align: top;
-		margin: 0px 0px 0px 20px;
-		padding: 20px;
-	}
-	
-			section#changeons_home header h1{
-				font-family: 'SansitaOneRegular';
-				font-size: 27px;
-				margin-top: 0px;
-				color: #A2CF4B;
-			}
-	
-	/* End - Changeons Home */
-
-/* End - Home */
-
-/* Post Show */
-article#post,
-article#tip,
-article#event,
-article#product_test{
-	padding: 20px;
-}
-	
-	article#post header div.left,
-	article#tip header div.left,
-	article#event header div.left,
-	article#product_test header div.left{
-		display: inline-block;
-		vertical-align: top;
-		background: url('/images/etiquette_2.png') no-repeat;
-		height: 105px;
-		width: 85px;
-		margin-left: -80px;
-		padding: 15px 15px 0 55px;
-		text-align: center;
-	}
-	
-	article#post header div.right,
-	article#tip header div.right,
-	article#event header div.right,
-	article#product_test header div.right{
-		display: inline-block;
-		vertical-align: top;
-		width: 84%;
-		padding-bottom: 15px;
-	}
-	
-		article#post header div.etiquette_post,
-		article#tip header div.etiquette_tip,
-		article#event header div.etiquette_event,
-		article#product_test header div.etiquette_product_test{
-			height: 27px;
-			display: inline-block;
-			font-size: 15px;
-			color: rgba(149, 40, 31, 1);
-			-webkit-text-shadow: 1px 1px rgba(60, 0, 0, 1);
-			-moz-text-shadow: 1px 1px rgba(60, 0, 0, 1);
-			text-shadow: 1px 1px rgba(60, 0, 0, 1);
-			word-wrap:break-word;
-			
-		}
-		
-		article#post header div.post_date,
-		article#tip header div.tip_date,
-		article#event header div.event_date,
-		article#product_test header div.product_test_date{
-			padding: 0px 0px 0px 12px;
-			display: block;
-			height: 43px;
-			width: 60px;
-			-webkit-border-radius: 5px;
-			-moz-border-radius: 5px;
-			border-radius: 5px;
-			font-family: 'CaviarDreamsBold';
-			line-height: 0.9;
-			text-align: center;
-			color: #CCCCCC;
-			-webkit-text-shadow: 2px 2px #000;
-			-moz-text-shadow: 2px 2px #000;
-			text-shadow: 2px 2px #000;
-
-		}
-
-			article#post header div.post_date span.day,
-			article#tip header div.tip_date span.day,
-			article#event header div.event_date span.day,
-			article#product_test header div.product_test_date span.day{
-				font-size: 16px;
-			}
-
-			article#post header div.post_date span.month,
-			article#tip header div.tip_date span.month,
-			article#event header div.event_date span.month,
-			article#product_test header div.product_test_date span.month{
-				font-size: 20px;
-			}
-
-			article#post header div.post_date span.year,
-			article#tip header div.tip_date span.year,
-			article#event header div.event_date span.year,
-			article#product_test header div.product_test_date span.year{
-				font-size: 25px;
-			}
-		
-		article#post header h1,
-		article#tip header h1,
-		article#event header h1,
-		article#product_test header h1{
-			font-family: 'CaviarDreamsBold';
-			font-size: 27px;
-			margin-top: 0px;
-			color: #55AACF;
-			display: inline-block;
-			line-height: 1;
-			margin: 0px 0px 0px 0px;
-			vertical-align: top;
-		}
-		
-			article#post header div.written_by span,
-			article#tip header div.written_by span,
-			article#event header div.written_by span,
-			article#product_test header div.written_by span{
-				color: #A2CF4B; 
-				font-family: 'SansitaOneRegular';
-			}
-			
-		article#post header div.short_description,
-		article#post header div.short_description,
-		article#post header div.short_description,
-		article#post header div.short_description{
-			padding: 5px;
-			margin-top: 5px;
-			font-family: 'CaviarDreamsItalic';
-			background-color: rgba(0,0,0,0.3);
-			border: 1px dotted #55AACF;
-		}
-		
-		article#post.new header div.short_description,
-		article#post.edit header div.short_description{
-			border: none;
-			background: none;
-			padding: 0;
-			width: 300px;
-			display: inline-block;
-			padding-right: 30px;
-			vertical-align: top;
-		}
-		
-		article#post.new header div.written_by,
-		article#post.edit header div.written_by{
-			padding-bottom: 20px;
-		}
-		
-		article#post.new h1,
-		article#post.edit h1{
-			font-family: 'CaviarDreamsRegular';
-			color: #A2CF4B;
-			font-size: 1.6em;
-			margin-top: 5px;
-			margin-bottom: 5px;
-		}
-		
-		article#post.new h1.top,
-		article#post.edit h1.top{
-			color: #fff;
-			font-size: 2.5em;
-			background-color: rgba(255, 255, 255, 0.3);
-			padding: 10px;
-			margin-bottom: 20px;
-			line-height: 0.7;
-		}
-		
-		article#post.new h1.top span,
-		article#post.edit h1.top span{
-			font-size: .5em;
-			color: #95281F;
-		}
-		article#post.new header textarea#post_short_description,
-		article#post.edit header textarea#post_short_description{
-			padding: 5px;
-			font-family: 'CaviarDreamsItalic';
-			border: none;
-			height: 59px;
-			outline: none!important;
-			font-size: 1em;
-			color: #888;
-			overflow:hidden;
-		}
-		
-		article#post .post_input{
-			background-color: rgba(100, 0, 0, 0.4);
-			-webkit-box-shadow: inset 0 0 7px #000;
-			-mox-box-shadow: inset 0 0 7px #000;
-			box-shadow: inset 0 0 7px #000;
-			-webkit-border-radius: 2px;
-			-moz-border-radius: 2px;
-			-o-border-radius: 2px;
-			border-radius: 2px;
-			padding: 10px;
-			
-		}
-		
-		article#post.new header div.right textarea#post_title,
-		article#post.edit header div.right textarea#post_title{
-			font-family: 'CaviarDreamsBold';
-			font-size: 27px;
-			margin-top: 0px;
-			color: #55AACF;
-			line-height: 1;
-			margin: 0px 0px 0px 0px;
-			border: none;
-			max-height: 60px;
-			outline: none!important;
-			overflow:hidden;
-		}
-
-	article#post div#short_description_post_image {
-		display: block;
-		padding: 20px 0 0 0;
-		min-height: 145px;
-	}
-		
-	article#post div#categories {
-		display: block;
-		margin: 0 0 30px 0;
-	}
-
-	article#post div#short_description_post_image div#post_image {
-		display: inline-block;
-		vertical-align: top;
-		padding-left: 30px;
-		margin-top: 5px;
-		border-left: 1px solid #772018;	/*#85231B*/
-		padding-bottom: 10px;
-	}
-		
-	article#post div#categories a {
-		margin: 0 10px 10px 0;
-	}
-	
-	article#post div#categories_post_image div#categories div#category_list span{
-		margin-right: 10px;
-	}
-	
-	article#post div#post_share,
-	article#tip div#tip_share,
-	article#event div#event_share,
-	article#product_test div#product_test_share{
-		display: inline-block;
-		background-color: rgba(0,0,0,0.3);
-		height: 250px;
-		width: 80px;
-		vertical-align: top;
-	}
-		article#post div#post_vote,
-		article#tip div#tip_vote,
-		article#event div#event_vote,
-		article#product_test div#product_test_vote{
-			display: inline-block;
-			vertical-align: top;
-			height: 90px;
-			width: 80px;
-			background: url('/images/changeons2.png') no-repeat;
-		}
-	
-			article#post div#post_vote div#vote_up,
-			article#tip div#tip_vote div#vote_up,
-			article#event div#event_vote div#vote_up,
-			article#product_test div#product_test_vote div#vote_up{
-				padding: 22px 0 0 50px;
-				height: 40px;
-			}
-		
-			article#post div#post_vote div#votes_result,
-			article#tip div#tip_vote div#votes_result,
-			article#event div#event_vote div#votes_result,
-			article#product_test div#product_test_vote div#votes_result{
-				padding: 0 23px 0 9px;
-				text-align: center;
-			}
-		
-	article#post div#post_content_wrap,
-	article#tip div#tip_content_wrap,
-	article#event div#event_content_wrap,
-	article#product_test div#product_test_content_wrap{
-		display: inline-block;
-		width: 53em;
-		padding: 5px;
-	}
-
-/* End - Post Show */
-
-/* Tip show */
-
-article#tip{
-	background-color: rgba(93, 172, 0, 1);
-	border: 1px solid rgba(63, 143, 0, 1);
-}
-
-/* Tip show */
-
 
 /* button to comment as */
 .drop_write_as {
