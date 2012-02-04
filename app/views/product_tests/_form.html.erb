@@ -12,36 +12,40 @@
 		</div>
 	</div>
 	<div class="right">
-		<h1>1. Marque*</h1>
-		<%= f.input :brand, :label => false, :input_html => {:class => "new_form_input"} %>
 		<div class="written_by"><span>écrit par</span> <%= (@product_test.user.email if @product_test.user) || current_user.email %></div>
+		<h1>1. Marque</h1>
+		<%= f.input :brand, :label => false, :input_html => {:class => "new_form_input"} %>
+		<h1>2. Modèle*</h1>
+		<%= f.input :product_model, :label => false, :input_html => {:class => "new_form_input"} %>
+		<h1>3. Réference</h1>
+		<%= f.input :product_ref, :label => false, :input_html => {:class => "new_form_input"} %>
+		
 		<div class="group_items">
 			<div class="description">
-				<h1>2. Description*</h1>
+				<h1>4. Description du produit*</h1>
 				<%= f.input :description, :label => false, :input_html => {:class => "new_form_input"} %>
 			</div>
 			<div id="image">
-				<h1>3. Image de l'astuce</h1>
+				<h1>5. Image de l'astuce</h1>
 				<div class="new_form_input">
 				<%= image_tag @product_test.picture.url(:thumb) %></br>
 				<%= f.input :picture, :as => :file, :label => false %>
 				</div>
-
+				<h1>6. Prix recommandé</h1><%= f.input :recommended_price, :label => false, :input_html => {:class => "new_form_input"} %>
 			</div>
 		</div>
 	</div>
 	
 </header>
 
-<%= f.input :product_model %>
-<%= f.input :product_ref %>
-<%= f.input :opinion %>
-<%= f.input :advantages %>
-<%= f.input :drawbacks %>
-<%= f.input :recommended_price %>
+
+<h1>7. Opinion</h1><%= f.input :opinion, :label => false, :input_html => {:class => "new_form_input"} %>
+<h1>8. Avantages</h1><%= f.input :advantages, :label => false, :input_html => {:class => "new_form_input"} %>
+<h1>9. Inconvénients</h1><%= f.input :drawbacks, :label => false, :input_html => {:class => "new_form_input"} %>
+
 
 <div id="categories">
-	<h1>4. Catégories*</h1>
+	<h1>10. Catégories*</h1>
 	<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
 	
 	<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list", :class => "new_form_input"} %>

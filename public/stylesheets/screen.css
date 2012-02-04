@@ -124,6 +124,19 @@ div#right_bar{
 	margin: 10px 0;
 }
 
+input,
+textarea{
+	border: 1px solid transparent;
+	font-family: "CaviarDreamsBold", verdana, arial;
+}
+
+input:focus,
+textarea:focus,
+input:active,
+textarea:active{
+	border: 1px solid #55CEFF;
+}
+
 /* Common */
 
 
@@ -249,7 +262,7 @@ section#sponsors{
 /* hmenu */
 
 header nav#top_page{
-	font-family: "SansitaOneRegular";
+	font-family: 'CaviarDreamsBold', verdana, arial;
 	position: fixed;
 	top: 0px;
 	text-align: center;
@@ -297,16 +310,16 @@ header nav ul#hmenu li a.home {
 }
 
 header nav ul#hmenu li a.changeons {
-		font-family: '3DumbRegular';
+/*		font-family: 'CaviarDreamsBold', verdana, arial;*/
 		display: inline-block;
 		font-size: 2.2em;
 		color: #EAC895; /*#9B9BBD #55AACF*/
 		position: relative;
-		line-height: 1.2;
+		line-height: 1.1;
 	vertical-align: bottom;
 	width: 220px;
 	height: 45px;
-	background: url('/images/recycle.png') 141px 6px no-repeat;
+	background: url('/images/recycle.png') 143px 9px no-repeat;
 	-webkit-text-shadow: 0 0px 4px rgba(0,0,0,0.1);
 	-moz-text-shadow: 0 0px 4px rgba(0,0,0,0.1);
 	text-shadow: 0 0px 4px rgba(0,0,0,0.1);
@@ -352,6 +365,7 @@ header nav ul#hmenu li a.home.current {
 	
 	/* User items menu */
 		header nav ul#user_menu_items{
+			font-family: "SansitaOneRegular", verdana, arial;
 			position:absolute;
 			top: 0px;
 			right: 60px;
@@ -391,7 +405,7 @@ header#top_banner{
 	height: 250px;
 	display: block;
 	width: 100%;
-	font-family: "3DumbRegular";
+	font-family: "3DumbRegular", verdana, arial;
 	position: relative;
 }
 
@@ -492,16 +506,6 @@ input#newsletter_subscriber_email{
 	border-radius: 2px;
 }
 
-input,
-textarea{
-	border: 1px solid transparent;
-}
-
-input:focus,
-textarea:focus{
-	border: 1px solid #55CEFF;
-}
-
 input#newsletter_subscriber_submit{
 	width: 232px;
 }
@@ -561,7 +565,7 @@ input#newsletter_subscriber_submit{
 		section#tips h1,
 		section#events h1,
 		section#product_tests h1{
-			font-family: 'SansitaOneRegular';
+			font-family: 'SansitaOneRegular', verdana, arial;
 			font-size: 27px;
 			margin-top: 0px;
 		}
@@ -625,14 +629,14 @@ input#newsletter_subscriber_submit{
 				section#tips article header span,
 				section#events article header span,
 				section#product_tests article header span{
-					font-family: 'SansitaOneRegular';
+					font-family: 'SansitaOneRegular', verdana, arial;
 				}
 
 				section#posts article header h1,
 				section#tips article header h1,
 				section#events article header h1,
 				section#product_tests article header h1{
-					font-family: 'CaviarDreamsBold';
+					font-family: 'CaviarDreamsBold', verdana, arial;
 					font-size: 15px;
 					margin-top: 0px;
 					margin-bottom: 0px;
@@ -642,7 +646,7 @@ input#newsletter_subscriber_submit{
 			section#tips article div.description,
 			section#events article div.description,
 			section#product_tests article div.description{
-				font-family: 'CaviarDreamsItalic';
+				font-family: 'CaviarDreamsItalic', verdana, arial;
 				display: block;
 				font-size: 13px;
 				text-align: justify;
@@ -691,7 +695,7 @@ input#newsletter_subscriber_submit{
 				-webkit-border-radius: 5px;
 				-moz-border-radius: 5px;
 				border-radius: 5px;
-				font-family: 'CaviarDreamsBold';
+				font-family: 'CaviarDreamsBold', verdana, arial;
 				line-height: 0.9;
 				text-align: center;
 				color: #CCCCCC;			/*ee*/
@@ -738,7 +742,7 @@ input#newsletter_subscriber_submit{
 	}
 	
 			section#changeons_home header h1{
-				font-family: 'SansitaOneRegular';
+				font-family: 'SansitaOneRegular', verdana, arial;
 				font-size: 27px;
 				margin-top: 0px;
 				color: #A2CF4B;
@@ -806,7 +810,7 @@ article#product_test{
 			-webkit-border-radius: 5px;
 			-moz-border-radius: 5px;
 			border-radius: 5px;
-			font-family: 'CaviarDreamsBold';
+			font-family: 'CaviarDreamsBold', verdana, arial;
 			line-height: 0.9;
 			text-align: center;
 			color: #CCCCCC;							/*ee*/
@@ -841,7 +845,7 @@ article#product_test{
 		article#tip header h1,
 		article#event header h1,
 		article#product_test header h1{
-			font-family: 'CaviarDreamsBold';
+			font-family: 'CaviarDreamsBold', verdana, arial;
 			font-size: 27px;
 			margin-top: 0px;
 			display: inline-block;
@@ -854,7 +858,7 @@ article#product_test{
 			article#tip header div.written_by span,
 			article#event header div.written_by span,
 			article#product_test header div.written_by span{
-				font-family: 'SansitaOneRegular';
+				font-family: 'SansitaOneRegular', verdana, arial;
 			}
 			
 		article#post header div.short_description,
@@ -863,7 +867,7 @@ article#product_test{
 		article#post header div.short_description{
 			padding: 5px;
 			margin-top: 5px;
-			font-family: 'CaviarDreamsItalic';
+			font-family: 'CaviarDreamsItalic', verdana, arial;
 			background-color: rgba(0,0,0,0.3);						/*ee*/
 			border: 1px dotted #55AACF;								/*ee*/
 		}
@@ -1010,11 +1014,16 @@ article#tip.form header div.description,
 article#event.form header div.description,
 article#product_test.form header div.description{
 	background: none;
+	border-top: none;
+	border-left: none;
+	border-bottom: none;
 	padding: 0;
-	width: 300px;
+	width: 345px;
 	display: inline-block;
 	padding-right: 30px;
 	vertical-align: top;
+	overflow: auto;
+	margin-top: 0px;
 }
 
 article#post.form header div.written_by,
@@ -1028,7 +1037,7 @@ article#post.form h1,
 article#tip.form h1,
 article#event.form h1,
 article#product_test.form h1{
-	font-family: 'CaviarDreamsRegular';
+	font-family: 'CaviarDreamsRegular', verdana, arial;
 	font-size: 1.6em;
 	margin-top: 5px;
 	margin-bottom: 5px;
@@ -1054,12 +1063,15 @@ article#product_test.form h1.top span{
 article#post.form header textarea#post_short_description,
 article#tip.form header textarea#tip_description,
 article#event.form header textarea#event_description,
-article#product_test.form header textarea#product_test_description{
+article#product_test.form header textarea#product_test_description,
+article#product_test.form textarea#product_test_opinion,
+article#product_test.form textarea#product_test_advantages,
+article#product_test.form textarea#product_test_drawbacks{
 	padding: 5px;
-	font-family: 'CaviarDreamsItalic';
+/*	font-family: 'CaviarDreamsItalic';*/
 	height: 59px;
+	width: 320px;
 	font-size: 1em;
-/*	overflow:hidden;*/
 }
 
 article#post.form .new_form_input,
@@ -1075,21 +1087,20 @@ article#product_test.form .new_form_input{
 	border-radius: 2px;
 	padding: 10px;
 	outline: none!important;
-	margin: 15px 0 30px 0;
+	margin: 15px 0 30px 5px;
 }
 
 article#post.form header div.right textarea#post_title,
 article#tip.form header div.right textarea#tip_title,
 article#event.form header div.right textarea#event_title,
 article#product_test.form header div.right input#product_test_brand,
-article#product_test.form header div.right input#product_test_model{
-	font-family: 'CaviarDreamsBold';
+article#product_test.form header div.right input#product_test_product_model{
+/*	font-family: 'CaviarDreamsBold';*/
 	font-size: 27px;
-	margin-top: 0px;
+/*	margin-top: 0px;*/
 	line-height: 1;
-	margin: 0px 0px 0px 0px;
+	margin: 10px 0px 10px 5px;
 	max-height: 60px;
-	overflow:hidden;
 }
 
 article#post.form div.group_items,
@@ -1146,9 +1157,14 @@ article#product_test.form div#categories div#category_list span{
 	article#post.form h1.top span{
 		color: #95281F;
 	}
-
+	
+	article#post.form header div.short_description{
+		border-right: 1px solid #772018;
+	}
+		
 	article#post.form header textarea#post_short_description{
-		color: #888;
+/*		color: #888;*/
+		overflow: hidden;
 	}
 
 	article#post.form .new_form_input{
@@ -1156,11 +1172,11 @@ article#product_test.form div#categories div#category_list span{
 	}
 
 	article#post.form header div.right textarea#post_title{
-		color: #55AACF;
+/*		color: #55AACF;*/
 	}
 	
 	article#post.form div.group_items div#image{
-		border-left: 1px solid #772018;
+		/*border-left: 1px solid #772018;*/
 	}
 	/* End - Post form */
 	
@@ -1179,7 +1195,8 @@ article#product_test.form div#categories div#category_list span{
 	}
 
 	article#tip.form header textarea#tip_description{
-		color: #888;
+/*		color: #888;*/
+		height: 300px;
 	}
 
 	article#tip.form .new_form_input{
@@ -1187,11 +1204,15 @@ article#product_test.form div#categories div#category_list span{
 	}
 
 	article#tip.form header div.right textarea#tip_title{
-		color: #55AACF;
+/*		color: #55AACF;*/
+	}
+	
+	article#tip.form header div.description{
+		border-right: 1px solid #6DB41A;
 	}
 	
 	article#tip.form div.group_items div#image{
-		border-left: 1px solid #6DB41A;
+/*		border-left: 1px solid #6DB41A;*/
 	}
 	/* End - Tip form */
 	
@@ -1208,9 +1229,13 @@ article#product_test.form div#categories div#category_list span{
 	article#event.form h1.top span{
 		color: #95281F;
 	}
-
+	
+	article#event.form header div.description{
+		border-right: 1px solid rgba(255, 255, 255, 0.2);
+	}
+	
 	article#event.form header textarea#event_description{
-		color: #888;
+/*		color: #888;*/
 		height: 300px;
 	}
 
@@ -1219,11 +1244,11 @@ article#product_test.form div#categories div#category_list span{
 	}
 
 	article#event.form header div.right textarea#event_title{
-		color: #55AACF;
+/*		color: #55AACF;*/
 	}
 	
 	article#event.form div.group_items div#image{
-		border-left: 1px solid #772018;
+/*		border-left: 1px solid #772018;*/
 	}
 	
 	article#event.form input#event_event_end_date,
@@ -1260,22 +1285,41 @@ article#product_test.form div#categories div#category_list span{
 	article#product_test.form h1.top span{
 		color: #95281F;
 	}
+	
+	article#product_test.form header div.description{
+		border-right: 1px solid rgba(255, 255, 255, 0.2);
+	}
 
 	article#product_test.form header textarea#product_test_description{
-		color: #888;
+/*		color: #888;*/
+		height: 300px;
+	}
+	
+	article#product_test.form textarea#product_test_opinion,
+	article#product_test.form textarea#product_test_advantages,
+	article#product_test.form textarea#product_test_drawbacks{
+		height: 200px;
+		width: 450px;
+		margin: 0 25%;
 	}
 
 	article#product_test.form .new_form_input{
 		background-color: rgba(255, 255, 255, 0.4);
 	}
+	
+	article#product_test.form input#product_test_product_ref{
+		height: 24px;
+		width: 550px;
+	}
 
 	article#product_test.form header div.right input#product_test_brand,
-	article#product_test.form header div.right input#product_test_model{
-		color: #55AACF;
+	article#product_test.form header div.right input#product_test_product_model{
+/*		color: #55AACF;*/
+		width: 550px;
 	}
 	
 	article#product_test.form div.group_items div#image{
-		border-left: 1px solid #6DB41A;
+/*		border-left: 1px solid #6DB41A;*/
 	}
 	/* End - Product test form */
 	

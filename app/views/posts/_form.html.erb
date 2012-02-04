@@ -10,9 +10,10 @@
 		</div>
 	</div>
 	<div class="right">
+		<div class="written_by"><span>écrit par</span> <%= (@post.user.email if @post.user) || current_user.email %></div>
 		<h1>1. Titre*</h1>
 		<%= f.input :title, :label => false, :as => :text, :input_html => {:class => "new_form_input"} %>
-		<div class="written_by"><span>écrit par</span> <%= (@post.user.email if @post.user) || current_user.email %></div>
+		
 		<div class="group_items">
 			<div class="short_description">
 				<h1>2. Courte description*</h1>
@@ -35,14 +36,14 @@
 	<h1>4. Catégories*</h1>
 	<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
 	
-	<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list", :class => "post_input"} %>
+	<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list", :class => "new_form_input"} %>
 </div>
 	
     <h1>5. Contenu de l'article*</h1>
     <%= f.ckeditor :content, :label => false, :input_html => { :toolbar => 'Easy', :width=>'700px', :height=>'500px' } %><br />
 
     <h1>6. Tags*</h1>
-	<%= f.input :tag_list, :label => false %>
+	<%= f.input :tag_list, :label => false, :input_html => {:class => "new_form_input"} %>
     <%= f.button :submit %>
 <% end %>
 

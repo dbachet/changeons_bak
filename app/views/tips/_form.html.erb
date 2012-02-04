@@ -10,9 +10,9 @@
 		</div>
 	</div>
 	<div class="right">
+		<div class="written_by"><span>écrit par</span> <%= (@tip.user.email if @tip.user) || current_user.email %></div>
 		<h1>1. Titre*</h1>
 		<%= f.input :title, :label => false, :as => :text, :input_html => {:class => "new_form_input"} %>
-		<div class="written_by"><span>écrit par</span> <%= (@tip.user.email if @tip.user) || current_user.email %></div>
 		<div class="group_items">
 			<div class="description">
 				<h1>2. Description*</h1>
