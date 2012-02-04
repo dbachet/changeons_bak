@@ -10,6 +10,7 @@
 			</div>
 		</div>
 		<div class="right">
+			<div id="mark"><div class="label">Note</div><div class="group_items"><div class="mark_left"><%= @product_test.mark %></div></br><div class="slash">/</div></br><div class="mark_right">5</div></div></div>
 			<h1><%= "#{@product_test.brand || "Marque non détaillée"} #{@product_test.product_model}" %></h1>
 			<div class="written_by"><span>écrit par</span> <%= @product_test.user.email %></div>
 			<div class="categories">Catégories: 

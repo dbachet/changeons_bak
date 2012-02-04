@@ -962,6 +962,70 @@ section#product_tests header h1{
 	color: #A2CF4B;
 }
 
+article#product_test div#mark{
+	float: left;
+	height: 4em;
+	width: 2.7em;
+	border: 2px solid beige;
+	border-radius: 5px;
+	margin: 7px 10px 0 0px;
+	text-align: center;
+	font-size: 1.6em;
+	position: relative;
+	
+	-webkit-text-shadow: 2px 2px #000;
+	-moz-text-shadow: 2px 2px #000;
+	text-shadow: 2px 2px #000;
+}
+
+article#product_test div#mark div.group_items{
+	display: inline-block;
+	padding: 0 5px;
+	font-size: 1.3em;
+	color: beige;
+	background-color: rgba(0, 0, 0, 0.4);
+	height: 1.9em;
+	width: 1.7em;
+	border-top: 2px solid beige;
+}
+
+article#product_test div#mark div.label{
+	display: inline-block;
+	
+	width: 2.7em;
+	background-color: #A70C0C;
+	color: beige;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+}
+
+article#product_test div#mark div.mark_left{
+	width: 2.7em;
+	display: inline-block;
+	text-align: left;
+}
+
+article#product_test div#mark div.slash{
+	margin-top: -4px;
+	width: 2.7em;
+	display: inline-block;
+	position: absolute;
+	left: -7px;
+	top: 43px;
+	color: #888;
+}
+
+article#product_test div#mark div.mark_right{
+	width: 50px;
+	display: inline-block;
+	text-align: right;
+	position: absolute;
+	left: 0px;
+	top: 47px;
+}
+
 /* End - Product test show */
 
 /* Tip show */
