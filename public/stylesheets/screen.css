@@ -93,7 +93,7 @@ body {
 	padding-bottom: 35px;
 	width: 100%;
 	font-family: "CaviarDreamsRegular", verdana, arial;
-	color: #888888;
+	color: black;
 	background: #c1efba;
 }
 
@@ -757,7 +757,7 @@ article#post,
 article#tip,
 article#event,
 article#product_test{
-	padding: 20px;
+	padding: 20px 20px 20px 10px;
 }
 
 article#post.show,
@@ -879,13 +879,20 @@ article#product_test.show{
 			background-color: rgba(0,0,0,0.3);						/*ee*/
 			border: 1px dotted #55AACF;								/*ee*/
 		}
-	
+		
+		article#post div#left_bar,
+		article#tip div#left_bar,
+		article#event div#left_bar,
+		article#product_test div#left_bar{
+			width: 6.3em;
+			display: inline-block;
+		}
+		
 	article#post div#share,
 	article#tip div#share,
 	article#event div#share,
 	article#product_test div#share{
 		display: inline-block;
-		background-color: rgba(0,0,0,0.3);								/*ee*/
 		height: 250px;
 		width: 80px;
 		vertical-align: top;
@@ -922,9 +929,11 @@ article#product_test.show{
 	article#event div#content_wrap,
 	article#product_test div#content_wrap{
 		display: inline-block;
+		vertical-align: top;
 		width: 34em;
 		padding: 5px;
 		text-align: justify;
+		color: beige;
 	}
 
 /* End - Show */
@@ -977,7 +986,7 @@ article#product_test div#mark{
 	width: 2.7em;
 	border: 2px solid beige;
 	border-radius: 5px;
-	margin: 7px 10px 0 0px;
+	margin: 0.5em 0.5em 0.2em 0.4em;
 	text-align: center;
 	font-size: 1.6em;
 	position: relative;
@@ -1048,13 +1057,15 @@ section#tips{
 article#tip header h1,
 article#tip header div.written_by,
 section#tips article header,
-section#tips article header h1{
+section#tips article header h1,
+article#tip header div.categories{
 	color: #A2CF4B;
 }
 
 article#tip header div.written_by span,
 section#tips article header span,
-section#tips header h1{
+section#tips header h1,
+article#tip header div.categories span{
 	color: rgba(255,220,20,1);
 }
 

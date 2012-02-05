@@ -10,7 +10,6 @@
 			</div>
 		</div>
 		<div class="right">
-			<div id="mark"><div class="label">Note</div><div class="group_items"><div class="mark_left"><%= @product_test.mark %></div></br><div class="slash">/</div></br><div class="mark_right">5</div></div></div>
 			<h1><%= "#{@product_test.brand || "Marque non détaillée"} #{@product_test.product_model}" %></h1>
 			<div class="written_by"><span>écrit par</span> <%= @product_test.user.email %></div>
 			<div class="categories">Catégories: 
@@ -20,14 +19,17 @@
 			</div>
 		</div>
 	</header>
-	<div id="share">
-		<div id="vote">
-			<div id="vote_up">
-				<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_product_test_path(@product_test), :method => :post, :remote => true) %>
-			</div>
+	<div id="left_bar">
+		<div id="mark"><div class="label">Note</div><div class="group_items"><div class="mark_left"><%= @product_test.mark %></div></br><div class="slash">/</div></br><div class="mark_right">5</div></div></div>
+		<div id="share">
+			<div id="vote">
+				<div id="vote_up">
+					<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_product_test_path(@product_test), :method => :post, :remote => true) %>
+				</div>
 
-			<div id="votes_result">
-				<%= render "layouts/votes_result" %>
+				<div id="votes_result">
+					<%= render "layouts/votes_result" %>
+				</div>
 			</div>
 		</div>
 	</div>
