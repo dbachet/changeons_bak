@@ -107,7 +107,8 @@ div#main{
 	width: 1100px;
 	padding: 30px 30px 0 30px;
 	display: block;
-	margin-bottom: 10px;	
+	margin-bottom: 10px;
+	font-size: 1.2em;
 }
 
 div#yield{
@@ -914,7 +915,7 @@ article#product_test{
 	article#event div#content_wrap,
 	article#product_test div#content_wrap{
 		display: inline-block;
-		width: 53em;
+		width: 42em;
 		padding: 5px;
 	}
 

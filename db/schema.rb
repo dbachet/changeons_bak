@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120205075415) do
+ActiveRecord::Schema.define(:version => 20120205084102) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -93,6 +93,9 @@ ActiveRecord::Schema.define(:version => 20120205075415) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.datetime "event_end_date"
+    t.integer  "picture_height"
+    t.integer  "picture_width"
+    t.boolean  "has_big_picture"
   end
 
   create_table "newsletter_subscribers", :force => true do |t|
@@ -152,6 +155,9 @@ ActiveRecord::Schema.define(:version => 20120205075415) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "mark"
+    t.integer  "picture_height"
+    t.integer  "picture_width"
+    t.boolean  "has_big_picture"
   end
 
   create_table "questions", :force => true do |t|
@@ -207,6 +213,9 @@ ActiveRecord::Schema.define(:version => 20120205075415) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "picture_height"
+    t.integer  "picture_width"
+    t.boolean  "has_big_picture"
   end
 
   create_table "upload_pictures", :force => true do |t|

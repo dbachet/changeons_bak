@@ -33,6 +33,7 @@ class Post < ActiveRecord::Base
     self.picture_height = dimensions.height
     if dimensions.width < 300 && dimensions.height < 300
       errors.add(:picture,'La hauteur et la largeur de l\'image doivent être d\'au moins 300px')
+      self.has_big_picture = false
     else
       self.has_big_picture = true
     end

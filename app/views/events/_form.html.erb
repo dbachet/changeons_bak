@@ -25,9 +25,9 @@
 				<%= f.input :picture, :as => :file, :label => false %>
 				</div>
 				<h1>4. Date de début*</h1>
-				<%= f.input :event_start_date, :label => false, :as => :string, :input_html => {:class => "datepicker new_form_input", :value => "jj/mm/aaaa", :maxlength => 8} %>
+				<%= f.input :event_start_date, :label => false, :as => :string, :input_html => {:class => "datepicker new_form_input", :value => (@event.event_start_date ? @event.event_start_date.strftime("%d/%m/%Y") : "jj/mm/aaaa")} %>
 				<h1>5. Date de fin</h1>
-				<%= f.input :event_end_date, :label => false, :as => :string, :input_html => {:class => "datepicker new_form_input", :value => "jj/mm/aaaa"} %>
+				<%= f.input :event_end_date, :label => false, :as => :string, :input_html => {:class => "datepicker new_form_input", :value => (@event.event_end_date ? @event.event_end_date.strftime("%d/%m/%Y") : "jj/mm/aaaa")} %>
 			</div>
 		</div>
 	</div>
