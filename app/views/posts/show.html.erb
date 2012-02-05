@@ -1,6 +1,6 @@
 <div id="page_info" data-action="show_post"></div>
 
-<article id="post">
+<article id="post" class="show">
 	<header>
 		<div class="left">
 			<div class="etiquette"><%= @post_type %></div>
@@ -37,13 +37,8 @@
 	</div>
 	
 	<div id="content_wrap">
-	<p>
 	  
-		<div class="content">
 	  <%= @post.content.html_safe %>
-		</div>
-	</p>
-
 	<p>
 	  <b>User:</b>
 	  <%= @post.user_id %>

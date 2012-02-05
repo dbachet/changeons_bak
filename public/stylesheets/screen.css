@@ -108,7 +108,6 @@ div#main{
 	padding: 30px 30px 0 30px;
 	display: block;
 	margin-bottom: 10px;
-	font-size: 1.2em;
 }
 
 div#yield{
@@ -321,10 +320,10 @@ header nav ul#hmenu li a.changeons {
 	width: 220px;
 	height: 45px;
 	background: url('/images/recycle.png') 144px 9px no-repeat;
-	-webkit-text-shadow: 0 0px 4px rgba(0,0,0,0.1);
-	-moz-text-shadow: 0 0px 4px rgba(0,0,0,0.1);
-	text-shadow: 0 0px 4px rgba(0,0,0,0.1);
-	margin-right: 1em;	
+	-webkit-text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+	-moz-text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+	margin-right: 1em;
 	-webkit-transition: text-shadow 1s ease;  
 	-moz-transition: text-shadow 1s ease;  
 	-o-transition: text-shadow 1s ease;  
@@ -760,6 +759,14 @@ article#event,
 article#product_test{
 	padding: 20px;
 }
+
+article#post.show,
+article#tip.show,
+article#event.show,
+article#product_test.show{
+	width: 550px;
+}
+
 	
 	article#post header div.left,
 	article#tip header div.left,
@@ -915,8 +922,9 @@ article#product_test{
 	article#event div#content_wrap,
 	article#product_test div#content_wrap{
 		display: inline-block;
-		width: 42em;
+		width: 34em;
 		padding: 5px;
+		text-align: justify;
 	}
 
 /* End - Show */
@@ -1322,6 +1330,7 @@ article#product_test.form div#categories div#category_list span{
 	article#event.form input#event_addr_postcode,
 	article#event.form input#event_addr_city{
 		margin: 5px 0 20px 50px;
+		height: 10px;
 	}
 	
 	article#event.form input#event_event_end_date,
@@ -1373,13 +1382,14 @@ article#product_test.form div#categories div#category_list span{
 	}
 	
 	article#product_test.form input#product_test_product_ref{
-		height: 24px;
+		height: 10px;
 		width: 550px;
 	}
 
 	article#product_test.form header div.right input#product_test_brand,
 	article#product_test.form header div.right input#product_test_product_model{
 /*		color: #55AACF;*/
+		height: 10px;
 		width: 550px;
 	}
 	
