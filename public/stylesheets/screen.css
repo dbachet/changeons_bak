@@ -880,6 +880,28 @@ article#product_test.show{
 			border: 1px dotted #55AACF;								/*ee*/
 		}
 		
+		
+		article#post header div#small_picture,
+		article#tip header div#small_picture,
+		article#event header div#small_picture,
+		article#product_test header div#small_picture{
+			display: inline-block;
+			padding: 10px;
+			
+		}
+		
+		article#post header div#small_picture img,
+		article#tip header div#small_picture img,
+		article#event header div#small_picture img,
+		article#product_test header div#small_picture img{
+			-webkit-box-shadow: 0 0 7px #000;
+			-mox-box-shadow: 0 0 7px #000;
+			box-shadow: 0 0 7px #000;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+		}
+		
 		article#post div#left_bar,
 		article#tip div#left_bar,
 		article#event div#left_bar,
