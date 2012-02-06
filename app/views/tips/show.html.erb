@@ -37,7 +37,11 @@
 			</div>
 		</div>
 	</div>
-	
+	<% if @tip.has_big_picture %>
+		<div id="big_picture">
+			<%= image_tag @tip.picture.url(:medium) %>
+		</div>
+	<% end %>
 	<div id="content_wrap">
 	<p>
 		<div class="content">

@@ -37,6 +37,11 @@
 			</div>
 		</div>
 	</div>
+	<% if @event.has_big_picture %>
+		<div id="big_picture">
+			<%= image_tag @event.picture.url(:medium) %>
+		</div>
+	<% end %>
 	
 	<div id="content_wrap">
 	<p>

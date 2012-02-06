@@ -14,7 +14,7 @@
 			<div class="written_by"><span>écrit par</span> <%= @product_test.user.email %></div>
 			<div class="categories">Catégories: 
 				<% @categories.each do |category| %>
-					<%= category.name %> 
+					<%= category.name %>
 				<% end %>
 			</div>
 		</div>
@@ -38,6 +38,11 @@
 			</div>
 		</div>
 	</div>
+	<% if @product_test.has_big_picture %>
+		<div id="big_picture">
+			<%= image_tag @product_test.picture.url(:medium) %>
+		</div>
+	<% end %>
 	
 	<div id="content_wrap">
 	<p>

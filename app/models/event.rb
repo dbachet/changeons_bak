@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   acts_as_voteable
   
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
-  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "50x50>" }, :default_url => '/images/post_picture_missing.png'
+  has_attached_file :picture, :styles => { :medium => "300x", :thumb => "50x50>" }, :default_url => '/images/post_picture_missing.png'
   
   validates_attachment_size :picture, :less_than => 2.megabytes
   validates_attachment_content_type :picture, :content_type => [ /^image\/(?:jpeg|gif|png)$/, nil ]

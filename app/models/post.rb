@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :post_type
   
-  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "50x50>" }, :default_url => '/images/post_picture_missing.png'
+  has_attached_file :picture, :styles => Proc.new { |clip| clip.instance.attachment_sizes }, :default_url => '/images/post_picture_missing.png'
   # missing_:style.png
   has_many :comments
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   has_many :categorizations
   has_many :categories, :through => :categorizations
   
-  attr_accessor :post_picture_url
+  attr_accessor :post_picture_url, :resize_rule
   attr_accessible :category_ids, :post_type_id, :title, :content, :short_description, :picture, :width, :height
   
   validates_attachment_presence :picture
@@ -25,12 +25,33 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :content, :category_ids, :post_type_id, :tag_list, :short_description
   validate :file_dimensions, :unless => "errors.any?"
   
+  def attachment_sizes
+    if self.picture_orientation_horizontal
+      
+       size =  { :medium => "300x", :thumb => "50x50>" }
+      
+    else
+      
+       size =  { :medium => "200x", :thumb => "50x50>" }
+    end
+    size
+  end
+  
   private
+  
+  
   
   def file_dimensions
     dimensions = Paperclip::Geometry.from_file(picture.to_file(:original))
     self.picture_width = dimensions.width
     self.picture_height = dimensions.height
+    
+    if (self.picture_height / self.picture_width) == 1
+      self.picture_orientation_horizontal = false
+    else
+      self.picture_orientation_horizontal = true
+    end
+    
     if dimensions.width < 300 && dimensions.height < 300
       errors.add(:picture,'La hauteur et la largeur de l\'image doivent être d\'au moins 300px')
       self.has_big_picture = false

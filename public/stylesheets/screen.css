@@ -902,6 +902,29 @@ article#product_test.show{
 			border-radius: 3px;
 		}
 		
+		article#post div#big_picture,
+		article#tip div#big_picture,
+		article#event div#big_picture,
+		article#product_test div#big_picture{
+			display: inline-block;
+			padding: 10px;
+			vertical-align: top;
+			width: 34em;
+		}
+		
+		article#post div#big_picture img,
+		article#tip div#big_picture img,
+		article#event div#big_picture img,
+		article#product_test div#big_picture img{
+			-webkit-box-shadow: 0 0 7px #000;
+			-mox-box-shadow: 0 0 7px #000;
+			box-shadow: 0 0 7px #000;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+			margin: 0 5em;
+		}
+		
 		article#post div#left_bar,
 		article#tip div#left_bar,
 		article#event div#left_bar,
