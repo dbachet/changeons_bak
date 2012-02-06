@@ -20,6 +20,8 @@ class Tip < ActiveRecord::Base
   validates_presence_of :title, :description, :category_ids
   validate :file_dimensions, :unless => "errors.any?"
   
+  attr_accessor :source_description, :source # TO ADD
+  
   def attachment_sizes
     if self.picture_orientation_horizontal
        size =  { :medium => "300x", :thumb => "50x50>" }

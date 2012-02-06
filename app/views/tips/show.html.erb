@@ -50,7 +50,12 @@
 	<%= link_to 'Edit', edit_tip_path(@tip) %>
 
 	<br />
+	
 	</div>
+	Sources:
+	<ul>
+		<%= @tip.sources.html_safe %>
+	</ul>
 </article>
 
 <section id="comments">

@@ -40,6 +40,7 @@ Changeons::Application.routes.draw do
       end
     end
     member do
+      get :add_source # TO ADD
       post :vote_up
       post :vote_down
     end

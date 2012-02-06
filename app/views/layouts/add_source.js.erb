@@ -1,0 +1,34 @@
+var source_description_val = $('input#tip_source_description').val(),
+	source_val = $('input#tip_source').val(),
+	sources_val = $('textarea#tip_sources').val();
+	
+	if (source_val != "http://" && source_val != ""){
+		
+		if (source_description_val == ""){
+			source_description_val = "Lien"
+		}
+		
+		if (sources_val == "") {
+			sources_val = "<li>" + "<a href=" + source_val + " target='_blank' >" + source_description_val + "</a>" + "</li>";
+		} else {
+			sources_val = sources_val + "<li>" + "<a href=" + source_val + " target='_blank' >" + source_description_val + "</a>" + "</li>";
+		}
+		$('textarea#tip_sources').val(sources_val);
+		$('ul#sources_display').html(sources_val);
+	} else if (source_description_val != ""){
+		if (sources_val == "") {
+			sources_val = "<li>" + source_description_val + "</li>";
+		} else {
+			sources_val = sources_val + "<li>" + source_description_val + "</li>";
+		}
+		
+		$('textarea#tip_sources').val(sources_val);
+		$('ul#sources_display').html(sources_val);
+	}
+	
+	
+	
+	
+	
+	$('input#tip_source').val("http:\/\/");
+	$('input#tip_source_description').val("");
