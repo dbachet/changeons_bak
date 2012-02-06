@@ -37,17 +37,15 @@
 			</div>
 		</div>
 	</div>
-	<% if @tip.has_big_picture %>
-		<div id="big_picture">
-			<%= image_tag @tip.picture.url(:medium) %>
-		</div>
-	<% end %>
+	
 	<div id="content_wrap">
-	<p>
-		<div class="content">
+		<% if @tip.has_big_picture %>
+			<div id="big_picture">
+				<%= image_tag @tip.picture.url(:medium),  :style => ("margin: 0 9em" if !@tip.picture_orientation_horizontal) %>
+			</div>
+		<% end %>
 	  <%= simple_format(h @tip.description) %>
-		</div>
-	</p>
+	
 
 	<%= link_to 'Edit', edit_tip_path(@tip) %>
 

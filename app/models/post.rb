@@ -27,19 +27,14 @@ class Post < ActiveRecord::Base
   
   def attachment_sizes
     if self.picture_orientation_horizontal
-      
        size =  { :medium => "300x", :thumb => "50x50>" }
-      
     else
-      
        size =  { :medium => "200x", :thumb => "50x50>" }
     end
     size
   end
   
   private
-  
-  
   
   def file_dimensions
     dimensions = Paperclip::Geometry.from_file(picture.to_file(:original))

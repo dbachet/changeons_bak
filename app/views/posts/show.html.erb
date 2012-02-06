@@ -37,14 +37,13 @@
 			</div>
 		</div>
 	</div>
-	<% if @post.has_big_picture %>
-		<div id="big_picture">
-			<%= image_tag @post.picture.url(:medium),  :style =>  
-			("margin: 0 9em" if !@post.picture_orientation_horizontal) %>
-		</div>
-	<% end %>
+	
 	<div id="content_wrap">
-	  
+	  	<% if @post.has_big_picture %>
+			<div id="big_picture">
+				<%= image_tag @post.picture.url(:medium),  :style => ("margin: 0 9em" if !@post.picture_orientation_horizontal) %>
+			</div>
+		<% end %>
 	  <%= @post.content.html_safe %>
 	<p>
 	  <b>User:</b>

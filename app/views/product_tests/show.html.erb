@@ -38,19 +38,15 @@
 			</div>
 		</div>
 	</div>
-	<% if @product_test.has_big_picture %>
-		<div id="big_picture">
-			<%= image_tag @product_test.picture.url(:medium) %>
-		</div>
-	<% end %>
 	
 	<div id="content_wrap">
-	<p>
-		<div class="content">
-	  <%= @product_test.description.html_safe %>
+	<% if @product_test.has_big_picture %>
+		<div id="big_picture">
+			<%= image_tag @product_test.picture.url(:medium),  :style =>  
+			("margin: 0 9em" if !@product_test.picture_orientation_horizontal) %>
 		</div>
-	</p>
-
+	<% end %>
+	<%= @product_test.description.html_safe %>
 	<%= link_to 'Edit', edit_product_test_path(@product_test) %>
 
 	<br />
