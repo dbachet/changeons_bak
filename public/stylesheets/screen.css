@@ -1339,6 +1339,7 @@ article#product_test.form div#categories div#category_list span{
 	article#tip.form textarea#tip_sources{
 		height: 10px;
 		width: 550px;
+		display: none;
 	}
 	
 	article#tip.form header div.description{

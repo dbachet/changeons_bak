@@ -30,7 +30,9 @@ Changeons::Application.routes.draw do
       post :vote_down
     end    
   end
-
+  
+  # get "tips/remove_source" # TO ADD
+  
   resources :tips do
     resources :comments, :except => [:index, :show, :new] do
       member do
@@ -41,6 +43,7 @@ Changeons::Application.routes.draw do
     end
     member do
       get :add_source # TO ADD
+      get :remove_source # TO ADD
       post :vote_up
       post :vote_down
     end

@@ -1,0 +1,15 @@
+// $('ul#sources_display li.' + "<%= @source %>").fadeOut("slow");
+$('ul#sources_display li.' + "<%= @source %>").remove();
+$('ul#sources_display li a.remove_source').remove();
+
+var sources_val = $('ul#sources_display').html();
+$('textarea#tip_sources').val(sources_val);
+
+$(function(){
+	add_source_links();
+});
+
+// alert(sources_val.find("li"));
+// sources_val.remove();
+// alert(sources_val.contents().filter("li"));
+

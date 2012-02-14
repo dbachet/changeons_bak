@@ -31,13 +31,15 @@
 	
 </header>
 <h1>4. Sources / liens utilisés pour la rédaction de cette astuce</h1>
-<%= f.input :source, :label => false, :input_html => {:class => "new_form_input", :value => 'http://'} %>
-<%= f.input :source_description, :label => false, :input_html => {:class => "new_form_input", :value => ''} %>
-<%= link_to "Ajouter une source", add_source_tip_path(@post), :remote => true %>
+<%= f.input :source, :label => false, :input_html => {:class => "new_form_input", :value => 'http://'}, :validate => false %>
+<%= f.input :source_description, :label => false, :input_html => {:class => "new_form_input", :value => ''}, :validate => false %>
+<%= link_to "Ajouter une source", add_source_tip_path(@tip), :remote => true %>
 <ul id="sources_display">
-	
+	<% if !@tip.sources.blank? %>
+		<%= @tip.sources.html_safe %>
+	<% end %>
 </ul>
-<%= f.input :sources, :label => false, :input_html => {:class => "new_form_input", :style => "display:none"} %>
+<%= f.input :sources, :label => false, :input_html => {:class => "new_form_input"}, :validate => false %>
 <div id="categories">
 	<h1>4. Catégories*</h1>
 	<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
@@ -47,3 +49,21 @@
 	
     <%= f.button :submit %>
 <% end %>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(function(){
+			add_source_links();
+		});
+	});
+	
+	function add_source_links(){
+		var li_classes = $('ul#sources_display li');
+		if (li_classes.length) {
+			link_to_remove_source = "<%= remove_source_tip_path(@tip) %>";
+			li_classes.each(function(index) {
+			    $(this).append('<a href="' + link_to_remove_source + '?source=' + $(this).attr('class') + '" data-remote="true" class="remove_source"' + '>Supprimer</a>');
+			});
+		}
+	}
+</script>

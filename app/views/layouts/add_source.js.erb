@@ -1,34 +1,52 @@
 var source_description_val = $('input#tip_source_description').val(),
 	source_val = $('input#tip_source').val(),
-	sources_val = $('textarea#tip_sources').val();
+	sources_val = $('ul#sources_display').html(),
+	last_source = $('ul#sources_display li:last-child');
+	
+	
+	
+	if (last_source.length){
+		last_source = parseInt(last_source.attr('class'));
+		last_source++;
+	} else{
+		last_source = "0";
+	}
+	
+	
+	link_to_remove_source = "<%= remove_source_tip_path(@tip) %>";
+
 	
 	if (source_val != "http://" && source_val != ""){
 		
 		if (source_description_val == ""){
-			source_description_val = "Lien"
+			source_description_val = "Lien";
 		}
 		
 		if (sources_val == "") {
-			sources_val = "<li>" + "<a href=" + source_val + " target='_blank' >" + source_description_val + "</a>" + "</li>";
+			sources_val = "<li class='" + last_source + "'>" + "<a href=" + source_val + " target='_blank' >" + source_description_val + "</a>" + "<a href='" + link_to_remove_source + "?source=" + last_source + "' data-remote='true' class='remove_source'>Supprimer</a></li>";
 		} else {
-			sources_val = sources_val + "<li>" + "<a href=" + source_val + " target='_blank' >" + source_description_val + "</a>" + "</li>";
+			sources_val = sources_val + "<li class='" + last_source + "'>" + "<a href=" + source_val + " target='_blank' >" + source_description_val + "</a>" + "<a href='" + link_to_remove_source + "?source=" + last_source +"' data-remote='true' class='remove_source'>Supprimer</a></li>";
 		}
-		$('textarea#tip_sources').val(sources_val);
-		$('ul#sources_display').html(sources_val);
+		copy_textarea();
+		
 	} else if (source_description_val != ""){
 		if (sources_val == "") {
-			sources_val = "<li>" + source_description_val + "</li>";
+			sources_val = "<li class='" + last_source + "'>" + source_description_val + "<a href='" + link_to_remove_source + "?source=" + last_source + "' data-remote='true' class='remove_source'>Supprimer</a></li>";
 		} else {
-			sources_val = sources_val + "<li>" + source_description_val + "</li>";
+			sources_val = sources_val + "<li class='" + last_source + "'>" + source_description_val + "<a href='" + link_to_remove_source + "?source=" + last_source + "' data-remote='true' class='remove_source'>Supprimer</a></li>";
 		}
 		
-		$('textarea#tip_sources').val(sources_val);
-		$('ul#sources_display').html(sources_val);
+		copy_textarea();
 	}
-	
-	
-	
-	
+		
 	
 	$('input#tip_source').val("http:\/\/");
 	$('input#tip_source_description').val("");
+	
+function copy_textarea(){
+	$('ul#sources_display').html(sources_val);
+	$('ul#sources_display li a.remove_source').remove();
+	var sources_val_without_remove_link = $('ul#sources_display').html();
+	$('textarea#tip_sources').val(sources_val_without_remove_link);
+	$('ul#sources_display').html(sources_val);
+}
