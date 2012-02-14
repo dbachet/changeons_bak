@@ -1342,6 +1342,36 @@ article#product_test.form div#categories div#category_list span{
 		display: none;
 	}
 	
+	article#tip.form div#sources div#source_inputs{
+		width: 30em;
+		border-right: 1px solid #6DB41A;
+		display: inline-block;
+	}
+	
+	article#tip.form div#sources div#source_list{
+		display:inline-block;
+		vertical-align: top;
+		padding: 0 2em;
+	}
+	
+	article#tip.form ul#sources_display li{
+		color: #fff;
+		background-color: rgba(255, 255, 255, 0.3);
+		padding: 5px;
+		margin-bottom: 2px;
+		width: 22em;
+		list-style: none;
+	}
+	
+	article#tip.form ul#sources_display li a{
+		color: white;
+	}
+	
+	article#tip.form ul#sources_display li a.remove_source{
+		margin-left: 10px;
+		color: #95281F;
+	}
+	
 	article#tip.form header div.description{
 		border-right: 1px solid #6DB41A;
 	}

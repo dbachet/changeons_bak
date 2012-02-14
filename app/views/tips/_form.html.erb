@@ -30,20 +30,29 @@
 	</div>
 	
 </header>
-<h1>4. Sources / liens utilisés pour la rédaction de cette astuce</h1>
-<%= f.input :source, :label => false, :input_html => {:class => "new_form_input", :value => 'http://'}, :validate => false %>
-<%= f.input :source_description, :label => false, :input_html => {:class => "new_form_input", :value => ''}, :validate => false %>
-<%= link_to "Ajouter une source", add_source_tip_path(@tip), :remote => true %>
-<ul id="sources_display">
-	<% if !@tip.sources.blank? %>
-		<%= @tip.sources.html_safe %>
-	<% end %>
-</ul>
-<%= f.input :sources, :label => false, :input_html => {:class => "new_form_input"}, :validate => false %>
+<div id="sources">
+	<h1>4. Sources / liens utilisés pour la rédaction de cette astuce</h1>
+	
+	<div id="source_inputs">
+		Description de la source - non obligatoire
+		<%= f.input :source_description, :label => false, :wrapper_html => {:id => "source_description"}, :input_html => {:class => "new_form_input", :value => ''}, :validate => false %>
+		Lien hypertexte (URL) - non obligatoire
+		<%= f.input :source, :label => false, :wrapper_html => {:id => "html_link"}, :input_html => {:class => "new_form_input", :value => 'http://'}, :validate => false %>
+		<%= f.input :sources, :label => false, :input_html => {:class => "new_form_input"}, :validate => false %>
+		<%= link_to "+ Ajouter la source", add_source_tip_path(@tip), :remote => true, :class => "awesome" %>
+	</div>
+	<div id="source_list">
+		Prévisualisation des sources
+		<ul id="sources_display">
+			<% if !@tip.sources.blank? %>
+				<%= @tip.sources.html_safe %>
+			<% end %>
+		</ul>
+	</div>
 <div id="categories">
 	<h1>4. Catégories*</h1>
 	<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
-	
+</div>
 	<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list", :class => "new_form_input"} %>
 </div>
 	
