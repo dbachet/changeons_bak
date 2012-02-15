@@ -19,7 +19,7 @@ var source_description_val = $('input#source_description_input').val(),
 	<% elsif @event %>
 		link_to_remove_source = "<%= remove_source_event_path(@event) %>";
 	<% elsif @product_test %>
-		link_to_remove_source = "<%= remove_source_tip_path(@tip) %>";
+		link_to_remove_source = "<%= remove_source_product_test_path(@product_test) %>";
 	<% end %>
 
 	

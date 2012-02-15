@@ -42,6 +42,26 @@
 <h1>8. Avantages</h1><%= f.input :advantages, :label => false, :input_html => {:class => "new_form_input"} %>
 <h1>9. Inconvénients</h1><%= f.input :drawbacks, :label => false, :input_html => {:class => "new_form_input"} %>
 
+<div id="sources">
+	<h1>4. Sources / liens utilisés pour la rédaction de cette astuce</h1>
+	
+	<div id="source_inputs">
+		Description de la source - non obligatoire
+		<%= f.input :source_description, :label => false, :wrapper_html => {:id => "source_description"}, :input_html => {:class => "new_form_input", :value => '', :id => "source_description_input"}, :validate => false %>
+		Lien hypertexte (URL) - non obligatoire
+		<%= f.input :source, :label => false, :wrapper_html => {:id => "html_link"}, :input_html => {:class => "new_form_input", :value => 'http://', :id => "html_link_input"}, :validate => false %>
+		<%= f.input :sources, :label => false, :input_html => {:id => "sources_input"}, :validate => false %>
+		<%= link_to "+ Ajouter la source", add_source_product_test_path(@product_test), :remote => true, :class => "awesome" %>
+	</div>
+	<div id="source_list">
+		Prévisualisation des sources
+		<ul id="sources_display">
+			<% if !@product_test.sources.blank? %>
+				<%= @product_test.sources.html_safe %>
+			<% end %>
+		</ul>
+	</div>
+</div>
 
 <div id="categories">
 	<h1>10. Catégories*</h1>
@@ -52,3 +72,21 @@
 	
     <%= f.button :submit %>
 <% end %>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(function(){
+			add_source_links();
+		});
+	});
+	
+	function add_source_links(){
+		var li_classes = $('ul#sources_display li');
+		if (li_classes.length) {
+			link_to_remove_source = "<%= remove_source_product_test_path(@product_test) %>";
+			li_classes.each(function(index) {
+			    $(this).append('<a href="' + link_to_remove_source + '?source=' + $(this).attr('class') + '" data-remote="true" class="remove_source"' + '>Supprimer</a>');
+			});
+		}
+	}
+</script>

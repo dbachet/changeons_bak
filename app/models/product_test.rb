@@ -28,6 +28,8 @@ class ProductTest < ActiveRecord::Base
   validates_presence_of :product_model, :description, :opinion, :category_ids, :mark
   validate :file_dimensions, :unless => "errors.any?"
   
+  attr_accessor :source_description, :source
+  
   def attachment_sizes
     if self.picture_orientation_horizontal
        size =  { :medium => "300x", :thumb => "50x50>" }

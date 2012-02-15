@@ -16,12 +16,12 @@ class Tip < ActiveRecord::Base
   has_many :tip_categorizations
   has_many :categories, :through => :tip_categorizations
   
+  attr_accessor :source_description, :source
+  
   validates_uniqueness_of :title
   validates_presence_of :title, :description, :category_ids
   validate :file_dimensions, :unless => "errors.any?"
-  
-  attr_accessor :source_description, :source # TO ADD
-  
+    
   def attachment_sizes
     if self.picture_orientation_horizontal
        size =  { :medium => "300x", :thumb => "50x50>" }

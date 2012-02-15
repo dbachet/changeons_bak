@@ -68,4 +68,20 @@
     <%= f.button :submit %>
 <% end %>
 
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(function(){
+			add_source_links();
+		});
+	});
+	
+	function add_source_links(){
+		var li_classes = $('ul#sources_display li');
+		if (li_classes.length) {
+			link_to_remove_source = "<%= remove_source_post_path(@post) %>";
+			li_classes.each(function(index) {
+			    $(this).append('<a href="' + link_to_remove_source + '?source=' + $(this).attr('class') + '" data-remote="true" class="remove_source"' + '>Supprimer</a>');
+			});
+		}
+	}
+</script>

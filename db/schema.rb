@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215194827) do
+ActiveRecord::Schema.define(:version => 20120215195747) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -163,6 +163,7 @@ ActiveRecord::Schema.define(:version => 20120215194827) do
     t.integer  "picture_width"
     t.boolean  "has_big_picture"
     t.boolean  "picture_orientation_horizontal"
+    t.text     "sources"
   end
 
   create_table "questions", :force => true do |t|

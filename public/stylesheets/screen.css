@@ -1500,8 +1500,8 @@ article#product_test.form ul#sources_display li a.remove_source{
 		width: 550px;
 	}
 	
-	article#product_test.form div.group_items div#image{
-/*		border-left: 1px solid #6DB41A;*/
+	article#product_test.form div#sources div#source_inputs{
+		border-right: 1px solid rgba(255, 255, 255, 0.2);
 	}
 	/* End - Product test form */
 	
