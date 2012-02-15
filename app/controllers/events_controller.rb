@@ -2,6 +2,21 @@ class EventsController < AuthorizedController
   
   before_filter :authenticate_user!, :except => [:index, :show]
   
+  def add_source
+    @event = Event.find(params[:id])
+    
+    respond_to do |format|
+      format.js { render 'layouts/add_source'}
+    end
+  end
+  
+  def remove_source
+    @source = params[:source] 
+    respond_to do |format|
+      format.js { render 'layouts/remove_source'}
+    end
+  end
+  
   def vote_up
     begin
       if current_user.voted_for?(@event)

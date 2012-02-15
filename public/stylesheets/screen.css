@@ -1426,14 +1426,6 @@ article#product_test.form ul#sources_display li a.remove_source{
 	article#event.form .new_form_input{
 		background-color: rgba(255, 255, 255, 0.4);
 	}
-
-	article#event.form header div.right textarea#event_title{
-/*		color: #55AACF;*/
-	}
-	
-	article#event.form div.group_items div#image{
-/*		border-left: 1px solid #772018;*/
-	}
 	
 	article#event.form input#event_event_end_date,
 	article#event.form input#event_event_start_date,
@@ -1453,6 +1445,10 @@ article#product_test.form ul#sources_display li a.remove_source{
 	article#event.form h2{
 		font-size: 1.2em;
 		
+	}
+	
+	article#event.form div#sources div#source_inputs{
+		border-right: 1px solid rgba(255, 255, 255, 0.2);
 	}
 	
 	/* End - Event form */
