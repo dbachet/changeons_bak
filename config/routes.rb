@@ -63,6 +63,8 @@ Changeons::Application.routes.draw do
       end
     end
     member do
+      get :add_source
+      get :remove_source
       post :vote_up
       post :vote_down
     end

@@ -1273,6 +1273,64 @@ article#product_test.form div#categories div#category_list span{
 	margin-right: 10px;
 }
 
+article#post.form div#sources,
+article#tip.form div#sources,
+article#event.form div#sources,
+article#product_test.form div#sources{
+	padding: 30px 0;
+}
+
+article#post.form div#sources div#source_inputs,
+article#tip.form div#sources div#source_inputs,
+article#event.form div#sources div#source_inputs,
+article#product_test.form div#sources div#source_inputs{
+	width: 30em;
+	display: inline-block;
+}
+
+article#post.form div#sources div#source_list,
+article#tip.form div#sources div#source_list,
+article#event.form div#sources div#source_list,
+article#product_test.form div#sources div#source_list{
+	display:inline-block;
+	vertical-align: top;
+	padding: 0 2em;
+}
+
+article#post.form textarea#sources_input,
+article#tip.form textarea#sources_input,
+article#event.form textarea#sources_input,
+article#product_test.form textarea#sources_input{
+	display: none;
+}
+
+article#post.form ul#sources_display li,
+article#tip.form ul#sources_display li,
+article#event.form ul#sources_display li,
+article#product_test.form ul#sources_display li{
+	color: #fff;
+	background-color: rgba(255, 255, 255, 0.3);
+	padding: 5px;
+	margin-bottom: 2px;
+	width: 22em;
+	list-style: none;
+}
+
+article#post.form ul#sources_display li a,
+article#tip.form ul#sources_display li a,
+article#event.form ul#sources_display li a,
+article#product_test.form ul#sources_display li a{
+	color: white;
+}
+
+article#post.form ul#sources_display li a.remove_source,
+article#tip.form ul#sources_display li a.remove_source,
+article#event.form ul#sources_display li a.remove_source,
+article#product_test.form ul#sources_display li a.remove_source{
+	margin-left: 10px;
+	color: #95281F;
+}
+
 	/* Post form */
 	article#post.form h1{
 		color: #A2CF4B;
@@ -1299,14 +1357,11 @@ article#product_test.form div#categories div#category_list span{
 	article#post.form .new_form_input{
 		background-color: rgba(255, 255, 255, 0.4);
 	}
-
-	article#post.form header div.right textarea#post_title{
-/*		color: #55AACF;*/
+	
+	article#post.form div#sources div#source_inputs{
+		border-right: 1px solid #772018;
 	}
 	
-	article#post.form div.group_items div#image{
-		/*border-left: 1px solid #772018;*/
-	}
 	/* End - Post form */
 	
 	/* Tip form */
@@ -1336,52 +1391,12 @@ article#product_test.form div#categories div#category_list span{
 /*		color: #55AACF;*/
 	}
 	
-	article#tip.form textarea#sources_input{
-		height: 10px;
-		width: 550px;
-		display: none;
-	}
-	
-	article#tip.form div#sources{
-		padding: 30px 0;
-	}
-	
-	article#tip.form div#sources div#source_inputs{
-		width: 30em;
-		border-right: 1px solid #6DB41A;
-		display: inline-block;
-	}
-	
-	article#tip.form div#sources div#source_list{
-		display:inline-block;
-		vertical-align: top;
-		padding: 0 2em;
-	}
-	
-	article#tip.form ul#sources_display li{
-		color: #fff;
-		background-color: rgba(255, 255, 255, 0.3);
-		padding: 5px;
-		margin-bottom: 2px;
-		width: 22em;
-		list-style: none;
-	}
-	
-	article#tip.form ul#sources_display li a{
-		color: white;
-	}
-	
-	article#tip.form ul#sources_display li a.remove_source{
-		margin-left: 10px;
-		color: #95281F;
-	}
-	
 	article#tip.form header div.description{
 		border-right: 1px solid #6DB41A;
 	}
 	
-	article#tip.form div.group_items div#image{
-/*		border-left: 1px solid #6DB41A;*/
+	article#tip.form div#sources div#source_inputs{
+		border-right: 1px solid #6DB41A;
 	}
 	/* End - Tip form */
 	

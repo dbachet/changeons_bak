@@ -25,6 +25,8 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :content, :category_ids, :post_type_id, :tag_list, :short_description
   validate :file_dimensions, :unless => "errors.any?"
   
+  attr_accessor :source_description, :source # TO ADD
+  
   def attachment_sizes
     if self.picture_orientation_horizontal
        size =  { :medium => "300x", :thumb => "50x50>" }

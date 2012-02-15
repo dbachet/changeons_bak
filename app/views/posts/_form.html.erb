@@ -42,6 +42,27 @@
     <h1>5. Contenu de l'article*</h1>
     <%= f.ckeditor :content, :label => false, :input_html => { :toolbar => 'Easy', :width=>'700px', :height=>'500px' } %><br />
 
+	<div id="sources">
+		<h1>4. Sources / liens utilisés pour la rédaction de cette astuce</h1>
+
+		<div id="source_inputs">
+			Description de la source - non obligatoire
+			<%= f.input :source_description, :label => false, :wrapper_html => {:id => "source_description"}, :input_html => {:class => "new_form_input", :value => '', :id => "source_description_input"}, :validate => false %>
+			Lien hypertexte (URL) - non obligatoire
+			<%= f.input :source, :label => false, :wrapper_html => {:id => "html_link"}, :input_html => {:class => "new_form_input", :value => 'http://', :id => "html_link_input"}, :validate => false %>
+			<%= f.input :sources, :label => false, :input_html => {:id => "sources_input"}, :validate => false %>
+			<%= link_to "+ Ajouter la source", add_source_post_path(@post), :remote => true, :class => "awesome" %>
+		</div>
+		<div id="source_list">
+			Prévisualisation des sources
+			<ul id="sources_display">
+				<% if !@post.sources.blank? %>
+					<%= @post.sources.html_safe %>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+	
     <h1>6. Tags*</h1>
 	<%= f.input :tag_list, :label => false, :input_html => {:class => "new_form_input"} %>
     <%= f.button :submit %>

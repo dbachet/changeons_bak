@@ -4,6 +4,20 @@ class PostsController < AuthorizedController
   # load_and_authorize_resource
   # before_filter :authenticate_user!
   
+  def add_source
+    @post = Post.find(params[:id])
+    
+    respond_to do |format|
+      format.js { render 'layouts/add_source'}
+    end
+  end
+  
+  def remove_source
+    @source = params[:source] 
+    respond_to do |format|
+      format.js { render 'layouts/remove_source'}
+    end
+  end
   
   def show_more_posts
     @default_post_offset = APP_CONFIG['default_post_offset']
@@ -148,7 +162,6 @@ class PostsController < AuthorizedController
         puts "YEAAH"
       end
       if @post.save
-        
         
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
