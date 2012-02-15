@@ -3,7 +3,7 @@ $('ul#sources_display li.' + "<%= @source %>").remove();
 $('ul#sources_display li a.remove_source').remove();
 
 var sources_val = $('ul#sources_display').html();
-$('textarea#tip_sources').val(sources_val);
+$('textarea#sources_input').val(sources_val);
 
 $(function(){
 	add_source_links();

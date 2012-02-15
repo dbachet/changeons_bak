@@ -1336,10 +1336,14 @@ article#product_test.form div#categories div#category_list span{
 /*		color: #55AACF;*/
 	}
 	
-	article#tip.form textarea#tip_sources{
+	article#tip.form textarea#sources_input{
 		height: 10px;
 		width: 550px;
 		display: none;
+	}
+	
+	article#tip.form div#sources{
+		padding: 30px 0;
 	}
 	
 	article#tip.form div#sources div#source_inputs{
