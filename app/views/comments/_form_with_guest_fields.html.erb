@@ -1,29 +1,7 @@
 <%= form_for(@comment, :as => "comment", :url => create_comment_as_guest_link, :remote => true, :method => :post, :validate => true) do |f| %>
 <h1>Nouveau commentaire</h1>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-      <ul>
-      <% @comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
 
 <div class="left">
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title, 'data-post-id' => ((@comment_parent_object).id) %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body, :validate => true %>
-  </div>
-</div>
-<div class="right">
   <div class="field">
     <%= f.label :guest_email %><br />
     <%= f.text_field :guest_email, :validate => true %>
@@ -33,13 +11,32 @@
     <%= f.text_field :guest_website, :validate => true %>
   </div>
 
-	<div class="field">
-  	<%= f.check_box :send_notification_to_root_comment, :validate => true %><%= f.label "M'envoyer une notification lorsque quelqu'un répond à mon commentaire" %>
-	</div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, 'data-post-id' => ((@comment_parent_object).id) %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body, :validate => true %>
+  </div>
+
+  <div class="field">
+	<%= f.check_box :send_notification_to_root_comment, :validate => true %><%= f.label "M'envoyer une notification lorsque quelqu'un répond à mon commentaire" %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
+<div class="right">
+	ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+		ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+			ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+				ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+					ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+</div>
+<div class="right">
+  
 </div>
 
 	
