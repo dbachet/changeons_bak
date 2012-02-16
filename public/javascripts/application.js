@@ -10,16 +10,26 @@ $(document).ready(function() {
 			$( ".datepicker" ).datepicker();
 		});
 	
-	// Fancyboxes
-	// $('a.fancybox_signin').fancybox({
-	// 	closeClick: false,
-	// 	afterShow:	function() {
-	// 		$('form#user_new[data-validate]').validate();
-	// 	},
-	// 	afterClose: function() {
-	// 		$('form#reply_new[data-validate], form#comment_new[data-validate]').validate();
-	// 	}
-	// });
+	/** 
+	 * Character Counter for inputs and text areas 
+	 */  
+	$('.char_count').each(function(){  
+	    // get current number of characters  
+	    var length = $(this).val().length;  
+	    // get current number of words  
+	    //var length = $(this).val().split(/\b[\s,\.-:;]*/).length;  
+	    // update characters  
+	    $(this).parent().find('.counter').html( length + ' caractères');  
+	    // bind on key up event  
+	    $(this).keyup(function(){  
+	        // get new length of characters  
+	        var new_length = $(this).val().length;  
+	        // get new length of words  
+	        //var new_length = $(this).val().split(/\b[\s,\.-:;]*/).length;  
+	        // update  
+	        $(this).parent().find('.counter').html( new_length + ' caractères');  
+	    });  
+	});
 	
 	
 	$('a.admin_new_user_registration_link').fancybox({
@@ -169,4 +179,11 @@ $('form#reply_new[data-validate]').validate();
 });
 
 
-
+function add_source_links(link_to_remove_source){
+	var li_classes = $('ul#sources_display li');
+	if (li_classes.length) {
+		li_classes.each(function(index) {
+		    $(this).append('<a href="' + link_to_remove_source + '?source=' + $(this).attr('class') + '" data-remote="true" class="remove_source"' + '>Supprimer</a>');
+		});
+	}
+}

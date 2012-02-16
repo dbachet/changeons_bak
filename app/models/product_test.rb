@@ -18,6 +18,9 @@ class ProductTest < ActiveRecord::Base
   has_many :product_test_categorizations
   has_many :categories, :through => :product_test_categorizations
   
+  validates_length_of :brand, :maximum => 50
+  validates_length_of :source_description, :maximum => 80
+  validates_length_of :product_model, :maximum => 80
   validates_format_of :recommended_price, :with => /\A\d*(\.\d{1,2})?\Z/, :allow_blank => true
   validates_numericality_of :mark, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 5
   

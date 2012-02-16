@@ -16,16 +16,18 @@ class Post < ActiveRecord::Base
   has_many :categorizations
   has_many :categories, :through => :categorizations
   
-  attr_accessor :post_picture_url, :resize_rule
-  attr_accessible :category_ids, :post_type_id, :title, :content, :short_description, :picture, :width, :height
+  attr_accessible :category_ids, :post_type_id, :title, :content, :short_description, :picture, :width, :height, :sources
   
   validates_attachment_presence :picture
   validates_attachment_size :picture, :less_than => 2.megabytes
   validates_attachment_content_type :picture, :content_type => [ /^image\/(?:jpeg|gif|png)$/, nil ]
-  validates_presence_of :title, :content, :category_ids, :post_type_id, :tag_list, :short_description
+  validates_presence_of :title, :content, :category_ids, :tag_list, :short_description
+  validates_length_of :title, :maximum => 100
+  validates_length_of :short_description, :maximum => 200
+  validates_length_of :source_description, :maximum => 80
   validate :file_dimensions, :unless => "errors.any?"
   
-  attr_accessor :source_description, :source # TO ADD
+  attr_accessor :source_description, :source
   
   def attachment_sizes
     if self.picture_orientation_horizontal

@@ -12,12 +12,18 @@
 	<div class="right">
 		<div class="written_by"><span>écrit par</span> <%= (@post.user.email if @post.user) || current_user.email %></div>
 		<h1>1. Titre*</h1>
-		<%= f.input :title, :label => false, :as => :text, :input_html => {:class => "new_form_input"} %>
-		
+		<div>
+			<%= f.input :title, :label => false, :as => :text, :wrapper => false, :input_html => {:class => "new_form_input char_count"} %>
+			<span class="counter"></span>
+		</div>
 		<div class="group_items">
 			<div class="short_description">
 				<h1>2. Courte description*</h1>
-				<%= f.input :short_description, :label => false, :input_html => {:class => "new_form_input"} %>
+				<div>
+					<%= f.input :short_description, :label => false, :wrapper => false, :input_html => {:class => "new_form_input char_count"} %>
+					<span class="counter"></span>
+				</div>
+				
 			</div>
 			<div id="image">
 				<h1>3. Image de l'article*</h1>
@@ -51,7 +57,7 @@
 			Lien hypertexte (URL) - non obligatoire
 			<%= f.input :source, :label => false, :wrapper_html => {:id => "html_link"}, :input_html => {:class => "new_form_input", :value => 'http://', :id => "html_link_input"}, :validate => false %>
 			<%= f.input :sources, :label => false, :input_html => {:id => "sources_input"}, :validate => false %>
-			<%= link_to "+ Ajouter la source", add_source_post_path(@post), :remote => true, :class => "awesome" %>
+			<%= link_to "+ Ajouter la source", posts_add_source_path, :remote => true, :class => "awesome" %>
 		</div>
 		<div id="source_list">
 			Prévisualisation des sources
@@ -71,17 +77,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(function(){
-			add_source_links();
+			add_source_links("<%= posts_remove_source_path %>");
 		});
 	});
-	
-	function add_source_links(){
-		var li_classes = $('ul#sources_display li');
-		if (li_classes.length) {
-			link_to_remove_source = "<%= remove_source_post_path(@post) %>";
-			li_classes.each(function(index) {
-			    $(this).append('<a href="' + link_to_remove_source + '?source=' + $(this).attr('class') + '" data-remote="true" class="remove_source"' + '>Supprimer</a>');
-			});
-		}
-	}
 </script>

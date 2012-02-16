@@ -5,7 +5,7 @@ class PostsController < AuthorizedController
   # before_filter :authenticate_user!
   
   def add_source
-    @post = Post.find(params[:id])
+    @page = params[:controller]
     
     respond_to do |format|
       format.js { render 'layouts/add_source'}
@@ -13,7 +13,9 @@ class PostsController < AuthorizedController
   end
   
   def remove_source
-    @source = params[:source] 
+    @source = params[:source]
+    @page = params[:controller]
+    
     respond_to do |format|
       format.js { render 'layouts/remove_source'}
     end
@@ -120,7 +122,7 @@ class PostsController < AuthorizedController
     # puts "@comments_count => #{@comments_count} / @post.root_comments.count => #{@post.root_comments.count} / @comments.length => #{@comments.length}"
     
     @categories = @post.categories
-    @post_type = @post.post_type.name
+    # @post_type = @post.post_type.name
     @tags = @post.tag_list
     @votes_result = @post.plusminus
     
@@ -155,12 +157,9 @@ class PostsController < AuthorizedController
     @post = current_user.posts.create(params[:post])
     @post.tag_list = params[:post][:tag_list]
     @post.category_ids = params[:post][:category_ids]
-    # authorize! :create, @post
+    puts  "#{@post.errors}"
     
     respond_to do |format|
-      if params[:post_form]
-        puts "YEAAH"
-      end
       if @post.save
         
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }

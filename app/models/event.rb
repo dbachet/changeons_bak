@@ -17,6 +17,11 @@ class Event < ActiveRecord::Base
   
   validates_uniqueness_of :title
   validates_presence_of :title, :description, :event_start_date, :category_ids
+  validates_length_of :title, :maximum => 100
+  validates_length_of :addr_street, :maximum => 100
+  validates_length_of :addr_city, :maximum => 50
+  validates_length_of :addr_postcode, :maximum => 10
+  validates_length_of :source_description, :maximum => 80
   validate :file_dimensions, :unless => "errors.any?"
   
   attr_accessor :source_description, :source

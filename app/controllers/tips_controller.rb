@@ -3,7 +3,7 @@ class TipsController < AuthorizedController
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def add_source
-    @tip = Tip.find(params[:id])
+    @page = params[:controller]
     
     respond_to do |format|
       format.js { render 'layouts/add_source'}
@@ -11,7 +11,9 @@ class TipsController < AuthorizedController
   end
   
   def remove_source
-    @source = params[:source] 
+    @source = params[:source]
+    @page = params[:controller]
+    
     respond_to do |format|
       format.js { render 'layouts/remove_source'}
     end

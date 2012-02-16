@@ -3,6 +3,8 @@ Changeons::Application.routes.draw do
 
   resources :upload_pictures
 
+  get "product_tests/add_source"
+  get "product_tests/remove_source"
   resources :product_tests do
     resources :comments, :except => [:index, :show, :new] do
       member do
@@ -12,13 +14,13 @@ Changeons::Application.routes.draw do
       end
     end
     member do
-      get :add_source
-      get :remove_source
       post :vote_up
       post :vote_down
     end
   end
 
+  get "events/add_source"
+  get "events/remove_source"
   resources :events do
     resources :comments, :except => [:index, :show, :new] do
       member do
@@ -28,8 +30,6 @@ Changeons::Application.routes.draw do
       end
     end
     member do
-      get :add_source
-      get :remove_source
       post :vote_up
       post :vote_down
     end    
@@ -37,6 +37,8 @@ Changeons::Application.routes.draw do
   
   # get "tips/remove_source" # TO ADD
   
+  get "tips/add_source"
+  get "tips/remove_source"
   resources :tips do
     resources :comments, :except => [:index, :show, :new] do
       member do
@@ -46,8 +48,6 @@ Changeons::Application.routes.draw do
       end
     end
     member do
-      get :add_source # TO ADD
-      get :remove_source # TO ADD
       post :vote_up
       post :vote_down
     end
@@ -56,7 +56,9 @@ Changeons::Application.routes.draw do
   resources :questions do
     resources :answers
   end
-  
+
+  get "posts/add_source"
+  get "posts/remove_source" 
   resources :posts do
     resources :upload_pictures
     resources :comments, :except => [:index, :show, :new] do
@@ -67,8 +69,6 @@ Changeons::Application.routes.draw do
       end
     end
     member do
-      get :add_source
-      get :remove_source
       post :vote_up
       post :vote_down
     end

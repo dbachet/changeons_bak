@@ -2,7 +2,7 @@ class ProductTestsController < AuthorizedController
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def add_source
-    @product_test = ProductTest.find(params[:id])
+    @page = params[:controller]
     
     respond_to do |format|
       format.js { render 'layouts/add_source'}
@@ -10,7 +10,9 @@ class ProductTestsController < AuthorizedController
   end
   
   def remove_source
-    @source = params[:source] 
+    @source = params[:source]
+    @page = params[:controller]
+    
     respond_to do |format|
       format.js { render 'layouts/remove_source'}
     end

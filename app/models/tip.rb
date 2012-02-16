@@ -20,6 +20,8 @@ class Tip < ActiveRecord::Base
   
   validates_uniqueness_of :title
   validates_presence_of :title, :description, :category_ids
+  validates_length_of :title, :maximum => 100
+  validates_length_of :source_description, :maximum => 80
   validate :file_dimensions, :unless => "errors.any?"
     
   def attachment_sizes

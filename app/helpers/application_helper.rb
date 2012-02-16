@@ -3,11 +3,11 @@ module ApplicationHelper
     if month == '01'
       "Jan"
     elsif month == '02'
-      "Féb"
+      "Fév"
     elsif month == '03'
       "Mar"
     elsif month == '04'
-      "Apr"
+      "Avr"
     elsif month == '05'
       "Mai"
     elsif month == '06'
@@ -15,7 +15,7 @@ module ApplicationHelper
     elsif month == '07'
       "Juil"
     elsif month == '08'
-      "Aug"
+      "Aoû"
     elsif month == '09'
       "Sep"
     elsif month == '10'
