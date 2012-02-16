@@ -12,7 +12,7 @@ $("form#user_new").bind('ajax:success', function(evt, data, status, xhr) {
 		// Display comments
 		$('div#display_comments').html("<%= escape_javascript(display_comments(@comments)) %>");
 		// Change the param displayed_comments in url of link
-		$('a#show_more_comments_link').attr('href', "/posts/<%= @post.cached_slug %>/show_more_comments?displayed_comments=" + <%= @displayed_comments %>);
+		// $('a#show_more_comments_link').attr('href', "/posts/<%= @post.cached_slug %>/show_more_comments?displayed_comments=" + <%= @displayed_comments %>);
 		
 		
 		
@@ -67,7 +67,7 @@ $("form#user_new").bind('ajax:success', function(evt, data, status, xhr) {
 		$('div#display_posts').html("<%= escape_javascript(render :partial => 'posts/posts') %>");
 		
 		// Change the param displayed_comments in url of link
-		$('a#show_more_posts_link').attr('href', "/posts/show_more_posts?displayed_posts=" + <%= @displayed_posts %>);
+		// $('a#show_more_posts_link').attr('href', "/posts/show_more_posts?displayed_posts=" + <%= @displayed_posts %>);
 		<% end %>
 		
 		

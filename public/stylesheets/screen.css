@@ -1573,6 +1573,10 @@ div#wrap_form_new_reply div.right{
 	vertical-align: top;
 	margin-top: 1em;
 }
+
+section#comments{
+	width: 550px;
+}
 	
 section#comments header h1{
 	font-family: "CaviarDreamsBold", verdana, arial;
@@ -1591,8 +1595,8 @@ div#display_comments div.root_comment_area {
 	}
 
 	div#display_comments article.root_comment div.comment_content{
-		width: 600px;
-		margin: 0 0 0 100px;
+		width: 430px;
+		margin: 0 0 0 0px;
 		background-color: rgba(255, 200, 255, 1);
 		-webkit-border-bottom-left-radius: 4px;
 		-webkit-border-bottom-right-radius: 4px;
@@ -1600,7 +1604,7 @@ div#display_comments div.root_comment_area {
 		-moz-border-radius-bottomleft: 4px;
 		border-bottom-right-radius: 4px;
 		border-bottom-left-radius: 4px;
-		padding: 0 0 30px 0px;
+		padding: 0 0 5px 0px;
 		
 		-webkit-box-shadow: 0 0 4px #000;
 		-mox-box-shadow: 0 0 4px #000;
@@ -1611,21 +1615,31 @@ div#display_comments div.root_comment_area {
 		div#display_comments article.root_comment div.arrow_comment{
 			height: 11px;
 			width: 100%;
-			background: url('/images/arrow_comment.png') no-repeat 250px 0px;
+			background: url('/images/arrow_comment.png') no-repeat 125px 0px;
 		}
 	
 		div#display_comments article.root_comment div.comment_content header{
 			background-color: rgba(85,170,200,0.1);
 			min-height:20px;
 			padding: 10px;
-			
 		}
+		
+		div#display_comments article.root_comment div.comment_content header div.title {
+			display: inline-block;
+			width: 17em;
+			vertical-align: top;
+		}
+		
+/*		div#display_comments article.root_comment div.comment_content header div.links {
+			display: inline-block;
+			vertical-align: top;
+		}*/
 		
 			div#display_comments article.root_comment div.comment_content header a.edit_comment_link{
 				float:right;
 				background: url('/images/edit.png') no-repeat;
 				padding: 3px 10px 10px 27px;
-				height: 21px;
+				height: 10px;
 				width: 35px;
 			}
 			
@@ -1639,16 +1653,16 @@ div#display_comments div.root_comment_area {
 			}
 		
 		div#display_comments article.root_comment div.comment_content div.comment_body{
-			margin: 0 0 0 50px;
-			padding: 10px 70px 0 20px;
+			margin: 0px;
+			padding: 0px 20px 0 30px;
 		}
 		
 		div#display_comments article.root_comment div.author_comment_name{
-			padding: 0px 20px 0 155px;
+			padding: 0px 20px 0 55px;
 		}
 		
 		div#display_comments article.root_comment div.author_comment_image{
-			margin: -80px 0 -18px 84px;
+			margin: -70px 0 -30px -34px;
 			-webkit-transform: rotate(-5deg); 
 			-moz-transform: rotate(-5deg);
 			transform: rotate(-5deg);
@@ -1663,7 +1677,7 @@ div#display_comments div.root_comment_area {
 		}
 		
 		div#display_comments article.root_comment a.show_reply_fields{
-			 margin-left: 590px;
+			 margin-left: 320px;
 		}
 		
 		div#display_comments article.root_comment a.show_reply_fields:hover{
@@ -1681,8 +1695,8 @@ div#display_comments div.root_comment_area {
 	}
 	
 	div#display_comments article.comment_reply div.comment_content{
-		width: 600px;
-		margin: 0 0 0 170px;
+		width: 430px;
+		margin: 0 0 0 70px;
 		background-color: rgba(255, 255, 200, 1);		
 		-webkit-border-bottom-left-radius: 4px;
 		-webkit-border-bottom-right-radius: 4px;
@@ -1700,11 +1714,11 @@ div#display_comments div.root_comment_area {
 	div#display_comments article.comment_reply div.arrow_comment{
 		height: 11px;
 		width: 100%;
-		background: url('/images/arrow_reply.png') no-repeat 605px 0px;
+		background: url('/images/arrow_reply.png') no-repeat 300px 0px;
 	}
 
 	div#display_comments article.comment_reply div.comment_content header{
-		background-color: rgba(200,200,200,0.1);
+		background-color: rgba(0, 0, 0, 0.1);
 		min-height:20px;
 		padding: 10px;
 	}
@@ -1728,7 +1742,7 @@ div#display_comments div.root_comment_area {
 		}
 		
 	div#display_comments article.comment_reply div.comment_content div.comment_body{
-		margin: 0 70px 0 0px;
+		margin: 0 30px 0 0px;
 		padding: 10px 0 0 20px;
 	}
 	
@@ -1737,8 +1751,14 @@ div#display_comments div.root_comment_area {
 		float: right;
 	}
 	
+	div#display_comments article.comment_reply div.comment_content header div.title {
+		display: inline-block;
+		width: 17em;
+		vertical-align: top;
+	}	
+	
 	div#display_comments article.comment_reply div.author_comment_image{
-		margin: -62px 0 -65px 725px;
+		margin: -55px 0 -65px 475px;
 		-webkit-transform: rotate(5deg);
 		-moz-transform: rotate(5deg);
 		transform: rotate(5deg);

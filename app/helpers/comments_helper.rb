@@ -32,9 +32,9 @@ module CommentsHelper
       content_tag(:article, :class => (comment.is_root_comment? ? (is_new ? "root_comment new" : "root_comment") : (is_new ? "comment_reply new reply_for_#{comment.parent_id}" : "comment_reply reply_for_#{comment.parent_id}")), :id => "comment_#{comment.id}" ) do
           content_tag(:div, :class => "comment_content") do
             content_tag(:header) do
-              comment.title.html_safe + 
-              (link_to('Supprimer', polymorphic_path([(@tip || @post || @event || @product_test), comment]), :class => "delete_comment_link", :confirm => 'Are you sure?', :method => :delete, :remote => true) if can? :destroy, comment) +
-              (link_to('Éditer', edit_polymorphic_path([(@tip || @post || @event || @product_test), comment]), :class => "edit_comment_link fancybox.ajax") if can? :edit, comment )
+              content_tag(:div, comment.title.html_safe, :class => "title") + 
+                (link_to('Supprimer', polymorphic_path([(@tip || @post || @event || @product_test), comment]), :class => "delete_comment_link", :confirm => 'Are you sure?', :method => :delete, :remote => true) if can? :destroy, comment) +
+                (link_to('Éditer', edit_polymorphic_path([(@tip || @post || @event || @product_test), comment]), :class => "edit_comment_link fancybox.ajax") if can? :edit, comment)
             end +
             content_tag(:div, simple_format(h comment.body), :class => "comment_body")
           end +
