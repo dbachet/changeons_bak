@@ -1,87 +1,97 @@
-<article id="tip" class="show">
-	<header>
-		<div class="left">
-			<div class="etiquette">Astuce</div>
-			<div class="date">
-				<span class="day"><%= @tip.created_at.strftime("%d") %></span>
-				<span class="month"><%= getMonthFromNumber(@tip.created_at.strftime("%m")) %></span>
-				</br>
-				<span class="year"><%= @tip.created_at.strftime("%Y") %></span>
-			</div>
-		</div>
-		<div class="right" <%= ("style='width:30em'" if !@tip.has_big_picture) %>>
-			<h1><%= @tip.title %></h1>
-			<div class="written_by"><span>écrit par</span> <%= @tip.user.email %></div>
-			<div class="categories">Catégories: 
-				<% @categories.each do |category| %>
-					<span><%= category.name %></span>
-				<% end %>
-			</div>
-		</div>
-		<% if !@tip.has_big_picture %>
-			<div id="small_picture">
-				<%= image_tag @tip.picture.url(:thumb) %>
-			</div>
-		<% end %>
-	</header>
-	<div id="left_bar">
-		<div id="share">
-			<div id="vote">
-				<div id="vote_up">
-					<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_tip_path(@tip), :method => :post, :remote => true) %>
-				</div>
-
-				<div id="votes_result">
-					<%= render "layouts/votes_result" %>
+<div id="show_left">
+	<article id="tip" class="show">
+		<header>
+			<div class="left">
+				<div class="etiquette">Astuce</div>
+				<div class="date">
+					<span class="day"><%= @tip.created_at.strftime("%d") %></span>
+					<span class="month"><%= getMonthFromNumber(@tip.created_at.strftime("%m")) %></span>
+					</br>
+					<span class="year"><%= @tip.created_at.strftime("%Y") %></span>
 				</div>
 			</div>
-		</div>
-	</div>
-	
-	<div id="content_wrap">
-		<% if @tip.has_big_picture %>
-			<div id="big_picture">
-				<%= image_tag @tip.picture.url(:medium),  :style => ("margin: 0 9em" if !@tip.picture_orientation_horizontal) %>
+			<div class="right" <%= ("style='width:30em'" if !@tip.has_big_picture) %>>
+				<h1><%= @tip.title %></h1>
+				<div class="written_by"><span>écrit par</span> <%= @tip.user.email %></div>
+				<div class="categories">Catégories: 
+					<% @categories.each do |category| %>
+						<span><%= category.name %></span>
+					<% end %>
+				</div>
 			</div>
+			<% if !@tip.has_big_picture %>
+				<div id="small_picture">
+					<%= image_tag @tip.picture.url(:thumb) %>
+				</div>
+			<% end %>
+		</header>
+		<div id="left_bar">
+			<div id="share">
+				<div id="vote">
+					<div id="vote_up">
+						<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_tip_path(@tip), :method => :post, :remote => true) %>
+					</div>
+
+					<div id="votes_result">
+						<%= render "layouts/votes_result" %>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div id="content_wrap">
+			<% if @tip.has_big_picture %>
+				<div id="big_picture">
+					<%= image_tag @tip.picture.url(:medium),  :style => ("margin: 0 9em" if !@tip.picture_orientation_horizontal) %>
+				</div>
+			<% end %>
+		  <%= simple_format(h @tip.description) %>
+	
+
+		<%= link_to 'Edit', edit_tip_path(@tip) %>
+
+		<br />
+	
+		</div>
+		<% if @tip.source %>
+		Sources:
+		<ul>		
+			<%= @tip.sources.html_safe %>
+		</ul>
 		<% end %>
-	  <%= simple_format(h @tip.description) %>
+	</article>
+
+	<section id="comments">
+		<!-- Comments -->
+		<header>
+		<h1>Commentaires</h1>
+		</header>
 	
-
-	<%= link_to 'Edit', edit_tip_path(@tip) %>
-
-	<br />
+		<div id="display_comments" data-displayed-comments=<%= @displayed_comments %>>
 	
-	</div>
-	Sources:
-	<ul>
-		<%= @tip.sources.html_safe %>
-	</ul>
-</article>
+			<%= display_comments(@comments) %>
+		</div>
 
-<section id="comments">
-	<!-- Comments -->
-	<header>
-	<h1>Commentaires</h1>
-	</header>
+
+		<br />
+
+
+
+
+		<!-- New comment -->
+
+
+
+		<div id="wrap_form_new_comment">
 	
-	<div id="display_comments" data-displayed-comments=<%= @displayed_comments %>>
-	
-		<%= display_comments(@comments) %>
-	</div>
+			<%= render 'comments/form' %>
 
+		</div>
+	</section>
+</div>
 
-	<br />
-
-
-
-
-	<!-- New comment -->
-
-
-
-	<div id="wrap_form_new_comment">
-	
-		<%= render 'comments/form' %>
-
-	</div>
-</section>
+<div id="show_right">
+	<section id="also_to_read">
+		<h1 class="red_section">À LIRE AUSSI</h1>
+	</section>
+</div>

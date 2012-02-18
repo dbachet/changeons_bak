@@ -141,7 +141,7 @@ textarea:active{
 
 section#newsletter_form,
 section#sponsors{
-	padding: 10px;
+	padding: 1em;
 	min-height: 107px;
 	margin-bottom: 10px;
 	
@@ -151,8 +151,7 @@ section#sponsors{
 	border-radius: 2px;
 }
 
-		section#newsletter_form header h1,
-		section#sponsors header h1{
+		h1.red_section{
 			font-family: "CaviarDreamsBold", verdana, arial;
 			font-size: 27px;
 			text-align: right;
@@ -500,16 +499,16 @@ input#newsletter_subscriber_submit{
 		
 	section#sponsors article.sponsor{
 		display: inline-block;
-		font-size: 14px;
+		font-size: 1.1em;
 		text-align: center;
 		border: 1px dashed black;
 		color: black;
-		height: 70px;
-		width: 80px;
-		padding-top: 10px;
-		-webkit-border-radius: 3px; 
-		-moz-border-radius: 3px; 
-		-o-border-radius: 3px; 
+		height: 5em;
+		width: 5.5em;
+		padding-top: 1em;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		-o-border-radius: 3px;
 		border-radius: 3px;
 	}
 
@@ -1095,6 +1094,21 @@ section#tips article header span,
 section#tips header h1,
 article#tip header div.categories span{
 	color: rgba(255,220,20,1);
+}
+
+div#show_left{
+	display: inline-block;
+	vertical-align: top;
+}
+
+div#show_right{
+	display: inline-block;
+	vertical-align: top;
+/*	background-color: blue;*/
+	width: 15.4em;
+	padding: 1em;
+	margin-left: 1em;
+	min-height: 65em;
 }
 
 /* Event show */
