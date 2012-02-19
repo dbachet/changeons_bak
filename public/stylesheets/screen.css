@@ -90,11 +90,11 @@ html {
 
 body {
 	padding-top: 20px;
-	padding-bottom: 35px;
+/*	padding-bottom: 35px;*/
 	width: 100%;
 	font-family: "CaviarDreamsRegular", verdana, arial;
 	color: black;
-	background: #c1efba;
+	background: url('/images/background_bois.jpg'); /*#c1efba*/
 }
 
 a{
@@ -108,6 +108,20 @@ div#main{
 	padding: 30px 30px 0 30px;
 	display: block;
 	margin-bottom: 10px;
+	background-color: white;
+	
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2I0ZmM4ZiIgc3RvcC1vcGFjaXR5PSIwLjkiLz4KICAgIDxzdG9wIG9mZnNldD0iMjQlIiBzdG9wLWNvbG9yPSIjZmZmZWUwIiBzdG9wLW9wYWNpdHk9IjAuOTIiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmVlMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+	background: -moz-linear-gradient(top, rgba(180,252,143,0.9) 0%, rgba(255,254,224,0.92) 24%, rgba(255,254,224,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(180,252,143,0.9)), color-stop(24%,rgba(255,254,224,0.92)), color-stop(100%,rgba(255,254,224,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(180,252,143,0.9) 0%,rgba(255,254,224,0.92) 24%,rgba(255,254,224,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(180,252,143,0.9) 0em,rgba(255,254,224,0.92) 35em,rgba(255,254,224,1) 45em); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(180,252,143,0.9) 0%,rgba(255,254,224,0.92) 24%,rgba(255,254,224,1) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(180,252,143,0.9) 0%,rgba(255,254,224,0.92) 24%,rgba(255,254,224,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6b4fc8f', endColorstr='#fffee0',GradientType=0 ); /* IE6-8 */
+	
+	
+	box-shadow: 0 0 7px black;
 }
 
 div#yield{
@@ -149,6 +163,8 @@ section#sponsors{
 	-moz-border-radius: 2px; 
 	-o-border-radius: 2px; 
 	border-radius: 2px;
+	
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
 		h1.red_section{
@@ -158,6 +174,8 @@ section#sponsors{
 			border-bottom: 3px solid #95281F;
 			margin-top: 0px;
 			color: #95281F;
+			background-color: white;
+			padding: 5px;
 		}
 
 	/* Button */
@@ -251,18 +269,18 @@ header nav#top_page{
 	width: 100%;
 	z-index: 999;
 
-background: #e17d37; /* Old browsers */
-/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UxN2QzNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhZjRiMDUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-background: -moz-linear-gradient(top, #e17d37 0%, #af4b05 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e17d37), color-stop(100%,#af4b05)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #e17d37 0%,#af4b05 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #e17d37 0%,#af4b05 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #e17d37 0%,#af4b05 100%); /* IE10+ */
-background: linear-gradient(top, #e17d37 0%,#af4b05 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e17d37', endColorstr='#af4b05',GradientType=0 ); /* IE6-8 */
+	background: #d68805; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Q2ODgwNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhZjRkMDUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top, #d68805 0%, #af4d05 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d68805), color-stop(100%,#af4d05)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #d68805 0%,#af4d05 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #d68805 0%,#af4d05 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #d68805 0%,#af4d05 100%); /* IE10+ */
+	background: linear-gradient(top, #d68805 0%,#af4d05 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d68805', endColorstr='#af4d05',GradientType=0 ); /* IE6-8 */
 
-	height: 3.5em;
+	min-height: 3.5em;
 	-webkit-box-shadow: 0px 1px 2px rgba(120,30,13, 1);
 	-moz-box-shadow: 0px 1px 2px rgba(120,30,13, 1);
 	box-shadow: 0px 1px 2px rgba(120,30,13, 1);
@@ -1109,6 +1127,7 @@ div#show_right{
 	padding: 1em;
 	margin-left: 1em;
 	min-height: 65em;
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Event show */
@@ -1582,6 +1601,8 @@ section#comments header h1{
 	font-size: 27px;
 	border-bottom: 7px solid #95281F;
 	color: #95281F;
+	background-color: white;
+	padding: 5px;
 }
 
 div#display_comments div.root_comment_area {
@@ -1981,15 +2002,16 @@ div#display_comments div.root_comment_area {
 }
 
 footer {
-	position: fixed;
-	bottom: 0px;
+/*	position: fixed;*/
+/*	bottom: 0px;*/
 	text-align: center;
-	width: 100%;
-	z-index: 1000;
+/*	width: 100%;*/
+/*	z-index: 1000;*/
 	padding: 10px;
 	font-family: "GoLong";
 	background-color: rgba(140,10,80, 1);
-	height: 15px;
+/*	height: 15px;*/
+	height: 31px;
 	font-size: 16px;
 	color: #A2CF4B;
 	-webkit-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
