@@ -13,10 +13,8 @@
 			<div class="right" <%= ("style='width:30em'" if !@tip.has_big_picture) %>>
 				<h1><%= @tip.title %></h1>
 				<div class="written_by"><span>écrit par</span> <%= @tip.user.email %></div>
-				<div class="categories">Catégories: 
-					<% @categories.each do |category| %>
-						<span><%= category.name %></span>
-					<% end %>
+				<div class="categories">Catégories:
+					<span><%= @categories.map{|c| c.name}.join(', ') %></span>
 				</div>
 			</div>
 			<% if !@tip.has_big_picture %>
@@ -92,6 +90,58 @@
 
 <div id="show_right">
 	<section id="also_to_read">
-		<h1 class="red_section">À LIRE AUSSI</h1>
+		<header>
+			<h1 class="red_section">À LIRE AUSSI</h1>
+		</header>
+		<div class="articles">
+			<h1>Articles</h1>
+			<% @also_to_read_posts.each do |post| %>
+				<article>
+					<div><%= image_tag post.picture.url(:thumb) %></div>
+					<div>
+						<h2><%= truncate(post.title, :length => 55, :separator => ' ') %></h2>
+					</div>
+				</article>
+			<% end %>
+		</div>
+		<div class="tips">
+			<h1>Astuces</h1>
+			<% @also_to_read_tips.each do |tip| %>
+				<article>
+					<div>
+						<%= image_tag tip.picture.url(:thumb) %>
+					</div>
+					<div>
+						<h2><%= truncate(tip.title, :length => 55, :separator => ' ') %></h2>
+					</div>
+				</article>
+			<% end %>
+		</div>
+		<div class="events">
+			<h1>Évènements</h1>
+			<% @also_to_read_events.each do |event| %>
+				<article>
+					<div>
+						<%= image_tag event.picture.url(:thumb) %>
+					</div>
+					<div>
+						<h2><%= truncate(event.title, :length => 55, :separator => ' ') %></h2>
+					</div>
+				</article>
+			<% end %>
+		</div>
+		<div class="product_tests">
+			<h1>Avis/Tests</h1>
+			<% @also_to_read_product_tests.each do |product_test| %>
+				<article>
+					<div>
+						<%= image_tag product_test.picture.url(:thumb) %>
+					</div>
+					<div>
+						<h2><%= truncate("#{product_test.brand} #{product_test.product_model}", :length => 55, :separator => ' ') %></h2>
+					</div>
+				</article>
+			<% end %>
+		</div>
 	</section>
 </div>

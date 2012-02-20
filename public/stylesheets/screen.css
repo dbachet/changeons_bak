@@ -164,7 +164,7 @@ section#sponsors{
 	-o-border-radius: 2px; 
 	border-radius: 2px;
 	
-	background-color: rgba(0, 0, 0, 0.2);
+/*	background-color: rgba(0, 0, 0, 0.2);*/
 }
 
 		h1.red_section{
@@ -493,7 +493,7 @@ input#newsletter_subscriber_email{
 	-webkit-box-shadow: 0 0 7px #000;
 	-mox-box-shadow: 0 0 7px #000;
 	box-shadow: 0 0 7px #000;
-	width: 232px;
+	width: 225px;
 	height: 24px;
 	outline: none!important;
 	margin-left: 0px;
@@ -524,6 +524,7 @@ input#newsletter_subscriber_submit{
 		height: 5em;
 		width: 5.5em;
 		padding-top: 1em;
+		margin-bottom: 5px;
 		-webkit-border-radius: 3px;
 		-moz-border-radius: 3px;
 		-o-border-radius: 3px;
@@ -1127,7 +1128,42 @@ div#show_right{
 	padding: 1em;
 	margin-left: 1em;
 	min-height: 65em;
-	background-color: rgba(0, 0, 0, 0.2);
+/*	background-color: rgba(0, 0, 0, 0.2);*/
+}
+
+section#also_to_read > div > h1{
+	padding-left: 2em;
+	line-height: 1.3em;
+	background: url("/images/etiquette_2_small.png") no-repeat;
+	color: #A65240;
+}
+
+section#also_to_read > div{
+	border-bottom: 1px solid #C3C8AC;
+	padding-bottom: 10px;
+}
+
+section#also_to_read > div > article > div {
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 1em;
+}
+
+section#also_to_read > div > article > div img{
+	-webkit-box-shadow: 0 0 7px #000;
+	-mox-box-shadow: 0 0 7px #000;
+	box-shadow: 0 0 7px #000;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+section#also_to_read > div > article > div > h2 {
+	font-size: 1em;
+	margin-top: 0em;
+	color: #4584A7;
+	width: 9.2em;
+	text-align: justify;
 }
 
 /* Event show */

@@ -1,6 +1,6 @@
 class Tip < ActiveRecord::Base
   belongs_to :user
-  
+  # INDEX_COLUMNS = column_names - ['title', 'picture_file_name', 'picture_content_type', 'picture_file_size', 'picture_updated_at']
   
   acts_as_commentable
   acts_as_voteable
@@ -32,6 +32,11 @@ class Tip < ActiveRecord::Base
     end
     size
   end
+  
+  # def self.title
+  #   # find all records, then map name attributes to an array
+  #   find(:all, :select => "title").map(&:title)
+  # end
   
   private
   

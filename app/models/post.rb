@@ -38,6 +38,11 @@ class Post < ActiveRecord::Base
     size
   end
   
+  # def self.title
+  #   # find all records, then map name attributes to an array
+  #   find(:all, :select => ["title", "id"])
+  # end
+  
   private
   
   def file_dimensions

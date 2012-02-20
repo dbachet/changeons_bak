@@ -61,7 +61,18 @@ class TipsController < AuthorizedController
     @limitation = @default_comment_offset
     @comments = Comment.fetch_comments(@tip, @from, @limitation)
     
+    # puts @tip.categories.first.id
+    @cat = @categories[rand(@categories.size)]
     
+    @also_to_read_posts = @cat.posts.limit(3) # .select('title, picture_file_name, picture_content_type, picture_file_size, picture_updated_at')
+    @also_to_read_tips = @cat.tips.limit(3)
+    @also_to_read_events = @cat.events.limit(3)
+    @also_to_read_product_tests = @cat.product_tests.limit(3)
+    
+    puts @also_to_read_posts.inspect
+    puts @also_to_read_tips
+    puts @also_to_read_events
+    puts @also_to_read_product_tests
     
     @displayed_comments = @comments.length
     @remaining_comments = @tip.root_comments.count - @displayed_comments
