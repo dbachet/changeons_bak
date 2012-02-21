@@ -35,7 +35,7 @@
 		<div id="right_bar">
 			<section id="newsletter_form">
 				<header>
-					<h1 class="red_section">NEWSLETTER</h1>
+					<h1 class="red_section"><span>La</span> NEWSLETTER</h1>
 				</header>
 				<%= simple_form_for(@newsletter_subscriber, :validate => true) do |f| %>
 				  <%= f.error_notification %>
@@ -51,7 +51,7 @@
 			</section>
 			<section id="sponsors">
 				<header>
-					<h1 class="red_section">SPONSORS</h1>
+					<h1 class="red_section"><span>Les</span> SPONSORS</h1>
 				</header>
 				<div>
 					<article class="sponsor">Sponsorisez ce site web
@@ -66,6 +66,51 @@
 					</article>
 					<article class="sponsor">Sponsorisez ce site web
 					</article>
+				</div>
+			</section>
+			<section id="best">
+				<header>
+					<h1 class="red_section"><span>Les</span> BEST <span>of</span> CHANGEONS</h1>
+				</header>
+				<header>
+					<nav id="changeons">
+						<div class="domtab">
+							<ul class="domtabs">
+								<li><a href="#best1">Les + lus</a></li>
+								<li><a href="#best2">Les + votés</a></li>
+							</ul>
+						</div>
+					</nav>
+				</header>
+				<div class="domtab">
+					<div>
+					    <a name="best1" id="best1"></a>
+						<% @best_items.each do |item| %>
+							<article>
+								<div>
+									<%= image_tag item.picture.url(:thumb) %>
+								</div>
+								<div>
+									<h2><%= truncate(item.title, :length => 55, :separator => ' ') %></h2>
+								</div>
+							</article>
+						<% end %>
+					</div>
+				</div>
+				<div class="domtab">
+					<div>
+					    <a name="best2" id="best2"></a>
+					    <% @best_items2.each do |item| %>
+							<article>
+								<div>
+									<%= image_tag item.picture.url(:thumb) %>
+								</div>
+								<div>
+									<h2><%= truncate(item.title, :length => 55, :separator => ' ') %></h2>
+								</div>
+							</article>
+						<% end %>
+					</div>
 				</div>
 			</section>
 		</div>

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :newsletter_subscriber
+  before_filter :fetch_best_items
   
   # if user is logged in, return current_user, else return guest_user
   # def current_or_guest_user
@@ -32,6 +33,11 @@ class ApplicationController < ActionController::Base
   
   def newsletter_subscriber
     @newsletter_subscriber = NewsletterSubscriber.new
+  end
+  
+  def fetch_best_items
+    @best_items = Tip.all
+    @best_items2 = Event.all
   end
   
   def signed_in_as_admin?

@@ -129,13 +129,15 @@ div#yield{
 	min-height: 100px;
 	width: 822px;
 	margin: 10px 0;
+	vertical-align: top;
 }
 
 div#right_bar{
-	float: right;
-	width: 254px;
-	height: 250px;
+	display: inline-block;
+	width: 21.2em;
+/*	height: 250px;*/
 	margin: 10px 0;
+	vertical-align: top;
 }
 
 input,
@@ -176,6 +178,15 @@ section#sponsors{
 			color: #95281F;
 			background-color: white;
 			padding: 5px;
+			-webkit-text-shadow: 1px 1px grey;
+			-moz-text-shadow: 1px 1px grey;
+			text-shadow: 1px 1px grey;
+		}
+		
+		h1.red_section span{
+			color: grey;
+			font-size: 1em;
+			font-family: 'CaviarDreamsItalic', verdana, arial;
 		}
 
 	/* Button */
@@ -1629,16 +1640,21 @@ div#wrap_form_new_reply div.right{
 }
 
 section#comments{
-	width: 550px;
+	width: 45.5em;
 }
 	
-section#comments header h1{
+/*section#comments header h1{
 	font-family: "CaviarDreamsBold", verdana, arial;
 	font-size: 27px;
 	border-bottom: 7px solid #95281F;
 	color: #95281F;
 	background-color: white;
 	padding: 5px;
+}*/
+
+section#comments header h1{
+	margin-top: 15px;
+	text-align: left;
 }
 
 div#display_comments div.root_comment_area {

@@ -24,10 +24,11 @@
 			color: #55AACF;			
 		}
 		ul.domtabs li{
-			font-size: 20px;
+			/*font-size: 20px; => for home */
+			font-size: 1.4em;
 			display: inline-block;
-			float:left;
-			padding:0 .4em 0 0;
+			float: right;
+			padding: 0 0 0 .4em;
 		}
 		ul.domtabs a:link,
 		ul.domtabs a:visited,
@@ -36,7 +37,7 @@
 /*			width:100%;*/
 			padding:.1em 0.2em;
 			display:block;
-			background:rgba(70, 70, 70, 0.5);
+			background:rgba(70, 70, 70, 0.1);
 			color: #55AACF;
 			height:3em;
 			font-weight:bold;
@@ -50,9 +51,9 @@
 			min-height:1.5em;
 		}
 		ul.domtabs a:hover{
-			background:rgba(8, 8, 8, 0.4);
+/*			background:rgba(8, 8, 8, 0.4);*/
 		}
-		div.domtab div{
+		div.domtab > div{
 			clear:both;
 			width:auto;
 			background:rgba(8, 8, 8, 0.4);
@@ -64,7 +65,8 @@
 		ul.domtabs li.active a:active,
 		ul.domtabs li.active a:hover{
 			background:rgba(8, 8, 8, 0.4);
-			color: #55AACF;
+/*			color: #55AACF;*/
+			color: #fff;
 		}
 		#domtabprintview{
 			float:right;
