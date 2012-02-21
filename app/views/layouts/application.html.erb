@@ -25,16 +25,30 @@
 		<div id="notice_alert_fields">
 			<%= render 'layouts/flash_messages' %>
 		</div>
-	<div id="main">
-		<header id="top_banner">
-			<div id="quote">"...nous, nos habitudes, la société. D'autres l'ont fait, pourquoi pas vous ?"</div>
+	
+		<header id="top_banner" class="gradient">
+			<div id="quote">"Changeons... nous, nos habitudes, la société ! D'autres l'ont fait, pourquoi pas vous ?"</div>
 			<div id="top_item">
-				<%= image_tag @top_item[0].picture.url(:medium), :height => "250px" %>
+				<%= image_tag "/images/maison_eco.jpg", :height => "250px" %>
 				<div class="description">erifeurhfi euh rifueh irufheu rfiuh </div>
 			</div>
-			<div id="user_area"></div>
-			<div id="website_presentation"></div>
+			<div id="user_area">
+				<h1>Vous voulez participer ?</h1>
+				<ul>
+					<li>Créer un compte</li>
+					<li>Se connecter</li>
+				</ul>
+				<h1>Passez à l'acte !</h1>
+				<ul>
+					<li>Ajouter une astuce</li>
+					<li>Ajouter un évènement</li>
+					<li>Ajouter un avis/test de produit</li>
+				</ul>
+			</div>
+			<div id="website_presentation">Changeons.org est un site à consonnance BIO, mais pas seulement ! Le but du site est de créer une communauté afin de regrouper des informations, partager des idées et des expériences. Entre le blog et le site d'actualités, Changeons.org cherche avant tout la conversation et le raisonnement, développer un savoir et le faire approuver par la communauté.
+			</div>
 		</header>
+		<div id="main">
 		<div id="yield">
 		<%= yield %>
 		</div>
