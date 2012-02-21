@@ -39,7 +39,7 @@ class Tip < ActiveRecord::Base
   # end
   
   private
-  
+  # needs to accept square picture as horizontal orientation, needs to add a field accepted picture for top if rate (height/width) is higher than ...
   def file_dimensions
     if (picture.to_s <=> "/images/post_picture_missing.png") == 1
       dimensions = Paperclip::Geometry.from_file(picture.to_file(:original))
