@@ -65,3 +65,12 @@ Changeons.org a pour but de créer une communauté, plus ou moins grande, de per
 
 Changeons.org, un site à consonnance BIO(mais pas seulement), est à la disposition de la communauté. Partager des idées, développer un savoir, regrouper, créer des informations utiles dans un seul et même but, le bien-être de tous ! Entre le blog et le site d'actualités, Changeons.org cherche avant tout la conversation et le raisonnement. Pour arriver à cela, le site essaie d'être simple et intuitif. Changeons.org n'est qu'un site de plus pour répandre l'information. Changeons.org se veut être une petite contribution
 Faire un site un peu original et surtout ou c'est facile de participer, contribuer.
+
+changer menu top
+- top_banner, trouver une couleur avec un halo au milieu
+page principale: 	afficher 4/5 articles + ajouter une recherche par tags
+					ajouter astuces + classement astuce, 
+					ajouter events + recherche par date et département, 
+					ajouter tests + classement produits best/worst
+sur chaque index de modele:	ajouter les tools,
+							ajouter pagination normale

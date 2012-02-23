@@ -1,5 +1,5 @@
 Changeons::Application.routes.draw do
-  
+  match "tags/:tag_id/" => "tags#show_posts", :as => "tag_show_posts"  
 
   resources :upload_pictures
 
@@ -58,7 +58,7 @@ Changeons::Application.routes.draw do
   end
 
   get "posts/add_source"
-  get "posts/remove_source" 
+  get "posts/remove_source"
   resources :posts do
     resources :upload_pictures
     resources :comments, :except => [:index, :show, :new] do

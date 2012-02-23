@@ -3,7 +3,7 @@ class PagesController < AuthorizedController
   
   def home
     @default_post_offset = APP_CONFIG['default_post_offset']
-    @posts = Post.recent.limit(@default_post_offset)
+    @posts = Post.recent.limit(5)
     @tags =  ActsAsTaggableOn::Tag.all
     
     @displayed_posts = @posts.length

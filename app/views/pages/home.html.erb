@@ -14,7 +14,7 @@
 
 	<% if can? :new, @post %><%= link_to 'New Post', new_post_path %><% end %>
 </section>
-
+<div style="display:inline-block; width:22em; vertical-align: top">
 <section id="changeons_home">
 	<header>
 		<h1>Envie de changer ?</h1>
@@ -52,3 +52,12 @@
 		</div>
 	</div>
 </section>
+<section id="post_tag_tool">
+	<header>
+		<h1>Tags recensés dans les articles</h1>
+	</header>
+	<% @tags.each do |tag| %>
+		<span style="font-size: <%= 8 + rand(20) %>px"><%= link_to tag, tag_show_posts_path(tag.cached_slug) %>
+	<% end %>
+</section>
+</div>
