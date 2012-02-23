@@ -1,4 +1,6 @@
 class Tip < ActiveRecord::Base
+  scope :recent, order('created_at desc')
+  
   belongs_to :user
   # INDEX_COLUMNS = column_names - ['title', 'picture_file_name', 'picture_content_type', 'picture_file_size', 'picture_updated_at']
   

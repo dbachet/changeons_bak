@@ -178,6 +178,11 @@ section#best{
 			text-shadow: 1px 1px grey;
 		}
 		
+		h1.red_section.big{
+			font-size: 40px;
+			text-align: left;
+		}
+		
 		h1.red_section span{
 			color: grey;
 			font-size: 1em;
@@ -564,6 +569,7 @@ input#newsletter_subscriber_submit{
 /* END - NEWSLETTER FORM */
 
 /* Home */
+	section#tips_ranking,
 	section#post_tag_tool,
 	section#posts,
 	section#tips,
@@ -590,8 +596,10 @@ input#newsletter_subscriber_submit{
 		padding: 20px 40px;
 		width: 31.2em;
 		display: inline-block;
+		margin-bottom: 30px;
 	}
 	
+		section#tips_ranking header h1,
 		section#post_tag_tool header h1,
 		section#posts header h1,
 		section#tips header h1,
@@ -800,7 +808,20 @@ input#newsletter_subscriber_submit{
 		padding: 20px;
 	}
 	
-	/* post tag tool */
+	/* End - post tag tool */
+	
+	/* Tips ranking */
+	
+	section#tips_ranking{
+		width: 21.4em;
+/*		min-height: 365px;*/
+		display: inline-block;
+		vertical-align: top;
+		margin: 0px 0px 0px 20px;
+		padding: 20px;
+	}
+	
+	/* End - Tips ranking */
 
 /* End - Home */
 
@@ -1148,6 +1169,7 @@ article#product_test div#mark div.mark_right{
 
 /* Tip show */
 
+section#tips_ranking,
 article#tip,
 section#tips{
 	background-color: rgba(93, 172, 0, 1);
@@ -1162,6 +1184,7 @@ article#tip header div.categories{
 	color: #A2CF4B;
 }
 
+section#tips_ranking header h1,
 article#tip header div.written_by span,
 section#tips article header span,
 section#tips header h1,

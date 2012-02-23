@@ -1,5 +1,5 @@
 <div id="page_info" data-action="index_post"></div>
-
+<h1 class="red_section big"><span>Les</span> ARTICLES</h1>
 <section id="posts" data-displayed-posts=<%= @displayed_posts %>>
 	<header>
 		<h1>Derniers articles</h1>
@@ -61,3 +61,31 @@
 	<% end %>
 </section>
 </div>
+<h1 class="red_section big"><span>Les</span> ASTUCES</h1>
+<section id="tips" >
+	<header>
+		<h1>Dernières astuces ajoutées</h1>
+	</header>
+	<%= render "tips/tips" %>
+
+
+
+	<% if can? :new, @tip %><%= link_to 'New Post', new_tip_path %><% end %>
+</section>
+<section id="tips_ranking">
+	<header>
+		<h1>Classement des meilleurs astuces</h1>
+	</header>
+	<% @top_tips.each do |tip| %>
+		<article>
+			<div>
+				<%= image_tag tip.picture.url(:thumb) %>
+			</div>
+			<div>
+				<h2><%= truncate(tip.title, :length => 55, :separator => ' ') %></h2>
+			</div>
+		</article>
+	<% end %>
+</section>
+<h1 class="red_section big"><span>Les</span> ÉVÈNEMENTS</h1>
+<h1 class="red_section big"><span>Les</span> AVIS/TESTS PRODUITS</h1>
