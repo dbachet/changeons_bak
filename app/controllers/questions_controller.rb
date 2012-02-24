@@ -18,6 +18,25 @@ class QuestionsController < AuthorizedController
     end
   end
   
+  def vote_up
+    begin
+      if current_user.voted_for?(@question)
+        current_user.clear_votes(@question)
+      else
+        current_user.vote_exclusively_for(@question)
+      end
+      @votes_result = @question.plusminus
+      puts @votes_result
+      # authorize! :vote_up, @post
+      
+      respond_to do |format|
+        format.js { render 'layouts/vote_up'}
+      end
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
+  
   # GET /questions
   # GET /questions.xml
   def index
@@ -33,7 +52,9 @@ class QuestionsController < AuthorizedController
   # GET /questions/1.xml
   def show
     @question = Question.find(params[:id])
-
+    @categories = @question.categories
+    @votes_result = @question.plusminus
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @question }

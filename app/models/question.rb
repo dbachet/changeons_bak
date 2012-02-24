@@ -1,6 +1,8 @@
 class Question < ActiveRecord::Base
   has_many :answers
   
+  acts_as_voteable
+  
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
   
   belongs_to :user

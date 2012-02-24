@@ -1,10 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div id="show_left">
+	<article id="question" class="show">
+		<header>
+			<div class="left">
+				<div class="etiquette">Astuce</div>
+				<div class="date">
+					<span class="day"><%= @question.created_at.strftime("%d") %></span>
+					<span class="month"><%= getMonthFromNumber(@question.created_at.strftime("%m")) %></span>
+					</br>
+					<span class="year"><%= @question.created_at.strftime("%Y") %></span>
+				</div>
+			</div>
+			<div class="right" style='width:30em'>
+				<h1><%= @question.title %></h1>
+				<div class="written_by"><span>écrit par</span> <%= @question.user.email %></div>
+				<div class="categories">Catégories:
+					<span><%= @categories.map{|c| c.name}.join(', ') %></span>
+				</div>
+			</div>
+			<div id="small_picture">
+				<%= image_tag "/images/post_picture_missing.png" %>
+			</div>
+			
+		</header>
+		<div id="left_bar">
+			<div id="share">
+				<div id="vote">
+					<div id="vote_up">
+						<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_question_path(@question), :method => :post, :remote => true) %>
+					</div>
 
-<p>
-  <b>Content:</b>
-  <%= @question.content %>
-</p>
+					<div id="votes_result">
+						<%= render "layouts/votes_result" %>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div id="content_wrap">
+			
+		  <%= simple_format(h @question.content) %>
+	
 
+		<%= link_to 'Edit', edit_question_path(@question) %>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+		<br />
+	
+		</div>
+		<% if @question.source %>
+		Sources:
+		<ul>		
+			<%= @question.sources.html_safe %>
+		</ul>
+		<% end %>
+	</article>
+
+	
+</div>

@@ -989,6 +989,7 @@ article#product_test.show{
 		}
 		
 		
+		article#question header div#small_picture,
 		article#post header div#small_picture,
 		article#tip header div#small_picture,
 		article#event header div#small_picture,
@@ -998,6 +999,7 @@ article#product_test.show{
 			
 		}
 		
+		article#question header div#small_picture img,
 		article#post header div#small_picture img,
 		article#tip header div#small_picture img,
 		article#event header div#small_picture img,
