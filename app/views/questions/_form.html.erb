@@ -1,10 +1,21 @@
 <%= simple_form_for(@question) do |f| %>
   <%= f.error_notification %>
-
+	
+	<div class="inputs">
+	    <%= f.input :title %>
+	  </div>
+	
   <div class="inputs">
     <%= f.input :content %>
   </div>
+	
+	<div id="categories">
+		<h1>5. Catégories*</h1>
+		<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
+	</div>
+		<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list", :class => "new_form_input"} %>
 
+	
   <div class="actions">
     <%= f.button :submit %>
   </div>
