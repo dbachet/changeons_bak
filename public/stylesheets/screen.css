@@ -569,13 +569,13 @@ input#newsletter_subscriber_submit{
 /* END - NEWSLETTER FORM */
 
 /* Home */
+	section#posts_ranking,
 	section#tips_ranking,
 	section#post_tag_tool,
 	section#posts,
 	section#tips,
 	section#events,
 	section#product_tests,
-	section#changeons_home, 
 	article#post,
 	article#tip,
 	article#event,
@@ -599,6 +599,7 @@ input#newsletter_subscriber_submit{
 		margin-bottom: 30px;
 	}
 	
+		section#posts_ranking header h1,
 		section#tips_ranking header h1,
 		section#post_tag_tool header h1,
 		section#posts header h1,
@@ -778,21 +779,21 @@ input#newsletter_subscriber_submit{
 	/* Changeons Home */
 	
 	section#changeons_home{
-		background-color: rgba(140, 10, 80, 1);/*rgba(149, 40, 31, 1)*/
-		border: 1px solid rgba(110, 0, 50, 1); /*rgba(119, 10, 1, 1)*/
+/*		background-color: rgba(140, 10, 80, 1);
+		border: 1px solid rgba(110, 0, 50, 1); 
 		width: 21.4em;
-		min-height: 365px;
+		min-height: 365px;*/
 /*		display: inline-block;*/
 /*		vertical-align: top;*/
-		margin: 0px 0px 20px 20px;
-		padding: 20px;
+/*		margin: 0px 0px 20px 20px;*/
+		padding: 10px;
 	}
 	
 			section#changeons_home header h1{
-				font-family: 'CaviarDreamsItalic', verdana, arial;
+/*				font-family: 'CaviarDreamsItalic', verdana, arial;
 				font-size: 27px;
 				margin-top: 0px;
-				color: #A2CF4B;
+				color: #A2CF4B;*/
 			}
 	
 	/* End - Changeons Home */
@@ -804,7 +805,7 @@ input#newsletter_subscriber_submit{
 /*		min-height: 365px;*/
 /*		display: inline-block;*/
 /*		vertical-align: top;*/
-		margin: 0px 0px 0px 20px;
+		margin: 0px 0px 30px 20px;
 		padding: 20px;
 	}
 	
@@ -812,12 +813,13 @@ input#newsletter_subscriber_submit{
 	
 	/* Tips ranking */
 	
+	section#posts_ranking,
 	section#tips_ranking{
 		width: 21.4em;
 /*		min-height: 365px;*/
 		display: inline-block;
 		vertical-align: top;
-		margin: 0px 0px 0px 20px;
+		margin: 0px 0px 20px 20px;
 		padding: 20px;
 	}
 	
@@ -1057,6 +1059,7 @@ article#product_test.show{
 /* End - Show */
 
 /* Post show */
+section#posts_ranking,
 section#post_tag_tool,
 article#post,
 section#posts{
@@ -1072,6 +1075,7 @@ section#posts article header h1{
 	color: rgb(225,130,115);
 }
 
+section#posts_ranking header h1,
 section#post_tag_tool header h1,
 article#post header div.written_by span,
 section#posts article header span,

@@ -1,4 +1,6 @@
 class ProductTest < ActiveRecord::Base
+  scope :recent, order('created_at desc')
+
   belongs_to :user
   
   acts_as_commentable

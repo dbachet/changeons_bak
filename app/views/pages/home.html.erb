@@ -15,51 +15,29 @@
 	<% if can? :new, @post %><%= link_to 'New Post', new_post_path %><% end %>
 </section>
 <div style="display:inline-block; width:22em; vertical-align: top">
-<section id="changeons_home">
-	<header>
-		<h1>Envie de changer ?</h1>
-		<nav id="changeons">
-			<div class="domtab">
-				<ul class="domtabs">
-					<li><a href="#t1">Quoi ? Qui ?</a></li>
-					<li><a href="#t2">Pourquoi ?</a></li>
-				</ul>
-			</div>
-		</nav>
-	</header>
-	<div class="domtab">
-		<div id="container_1">
-		    <h2><a name="t1" id="t1">Changeons...</a></h2>
-			<ul id="items_1">
-		    <% @changeons_quoi.each do |answer| %>
-				<li><%= answer.content %></li>
-			<% end %>
-			</ul>
-			<h2>Vous, aussi, exprimez ce que vous voulez changer !</h2>
-			<%= link_to "Changeons - Quoi ? Qui ?", new_question_answer_path(1) %>
-		</div>
-	</div>
-	<div class="domtab">
-		<div id="container_2">
-		    <h2><a name="t2" id="t2">Changeons...</a></h2>
-		    <ul id="items_2">
-			<% @changeons_pourquoi.each do |answer| %>
-				<li><%= answer.content %></li>
-			<% end %>
-			</ul>
-			<h2>Vous, aussi, exprimez pourquoi vous voulez changer !</h2>
-			<%= link_to "Changeons - Pourquoi ?", new_question_answer_path(2) %>
-		</div>
-	</div>
-</section>
-<section id="post_tag_tool">
-	<header>
-		<h1>Tags recensés dans les articles</h1>
-	</header>
-	<% @tags.each do |tag| %>
-		<span style="font-size: <%= 8 + rand(20) %>px"><%= link_to tag, tag_show_posts_path(tag.cached_slug) %>
-	<% end %>
-</section>
+	<section id="posts_ranking">
+		<header>
+			<h1>Classement des meilleurs articles</h1>
+		</header>
+		<% @top_posts.each do |post| %>
+			<article>
+				<div>
+					<%= image_tag post.picture.url(:thumb) %>
+				</div>
+				<div>
+					<h2><%= truncate(post.title, :length => 55, :separator => ' ') %></h2>
+				</div>
+			</article>
+		<% end %>
+	</section>
+	<section id="post_tag_tool">
+		<header>
+			<h1>Tags recensés dans les articles</h1>
+		</header>
+		<% @tags.each do |tag| %>
+			<span style="font-size: <%= 8 + rand(20) %>px"><%= link_to tag, tag_show_posts_path(tag.cached_slug) %>
+		<% end %>
+	</section>
 </div>
 <h1 class="red_section big"><span>Les</span> ASTUCES</h1>
 <section id="tips" >
@@ -88,4 +66,24 @@
 	<% end %>
 </section>
 <h1 class="red_section big"><span>Les</span> ÉVÈNEMENTS</h1>
+<section id="events">
+	<header>
+		<h1>Derniers évènements ajoutées</h1>
+	</header>
+	<%= render "events/events" %>
+
+
+
+	<% if can? :new, @event %><%= link_to 'New Event', new_event_path %><% end %>
+</section>
 <h1 class="red_section big"><span>Les</span> AVIS/TESTS PRODUITS</h1>
+<section id="product_tests" >
+	<header>
+		<h1>Derniers tests de produits</h1>
+	</header>
+	<%= render "product_tests/product_tests" %>
+
+
+
+	<% if can? :new, @product_test %><%= link_to 'New product test', new_product_test_path %><% end %>
+</section>
