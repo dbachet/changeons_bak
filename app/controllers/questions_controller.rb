@@ -42,7 +42,7 @@ class QuestionsController < AuthorizedController
   # POST /questions
   # POST /questions.xml
   def create
-    @question = Question.create(params[:question])
+    @question = current_user.questions.create(params[:question])
 
     respond_to do |format|
       if @question.save
@@ -58,7 +58,7 @@ class QuestionsController < AuthorizedController
   # PUT /questions/1
   # PUT /questions/1.xml
   def update
-    @question = Question.find(params[:id])
+    @question = current_user.questions.find(params[:id])
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
