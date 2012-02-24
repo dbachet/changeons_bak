@@ -3,7 +3,7 @@ class Comment < ActiveRecord::Base
   
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
   
-  validates_presence_of :body
+  validates_presence_of :body, :send_notification_to_root_comment
   validates_presence_of :user, :unless => :written_as_guest?
   validates_presence_of :guest_email, :guest_website, :if => :written_as_guest?
   

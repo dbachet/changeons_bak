@@ -87,7 +87,7 @@ pour le modele test:	- ajouter la fonctionnalité pour les avantages/inconvénie
 pour le modele answer: 	- ajouter user
 						- ajouter vote
 						- ajouter CSS
-						
+pour le modele user: 	- check what to do when user is deleted, show as profile deleted
 
 pour tous les modeles: 	- ajouter mechanisme de modération/lock
 REFACTOR ROLES

@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :product_tests
   has_many :comments
   has_many :questions
+  has_many :answers
   
   def role?(role)
     true if self.role == role.to_s

@@ -45,7 +45,8 @@ class AnswersController < ApplicationController
   def create
     @question = Question.find(params[:question_id])
     @answer = @question.answers.new(params[:answer])
-
+    @answer.user_id = current_user
+    
     respond_to do |format|
       if @answer.save
         format.html { redirect_to(@answer, :notice => 'Answer was successfully created.') }

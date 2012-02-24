@@ -53,22 +53,34 @@
 		</ul>
 		<% end %>
 	</article>
-
-	<table>
-	  <tr>
-	    <th>Content</th>
-	    <th>Question</th>
-	    <th></th>
-	    <th></th>
-	    <th></th>
-	  </tr>
+	<h1 class="red_section big"><span>Les</span> RÉPONSES</h1>
+	<section id="answers">
 
 	<% @answers.each do |answer| %>
-	  <tr>
-	    <td><%= answer.content %></td>
-	  </tr>
+		<article class="answer">
+			<div class="answer_content">
+				<header>
+				</header>
+				<%= content_tag(:div, simple_format(h answer.content), :class => "answer_body") %>
+			</div>
+			<div class="arrow_answer"></div>
+			<div class="author_answer_name"><%= "#{answer.user.email}, le #{answer.created_at.strftime("%e")} #{getMonthFromNumber(answer.created_at.strftime("%m"))} #{answer.created_at.strftime("%Y")}" %></div>
+			<%= content_tag(:div, content_tag(:img, "", :src => "/images/default_user_image.jpg", :class => "avatar"), :class => "author_answer_image") %>
+		</article>
 	<% end %>
-	</table>
+	</section>
+	
+	<%= simple_form_for([@question, @answer]) do |f| %>
+	  <%= f.error_notification %>
+
+	  <div class="inputs">
+	    <%= f.input :content %>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.button :submit %>
+	  </div>
+	<% end %>
 	
 </div>
 

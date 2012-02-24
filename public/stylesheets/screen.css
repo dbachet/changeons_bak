@@ -179,7 +179,7 @@ section#best{
 		}
 		
 		h1.red_section.big{
-			font-size: 40px;
+			font-size: 34px;
 			text-align: left;
 		}
 		
@@ -864,6 +864,7 @@ article#tip.show,
 article#event.show,
 article#product_test.show{
 	width: 550px;
+	margin-bottom: 30px;
 }
 
 	
@@ -1748,6 +1749,75 @@ article#product_test.form ul#sources_display li a.remove_source{
 	/* End - Product test form */
 	
 /* End forms */
+
+/* Answer */
+
+section#answers{
+	width: 44.5em;
+	padding-left: 1em;
+}
+	
+	/* ROOT COMMENT */
+	section#answers article.answer {
+		margin: 0px 10px 60px 10px;
+	}
+
+	section#answers article.answer div.answer_content{
+		width: 430px;
+		margin: 0 0 0 0px;
+		background-color: #F2F47A;
+		-webkit-border-bottom-left-radius: 4px;
+		-webkit-border-bottom-right-radius: 4px;
+		-moz-border-radius-bottomright: 4px;
+		-moz-border-radius-bottomleft: 4px;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		padding: 0 0 5px 0px;
+		
+		-webkit-box-shadow: 0 0 4px #000;
+		-mox-box-shadow: 0 0 4px #000;
+		box-shadow: 0 0 4px #000;
+		border: 1px solid rgba(110, 0, 50, 1);
+	}
+		
+		section#answers article.answer div.arrow_answer{
+			height: 11px;
+			width: 100%;
+			background: url('/images/arrow_comment.png') no-repeat 125px 0px;
+		}
+	
+		section#answers article.answer div.answer_content header{
+			background-color: rgba(85,170,200,0.1);
+			min-height:20px;
+			padding: 10px;
+		}
+		
+		section#answers article.answer div.answer_content div.answer_body{
+			margin: 0px;
+			padding: 0px 20px 0 30px;
+		}
+		
+		section#answers article.answer div.author_answer_name{
+			padding: 0px 20px 0 55px;
+		}
+		
+		section#answers article.answer div.author_answer_image{
+			margin: -70px 0 -30px -34px;
+			-webkit-transform: rotate(-5deg); 
+			-moz-transform: rotate(-5deg);
+			transform: rotate(-5deg);
+			width: 60px;
+			height: 60px;
+		}
+		
+		section#answers article.answer div.author_answer_image img{
+			-webkit-box-shadow: 0 0 7px #000;
+			-mox-box-shadow: 0 0 7px #000;
+			box-shadow: 0 0 7px #000;
+		}
+
+
+/* End - Answer */
 
 /* Comment threads */
 
