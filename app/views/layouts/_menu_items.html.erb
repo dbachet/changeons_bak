@@ -21,6 +21,13 @@
 	</li>
 	
 	<li><%=
+			link_to_unless_current("Questions/Réponses", questions_path, :class => "awesome top_menu") do
+				link_to("Questions/Réponses", questions_path, :class => "current awesome top_menu")
+			end
+		%>
+	</li>
+	
+	<li><%=
 			link_to_unless_current("Évènements", events_path, :class => "awesome top_menu") do
 				link_to("Évènements", events_path, :class => "current awesome top_menu")
 			end
@@ -33,13 +40,7 @@
 			end
 		%>
 	</li>
-	
-	<li><%=
-			link_to_unless_current("Questions/Réponses", questions_path, :class => "awesome top_menu") do
-				link_to("Questions/Réponses", questions_path, :class => "current awesome top_menu")
-			end
-		%>
-	</li>
+
 
 	
 </ul>

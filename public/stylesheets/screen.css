@@ -1103,8 +1103,8 @@ article#product_test.show{
 section#questions_ranking,
 article#question,
 section#questions{
-	background-color: rgba(140, 10, 80, 1);/*rgba(149, 40, 31, 1)*/
-	border: 1px solid rgba(110, 0, 50, 1); /*rgba(119, 10, 1, 1)*/
+	background-color: rgba(220, 40, 70, 1);/*rgba(149, 40, 31, 1)*/
+	border: 1px solid rgba(119, 10, 1, 1); /*rgba(119, 10, 1, 1)*/
 }
 
 article#question header h1,

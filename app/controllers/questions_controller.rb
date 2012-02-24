@@ -52,6 +52,7 @@ class QuestionsController < AuthorizedController
   # GET /questions/1.xml
   def show
     @question = Question.find(params[:id])
+    @answers = @question.answers
     @categories = @question.categories
     @votes_result = @question.plusminus
     also_to_read_items(@categories)

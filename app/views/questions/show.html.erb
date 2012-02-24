@@ -54,6 +54,22 @@
 		<% end %>
 	</article>
 
+	<table>
+	  <tr>
+	    <th>Content</th>
+	    <th>Question</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+
+	<% @answers.each do |answer| %>
+	  <tr>
+	    <td><%= answer.content %></td>
+	  </tr>
+	<% end %>
+	</table>
 	
 </div>
+
 <%= render :partial => "layouts/also_to_read" %>
