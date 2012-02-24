@@ -1,22 +1,64 @@
-<%= simple_form_for(@question) do |f| %>
-  <%= f.error_notification %>
-	
-	<div class="inputs">
-	    <%= f.input :title %>
-	  </div>
-	
-  <div class="inputs">
-    <%= f.input :content %>
-  </div>
-	
-	<div id="categories">
-		<h1>5. Catégories*</h1>
-		<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
+<%= simple_form_for(@question, :validate => true) do |f| %>
+<header>
+	<div class="left">
+		<div class="etiquette">Question</div>
+		<div class="date">
+			<span class="day"><%= Time.now.strftime("%d") %></span>
+			<span class="month"><%= getMonthFromNumber(Time.now.strftime("%m")) %></span>
+			</br>
+			<span class="year"><%= Time.now.strftime("%Y") %></span>
+		</div>
 	</div>
-		<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list", :class => "new_form_input"} %>
-
+	<div class="right">
+		<div class="written_by"><span>écrit par</span> <%= (@question.user.email if @question.user) || current_user.email %></div>
+		<h1>1. Question*</h1>
+		<div>
+			<%= f.input :title, :label => false, :as => :text, :wrapper => false, :input_html => {:class => "new_form_input char_count"} %>
+			<span class="counter"></span>
+		</div>
+		<div class="group_items">
+			<div class="description">
+				<h1>2. Description</h1>
+				<%= f.input :content, :label => false, :input_html => {:class => "new_form_input"} %>
+			</div>
+		</div>
+	</div>
 	
-  <div class="actions">
+</header>
+<div id="sources">
+	<h1>4. Sources / liens utilisés pour la rédaction de cette astuce</h1>
+	
+	<div id="source_inputs">
+		Description de la source - non obligatoire
+		<%= f.input :source_description, :label => false, :wrapper_html => {:id => "source_description"}, :input_html => {:class => "new_form_input", :value => '', :id => "source_description_input"}, :validate => false %>
+		Lien hypertexte (URL) - non obligatoire
+		<%= f.input :source, :label => false, :wrapper_html => {:id => "html_link"}, :input_html => {:class => "new_form_input", :value => 'http://', :id => "html_link_input"}, :validate => true %>
+		<%= f.input :sources, :label => false, :input_html => {:id => "sources_input"}, :validate => false %>
+		<%= link_to "+ Ajouter la source", tips_add_source_path, :remote => true, :class => "awesome" %>
+	</div>
+	<div id="source_list">
+		Prévisualisation des sources
+		<ul id="sources_display">
+			<% if !@question.sources.blank? %>
+				<%= @question.sources.html_safe %>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<div id="categories">
+	<h1>5. Catégories*</h1>
+	<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
+</div>
+	<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list", :class => "new_form_input"} %>
+	
     <%= f.button :submit %>
-  </div>
 <% end %>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(function(){
+			add_source_links("<%= questions_remove_source_path %>");
+		});
+		
+	});
+</script>

@@ -52,7 +52,9 @@ Changeons::Application.routes.draw do
       post :vote_down
     end
   end
-
+  
+  get "questions/add_source"
+  get "questions/remove_source"
   resources :questions do
     resources :answers
   end

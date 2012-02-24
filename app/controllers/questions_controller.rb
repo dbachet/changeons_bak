@@ -1,6 +1,23 @@
 class QuestionsController < AuthorizedController
   before_filter :authenticate_user!, :except => [:show, :index]
   
+  def add_source
+    @page = params[:controller]
+    
+    respond_to do |format|
+      format.js { render 'layouts/add_source'}
+    end
+  end
+  
+  def remove_source
+    @source = params[:source]
+    @page = params[:controller]
+    
+    respond_to do |format|
+      format.js { render 'layouts/remove_source'}
+    end
+  end
+  
   # GET /questions
   # GET /questions.xml
   def index

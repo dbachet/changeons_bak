@@ -573,10 +573,12 @@ input#newsletter_subscriber_submit{
 	section#posts_ranking,
 	section#tips_ranking,
 	section#post_tag_tool,
+	section#questions,
 	section#posts,
 	section#tips,
 	section#events,
 	section#product_tests,
+	article#question,
 	article#post,
 	article#tip,
 	article#event,
@@ -589,6 +591,7 @@ input#newsletter_subscriber_submit{
 		box-shadow: 0 0 4px #000;
 	}
 	
+	section#questions,
 	section#posts,
 	section#tips,
 	section#events,
@@ -600,6 +603,7 @@ input#newsletter_subscriber_submit{
 		margin-bottom: 30px;
 	}
 	
+		section#questions header h1,
 		section#product_tests_ranking header h1,
 		section#posts_ranking header h1,
 		section#tips_ranking header h1,
@@ -613,6 +617,7 @@ input#newsletter_subscriber_submit{
 			margin-top: 0px;
 		}
 
+		section#questions article,
 		section#posts article,
 		section#tips article,
 		section#events article,
@@ -632,6 +637,7 @@ input#newsletter_subscriber_submit{
 			border-bottom-right-radius: 5px;
 		}
 
+		section#questions article:hover,
 		section#posts article:hover,
 		section#tips article:hover,
 		section#events article:hover,
@@ -639,6 +645,7 @@ input#newsletter_subscriber_submit{
 			background: rgba(8, 8, 8, 0.4);
 		}
 
+			section#questions article div.left,
 			section#posts article div.left,
 			section#tips article div.left,
 			section#events article div.left,
@@ -649,6 +656,7 @@ input#newsletter_subscriber_submit{
 				width: 65px;
 			}
 			
+			section#questions article div.content,
 			section#posts article div.content,
 			section#tips article div.content,
 			section#events article div.content,
@@ -659,6 +667,7 @@ input#newsletter_subscriber_submit{
 				border-top: 1px dotted;
 			}
 
+			section#questions article header,
 			section#posts article header,
 			section#tips article header,
 			section#events article header,
@@ -668,6 +677,7 @@ input#newsletter_subscriber_submit{
 				font-size: 11px;
 			}
 
+				section#questions article header span,
 				section#posts article header span,
 				section#tips article header span,
 				section#events article header span,
@@ -675,6 +685,7 @@ input#newsletter_subscriber_submit{
 					font-family: 'SansitaOneRegular', verdana, arial;
 				}
 
+				section#questions article header h1,
 				section#posts article header h1,
 				section#tips article header h1,
 				section#events article header h1,
@@ -685,6 +696,7 @@ input#newsletter_subscriber_submit{
 					margin-bottom: 0px;
 				}
 
+			section#questions article div.short_description,
 			section#posts article div.short_description,
 			section#tips article div.description,
 			section#events article div.description,
@@ -697,6 +709,7 @@ input#newsletter_subscriber_submit{
 			}
 
 
+			section#questions article div.image,
 			section#posts article div.image,
 			section#tips article div.image,
 			section#events article div.image,
@@ -708,7 +721,8 @@ input#newsletter_subscriber_submit{
 				margin-top: 12px;
 			}
 
-				section#posts article div.image img,
+				ssection#questions article div.image img,
+				ection#posts article div.image img,
 				section#tips article div.image img,
 				section#events article div.image img,
 				section#product_tests article div.image img{
@@ -719,6 +733,7 @@ input#newsletter_subscriber_submit{
 					opacity: 0.5;
 				}
 
+				section#questions article div.image p,
 				section#posts article div.image p,
 				section#tips article div.image p,
 				section#events article div.image p,
@@ -726,6 +741,7 @@ input#newsletter_subscriber_submit{
 					margin: 0;
 				}
 
+			section#questions article div.date,
 			section#posts article div.date,
 			section#tips article div.date,
 			section#events article div.date,
@@ -747,6 +763,7 @@ input#newsletter_subscriber_submit{
 				text-shadow: 2px 2px #000;
 			}
 
+				section#questions article div.date span.day,
 				section#posts article div.date span.day,
 				section#tips article div.date span.day,
 				section#events article div.date span.day,
@@ -754,6 +771,7 @@ input#newsletter_subscriber_submit{
 					font-size: 16px;
 				}
 
+				section#questions article div.date span.month,
 				section#posts article div.date span.month,
 				section#tips article div.date span.month,
 				section#events article div.date span.month,
@@ -761,6 +779,7 @@ input#newsletter_subscriber_submit{
 					font-size: 20px;
 				}
 
+				section#questions article div.date span.year,
 				section#posts article div.date span.year,
 				section#tips article div.date span.year,
 				section#events article div.date span.year,
@@ -831,6 +850,7 @@ input#newsletter_subscriber_submit{
 /* End - Home */
 
 /* Post/Tip/Event/Product test Show */
+article#question,
 article#post,
 article#tip,
 article#event,
@@ -838,6 +858,7 @@ article#product_test{
 	padding: 20px 20px 20px 10px;
 }
 
+article#question.show,
 article#post.show,
 article#tip.show,
 article#event.show,
@@ -846,6 +867,7 @@ article#product_test.show{
 }
 
 	
+	article#question header div.left,
 	article#post header div.left,
 	article#tip header div.left,
 	article#event header div.left,
@@ -860,6 +882,7 @@ article#product_test.show{
 		text-align: center;
 	}
 	
+	article#question header div.right,
 	article#post header div.right,
 	article#tip header div.right,
 	article#event header div.right,
@@ -870,6 +893,7 @@ article#product_test.show{
 		padding-bottom: 15px;
 	}
 	
+		article#question header div.etiquette,
 		article#post header div.etiquette,
 		article#tip header div.etiquette,
 		article#event header div.etiquette,
@@ -885,6 +909,7 @@ article#product_test.show{
 			
 		}
 		
+		article#question header div.date,
 		article#post header div.date,
 		article#tip header div.date,
 		article#event header div.date,
@@ -906,6 +931,7 @@ article#product_test.show{
 
 		}
 
+			article#question header div.date span.day,
 			article#post header div.date span.day,
 			article#tip header div.date span.day,
 			article#event header div.date span.day,
@@ -913,6 +939,7 @@ article#product_test.show{
 				font-size: 16px;
 			}
 
+			article#question header div.date span.month,
 			article#post header div.date span.month,
 			article#tip header div.date span.month,
 			article#event header div.date span.month,
@@ -920,6 +947,7 @@ article#product_test.show{
 				font-size: 20px;
 			}
 
+			article#question header div.date span.year,
 			article#post header div.date span.year,
 			article#tip header div.date span.year,
 			article#event header div.date span.year,
@@ -927,6 +955,7 @@ article#product_test.show{
 				font-size: 25px;
 			}
 		
+		article#question header h1,
 		article#post header h1,
 		article#tip header h1,
 		article#event header h1,
@@ -940,6 +969,7 @@ article#product_test.show{
 			vertical-align: top;
 		}
 		
+			article#question header div.written_by span,
 			article#post header div.written_by span,
 			article#tip header div.written_by span,
 			article#event header div.written_by span,
@@ -1003,6 +1033,7 @@ article#product_test.show{
 			margin: 0 5em;
 		}
 		
+		article#question div#left_bar,
 		article#post div#left_bar,
 		article#tip div#left_bar,
 		article#event div#left_bar,
@@ -1011,6 +1042,7 @@ article#product_test.show{
 			display: inline-block;
 		}
 		
+	article#question div#share,
 	article#post div#share,
 	article#tip div#share,
 	article#event div#share,
@@ -1020,6 +1052,7 @@ article#product_test.show{
 		width: 80px;
 		vertical-align: top;
 	}
+		article#question div#vote,
 		article#post div#vote,
 		article#tip div#vote,
 		article#event div#vote,
@@ -1031,6 +1064,7 @@ article#product_test.show{
 			background: url('/images/changeons2.png') no-repeat;
 		}
 	
+			article#question div#vote div#vote_up,
 			article#post div#vote div#vote_up,
 			article#tip div#vote div#vote_up,
 			article#event div#vote div#vote_up,
@@ -1039,6 +1073,7 @@ article#product_test.show{
 				height: 40px;
 			}
 		
+			article#question div#vote div#votes_result,
 			article#post div#vote div#votes_result,
 			article#tip div#vote div#votes_result,
 			article#event div#vote div#votes_result,
@@ -1047,6 +1082,7 @@ article#product_test.show{
 				text-align: center;
 			}
 		
+	article#question div#content_wrap,
 	article#post div#content_wrap,
 	article#tip div#content_wrap,
 	article#event div#content_wrap,
@@ -1060,6 +1096,30 @@ article#product_test.show{
 	}
 
 /* End - Show */
+
+/* Question show */
+section#questions_ranking,
+article#question,
+section#questions{
+	background-color: rgba(140, 10, 80, 1);/*rgba(149, 40, 31, 1)*/
+	border: 1px solid rgba(110, 0, 50, 1); /*rgba(119, 10, 1, 1)*/
+}
+
+article#question header h1,
+article#question header div.written_by,
+section#questions article header,
+section#questions article header h1{
+	color: rgb(225,130,115);
+}
+
+section#questions_ranking header h1,
+article#question header div.written_by span,
+section#questions article header span,
+section#questions header h1{
+	color: #A2CF4B;
+}
+
+/* End - Post show */
 
 /* Post show */
 section#posts_ranking,
@@ -1293,6 +1353,7 @@ article#product_test.form header div.description{
 	margin-top: 0px;
 }
 
+article#question.form header div.written_by,
 article#post.form header div.written_by,
 article#tip.form header div.written_by,
 article#event.form header div.written_by,
@@ -1300,6 +1361,7 @@ article#product_test.form header div.written_by{
 	padding-bottom: 20px;
 }
 
+article#question.form h1,
 article#post.form h1,
 article#tip.form h1,
 article#event.form h1,
@@ -1310,6 +1372,7 @@ article#product_test.form h1{
 	margin-bottom: 5px;
 }
 
+article#question.form h1.top,
 article#post.form h1.top,
 article#tip.form h1.top,
 article#event.form h1.top,
@@ -1320,6 +1383,7 @@ article#product_test.form h1.top{
 	line-height: 0.7;
 }
 
+article#question.form h1.top span,
 article#post.form h1.top span,
 article#tip.form h1.top span,
 article#event.form h1.top span,
@@ -1327,6 +1391,7 @@ article#product_test.form h1.top span{
 	font-size: .5em;
 }
 
+article#question.form header textarea#question_content,
 article#post.form header textarea#post_short_description,
 article#tip.form header textarea#tip_description,
 article#event.form header textarea#event_description,
@@ -1341,6 +1406,7 @@ article#product_test.form textarea#product_test_drawbacks{
 	font-size: 1em;
 }
 
+article#question.form .new_form_input,
 article#post.form .new_form_input,
 article#tip.form .new_form_input,
 article#event.form .new_form_input,
@@ -1357,6 +1423,7 @@ article#product_test.form .new_form_input{
 	margin: 15px 0 30px 5px;
 }
 
+article#question.form header div.right textarea#question_title,
 article#post.form header div.right textarea#post_title,
 article#tip.form header div.right textarea#tip_title,
 article#event.form header div.right textarea#event_title,
@@ -1370,6 +1437,7 @@ article#product_test.form header div.right input#product_test_product_model{
 	max-height: 60px;
 }
 
+article#question.form div.group_items,
 article#post.form div.group_items,
 article#tip.form div.group_items,
 article#event.form div.group_items,
@@ -1379,6 +1447,7 @@ article#product_test.form div.group_items{
 	min-height: 145px;
 }
 	
+article#question.form div#categories,
 article#post.form div#categories,
 article#tip.form div#categories,
 article#event.form div#categories,
@@ -1397,6 +1466,7 @@ article#product_test.form div.group_items div#image{
 	padding-bottom: 10px;
 }
 	
+article#question.form div#categories a,
 article#post.form div#categories a,
 article#tip.form div#categories a,
 article#event.form div#categories a,
@@ -1404,6 +1474,7 @@ article#product_test.form div#categories a{
 	margin: 0 10px 10px 0;
 }
 
+article#question.form div#categories div#category_list span,
 article#post.form div#categories div#category_list span,
 article#tip.form div#categories div#category_list span,
 article#event.form div#categories div#category_list span,
@@ -1411,6 +1482,7 @@ article#product_test.form div#categories div#category_list span{
 	margin-right: 10px;
 }
 
+article#question.form div#sources,
 article#post.form div#sources,
 article#tip.form div#sources,
 article#event.form div#sources,
@@ -1418,6 +1490,7 @@ article#product_test.form div#sources{
 	padding: 30px 0;
 }
 
+article#question.form div#sources div#source_inputs,
 article#post.form div#sources div#source_inputs,
 article#tip.form div#sources div#source_inputs,
 article#event.form div#sources div#source_inputs,
@@ -1426,6 +1499,7 @@ article#product_test.form div#sources div#source_inputs{
 	display: inline-block;
 }
 
+article#question.form div#sources div#source_list,
 article#post.form div#sources div#source_list,
 article#tip.form div#sources div#source_list,
 article#event.form div#sources div#source_list,
@@ -1435,6 +1509,7 @@ article#product_test.form div#sources div#source_list{
 	padding: 0 2em;
 }
 
+article#question.form textarea#sources_input,
 article#post.form textarea#sources_input,
 article#tip.form textarea#sources_input,
 article#event.form textarea#sources_input,
@@ -1442,6 +1517,7 @@ article#product_test.form textarea#sources_input{
 	display: none;
 }
 
+article#question.form ul#sources_display li,
 article#post.form ul#sources_display li,
 article#tip.form ul#sources_display li,
 article#event.form ul#sources_display li,
@@ -1454,6 +1530,7 @@ article#product_test.form ul#sources_display li{
 	list-style: none;
 }
 
+article#question.form ul#sources_display li a,
 article#post.form ul#sources_display li a,
 article#tip.form ul#sources_display li a,
 article#event.form ul#sources_display li a,
@@ -1461,6 +1538,7 @@ article#product_test.form ul#sources_display li a{
 	color: white;
 }
 
+article#question.form ul#sources_display li a.remove_source,
 article#post.form ul#sources_display li a.remove_source,
 article#tip.form ul#sources_display li a.remove_source,
 article#event.form ul#sources_display li a.remove_source,
@@ -1468,7 +1546,31 @@ article#product_test.form ul#sources_display li a.remove_source{
 	margin-left: 10px;
 	color: #95281F;
 }
+	/* Question form */
+	article#question.form h1{
+		color: #A2CF4B;
+	}
+	
+	article#question.form h1.top{
+		color: #fff;
+		background-color: rgba(255, 255, 255, 0.3);
+	}
+	
+	article#question.form h1.top span{
+		color: #95281F;
+	}
+	
 
+	article#question.form .new_form_input{
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+	
+	article#question.form div#sources div#source_inputs{
+		border-right: 1px solid #772018;
+	}
+	
+	/* End - Question form */
+	
 	/* Post form */
 	article#post.form h1{
 		color: #A2CF4B;
