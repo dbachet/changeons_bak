@@ -1,103 +1,104 @@
 <div id="page_info" data-action="show_post"></div>
-
-<article id="post" class="show">
-	<header>
-		<div class="left">
-			<div class="etiquette">Article</div>
-			<div class="date">
-				<span class="day"><%= @post.created_at.strftime("%d") %></span>
-				<span class="month"><%= getMonthFromNumber(@post.created_at.strftime("%m")) %></span>
-				</br>
-				<span class="year"><%= @post.created_at.strftime("%Y") %></span>
-			</div>
-		</div>
-		<div class="right">
-			<h1><%= @post.title %></h1>
-			<div class="written_by"><span>écrit par</span> <%= @post.user.email %></div>
-			<div class="categories">Catégories: 
-				<% @categories.each do |category| %>
-					<%= category.name %> 
-				<% end %>
-			</div>
-			<div class="short_description">
-				<%= @post.short_description %>
-			</div>
-		</div>
-	</header>
-	<div id="left_bar">
-		<div id="share">
-			<div id="vote">
-				<div id="vote_up">
-					<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_post_path(@post), :method => :post, :remote => true) %>
-				</div>
-
-				<div id="votes_result">
-					<%= render "layouts/votes_result" %>
+<div id="show_left">
+	<article id="post" class="show">
+		<header>
+			<div class="left">
+				<div class="etiquette">Article</div>
+				<div class="date">
+					<span class="day"><%= @post.created_at.strftime("%d") %></span>
+					<span class="month"><%= getMonthFromNumber(@post.created_at.strftime("%m")) %></span>
+					</br>
+					<span class="year"><%= @post.created_at.strftime("%Y") %></span>
 				</div>
 			</div>
+			<div class="right">
+				<h1><%= @post.title %></h1>
+				<div class="written_by"><span>écrit par</span> <%= @post.user.email %></div>
+				<div class="categories">Catégories: 
+					<% @categories.each do |category| %>
+						<%= category.name %> 
+					<% end %>
+				</div>
+				<div class="short_description">
+					<%= @post.short_description %>
+				</div>
+			</div>
+		</header>
+		<div id="left_bar">
+			<div id="share">
+				<div id="vote">
+					<div id="vote_up">
+						<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_post_path(@post), :method => :post, :remote => true) %>
+					</div>
+
+					<div id="votes_result">
+						<%= render "layouts/votes_result" %>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
 	
-	<div id="content_wrap">
-	  	<% if @post.has_big_picture %>
-			<div id="big_picture">
-				<%= image_tag @post.picture.url(:medium),  :style => ("margin: 0 9em" if !@post.picture_orientation_horizontal) %>
-			</div>
+		<div id="content_wrap">
+		  	<% if @post.has_big_picture %>
+				<div id="big_picture">
+					<%= image_tag @post.picture.url(:medium),  :style => ("margin: 0 9em" if !@post.picture_orientation_horizontal) %>
+				</div>
+			<% end %>
+		  <%= @post.content.html_safe %>
+		<p>
+		  <b>User:</b>
+		  <%= @post.user_id %>
+		</p>
+
+
+		<%= link_to 'Edit', edit_post_path(@post) %>
+	
+		<h1>Listing tags</h1>
+
+		<table>
+		  <tr>
+		    <th>Name</th>
+		    <th></th>
+		  </tr>
+
+		<% @tags.each do |tag| %>
+		  <tr>
+		    <td><%= tag %></td>
+		  </tr>
 		<% end %>
-	  <%= @post.content.html_safe %>
-	<p>
-	  <b>User:</b>
-	  <%= @post.user_id %>
-	</p>
+		</table>
 
+		<br />
+		</div>
+	</article>
 
-	<%= link_to 'Edit', edit_post_path(@post) %>
+	<section id="comments">
+		<!-- Comments -->
+		<header>
+		<h1>Commentaires</h1>
+		</header>
 	
-	<h1>Listing tags</h1>
-
-	<table>
-	  <tr>
-	    <th>Name</th>
-	    <th></th>
-	  </tr>
-
-	<% @tags.each do |tag| %>
-	  <tr>
-	    <td><%= tag %></td>
-	  </tr>
-	<% end %>
-	</table>
-
-	<br />
-	</div>
-</article>
-
-<section id="comments">
-	<!-- Comments -->
-	<header>
-	<h1>Commentaires</h1>
-	</header>
+		<div id="display_comments" data-displayed-comments=<%= @displayed_comments %>>
 	
-	<div id="display_comments" data-displayed-comments=<%= @displayed_comments %>>
+			<%= display_comments(@comments) %>
+		</div>
+
+
+		<br />
+
+
+
+
+		<!-- New comment -->
+
+
+
+		<div id="wrap_form_new_comment">
 	
-		<%= display_comments(@comments) %>
-	</div>
+			<%= render 'comments/form' %>
 
+		</div>
+	</section>
+</div>
 
-	<br />
-
-
-
-
-	<!-- New comment -->
-
-
-
-	<div id="wrap_form_new_comment">
-	
-		<%= render 'comments/form' %>
-
-	</div>
-</section>
-
-
+<%= render :partial => "layouts/also_to_read" %>

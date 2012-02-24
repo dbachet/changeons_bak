@@ -1,82 +1,85 @@
-<article id="product_test" class="show">
-	<header>
-		<div class="left">
-			<div class="etiquette">Test</div>
-			<div class="date">
-				<span class="day"><%= @product_test.created_at.strftime("%d") %></span>
-				<span class="month"><%= getMonthFromNumber(@product_test.created_at.strftime("%m")) %></span>
-				</br>
-				<span class="year"><%= @product_test.created_at.strftime("%Y") %></span>
+<div id="show_left">
+	<article id="product_test" class="show">
+		<header>
+			<div class="left">
+				<div class="etiquette">Test</div>
+				<div class="date">
+					<span class="day"><%= @product_test.created_at.strftime("%d") %></span>
+					<span class="month"><%= getMonthFromNumber(@product_test.created_at.strftime("%m")) %></span>
+					</br>
+					<span class="year"><%= @product_test.created_at.strftime("%Y") %></span>
+				</div>
+			</div>
+			<div class="right"  <%= ("style='width:30em'" if !@product_test.has_big_picture) %>>
+				<h1><%= "#{@product_test.brand || "Marque non détaillée"} #{@product_test.product_model}" %></h1>
+				<div class="written_by"><span>écrit par</span> <%= @product_test.user.email %></div>
+				<div class="categories">Catégories: 
+					<% @categories.each do |category| %>
+						<%= category.name %>
+					<% end %>
+				</div>
+			</div>
+			<% if !@product_test.has_big_picture %>
+				<div id="small_picture">
+					<%= image_tag @product_test.picture.url(:thumb) %>
+				</div>
+			<% end %>
+		</header>
+		<div id="left_bar">
+			<div id="mark"><div class="label">Note</div><div class="group_items"><div class="mark_left"><%= @product_test.mark %></div></br><div class="slash">/</div></br><div class="mark_right">5</div></div></div>
+			<div id="share">
+				<div id="vote">
+					<div id="vote_up">
+						<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_product_test_path(@product_test), :method => :post, :remote => true) %>
+					</div>
+
+					<div id="votes_result">
+						<%= render "layouts/votes_result" %>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="right"  <%= ("style='width:30em'" if !@product_test.has_big_picture) %>>
-			<h1><%= "#{@product_test.brand || "Marque non détaillée"} #{@product_test.product_model}" %></h1>
-			<div class="written_by"><span>écrit par</span> <%= @product_test.user.email %></div>
-			<div class="categories">Catégories: 
-				<% @categories.each do |category| %>
-					<%= category.name %>
-				<% end %>
-			</div>
-		</div>
-		<% if !@product_test.has_big_picture %>
-			<div id="small_picture">
-				<%= image_tag @product_test.picture.url(:thumb) %>
+	
+		<div id="content_wrap">
+		<% if @product_test.has_big_picture %>
+			<div id="big_picture">
+				<%= image_tag @product_test.picture.url(:medium),  :style =>  
+				("margin: 0 9em" if !@product_test.picture_orientation_horizontal) %>
 			</div>
 		<% end %>
-	</header>
-	<div id="left_bar">
-		<div id="mark"><div class="label">Note</div><div class="group_items"><div class="mark_left"><%= @product_test.mark %></div></br><div class="slash">/</div></br><div class="mark_right">5</div></div></div>
-		<div id="share">
-			<div id="vote">
-				<div id="vote_up">
-					<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_product_test_path(@product_test), :method => :post, :remote => true) %>
-				</div>
+		<%= @product_test.description.html_safe %>
+		<%= link_to 'Edit', edit_product_test_path(@product_test) %>
 
-				<div id="votes_result">
-					<%= render "layouts/votes_result" %>
-				</div>
-			</div>
+		<br />
 		</div>
-	</div>
+	</article>
+
+	<section id="comments">
+		<!-- Comments -->
+		<header>
+		<h1>Commentaires</h1>
+		</header>
 	
-	<div id="content_wrap">
-	<% if @product_test.has_big_picture %>
-		<div id="big_picture">
-			<%= image_tag @product_test.picture.url(:medium),  :style =>  
-			("margin: 0 9em" if !@product_test.picture_orientation_horizontal) %>
+		<div id="display_comments" data-displayed-comments=<%= @displayed_comments %>>
+	
+			<%= display_comments(@comments) %>
 		</div>
-	<% end %>
-	<%= @product_test.description.html_safe %>
-	<%= link_to 'Edit', edit_product_test_path(@product_test) %>
 
-	<br />
-	</div>
-</article>
 
-<section id="comments">
-	<!-- Comments -->
-	<header>
-	<h1>Commentaires</h1>
-	</header>
+		<br />
+
+
+
+
+		<!-- New comment -->
+
+
+
+		<div id="wrap_form_new_comment">
 	
-	<div id="display_comments" data-displayed-comments=<%= @displayed_comments %>>
-	
-		<%= display_comments(@comments) %>
-	</div>
+			<%= render 'comments/form' %>
 
-
-	<br />
-
-
-
-
-	<!-- New comment -->
-
-
-
-	<div id="wrap_form_new_comment">
-	
-		<%= render 'comments/form' %>
-
-	</div>
-</section>
+		</div>
+	</section>
+</div>
+<%= render :partial => "layouts/also_to_read" %>

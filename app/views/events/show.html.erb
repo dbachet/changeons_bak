@@ -1,82 +1,86 @@
-<article id="event" class="show">
-	<header>
-		<div class="left">
-			<div class="etiquette">Évènement</div>
-			<div class="date">
-				<span class="day"><%= @event.created_at.strftime("%d") %></span>
-				<span class="month"><%= getMonthFromNumber(@event.created_at.strftime("%m")) %></span>
-				</br>
-				<span class="year"><%= @event.created_at.strftime("%Y") %></span>
+<div id="show_left">
+	<article id="event" class="show">
+		<header>
+			<div class="left">
+				<div class="etiquette">Évènement</div>
+				<div class="date">
+					<span class="day"><%= @event.created_at.strftime("%d") %></span>
+					<span class="month"><%= getMonthFromNumber(@event.created_at.strftime("%m")) %></span>
+					</br>
+					<span class="year"><%= @event.created_at.strftime("%Y") %></span>
+				</div>
+			</div>
+			<div class="right" <%= ("style='width:30em'" if !@event.has_big_picture) %>>
+				<h1><%= @event.title %></h1>
+				<div class="written_by"><span>écrit par</span> <%= @event.user.email %></div>
+				<div class="categories">Catégories: 
+					<% @categories.each do |category| %>
+						<%= category.name %> 
+					<% end %>
+				</div>
+			</div>
+			<% if !@event.has_big_picture %>
+				<div id="small_picture">
+					<%= image_tag @event.picture.url(:thumb) %>
+				</div>
+			<% end %>
+		</header>
+		<div id="left_bar">
+			<div id="share">
+				<div id="vote">
+					<div id="vote_up">
+						<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_event_path(@event), :method => :post, :remote => true) %>
+					</div>
+
+					<div id="votes_result">
+						<%= render "layouts/votes_result" %>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="right" <%= ("style='width:30em'" if !@event.has_big_picture) %>>
-			<h1><%= @event.title %></h1>
-			<div class="written_by"><span>écrit par</span> <%= @event.user.email %></div>
-			<div class="categories">Catégories: 
-				<% @categories.each do |category| %>
-					<%= category.name %> 
-				<% end %>
-			</div>
-		</div>
-		<% if !@event.has_big_picture %>
-			<div id="small_picture">
-				<%= image_tag @event.picture.url(:thumb) %>
+	
+	
+		<div id="content_wrap">
+		<% if @event.has_big_picture %>
+			<div id="big_picture">
+				<%= image_tag @event.picture.url(:medium),  :style => ("margin: 0 9em" if !@event.picture_orientation_horizontal) %>
 			</div>
 		<% end %>
-	</header>
-	<div id="left_bar">
-		<div id="share">
-			<div id="vote">
-				<div id="vote_up">
-					<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_event_path(@event), :method => :post, :remote => true) %>
-				</div>
+		<%= @event.description.html_safe %>
 
-				<div id="votes_result">
-					<%= render "layouts/votes_result" %>
-				</div>
-			</div>
+		<%= link_to 'Edit', edit_event_path(@event) %>
+
+		<br />
 		</div>
-	</div>
+	</article>
+
+	<section id="comments">
+		<!-- Comments -->
+		<header>
+		<h1>Commentaires</h1>
+		</header>
 	
+		<div id="display_comments" data-displayed-comments=<%= @displayed_comments %>>
 	
-	<div id="content_wrap">
-	<% if @event.has_big_picture %>
-		<div id="big_picture">
-			<%= image_tag @event.picture.url(:medium),  :style => ("margin: 0 9em" if !@event.picture_orientation_horizontal) %>
+			<%= display_comments(@comments) %>
 		</div>
-	<% end %>
-	<%= @event.description.html_safe %>
 
-	<%= link_to 'Edit', edit_event_path(@event) %>
 
-	<br />
-	</div>
-</article>
+		<br />
 
-<section id="comments">
-	<!-- Comments -->
-	<header>
-	<h1>Commentaires</h1>
-	</header>
+
+
+
+		<!-- New comment -->
+
+
+
+		<div id="wrap_form_new_comment">
 	
-	<div id="display_comments" data-displayed-comments=<%= @displayed_comments %>>
-	
-		<%= display_comments(@comments) %>
-	</div>
+			<%= render 'comments/form' %>
 
+		</div>
+	</section>
+</div>
 
-	<br />
-
-
-
-
-	<!-- New comment -->
-
-
-
-	<div id="wrap_form_new_comment">
-	
-		<%= render 'comments/form' %>
-
-	</div>
-</section>
+<%= render :partial => "layouts/also_to_read" %>

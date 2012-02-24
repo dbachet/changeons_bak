@@ -34,7 +34,9 @@ class ApplicationController < ActionController::Base
     @newsletter_subscriber = NewsletterSubscriber.new
   end
   
-  def also_to_read_items(category)
+  def also_to_read_items(categories)
+    category = categories[rand(categories.size)]
+    
     @also_to_read_posts = category.posts.limit(3)
     @also_to_read_tips = category.tips.limit(3)
     @also_to_read_events = category.events.limit(3)

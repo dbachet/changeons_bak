@@ -62,9 +62,9 @@ class TipsController < AuthorizedController
     @comments = Comment.fetch_comments(@tip, @from, @limitation)
     
     # puts @tip.categories.first.id
-    @cat = @categories[rand(@categories.size)]
     
-    also_to_read_items(@cat)
+    
+    also_to_read_items(@categories)
     
 
     

@@ -113,6 +113,7 @@ class PostsController < AuthorizedController
     @from = 0
     @limitation = @default_comment_offset
     @comments = Comment.fetch_comments(@post, @from, @limitation)
+  
     
     @displayed_comments = @comments.length
     @remaining_comments = @post.root_comments.count - @displayed_comments
@@ -122,6 +123,8 @@ class PostsController < AuthorizedController
     # puts "@comments_count => #{@comments_count} / @post.root_comments.count => #{@post.root_comments.count} / @comments.length => #{@comments.length}"
     
     @categories = @post.categories
+    also_to_read_items(@categories)
+    
     # @post_type = @post.post_type.name
     @tags = @post.tag_list
     @votes_result = @post.plusminus

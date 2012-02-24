@@ -60,6 +60,7 @@ class ProductTestsController < AuthorizedController
     @limitation = @default_comment_offset
     @comments = Comment.fetch_comments(@product_test, @from, @limitation)
     
+    also_to_read_items(@categories)
     
     
     @displayed_comments = @comments.length

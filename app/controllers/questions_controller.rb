@@ -54,6 +54,7 @@ class QuestionsController < AuthorizedController
     @question = Question.find(params[:id])
     @categories = @question.categories
     @votes_result = @question.plusminus
+    also_to_read_items(@categories)
     
     respond_to do |format|
       format.html # show.html.erb
