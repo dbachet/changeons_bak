@@ -46,6 +46,7 @@ class Ability
       can :manage, Event, :user_id => user.id
       can :manage, ProductTest, :user_id => user.id
       can [:show_posts], Tag
+      can [:show, :index], Question
     else
       can [:create], NewsletterSubscriber
       can [:index, :show, :show_more_posts], Post
@@ -57,6 +58,7 @@ class Ability
       can [:index, :show], Event
       can [:index, :show], ProductTest
       can [:show_posts], Tag
+      can [:show, :index], Question
     end
   end
 end

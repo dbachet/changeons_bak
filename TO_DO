@@ -74,3 +74,15 @@ page principale: 	- afficher 4/5 articles + ajouter une recherche par tags
 					ajouter tests(done) + classement produits best/worst
 sur chaque index de modele:	ajouter les tools,
 							ajouter pagination normale
+sur chaque show page: 	- ajouter "à lire aussi"
+						- changer couleur etiquette
+						- ajouter les boutons share
+						- sources
+
+pour modele question:	- ajouter catégories
+						- ajouter sources
+						
+pour le modele test:	- ajouter la fonctionnalité pour les avantages/inconvénients
+
+pour tous les modeles: 	- ajouter mechanisme de modération/lock
+REFACTOR ROLES

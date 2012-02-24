@@ -18,8 +18,7 @@ class PagesController < AuthorizedController
     @displayed_posts = @posts.length
     @remaining_posts = Post.count - @displayed_posts
     
-    @changeons_quoi = Question.find(1).answers
-    @changeons_pourquoi = Question.find(2).answers
+    
     
     puts "#{@changeons_quoi} / #{@changeons_pourquoi}"
     authorize! :home, :pages

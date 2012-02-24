@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :newsletter_subscriber, :fetch_best_items, :top_item
+  before_filter :newsletter_subscriber, :fetch_best_items, :top_item, :changeons_items
   
   # if user is logged in, return current_user, else return guest_user
   # def current_or_guest_user
@@ -42,6 +42,11 @@ class ApplicationController < ActionController::Base
   def top_item
     @top_item = Post.where("has_big_picture = ? AND picture_orientation_horizontal = ?", true, true).limit(1)
     puts "Top item = #{@top_item.inspect}"
+  end
+  
+  def changeons_items
+    @changeons_quoi = Question.find(1).answers
+    @changeons_pourquoi = Question.find(2).answers
   end
   
   def signed_in_as_admin?

@@ -1,5 +1,5 @@
-class QuestionsController < ApplicationController
-  before_filter :authenticate_user!
+class QuestionsController < AuthorizedController
+  before_filter :authenticate_user!, :except => [:show, :index]
   
   # GET /questions
   # GET /questions.xml
@@ -42,7 +42,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.xml
   def create
-    @question = Question.new(params[:question])
+    @question = Question.create(params[:question])
 
     respond_to do |format|
       if @question.save
