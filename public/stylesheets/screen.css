@@ -569,6 +569,7 @@ input#newsletter_subscriber_submit{
 /* END - NEWSLETTER FORM */
 
 /* Home */
+	section#product_tests_ranking,
 	section#posts_ranking,
 	section#tips_ranking,
 	section#post_tag_tool,
@@ -599,6 +600,7 @@ input#newsletter_subscriber_submit{
 		margin-bottom: 30px;
 	}
 	
+		section#product_tests_ranking header h1,
 		section#posts_ranking header h1,
 		section#tips_ranking header h1,
 		section#post_tag_tool header h1,
@@ -813,6 +815,7 @@ input#newsletter_subscriber_submit{
 	
 	/* Tips ranking */
 	
+	section#product_tests_ranking,
 	section#posts_ranking,
 	section#tips_ranking{
 		width: 21.4em;
@@ -1086,6 +1089,7 @@ section#posts header h1{
 /* End - Post show */
 
 /* Product test show */
+section#product_tests_ranking,
 article#product_test,
 section#product_tests{
 	background-color: rgba(0, 77, 175, 1);
@@ -1099,6 +1103,7 @@ section#product_tests article header h1{
 	color: #55AACF;
 }
 
+section#product_tests_ranking header h1,
 article#product_test header div.written_by span,
 section#product_tests article header span,
 section#product_tests header h1{

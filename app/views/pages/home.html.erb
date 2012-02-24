@@ -87,3 +87,18 @@
 
 	<% if can? :new, @product_test %><%= link_to 'New product test', new_product_test_path %><% end %>
 </section>
+<section id="product_tests_ranking">
+	<header>
+		<h1>Classement des meilleurs produits</h1>
+	</header>
+	<% @top_product_tests.each do |product_test| %>
+		<article>
+			<div>
+				<%= image_tag product_test.picture.url(:thumb) %>
+			</div>
+			<div>
+				<h2><%= truncate("#{product_test.brand} #{product_test.product_model}", :length => 55, :separator => ' ') %></h2>
+			</div>
+		</article>
+	<% end %>
+</section>

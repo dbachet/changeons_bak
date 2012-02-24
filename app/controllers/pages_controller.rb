@@ -9,6 +9,10 @@ class PagesController < AuthorizedController
     @events = Event.recent.limit(3)
     @product_tests = ProductTest.recent.limit(3)
     @top_posts = Post.recent.limit(5)
+    @top_product_tests = ProductTest.recent.limit(3)
+    
+    
+  
     @tags =  ActsAsTaggableOn::Tag.all
     
     @displayed_posts = @posts.length
