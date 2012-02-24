@@ -94,7 +94,7 @@ $(document).ready(function() {
 	// End fancyboxes
 
 	// post list for home page
-	$('section#posts article, section#tips article,	section#events article,	section#product_tests article, section#changeons_home article').live({
+	$('section#posts article, section#tips article,	section#events article,	section#product_tests article, section#questions article').live({
 	mouseenter: function() {
 	  	$('img', this).animate({
 	    	opacity: 1,

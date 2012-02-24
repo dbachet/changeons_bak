@@ -1,23 +1,10 @@
-<h1>Listing questions</h1>
+<section id="questions" >
+	<header>
+		<h1>Dernières questions ajoutées</h1>
+	</header>
+	<%= render "questions/questions" %>
 
-<table>
-  <tr>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @questions.each do |question| %>
-  <tr>
-    <td><%= question.content %></td>
-    <td><%= link_to 'Show', question %></td>
-    <td><%= link_to 'Edit', edit_question_path(question) %></td>
-    <td><%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Question', new_question_path %>
+	<% if can? :new, @tip %><%= link_to 'New Post', new_question_path %><% end %>
+</section>

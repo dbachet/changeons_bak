@@ -1,0 +1,19 @@
+<% @questions.each do |question| %>
+<article id="question_<%= question.id %>">
+
+	<div class="left">
+		<div class="image"><%= image_tag "/images/post_picture_missing.png" %></div>
+		<div class="date"><span class="day"><%= question.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(question.created_at.strftime("%m")) %></span></br><span class="year"><%= question.created_at.strftime("%Y") %></span></div>
+	</div>
+	<div class="content">
+		<header>
+	    	<h1><%= question.title %></h1>
+			<span>écrit par</span> <%= question.user.email %>
+		</header>
+	    <div class="description"><%= raw(question.content) %></div>
+	    <%= link_to 'Voir', question %>
+	    <% if can? :edit, question %><%= link_to '| Éditer', edit_question_path(question) %><% end %>
+	    <% if can? :destroy, question %><%= link_to '| Supprimer', question, :confirm => 'Are you sure?', :method => :delete %><% end %>
+	</div>
+</article>
+<% end %>
