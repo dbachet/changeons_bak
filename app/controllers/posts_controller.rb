@@ -84,7 +84,7 @@ class PostsController < AuthorizedController
   # GET /posts.xml
   def index
     @default_post_offset = APP_CONFIG['default_post_offset']
-    @posts = Post.recent.limit(@default_post_offset)
+    @posts = Post.recent.page(params[:page]).per(5)
     @tags =  ActsAsTaggableOn::Tag.all
     
     @displayed_posts = @posts.length

@@ -39,7 +39,7 @@ class QuestionsController < AuthorizedController
   # GET /questions
   # GET /questions.xml
   def index
-    @questions = Question.all
+    @questions = Question.recent.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb

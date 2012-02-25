@@ -8,3 +8,5 @@
 
 	<% if can? :new, @product_test %><%= link_to 'New product test', new_product_test_path %><% end %>
 </section>
+
+<%= paginate @product_tests %>

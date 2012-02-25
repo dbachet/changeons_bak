@@ -14,3 +14,4 @@ gem "ckeditor"
 gem "paperclip"
 gem "cancan"
 gem 'validates_timeliness', '~> 3.0.8'
+gem 'kaminari'

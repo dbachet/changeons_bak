@@ -8,3 +8,5 @@
 
 	<% if can? :new, @tip %><%= link_to 'New Post', new_tip_path %><% end %>
 </section>
+
+<%= paginate @tips %>

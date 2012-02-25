@@ -67,11 +67,12 @@ Changeons.org, un site à consonnance BIO(mais pas seulement), est à la disposi
 Faire un site un peu original et surtout ou c'est facile de participer, contribuer.
 
 changer menu top
-- top_banner, trouver une couleur avec un halo au milieu
++ top_banner, trouver une couleur avec un halo au milieu
 page principale: 	+ afficher 4/5 articles + ajouter une recherche par tags
 					ajouter astuces(done) + classement astuce(to improve), 
 					ajouter events(done) + recherche par date et département, 
 					ajouter tests(done) + classement produits best/worst
+					ajouter questions(done)
 sur chaque index de modele:	ajouter les tools,
 							ajouter pagination normale
 sur chaque show page: 	+ ajouter "à lire aussi"
@@ -84,12 +85,19 @@ pour modele question:	+ ajouter catégories
 						
 pour le modele test:	- ajouter la fonctionnalité pour les avantages/inconvénients
 
-pour le modele answer: 	- ajouter user
-						- ajouter vote
-						- ajouter CSS
+pour le modele answer: 	+ ajouter user
+						+ ajouter vote
+						+ ajouter CSS
+						
 pour le modele user: 	- check what to do when user is deleted, show as profile deleted
 
 pour tous les modeles: 	- ajouter mechanisme de modération/lock
+
+pour answers et comments: 	- ajouter "signaler un abus"
 REFACTOR ROLES
 Think about categorizations
 check seeds
+
+fil d'ariane
+
+

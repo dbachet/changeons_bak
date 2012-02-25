@@ -40,8 +40,8 @@ class ProductTestsController < AuthorizedController
   # GET /product_tests
   # GET /product_tests.xml
   def index
-    @product_tests = ProductTest.all
-
+    @product_tests = ProductTest.recent.page(params[:page]).per(5)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @product_tests }

@@ -8,3 +8,5 @@
 
 	<% if can? :new, @event %><%= link_to 'New Event', new_event_path %><% end %>
 </section>
+
+<%= paginate @events %>

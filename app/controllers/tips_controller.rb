@@ -41,7 +41,7 @@ class TipsController < AuthorizedController
   # GET /tips
   # GET /tips.xml
   def index
-    @tips = Tip.all
+    @tips = Tip.recent.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb

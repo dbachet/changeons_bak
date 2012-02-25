@@ -65,6 +65,17 @@
 		</article>
 	<% end %>
 </section>
+<h1 class="red_section big"><span>Les</span> QUESTIONS/RÉPONSES</h1>
+<section id="questions" >
+	<header>
+		<h1>Dernières questions ajoutées</h1>
+	</header>
+	<%= render "questions/questions" %>
+
+
+
+	<% if can? :new, @tip %><%= link_to 'New Post', new_question_path %><% end %>
+</section>
 <h1 class="red_section big"><span>Les</span> ÉVÈNEMENTS</h1>
 <section id="events">
 	<header>

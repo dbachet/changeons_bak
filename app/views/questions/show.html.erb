@@ -60,24 +60,22 @@
 		<article class="answer" id="answer_<%= answer.id %>">
 			<div class="answer_content">
 				<header>
-					<div id="answer_vote">
-						<div class="answer_vote_up">
-							<%= link_to(image_tag("/images/answer-up.png", :width => "25px", :height => "24px"), vote_up_question_answer_path(@question, answer), :method => :post, :remote => true) %>
-						</div>
-
-						<div class="answer_votes_result ">
+					<div id="answer_vote" style="display: inline-block; vertical-align: top;width:5em;">
+						<span class="answer_vote_up">
+							<%= link_to(image_tag("/images/thumbs_up_answer.png", :width => "25px", :height => "24px"), vote_up_question_answer_path(@question, answer), :method => :post, :remote => true) %>
+						</span>|
+						<span class="anwser_vote_down">
+							<%= link_to(image_tag("/images/thumbs_down_answer.png", :width => "25px", :height => "24px"), vote_down_question_answer_path(@question, answer), :method => :post, :remote => true) %>
+						</span>
+						<span class="answer_votes_result ">
 							<%= @answer_votes_result || answer.plusminus %>
-						</div>
-						
-						<div class="anwser_vote_down">
-							<%= link_to(image_tag("/images/answer-down.png", :width => "25px", :height => "24px"), vote_down_question_answer_path(@question, answer), :method => :post, :remote => true) %>
-						</div>
+						</span>
 					</div>
+					<div class="author_answer_name" style="display: inline-block; vertical-align: top;"><%= "#{answer.user.email}, le #{answer.created_at.strftime("%e")} #{getMonthFromNumber(answer.created_at.strftime("%m"))} #{answer.created_at.strftime("%Y")}" %></div>
 				</header>
-				<%= content_tag(:div, simple_format(h answer.content), :class => "answer_body") %>
+				
+				<div class="answer_body" style="display: inline-block; vertical-align: top;"><%= simple_format(h answer.content) %></div>
 			</div>
-			<div class="arrow_answer"></div>
-			<div class="author_answer_name"><%= "#{answer.user.email}, le #{answer.created_at.strftime("%e")} #{getMonthFromNumber(answer.created_at.strftime("%m"))} #{answer.created_at.strftime("%Y")}" %></div>
 			<%= content_tag(:div, content_tag(:img, "", :src => "/images/default_user_image.jpg", :class => "avatar"), :class => "author_answer_image") %>
 		</article>
 	<% end %>

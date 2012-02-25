@@ -41,7 +41,7 @@ class EventsController < AuthorizedController
   # GET /events
   # GET /events.xml
   def index
-    @events = Event.all
+    @events = Event.recent.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb
