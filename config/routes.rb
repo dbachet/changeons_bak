@@ -56,7 +56,12 @@ Changeons::Application.routes.draw do
   get "questions/add_source"
   get "questions/remove_source"
   resources :questions do
-    resources :answers
+    resources :answers do
+      member do
+        post :vote_up
+        post :vote_down
+      end
+    end
     member do
       post :vote_up
     end

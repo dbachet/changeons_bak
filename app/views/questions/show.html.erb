@@ -57,9 +57,22 @@
 	<section id="answers">
 
 	<% @answers.each do |answer| %>
-		<article class="answer">
+		<article class="answer" id="answer_<%= answer.id %>">
 			<div class="answer_content">
 				<header>
+					<div id="answer_vote">
+						<div class="answer_vote_up">
+							<%= link_to(image_tag("/images/answer-up.png", :width => "25px", :height => "24px"), vote_up_question_answer_path(@question, answer), :method => :post, :remote => true) %>
+						</div>
+
+						<div class="answer_votes_result ">
+							<%= @answer_votes_result || answer.plusminus %>
+						</div>
+						
+						<div class="anwser_vote_down">
+							<%= link_to(image_tag("/images/answer-down.png", :width => "25px", :height => "24px"), vote_down_question_answer_path(@question, answer), :method => :post, :remote => true) %>
+						</div>
+					</div>
 				</header>
 				<%= content_tag(:div, simple_format(h answer.content), :class => "answer_body") %>
 			</div>

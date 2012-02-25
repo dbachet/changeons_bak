@@ -26,7 +26,6 @@ class QuestionsController < AuthorizedController
         current_user.vote_exclusively_for(@question)
       end
       @votes_result = @question.plusminus
-      puts @votes_result
       # authorize! :vote_up, @post
       
       respond_to do |format|

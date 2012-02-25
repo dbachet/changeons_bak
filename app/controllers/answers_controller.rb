@@ -1,6 +1,45 @@
 class AnswersController < ApplicationController
   before_filter :authenticate_user!
   
+  def vote_up
+    begin
+      @answer_to_vote = Answer.find(params[:id])
+      if current_user.voted_for?(@answer_to_vote)
+        current_user.clear_votes(@answer_to_vote)
+      else
+        current_user.vote_exclusively_for(@answer_to_vote)
+      end
+      @answer_votes_result = @answer_to_vote.plusminus
+      # authorize! :vote_up, @post
+      
+      respond_to do |format|
+        format.js { render 'answers/vote_refresh'}
+      end
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
+  
+  def vote_down
+    begin
+      @answer_to_vote = Answer.find(params[:id])
+      if current_user.voted_against?(@answer_to_vote)
+        current_user.clear_votes(@answer_to_vote)
+      else
+        current_user.vote_exclusively_against(@answer_to_vote)
+      end
+      @answer_votes_result = @answer_to_vote.plusminus
+      
+      # authorize! :vote_down, @post
+      
+      respond_to do |format|
+        format.js { render 'answers/vote_refresh'}
+      end
+    rescue ActiveRecord::RecordInvalid
+      render :nothing => true, :status => 404
+    end
+  end
+  
   # GET /answers
   # GET /answers.xml
   def index
