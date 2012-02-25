@@ -74,7 +74,7 @@ page principale: 	+ afficher 4/5 articles + ajouter une recherche par tags
 					ajouter tests(done) + classement produits best/worst
 					ajouter questions(done)
 sur chaque index de modele:	ajouter les tools,
-							ajouter pagination normale
+							+ajouter pagination normale
 sur chaque show page: 	+ ajouter "à lire aussi"
 						- changer couleur etiquette
 						- ajouter les boutons share
@@ -99,5 +99,7 @@ Think about categorizations
 check seeds
 
 fil d'ariane
+
+footer
 
 
