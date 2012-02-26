@@ -5,6 +5,9 @@
 // });
 
 $(document).ready(function() {
+	$(function() {        
+      $("#share").floatingFixed({ padding: 70 });
+    });
 	
 	$(function() {
 			$( ".datepicker" ).datepicker();

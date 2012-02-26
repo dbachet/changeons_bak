@@ -1156,10 +1156,12 @@ article#product_test.show{
 	article#tip div#share,
 	article#event div#share,
 	article#product_test div#share{
-		display: inline-block;
+/*		display: inline-block;*/
 		height: 250px;
 		width: 80px;
-		vertical-align: top;
+/*		vertical-align: top;*/
+		position:absolute;
+		background: rosyBrown;
 	}
 		article#question div#vote,
 		article#post div#vote,

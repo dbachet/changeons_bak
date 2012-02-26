@@ -77,8 +77,8 @@ sur chaque index de modele:	ajouter les tools,
 							+ajouter pagination normale
 							- changer le dessus avec un description de la section et un post mis en avant plutot que la maison
 sur chaque show page: 	+ ajouter "à lire aussi"
-						- changer couleur etiquette
-						- ajouter les boutons share
+						+ changer couleur etiquette
+						- modifier la barre share
 						- sources
 
 pour modele question:	+ ajouter catégories
@@ -102,5 +102,5 @@ REFACTOR ROLES
 - fil d'ariane
 - ajouter categories dans 
 - footer
-
+- SEO
 
