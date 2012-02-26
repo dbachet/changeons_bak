@@ -53,6 +53,7 @@ class QuestionsController < AuthorizedController
     @question = Question.find(params[:id])
     @answers = @question.answers
     @answer = Answer.new
+    
     @categories = @question.categories
     @votes_result = @question.plusminus
     also_to_read_items(@categories)
