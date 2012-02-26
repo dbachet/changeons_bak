@@ -75,6 +75,7 @@ page principale: 	+ afficher 4/5 articles + ajouter une recherche par tags
 					ajouter questions(done)
 sur chaque index de modele:	ajouter les tools,
 							+ajouter pagination normale
+							- changer le dessus avec un description de la section et un post mis en avant plutot que la maison
 sur chaque show page: 	+ ajouter "à lire aussi"
 						- changer couleur etiquette
 						- ajouter les boutons share
@@ -95,11 +96,11 @@ pour tous les modeles: 	- ajouter mechanisme de modération/lock
 
 pour answers et comments: 	- ajouter "signaler un abus"
 REFACTOR ROLES
-Think about categorizations
-check seeds
+- Think about categorizations
+- check seeds
 
-fil d'ariane
-
-footer
+- fil d'ariane
+- ajouter categories dans 
+- footer
 
 
