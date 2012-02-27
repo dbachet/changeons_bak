@@ -321,7 +321,15 @@ nav.pagination span.current{
 	}
 
 	/* End - Button */
+	
+	/* Share buttons */
+	
+	div.addthis_toolbox a{
+		margin: 1em auto 0 auto;
+	}
 
+	/* End - Share buttons */
+	
 /* End - Common */
 
 /* hmenu */
@@ -477,35 +485,35 @@ border-bottom: 1px solid #CCCCE5;
 .horizontal_rule_posts{
 	margin: 0;
 	height: 0;
-	border-top: 1px solid #820046;
+	border-top: 1px solid #78003C;
 	border-bottom: 1px solid #96145A;;
 }
 
 .horizontal_rule_tips{
 	margin: 0;
 	height: 0;
-	border-top: 1px solid #53A200;
+	border-top: 1px solid #499800;
 	border-bottom: 1px solid #67B600;
 }
 
 .horizontal_rule_questions{
 	margin: 0;
 	height: 0;
-	border-top: 1px solid #D21E3C;
+	border-top: 1px solid #C81432;
 	border-bottom: 1px solid #E63250;
 }
 
 .horizontal_rule_events{
 	margin: 0;
 	height: 0;
-	border-top: 1px solid #A54300;
+	border-top: 1px solid #9B3900;
 	border-bottom: 1px solid #B9570F;
 }
 
 .horizontal_rule_product_tests{
 	margin: 0;
 	height: 0;
-	border-top: 1px solid #0043A5;
+	border-top: 1px solid #00399B;
 	border-bottom: 1px solid #0057B9;
 }
 
@@ -951,8 +959,17 @@ article#tip.show,
 article#event.show,
 article#product_test.show{
 	width: 550px;
+	min-height: 30em;
 	margin-bottom: 30px;
 }
+
+	article#question.show header,
+	article#post.show header,
+	article#tip.show header,
+	article#event.show header,
+	article#product_test.show header{
+		margin-bottom: 30px;
+	}
 
 	
 	article#question header div.left,
@@ -997,7 +1014,7 @@ article#product_test.show{
 		display: inline-block;
 		vertical-align: top;
 		width: 84%;
-		padding-bottom: 15px;
+/*		padding-bottom: 15px;*/
 	}
 	
 		article#question header div.etiquette,
@@ -1147,8 +1164,11 @@ article#product_test.show{
 		article#tip div#left_bar,
 		article#event div#left_bar,
 		article#product_test div#left_bar{
-			width: 6.3em;
+			width: 6.8em;
 			display: inline-block;
+/*			position: relative;*/
+/*			left: -5em;*/
+			height: 1em;
 		}
 		
 	article#question div#share,
@@ -1157,11 +1177,11 @@ article#product_test.show{
 	article#event div#share,
 	article#product_test div#share{
 /*		display: inline-block;*/
-		height: 250px;
-		width: 80px;
+		height: 17em;
+		width: 6.8em;
 /*		vertical-align: top;*/
 		position:absolute;
-		background: rosyBrown;
+/*		background: rosyBrown;*/
 	}
 		article#question div#vote,
 		article#post div#vote,
