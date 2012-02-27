@@ -27,7 +27,6 @@
 		</header>
 		<div id="left_bar">
 			<div id="share">
-				<div class="horizontal_rule_events"></div>
 				<div id="vote">
 					<div id="vote_up">
 						<%= link_to(image_tag("thumb_up.png", :width => "29px", :height => "30px"), vote_up_event_path(@event), :method => :post, :remote => true) %>
@@ -38,7 +37,6 @@
 					</div>
 				</div>
 				<%= render 'layouts/share_buttons' %>
-				<div class="horizontal_rule_events"></div>
 			</div>
 		</div>
 	
