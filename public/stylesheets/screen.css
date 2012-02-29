@@ -1082,23 +1082,23 @@ article#product_test.show{
 	}
 	
 	article#question header div.left{
-		background: url('/images/etiquette_2_questions.png') no-repeat;
+		background: url('/images/etiquette_questions.png') no-repeat;
 	}
 	
 	article#post header div.left{
-		background: url('/images/etiquette_2_posts.png') no-repeat;
+		background: url('/images/etiquette_posts.png') no-repeat;
 	}
 	
 	article#tip header div.left{
-		background: url('/images/etiquette_2_tips.png') no-repeat;
+		background: url('/images/etiquette_tips.png') no-repeat;
 	}
 	
 	article#event header div.left{
-		background: url('/images/etiquette_2_events.png') no-repeat;
+		background: url('/images/etiquette_events.png') no-repeat;
 	}
 	
 	article#product_test header div.left{
-		background: url('/images/etiquette_2_product_tests.png') no-repeat;
+		background: url('/images/etiquette_product_tests.png') no-repeat;
 	}
 	
 	article#question header div.right,
@@ -1521,7 +1521,7 @@ div#show_right{
 	display: inline-block;
 	vertical-align: top;
 /*	background-color: blue;*/
-	width: 15.4em;
+	width: 15.3em;
 	padding: 1em;
 	margin-left: 1em;
 	min-height: 65em;
@@ -1531,8 +1531,27 @@ div#show_right{
 section#also_to_read > div > h1{
 	padding-left: 2em;
 	line-height: 1.3em;
-	background: url("/images/etiquette_2_small.png") no-repeat;
 	color: #A65240;
+}
+
+section#also_to_read > div.posts > h1{
+	background: url("/images/etiquette_posts_small.png") no-repeat;
+}
+
+section#also_to_read > div.events > h1{
+	background: url("/images/etiquette_events_small.png") no-repeat;
+}
+
+section#also_to_read > div.questions > h1{
+	background: url("/images/etiquette_questions_small.png") no-repeat;
+}
+
+section#also_to_read > div.tips > h1{
+	background: url("/images/etiquette_tips_small.png") no-repeat;
+}
+
+section#also_to_read > div.product_tests > h1{
+	background: url("/images/etiquette_product_tests_small.png") no-repeat;
 }
 
 section#also_to_read > div{
