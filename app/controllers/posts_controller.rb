@@ -1,8 +1,12 @@
 class PostsController < AuthorizedController
+  include ActionView::Helpers::TextHelper
+  add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
+  add_breadcrumb "Articles", :posts_path, :title => "Revenir à la liste des articles"
   # skip_load_and_authorize_resource :only => [:show]
   before_filter :authenticate_user!, :except => [:index, :show, :show_more_posts, :archives]
   # load_and_authorize_resource
   # before_filter :authenticate_user!
+  
   
   def add_source
     @page = params[:controller]
@@ -77,6 +81,7 @@ class PostsController < AuthorizedController
   end
   
   def archives
+    add_breadcrumb "Archives des anciens articles", :posts_archives_path
     authorize! :archives, Post
   end
   
@@ -129,6 +134,7 @@ class PostsController < AuthorizedController
     @tags = @post.tag_list
     @votes_result = @post.plusminus
     
+    add_breadcrumb truncate(@post.title, :length => 30), :post_path
     respond_to do |format|
       format.html # show.html.erb
       format.js
@@ -139,7 +145,8 @@ class PostsController < AuthorizedController
   # GET /posts/new.xml
   def new
     # @post = Post.new
-
+    add_breadcrumb "Nouvel article", :new_post_path
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
@@ -148,6 +155,8 @@ class PostsController < AuthorizedController
 
   # GET /posts/1/edit
   def edit
+    add_breadcrumb truncate(@post.title, :length => 20), :post_path
+    add_breadcrumb "Éditer l'article", :edit_post_path
     # @post = Post.find(params[:id])
     # authorize! :edit, @post
     # puts "post => #{@post.inspect}" # / comment => #{@comment.inspect}"

@@ -1,5 +1,6 @@
 class PagesController < AuthorizedController
   skip_load_and_authorize_resource
+  add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
   
   def home
     @default_post_offset = APP_CONFIG['default_post_offset']
@@ -23,6 +24,8 @@ class PagesController < AuthorizedController
     
     puts "#{@changeons_quoi} / #{@changeons_pourquoi}"
     authorize! :home, :pages
+    
+    
     # authorize! :index, @posts_count
     # authorize! :index, @posts
     

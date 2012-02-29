@@ -1,5 +1,7 @@
 class TipsController < AuthorizedController
-  
+  include ActionView::Helpers::TextHelper
+  add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
+  add_breadcrumb "Astuces", :tips_path, :title => "Revenir à la liste des astuces"
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def add_source
@@ -42,7 +44,7 @@ class TipsController < AuthorizedController
   # GET /tips.xml
   def index
     @tips = Tip.recent.page(params[:page]).per(5)
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tips }
@@ -73,7 +75,7 @@ class TipsController < AuthorizedController
     
     
     @votes_result = @tip.plusminus
-    
+    add_breadcrumb truncate(@tip.title, :length => 30), :tip_path
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @tip }
@@ -84,7 +86,7 @@ class TipsController < AuthorizedController
   # GET /tips/new.xml
   def new
     @tip = Tip.new
-
+    add_breadcrumb "Nouvelle astuce", :new_tip_path
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @tip }
@@ -94,6 +96,8 @@ class TipsController < AuthorizedController
   # GET /tips/1/edit
   def edit
     @tip = Tip.find(params[:id])
+    add_breadcrumb truncate(@tip.title, :length => 20), :tip_path
+    add_breadcrumb "Éditer l'astuce", :edit_tip_path
   end
 
   # POST /tips

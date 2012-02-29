@@ -1,4 +1,7 @@
 class QuestionsController < AuthorizedController
+  include ActionView::Helpers::TextHelper
+  add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
+  add_breadcrumb "Questions", :questions_path, :title => "Revenir à la liste des questions"
   before_filter :authenticate_user!, :except => [:show, :index]
   
   def add_source
@@ -40,7 +43,6 @@ class QuestionsController < AuthorizedController
   # GET /questions.xml
   def index
     @questions = Question.recent.page(params[:page]).per(5)
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @questions }
@@ -57,7 +59,7 @@ class QuestionsController < AuthorizedController
     @categories = @question.categories
     @votes_result = @question.plusminus
     also_to_read_items(@categories)
-    
+    add_breadcrumb truncate(@question.content, :length => 30), :question_path
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @question }
@@ -68,7 +70,7 @@ class QuestionsController < AuthorizedController
   # GET /questions/new.xml
   def new
     @question = Question.new
-
+    add_breadcrumb "Nouvelle question", :new_question_path
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @question }
@@ -78,6 +80,8 @@ class QuestionsController < AuthorizedController
   # GET /questions/1/edit
   def edit
     @question = Question.find(params[:id])
+    add_breadcrumb truncate(@question.content, :length => 20), :question_path
+    add_breadcrumb "Éditer la question", :edit_question_path
   end
 
   # POST /questions

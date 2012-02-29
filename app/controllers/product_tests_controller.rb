@@ -1,4 +1,7 @@
 class ProductTestsController < AuthorizedController
+  include ActionView::Helpers::TextHelper
+  add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
+  add_breadcrumb "Avis/Tests de produits", :product_tests_path, :title => "Revenir à la liste des avis/tests de produits"
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def add_source
@@ -41,7 +44,6 @@ class ProductTestsController < AuthorizedController
   # GET /product_tests.xml
   def index
     @product_tests = ProductTest.recent.page(params[:page]).per(5)
-    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @product_tests }
@@ -67,6 +69,7 @@ class ProductTestsController < AuthorizedController
     @remaining_comments = @product_test.root_comments.count - @displayed_comments
 
     @votes_result = @product_test.plusminus
+    add_breadcrumb truncate("#{@product_test.brand} #{@product_test.product_model}", :length => 30), :product_test_path
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @product_test }
@@ -77,7 +80,7 @@ class ProductTestsController < AuthorizedController
   # GET /product_tests/new.xml
   def new
     @product_test = ProductTest.new
-
+    add_breadcrumb "Nouvel avis/test", :new_product_test_path
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @product_test }
@@ -87,6 +90,8 @@ class ProductTestsController < AuthorizedController
   # GET /product_tests/1/edit
   def edit
     @product_test = ProductTest.find(params[:id])
+    add_breadcrumb truncate("#{@product_test.brand} #{@product_test.product_model}", :length => 20), :product_test_path
+    add_breadcrumb "Éditer l'avis/test", :edit_product_test_path
   end
 
   # POST /product_tests

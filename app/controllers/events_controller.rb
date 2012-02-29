@@ -1,4 +1,7 @@
 class EventsController < AuthorizedController
+  include ActionView::Helpers::TextHelper
+  add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
+  add_breadcrumb "Évènements", :events_path, :title => "Revenir à la liste des évènements"
   
   before_filter :authenticate_user!, :except => [:index, :show]
   
@@ -42,7 +45,6 @@ class EventsController < AuthorizedController
   # GET /events.xml
   def index
     @events = Event.recent.page(params[:page]).per(5)
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @events }
@@ -67,7 +69,7 @@ class EventsController < AuthorizedController
     @remaining_comments = @event.root_comments.count - @displayed_comments
     
     @votes_result = @event.plusminus
-
+    add_breadcrumb truncate(@event.title, :length => 30), :event_path
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @event }
@@ -78,7 +80,7 @@ class EventsController < AuthorizedController
   # GET /events/new.xml
   def new
     @event = Event.new
-
+    add_breadcrumb "Nouvel évènement", :new_event_path
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @event }
@@ -88,6 +90,8 @@ class EventsController < AuthorizedController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+    add_breadcrumb truncate(@event.title, :length => 20), :event_path
+    add_breadcrumb "Éditer l'évènement", :edit_event_path
   end
 
   # POST /events
