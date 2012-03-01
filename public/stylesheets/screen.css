@@ -105,7 +105,8 @@ body {
 	width: 100%;
 	font-family: "CaviarDreamsRegular", verdana, arial;
 	color: black;
-	background: #bfbfd7; /*#c1efba*/
+	background: url("/images/bg_body_bottom.png") bottom repeat-x, #bfbfd7; /*#c1efba*/
+	
 }
 
 a{
@@ -119,10 +120,14 @@ div#main{
 	padding: 20px 30px 0 30px;
 	display: block;
 	margin-bottom: 10px;
-	background-color: #EBEBEB;
+	background: url("/images/bg_main_bottom.png") bottom repeat-x, #EBEBEB;
 	
 	box-shadow: 0 0 5px black;
 	border-top: 2px solid rosybrown;
+	border-bottom: 2px solid #7474D3;
+	
+	
+	
 /*	background: url("/images/bg_body.png");*/
 }
 
@@ -706,7 +711,7 @@ header#top_banner div#website_presentation{
 /*	border-radius: 4px;*/
 	box-shadow: 0px 0px 4px black;
 	background: url("/images/top-banner.png") 150px 110px no-repeat, url("/images/noise-top-banner.jpg");
-	border: 1px solid #E5A800;
+	border-top: 3px solid #E5A800
 }
 
 
@@ -2577,19 +2582,21 @@ footer {
 /*	z-index: 1000;*/
 	padding: 10px;
 	font-family: "GoLong";
-	background-color: rgba(140,10,80, 1);
+/*	background-color: rgba(140,10,80, 1);*/
 /*	height: 15px;*/
-	height: 31px;
+	height: 20em;
 	font-size: 16px;
 	color: #A2CF4B;
-	-webkit-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
+	background: url("/images/background_eoliennes4.png") bottom right no-repeat;
+	
+/*	-webkit-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
 	-moz-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
 	box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
-	border-top: 1px solid rgba(27,20,17,0.9);
+	border-top: 1px solid rgba(27,20,17,0.9);*/
 }
 
 footer a, footer a:active, footer a:visited  {
-	color: #A2CF4B;
+	color: #F88;
 }
 
 footer a{
@@ -2631,9 +2638,9 @@ footer nav ul li.second{
 
 footer nav ul li.third{
 	background-color: rgba(176, 216, 0, 1);
-	-webkit-box-shadow: 5px 3px 5px rgba(25,25,25, 1);
+/*	-webkit-box-shadow: 5px 3px 5px rgba(25,25,25, 1);
 	-moz-box-shadow: 5px 3px 5px rgba(25,25,25, 1);
-	box-shadow: 5px 3px 5px rgba(25,25,25, 1);
+	box-shadow: 5px 3px 5px rgba(25,25,25, 1);*/
 }
 
 footer nav span{
