@@ -100,10 +100,11 @@ REFACTOR ROLES
 - check seeds
 
 + fil d'ariane
-- ajouter categories en haut
++ ajouter categories en haut
 - footer
 - SEO
 - Add jQuery for form inputs, to have some text inside disappearing slowly
 - créer helper for product test title
 - recherche
+- show category page
 

@@ -31,7 +31,7 @@
 		<div id="notice_alert_fields">
 			<%= render 'layouts/flash_messages' %>
 		</div>
-		<nav class="top_categories">
+		<nav id="top_categories">
 			<ul>
 			<% @menu_categories.each do |menu_category| %>
 				<li><%= link_to menu_category.name, menu_category, :class => "category_top" %></li>

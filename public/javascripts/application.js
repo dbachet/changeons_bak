@@ -210,14 +210,14 @@ function add_source_links(link_to_remove_source){
 function configTop() {
     var topPageHeight = $('nav#top_page').height(),
 		widthListItems = 0,
-		topCategoriesUl = $('nav.top_categories > ul'),
-		topCategoriesLi = $('nav.top_categories > ul > li'),
+		topCategoriesUl = $('nav#top_categories > ul'),
+		topCategoriesLi = $('nav#top_categories > ul > li'),
 		windowWidth = $(window).width(),
 		maxWidth = 1200,
 		paddingUl = topCategoriesUl.css('padding');
 
 	// Set the margin-top of the menu to be able to see categories
-	$('nav.top_categories').css('margin-top', topPageHeight);
+	$('nav#top_categories').css('margin-top', topPageHeight);
 	
 	// Set the width of the ul menu to fit in the window
 	topCategoriesLi.each(function(index) {

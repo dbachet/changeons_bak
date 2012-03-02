@@ -1,7 +1,6 @@
 class CategoriesController < AuthorizedController
-   layout false, :only => :new
-   before_filter :authenticate_user!
-   respond_to :html, :only => [:index, :new, :edit]
+   before_filter :authenticate_user!, :except => [:show]
+   respond_to :html, :only => [:index, :new, :edit, :show]
    respond_to :js, :only => [:create, :update, :destroy]
    
   # GET /categories
@@ -9,26 +8,26 @@ class CategoriesController < AuthorizedController
   def index
     @categories = Category.all
 
-    respond_with
+    respond_with do |format|
+      format.html { render :index, :layout => false}
+    end
   end
 
   # GET /categories/1
   # GET /categories/1.xml
-  # def show
-  #   @category = Category.find(params[:id])
-  # 
-  #   respond_to do |format|
-  #     format.html # show.html.erb
-  #     format.xml  { render :xml => @category }
-  #   end
-  # end
+  def show
+    @category = Category.find(params[:id])
+  
+    respond_with
+  end
 
   # GET /categories/new
   # GET /categories/new.xml
   def new
     @category = Category.new
-
-    respond_with
+    respond_with do |format|
+      format.html { render :new, :layout => false}
+    end
   end
 
   # GET /categories/1/edit
