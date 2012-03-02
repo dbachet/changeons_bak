@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :newsletter_subscriber, :fetch_best_items, :top_item, :changeons_items
+  before_filter :newsletter_subscriber, :fetch_best_items, :top_item, :changeons_items, :categories
   
   # if user is logged in, return current_user, else return guest_user
   # def current_or_guest_user
@@ -32,6 +32,10 @@ class ApplicationController < ActionController::Base
   
   def newsletter_subscriber
     @newsletter_subscriber = NewsletterSubscriber.new
+  end
+  
+  def categories
+    @menu_categories = Category.all
   end
   
   def also_to_read_items(categories)

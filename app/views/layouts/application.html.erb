@@ -31,7 +31,13 @@
 		<div id="notice_alert_fields">
 			<%= render 'layouts/flash_messages' %>
 		</div>
-	
+		<nav class="top_categories">
+			<ul>
+			<% @menu_categories.each do |menu_category| %>
+				<li><%= link_to menu_category.name, menu_category, :class => "category_top" %></li>
+			<% end %>
+			</ul>
+		</nav>
 		<header id="top_banner" class="gradient">
 			<div id="quote">"Changeons... nous, nos habitudes, la société ! D'autres l 'ont fait, pourquoi pas vous ?"</div>
 			<div id="top_item">

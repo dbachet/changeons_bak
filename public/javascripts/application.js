@@ -9,6 +9,22 @@ $(document).ready(function() {
       $("#share").floatingFixed({ padding: 70 });
     });
 	
+	var resizeTimer = null;
+	$(window).bind(
+	'load', function() {
+		if (resizeTimer) clearTimeout(resizeTimer); 
+		    resizeTimer = setTimeout(configTop, 100);
+	});
+	
+	$(window).bind(
+	'resize', function() {
+	  	if (resizeTimer) clearTimeout(resizeTimer); 
+		    resizeTimer = setTimeout(configTop, 100);
+	});
+	
+	// $.event.add(window, "load", configTop);
+	// $.event.add(window, "resize", configTop);
+	
 	$(function() {
 			$( ".datepicker" ).datepicker();
 		});
@@ -189,4 +205,35 @@ function add_source_links(link_to_remove_source){
 		    $(this).append('<a href="' + link_to_remove_source + '?source=' + $(this).attr('class') + '" data-remote="true" class="remove_source"' + '>Supprimer</a>');
 		});
 	}
+}
+
+function configTop() {
+    var topPageHeight = $('nav#top_page').height(),
+		widthListItems = 0,
+		topCategoriesUl = $('nav.top_categories > ul'),
+		topCategoriesLi = $('nav.top_categories > ul > li'),
+		windowWidth = $(window).width(),
+		maxWidth = 1200,
+		paddingUl = topCategoriesUl.css('padding');
+
+	// Set the margin-top of the menu to be able to see categories
+	$('nav.top_categories').css('margin-top', topPageHeight);
+	
+	// Set the width of the ul menu to fit in the window
+	topCategoriesLi.each(function(index) {
+		widthListItems += $(this).width() + 24;
+	});
+	
+	if (windowWidth - (paddingUl*2) - 20 <= widthListItems){
+		widthListItems = windowWidth;
+		// alert("hoooo");
+	} else if (maxWidth - (paddingUl*2) - 20 <= widthListItems){
+		widthListItems = maxWidth;
+		// alert("hoooo");
+	}
+	
+	topCategoriesUl.animate({
+    	width: widthListItems,
+	}, 400);
+	
 }
