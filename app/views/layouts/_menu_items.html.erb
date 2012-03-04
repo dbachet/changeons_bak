@@ -1,5 +1,4 @@
 <ul id="hmenu">
-	<li style="margin-top:12px; margin-left:10px"><%= link_to(image_tag("/images/back_to_top.png"), "#top") %></li>
 	<li><%= 
 			link_to_unless_current(raw("Change"+"&nbsp;&nbsp;"+"ns"), root_path, :class => "changeons ") do
 				link_to(raw("Change"+"&nbsp;&nbsp;"+"ns"), root_path, :class => "changeons current")
@@ -41,6 +40,7 @@
 			end
 		%>
 	</li>
+	<li style="margin-top:12px; margin-left:10px"><%= link_to(image_tag("/images/back_to_top.png"), "#top") %></li>
 
 
 	

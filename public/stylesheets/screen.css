@@ -304,29 +304,35 @@ nav.pagination span.current{
 }
 /* End - Pagination */
 
-		h1.red_section{
-			font-family: "CaviarDreamsBold", verdana, arial;
-			font-size: 27px;
-			text-align: right;
-			border-bottom: 3px solid #95281F;
-			margin-top: 0px;
-			color: #95281F;
-			background-color: white;
-			padding: 5px;
-			-webkit-text-shadow: 1px 1px grey;
-			-moz-text-shadow: 1px 1px grey;
-			text-shadow: 1px 1px grey;
-		}
+h1.red_section{
+	font-family: "CaviarDreamsItalic", verdana, arial;
+	font-size: 2em;
+/*	font-size: 1em;*/
+	text-align: right;
+	border-bottom: 3px solid #95281F;
+	margin-top: 0px;
+	color: grey;
+	background-color: white;
+	padding: 5px;
+	-webkit-text-shadow: 1px 1px grey;
+	-moz-text-shadow: 1px 1px grey;
+	text-shadow: 1px 1px grey;
+}
 		
-		h1.red_section.big{
-			font-size: 34px;
-			text-align: left;
-		}
+	h1.red_section span{
+		color: #95281F;
+/*		font-size: 1em;*/
+		font-family: 'CaviarDreamsBold', verdana, arial;
+		text-transform: uppercase;
+	}
 		
-		h1.red_section span{
-			color: grey;
-			font-size: 1em;
-			font-family: 'CaviarDreamsItalic', verdana, arial;
+h1.red_section.big{
+	font-size: 2.5em;
+	text-align: left;
+}
+
+		h1.red_section.big span{
+/*			font-size: 1em;*/
 		}
 
 	/* Button */
@@ -648,7 +654,7 @@ nav#top_categories{
 	background: gainsboro;
 	border-bottom: 1px solid grey;
 	padding: 10px;
-	box-shadow: 0 1px 2px #b7babc;
+	box-shadow: 0 1px 1px #556075;
 	display: block;
 	min-height: 2em;
 /*	width: 100%;*/
@@ -1748,9 +1754,9 @@ article#post.form .new_form_input,
 article#tip.form .new_form_input,
 article#event.form .new_form_input,
 article#product_test.form .new_form_input{
-	-webkit-box-shadow:  0 0 7px #000;
-	-mox-box-shadow:  0 0 7px #000;
-	box-shadow:  0 0 7px #000;
+	-webkit-box-shadow:  1px 1px 3px #000;
+	-mox-box-shadow:  1px 1px 3px #000;
+	box-shadow:  1px 1px 3px #000;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	-o-border-radius: 2px;

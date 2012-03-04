@@ -1,15 +1,115 @@
-<p id="notice"><%= notice %></p>
+<div id="page_info" data-action=""></div>
+<h1 class="red_section big">Les <span>ARTICLES</span> de la catégorie <span>"<%= @category.name %>"</span></h1>
+<section id="posts" data-displayed-posts=<%= @displayed_posts %>>
+	<header>
+		<h1>Derniers articles</h1>
+	</header>
+	<%= render "posts/posts" %>
 
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
+	<% if @remaining_posts != 0 %>
+		<%= link_to "Voir plus d'articles", show_more_posts_path(:displayed_posts => @displayed_posts), :id => "show_more_posts_link", :method => :post, :remote => true %>
+	<% end %>
 
-<p>
-  <b>Cached slug:</b>
-  <%= @category.cached_slug %>
-</p>
+	<br />
+
+	<% if can? :new, @post %><%= link_to 'New Post', new_post_path %><% end %>
+</section>
+<div style="display:inline-block; width:22em; vertical-align: top">
+	<section id="posts_ranking">
+		<header>
+			<h1>Classement des meilleurs articles</h1>
+		</header>
+		<% @top_posts.each do |post| %>
+			<article>
+				<div>
+					<%= image_tag post.picture.url(:thumb) %>
+				</div>
+				<div>
+					<h2><%= truncate(post.title, :length => 55, :separator => ' ') %></h2>
+				</div>
+			</article>
+		<% end %>
+	</section>
+	<section id="post_tag_tool">
+		<header>
+			<h1>Tags recensés dans les articles</h1>
+		</header>
+		<% @tags.each do |tag| %>
+			<span style="font-size: <%= 8 + rand(20) %>px"><%= link_to tag, tag_show_posts_path(tag.cached_slug) %>
+		<% end %>
+	</section>
+</div>
+<h1 class="red_section big">Les <span>ASTUCES</span> de la catégorie <span>"<%= @category.name %>"</span></h1>
+<section id="tips" >
+	<header>
+		<h1>Dernières astuces ajoutées</h1>
+	</header>
+	<%= render "tips/tips" %>
 
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+
+	<% if can? :new, @tip %><%= link_to 'New Post', new_tip_path %><% end %>
+</section>
+<section id="tips_ranking">
+	<header>
+		<h1>Classement des meilleurs astuces</h1>
+	</header>
+	<% @top_tips.each do |tip| %>
+		<article>
+			<div>
+				<%= image_tag tip.picture.url(:thumb) %>
+			</div>
+			<div>
+				<h2><%= truncate(tip.title, :length => 55, :separator => ' ') %></h2>
+			</div>
+		</article>
+	<% end %>
+</section>
+<h1 class="red_section big">Les <span>QUESTIONS/RÉPONSES</span> de la catégorie <span>"<%= @category.name %>"</span></h1>
+<section id="questions" >
+	<header>
+		<h1>Dernières questions ajoutées</h1>
+	</header>
+	<%= render "questions/questions" %>
+
+
+
+	<% if can? :new, @tip %><%= link_to 'New Post', new_question_path %><% end %>
+</section>
+<h1 class="red_section big">Les <span>ÉVÈNEMENTS</span> de la catégorie <span>"<%= @category.name %>"</span></h1>
+<section id="events">
+	<header>
+		<h1>Derniers évènements ajoutées</h1>
+	</header>
+	<%= render "events/events" %>
+
+
+
+	<% if can? :new, @event %><%= link_to 'New Event', new_event_path %><% end %>
+</section>
+<h1 class="red_section big">Les <span>AVIS/TESTS PRODUITS</span> de la catégorie <span>"<%= @category.name %>"</span></h1>
+<section id="product_tests" >
+	<header>
+		<h1>Derniers tests de produits</h1>
+	</header>
+	<%= render "product_tests/product_tests" %>
+
+
+
+	<% if can? :new, @product_test %><%= link_to 'New product test', new_product_test_path %><% end %>
+</section>
+<section id="product_tests_ranking">
+	<header>
+		<h1>Classement des meilleurs produits</h1>
+	</header>
+	<% @top_product_tests.each do |product_test| %>
+		<article>
+			<div>
+				<%= image_tag product_test.picture.url(:thumb) %>
+			</div>
+			<div>
+				<h2><%= truncate("#{product_test.brand} #{product_test.product_model}", :length => 55, :separator => ' ') %></h2>
+			</div>
+		</article>
+	<% end %>
+</section>

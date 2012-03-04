@@ -88,8 +88,15 @@ class PostsController < AuthorizedController
   # GET /posts
   # GET /posts.xml
   def index
+    if params[:category]
+      @category = Category.find_by_cached_slug(params[:category])
+      puts @category.name
+      @posts = @category.posts.page(params[:page]).per(5)
+    else
+      @posts = Post.recent.page(params[:page]).per(5)
+    end
     @default_post_offset = APP_CONFIG['default_post_offset']
-    @posts = Post.recent.page(params[:page]).per(5)
+    # @posts = Post.recent.page(params[:page]).per(5)
     @tags =  ActsAsTaggableOn::Tag.all
     
     @displayed_posts = @posts.length

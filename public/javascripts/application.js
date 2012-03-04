@@ -214,21 +214,24 @@ function configTop() {
 		topCategoriesLi = $('nav#top_categories > ul > li'),
 		windowWidth = $(window).width(),
 		maxWidth = 1200,
+		navCategories = $('nav#top_categories'),
 		paddingUl = topCategoriesUl.css('padding');
 
 	// Set the margin-top of the menu to be able to see categories
-	$('nav#top_categories').css('margin-top', topPageHeight);
+	navCategories.css('margin-top', topPageHeight);
 	
 	// Set the width of the ul menu to fit in the window
 	topCategoriesLi.each(function(index) {
 		widthListItems += $(this).width() + 24;
 	});
 	
-	if (windowWidth - (paddingUl*2) - 20 <= widthListItems){
-		widthListItems = windowWidth;
+	if (navCategories.width() - 20 <= widthListItems){
+		widthListItems = navCategories.width();
 		// alert("hoooo");
-	} else if (maxWidth - (paddingUl*2) - 20 <= widthListItems){
-		widthListItems = maxWidth;
+	}
+	
+	if (maxWidth - (paddingUl*2) - 20 <= widthListItems){
+		widthListItems = maxWidth - 20;
 		// alert("hoooo");
 	}
 	

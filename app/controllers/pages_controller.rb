@@ -22,7 +22,6 @@ class PagesController < AuthorizedController
     
     
     
-    puts "#{@changeons_quoi} / #{@changeons_pourquoi}"
     authorize! :home, :pages
     
     

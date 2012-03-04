@@ -33,6 +33,7 @@
 		</div>
 		<nav id="top_categories">
 			<ul>
+				</li>
 			<% @menu_categories.each do |menu_category| %>
 				<li><%= link_to menu_category.name, menu_category, :class => "category_top" %></li>
 			<% end %>
@@ -81,7 +82,7 @@
 		<div id="right_bar">
 			<section id="newsletter_form">
 				<header>
-					<h1 class="red_section"><span>La</span> NEWSLETTER</h1>
+					<h1 class="red_section">La <span>NEWSLETTER</span></h1>
 				</header>
 				<%= simple_form_for(@newsletter_subscriber, :validate => true) do |f| %>
 				  <%= f.error_notification %>
@@ -97,7 +98,7 @@
 			</section>
 			<section id="changeons_home">
 				<header>
-					<h1 class="red_section"><span>Une</span> ENVIE <span>de</span> CHANGER ?</h1>
+					<h1 class="red_section">Une <span>ENVIE</span> de <span>CHANGER ?</span></h1>
 					<nav id="changeons">
 						<div class="domtab">
 							<ul class="domtabs">
@@ -134,7 +135,7 @@
 			</section>
 			<section id="sponsors">
 				<header>
-					<h1 class="red_section"><span>Les</span> SPONSORS</h1>
+					<h1 class="red_section">Les <span>SPONSORS</span></h1>
 				</header>
 				<div>
 					<article class="sponsor">Sponsorisez ce site web
@@ -153,7 +154,7 @@
 			</section>
 			<section id="best">
 				<header>
-					<h1 class="red_section"><span>Les</span> BEST <span>of</span> CHANGEONS</h1>
+					<h1 class="red_section">Les <span>BEST</span> of <span>CHANGEONS</span></h1>
 				</header>
 				<header>
 					<nav id="changeons">
