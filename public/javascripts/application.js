@@ -8,6 +8,13 @@ $(document).ready(function() {
 	$(function() {        
       $("#share").floatingFixed({ padding: 70 });
     });
+
+	$('#back_to_top_button').click(
+        function (event) {
+			event.preventDefault();
+            $('html, body').animate({scrollTop: '0px'}, 800);
+        }
+    );
 	
 	var resizeTimer = null;
 	$(window).bind(
