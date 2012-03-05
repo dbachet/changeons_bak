@@ -30,6 +30,15 @@ class ApplicationController < ActionController::Base
 
   private
   
+  def accessed_from_category
+    previous_url = request.referrer.split("/")
+    if previous_url[3] == "categories"
+      previous_url[4]
+    elsif previous_url[4] == "categories"
+      previous_url[5]
+    end
+  end
+  
   def newsletter_subscriber
     @newsletter_subscriber = NewsletterSubscriber.new
   end

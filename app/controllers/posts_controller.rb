@@ -1,7 +1,7 @@
 class PostsController < AuthorizedController
   include ActionView::Helpers::TextHelper
   add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
-  add_breadcrumb "Articles", :posts_path, :title => "Revenir à la liste des articles"
+  add_breadcrumb "Articles", :posts_path, :title => "Revenir à la liste des articles", :except => %w(index show)  # TO CHANGE
   # skip_load_and_authorize_resource :only => [:show]
   before_filter :authenticate_user!, :except => [:index, :show, :show_more_posts, :archives]
   # load_and_authorize_resource
@@ -88,10 +88,12 @@ class PostsController < AuthorizedController
   # GET /posts
   # GET /posts.xml
   def index
-    if params[:category]
-      @category = Category.find_by_cached_slug(params[:category])
-      puts @category.name
+    if params[:category_id]                                                     # TO CHANGE
+      @category = Category.find_by_cached_slug(params[:category_id])
       @posts = @category.posts.page(params[:page]).per(5)
+      add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
+      add_breadcrumb @category.name.camelize, category_path(@category)
+      add_breadcrumb "Articles", post_by_category_path(@category), :title => "Revenir à la liste des articles"
     else
       @posts = Post.recent.page(params[:page]).per(5)
     end
@@ -141,7 +143,17 @@ class PostsController < AuthorizedController
     @tags = @post.tag_list
     @votes_result = @post.plusminus
     
-    add_breadcrumb truncate(@post.title, :length => 30), :post_path
+    if !accessed_from_category.nil?                                         # TO CHANGE
+      @category = Category.find_by_cached_slug(accessed_by_category)
+      add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
+      add_breadcrumb @category.name.camelize, category_path(@category)
+      add_breadcrumb "Articles", post_from_category_path(@category), :title => "Revenir à la liste des articles"
+      add_breadcrumb truncate(@post.title, :length => 30), :post_path
+    else
+      add_breadcrumb "Articles", posts_path, :title => "Revenir à la liste des articles"
+      add_breadcrumb truncate(@post.title, :length => 30), :post_path
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.js
