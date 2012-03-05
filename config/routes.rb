@@ -2,7 +2,8 @@ Changeons::Application.routes.draw do
   match "tags/:tag_id/" => "tags#show_posts", :as => "tag_show_posts"  
 
   resources :upload_pictures
-
+  
+  match "/categories/:category_id/product_tests" => "product_tests#index", :as => "product_tests_from_category"
   get "product_tests/add_source"
   get "product_tests/remove_source"
   resources :product_tests do
@@ -19,6 +20,7 @@ Changeons::Application.routes.draw do
     end
   end
 
+  match "/categories/:category_id/events" => "events#index", :as => "events_from_category"
   get "events/add_source"
   get "events/remove_source"
   resources :events do
@@ -36,7 +38,7 @@ Changeons::Application.routes.draw do
   end
   
   # get "tips/remove_source" # TO ADD
-  
+  match "/categories/:category_id/tips" => "tips#index", :as => "tips_from_category"
   get "tips/add_source"
   get "tips/remove_source"
   resources :tips do
@@ -53,6 +55,7 @@ Changeons::Application.routes.draw do
     end
   end
   
+  match "/categories/:category_id/questions" => "questions#index", :as => "questions_from_category"
   get "questions/add_source"
   get "questions/remove_source"
   resources :questions do

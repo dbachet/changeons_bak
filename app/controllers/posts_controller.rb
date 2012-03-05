@@ -95,6 +95,7 @@ class PostsController < AuthorizedController
       add_breadcrumb @category.name.camelize, category_path(@category)
       add_breadcrumb "Articles", posts_from_category_path(@category), :title => "Revenir à la liste des articles"
     else
+      add_breadcrumb "Articles", :posts_path, :title => "Revenir à la liste des articles"
       @posts = Post.recent.page(params[:page]).per(5)
     end
     @default_post_offset = APP_CONFIG['default_post_offset']
@@ -142,8 +143,8 @@ class PostsController < AuthorizedController
     # @post_type = @post.post_type.name
     @tags = @post.tag_list
     @votes_result = @post.plusminus
-    accessed_from_this_category = accessed_from_category
     
+    accessed_from_this_category = accessed_from_category
     if !accessed_from_this_category.nil?                                         # TO CHANGE
       @category = Category.find_by_cached_slug(accessed_from_this_category)
       add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"

@@ -1,7 +1,7 @@
 class ProductTestsController < AuthorizedController
   include ActionView::Helpers::TextHelper
   add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
-  add_breadcrumb "Avis/Tests de produits", :product_tests_path, :title => "Revenir à la liste des avis/tests de produits"
+  add_breadcrumb "Avis/Tests de produits", :product_tests_path, :title => "Revenir à la liste des avis/tests de produits", :except => %w(index show)
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def add_source
@@ -43,7 +43,19 @@ class ProductTestsController < AuthorizedController
   # GET /product_tests
   # GET /product_tests.xml
   def index
-    @product_tests = ProductTest.recent.page(params[:page]).per(5)
+    
+    
+    if params[:category_id]                                                     # TO CHANGE
+      @category = Category.find_by_cached_slug(params[:category_id])
+      @product_tests = @category.product_tests.page(params[:page]).per(5)
+      add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
+      add_breadcrumb @category.name.camelize, category_path(@category)
+      add_breadcrumb "Avis/Tests de produits", product_tests_from_category_path(@category), :title => "Revenir à la liste des avis/tests de produits"
+    else
+      add_breadcrumb "Avis/Tests de produits", :product_tests_path, :title => "Revenir à la liste des avis/tests de produits"
+      @product_tests = ProductTest.recent.page(params[:page]).per(5)
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @product_tests }
@@ -69,7 +81,22 @@ class ProductTestsController < AuthorizedController
     @remaining_comments = @product_test.root_comments.count - @displayed_comments
 
     @votes_result = @product_test.plusminus
-    add_breadcrumb truncate("#{@product_test.brand} #{@product_test.product_model}", :length => 30), :product_test_path
+    
+    
+    accessed_from_this_category = accessed_from_category
+    
+    if !accessed_from_this_category.nil?                                         # TO CHANGE
+      @category = Category.find_by_cached_slug(accessed_from_this_category)
+      add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
+      add_breadcrumb @category.name.camelize, category_path(@category)
+      add_breadcrumb "Avis/Tests de produits", product_tests_from_category_path(@category), :title => "Revenir à la liste des avis/tests de produits"
+      add_breadcrumb truncate("#{@product_test.brand} #{@product_test.product_model}", :length => 30), :product_test_path
+    else
+      add_breadcrumb "Avis/Tests de produits", :product_tests_path, :title => "Revenir à la liste des avis/tests de produits"
+      add_breadcrumb truncate("#{@product_test.brand} #{@product_test.product_model}", :length => 30), :product_test_path
+    end
+    
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @product_test }

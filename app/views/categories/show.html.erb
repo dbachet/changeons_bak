@@ -6,7 +6,7 @@
 	</header>
 	<%= render "posts/posts" %>
 
-		<%= link_to "Voir plus d'articles", posts_from_category_path(@category) %>
+		<%= link_to "Voir plus d'articles", posts_from_category_path(@category), :class => "awesome" %>
 
 	<br />
 
@@ -44,7 +44,9 @@
 	</header>
 	<%= render "tips/tips" %>
 
-	<%= link_to "Voir plus d'astuces", tips_path %>
+	<%= link_to "Voir plus d'astuces", tips_from_category_path(@category), :class => "awesome" %>
+	
+	</br>
 	
 
 	<% if can? :new, @tip %><%= link_to 'New Post', new_tip_path %><% end %>
@@ -71,7 +73,9 @@
 	</header>
 	<%= render "questions/questions" %>
 
-
+	<%= link_to "Voir plus Questions/Réponses", questions_from_category_path(@category), :class => "awesome" %>
+	
+	</br>
 
 	<% if can? :new, @tip %><%= link_to 'New Post', new_question_path %><% end %>
 </section>
@@ -82,7 +86,9 @@
 	</header>
 	<%= render "events/events" %>
 
-
+	<%= link_to "Voir plus d'évènements", events_from_category_path(@category), :class => "awesome" %>
+	
+	</br>
 
 	<% if can? :new, @event %><%= link_to 'New Event', new_event_path %><% end %>
 </section>
@@ -93,7 +99,9 @@
 	</header>
 	<%= render "product_tests/product_tests" %>
 
-
+	<%= link_to "Voir plus d'avis/tests de produits", product_tests_from_category_path(@category), :class => "awesome" %>
+	
+	</br>
 
 	<% if can? :new, @product_test %><%= link_to 'New product test', new_product_test_path %><% end %>
 </section>

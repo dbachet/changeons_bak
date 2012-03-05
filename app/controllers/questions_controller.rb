@@ -1,7 +1,7 @@
 class QuestionsController < AuthorizedController
   include ActionView::Helpers::TextHelper
   add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
-  add_breadcrumb "Questions", :questions_path, :title => "Revenir à la liste des questions"
+  add_breadcrumb "Questions", :questions_path, :title => "Revenir à la liste des questions", :except => %w(index show)
   before_filter :authenticate_user!, :except => [:show, :index]
   
   def add_source
@@ -42,7 +42,18 @@ class QuestionsController < AuthorizedController
   # GET /questions
   # GET /questions.xml
   def index
-    @questions = Question.recent.page(params[:page]).per(5)
+    
+    
+    if params[:category_id]                                                     # TO CHANGE
+      @category = Category.find_by_cached_slug(params[:category_id])
+      @questions = @category.questions.page(params[:page]).per(5)
+      add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
+      add_breadcrumb @category.name.camelize, category_path(@category)
+      add_breadcrumb "Questions", questions_from_category_path(@category), :title => "Revenir à la liste des questions"
+    else
+      add_breadcrumb "Questions", :questions_path, :title => "Revenir à la liste des questions"
+      @questions = Question.recent.page(params[:page]).per(5)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @questions }
@@ -59,7 +70,18 @@ class QuestionsController < AuthorizedController
     @categories = @question.categories
     @votes_result = @question.plusminus
     also_to_read_items(@categories)
-    add_breadcrumb truncate(@question.content, :length => 30), :question_path
+    
+    accessed_from_this_category = accessed_from_category
+    if !accessed_from_this_category.nil?                                         # TO CHANGE
+      @category = Category.find_by_cached_slug(accessed_from_this_category)
+      add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
+      add_breadcrumb @category.name.camelize, category_path(@category)
+      add_breadcrumb "Questions", questions_from_category_path(@category), :title => "Revenir à la liste des questions"
+      add_breadcrumb truncate(@question.content, :length => 30), :question_path
+    else
+      add_breadcrumb "Questions", :questions_path, :title => "Revenir à la liste des questions"
+      add_breadcrumb truncate(@question.content, :length => 30), :question_path
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @question }

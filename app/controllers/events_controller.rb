@@ -1,7 +1,7 @@
 class EventsController < AuthorizedController
   include ActionView::Helpers::TextHelper
   add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
-  add_breadcrumb "Évènements", :events_path, :title => "Revenir à la liste des évènements"
+  add_breadcrumb "Évènements", :events_path, :title => "Revenir à la liste des évènements", :except => %w(index show)
   
   before_filter :authenticate_user!, :except => [:index, :show]
   
@@ -44,7 +44,18 @@ class EventsController < AuthorizedController
   # GET /events
   # GET /events.xml
   def index
-    @events = Event.recent.page(params[:page]).per(5)
+    if params[:category_id]                                                     # TO CHANGE
+      @category = Category.find_by_cached_slug(params[:category_id])
+      @events = @category.events.page(params[:page]).per(5)
+      add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
+      add_breadcrumb @category.name.camelize, category_path(@category)
+      add_breadcrumb "Évènements", events_from_category_path(@category), :title => "Revenir à la liste des évènements"
+    else
+      add_breadcrumb "Évènements", :events_path, :title => "Revenir à la liste des évènements"
+      @events = Event.recent.page(params[:page]).per(5)
+    end
+    
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @events }
@@ -69,7 +80,18 @@ class EventsController < AuthorizedController
     @remaining_comments = @event.root_comments.count - @displayed_comments
     
     @votes_result = @event.plusminus
-    add_breadcrumb truncate(@event.title, :length => 30), :event_path
+    
+    accessed_from_this_category = accessed_from_category
+    if !accessed_from_this_category.nil?                                         # TO CHANGE
+      @category = Category.find_by_cached_slug(accessed_from_this_category)
+      add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
+      add_breadcrumb @category.name.camelize, category_path(@category)
+      add_breadcrumb "Évènements", events_from_category_path(@category), :title => "Revenir à la liste des évènements"
+      add_breadcrumb truncate(@event.title, :length => 30), :event_path
+    else
+      add_breadcrumb "Évènements", :events_path, :title => "Revenir à la liste des évènements"
+      add_breadcrumb truncate(@event.title, :length => 30), :event_path
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @event }

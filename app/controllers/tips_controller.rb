@@ -1,7 +1,7 @@
 class TipsController < AuthorizedController
   include ActionView::Helpers::TextHelper
   add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
-  add_breadcrumb "Astuces", :tips_path, :title => "Revenir à la liste des astuces"
+  add_breadcrumb "Astuces", :tips_path, :title => "Revenir à la liste des astuces", :except => %w(index show)
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def add_source
@@ -43,7 +43,18 @@ class TipsController < AuthorizedController
   # GET /tips
   # GET /tips.xml
   def index
-    @tips = Tip.recent.page(params[:page]).per(5)
+    
+    
+    if params[:category_id]                                                     # TO CHANGE
+      @category = Category.find_by_cached_slug(params[:category_id])
+      @tips = @category.tips.page(params[:page]).per(5)
+      add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
+      add_breadcrumb @category.name.camelize, category_path(@category)
+      add_breadcrumb "Astuces", tips_from_category_path(@category), :title => "Revenir à la liste des astuces"
+    else
+      add_breadcrumb "Astuces", :tips_path, :title => "Revenir à la liste des astuces"
+      @tips = Tip.recent.page(params[:page]).per(5)
+    end
     
     respond_to do |format|
       format.html # index.html.erb
@@ -75,7 +86,18 @@ class TipsController < AuthorizedController
     
     
     @votes_result = @tip.plusminus
-    add_breadcrumb truncate(@tip.title, :length => 30), :tip_path
+    accessed_from_this_category = accessed_from_category
+    if !accessed_from_this_category.nil?                                         # TO CHANGE
+      @category = Category.find_by_cached_slug(accessed_from_this_category)
+      add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
+      add_breadcrumb @category.name.camelize, category_path(@category)
+      add_breadcrumb "Astuces", posts_from_category_path(@category), :title => "Revenir à la liste des astuces"
+      add_breadcrumb truncate(@tip.title, :length => 30), :tip_path
+    else
+      add_breadcrumb "Astuces", :tips_path, :title => "Revenir à la liste des astuces"
+      add_breadcrumb truncate(@tip.title, :length => 30), :tip_path
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @tip }
