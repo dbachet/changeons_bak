@@ -14,7 +14,7 @@ class Category < ActiveRecord::Base
   has_many :product_tests, :through => :product_test_categorizations
   
   has_many :question_categorizations
-  has_many :questionss, :through => :question_categorizations
+  has_many :questions, :through => :question_categorizations
   
   validates_uniqueness_of :name, :case_sensitive => false
   validates_presence_of :name

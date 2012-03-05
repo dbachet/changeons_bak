@@ -53,7 +53,6 @@ Changeons::Application.routes.draw do
     end
   end
   
-  match "posts/categories/:category_id/" => "posts#index", :as => "posts_from_category"        # TO CHANGE
   get "questions/add_source"
   get "questions/remove_source"
   resources :questions do
@@ -68,7 +67,7 @@ Changeons::Application.routes.draw do
     end
   end
 
-  match "posts/categories/:category_id/" => "posts#index"
+  match "/categories/:category_id/posts" => "posts#index", :as => "posts_from_category"        # TO CHANGE
   get "posts/add_source"
   get "posts/remove_source"
   resources :posts do

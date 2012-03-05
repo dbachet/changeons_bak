@@ -109,4 +109,4 @@ REFACTOR ROLES
 - show category page
 - add lazy load
 - changer la couleur de la petite maison avec la vraie couleur d'à côté
-
+- when remove post/tip/... remove from categorizations
