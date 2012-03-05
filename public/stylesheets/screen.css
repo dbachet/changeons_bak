@@ -836,16 +836,13 @@ input#newsletter_subscriber_submit{
 		display: inline-block;
 		font-size: 1.1em;
 		text-align: center;
-		border: 1px dashed black;
-		color: black;
+		border: 1px solid darkgrey;
+		color: grey;
 		height: 5em;
-		width: 5.5em;
+		width: 6.1em;
 		padding-top: 1em;
 		margin-bottom: 5px;
-		-webkit-border-radius: 3px;
-		-moz-border-radius: 3px;
-		-o-border-radius: 3px;
-		border-radius: 3px;
+		background: lightGrey;
 	}
 
 /* END - NEWSLETTER FORM */

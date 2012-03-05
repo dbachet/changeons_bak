@@ -42,7 +42,7 @@ module CommentsHelper
             content_tag(:div, simple_format(h comment.body), :class => "comment_body")
           end +
           content_tag(:div, "", :class => "arrow_comment") +
-          content_tag(:div, "#{user[:name] || user.email }, le #{comment.created_at.strftime("%e")} #{getMonthFromNumber(comment.created_at.strftime("%m"))} #{comment.created_at.strftime("%Y")}", :class => "author_comment_name") +
+          content_tag(:div, "#{user[:name] }, le #{comment.created_at.strftime("%e")} #{getMonthFromNumber(comment.created_at.strftime("%m"))} #{comment.created_at.strftime("%Y")}", :class => "author_comment_name") +
           content_tag(:div, image_tag(avatar_url(user), :class => "avatar"), :class => "author_comment_image") +
           
           (show_reply_link((@tip || @post || @event || @product_test), comment)) +

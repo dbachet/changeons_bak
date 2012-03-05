@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :email_regexp =>  /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :display_name, :real_name, :website, :location, :birthday, :about_me
   attr_accessor :post_id, :root_comment_id, :action, :displayed_comments, :displayed_posts
   
   has_many :posts
