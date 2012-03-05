@@ -93,7 +93,7 @@ class PostsController < AuthorizedController
       @posts = @category.posts.page(params[:page]).per(5)
       add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
       add_breadcrumb @category.name.camelize, category_path(@category)
-      add_breadcrumb "Articles", post_by_category_path(@category), :title => "Revenir à la liste des articles"
+      add_breadcrumb "Articles", posts_from_category_path(@category), :title => "Revenir à la liste des articles"
     else
       @posts = Post.recent.page(params[:page]).per(5)
     end
@@ -142,12 +142,13 @@ class PostsController < AuthorizedController
     # @post_type = @post.post_type.name
     @tags = @post.tag_list
     @votes_result = @post.plusminus
+    accessed_from_this_category = accessed_from_category
     
-    if !accessed_from_category.nil?                                         # TO CHANGE
-      @category = Category.find_by_cached_slug(accessed_by_category)
+    if !accessed_from_this_category.nil?                                         # TO CHANGE
+      @category = Category.find_by_cached_slug(accessed_from_this_category)
       add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
       add_breadcrumb @category.name.camelize, category_path(@category)
-      add_breadcrumb "Articles", post_from_category_path(@category), :title => "Revenir à la liste des articles"
+      add_breadcrumb "Articles", posts_from_category_path(@category), :title => "Revenir à la liste des articles"
       add_breadcrumb truncate(@post.title, :length => 30), :post_path
     else
       add_breadcrumb "Articles", posts_path, :title => "Revenir à la liste des articles"

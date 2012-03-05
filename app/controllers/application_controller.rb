@@ -33,9 +33,9 @@ class ApplicationController < ActionController::Base
   def accessed_from_category
     previous_url = request.referrer.split("/")
     if previous_url[3] == "categories"
-      previous_url[4]
+      previous_url[4].split("?")[0]
     elsif previous_url[4] == "categories"
-      previous_url[5]
+      previous_url[5].split("?")[0]
     end
   end
   
