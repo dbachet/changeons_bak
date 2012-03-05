@@ -91,6 +91,8 @@ pour le modele answer: 	+ ajouter user
 						+ ajouter CSS
 						
 pour le modele user: 	- check what to do when user is deleted, show as profile deleted
+						- add information fields + gravatar
+						
 
 pour tous les modeles: 	- ajouter mechanisme de modération/lock
 
@@ -106,7 +108,8 @@ REFACTOR ROLES
 - Add jQuery for form inputs, to have some text inside disappearing slowly
 - créer helper for product test title
 - recherche
-- show category page
++ show category page
 - add lazy load
 - changer la couleur de la petite maison avec la vraie couleur d'à côté
 - when remove post/tip/... remove from categorizations
+- s'occuper de la barre d'utilisateur en haut

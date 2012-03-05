@@ -137,6 +137,18 @@ class Comment < ActiveRecord::Base
     end
   end
   
+  def getUserInfo
+    if self.user_id == -1
+      user = {:id => -1, :name => "Invité"}
+    else
+      user = User.find_by_id(self.user_id)
+      if user.nil?
+        user = {:id => -2, :name => "Profil supprimé"}          
+      end
+    end
+    user
+  end
+  
   private
   
   def self.fetch_children(comments)

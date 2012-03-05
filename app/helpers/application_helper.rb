@@ -26,4 +26,18 @@ module ApplicationHelper
       "Déc"
     end
   end
+  
+  def avatar_url(user)
+    if user[:id] == -1 || user[:id] == -2
+      "#{root_url}images/default_user_image.jpg"
+    else
+    
+      # if user.avatar_url.present?
+      #   user.avatar_url
+      # else
+      default_url = "#{root_url}images/default_user_image.jpg"
+      gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+      "http://gravatar.com/avatar/#{gravatar_id}.png?s=48&d=#{CGI.escape(default_url)}&s=60"
+    end
+  end
 end
