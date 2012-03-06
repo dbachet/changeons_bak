@@ -43,7 +43,7 @@ module CommentsHelper
           end +
           content_tag(:div, "", :class => "arrow_comment") +
           content_tag(:div, "#{user[:name] }, le #{comment.created_at.strftime("%e")} #{getMonthFromNumber(comment.created_at.strftime("%m"))} #{comment.created_at.strftime("%Y")}", :class => "author_comment_name") +
-          content_tag(:div, image_tag(avatar_url(user), :class => "avatar"), :class => "author_comment_image") +
+          content_tag(:div, image_tag(avatar_url(user, 60), :class => "avatar"), :class => "author_comment_image") +
           
           (show_reply_link((@tip || @post || @event || @product_test), comment)) +
           (content_tag(:p, "", :class => "reply_fields", :id => "reply_comment_#{comment.id}") if comment.is_root_comment?)

@@ -1,78 +1,87 @@
-<ul id="hmenu">
-	<li><%= 
-			link_to_unless_current(raw("Change"+"&nbsp;&nbsp;"+"ns"), root_path, :class => "changeons ") do
-				link_to(raw("Change"+"&nbsp;&nbsp;"+"ns"), root_path, :class => "changeons current")
-			end 
-		%>
-	</li>
+<div style="margin: 0 auto;width:1160px">
+	<ul id="hmenu">
+		<li><%= 
+				link_to_unless_current(raw("Change"+"&nbsp;&nbsp;"+"ns"), root_path, :class => "changeons ") do
+					link_to(raw("Change"+"&nbsp;&nbsp;"+"ns"), root_path, :class => "changeons current")
+				end
+			%>
+		</li>
 	
-	<li><%=
-			link_to_unless_current("Articles", posts_path, :class => "top_menu") do
-				link_to("Articles", posts_path, :class => "current top_menu")
-			end
-		%>
-	</li>
-
-	<li><%=
-			link_to_unless_current("Astuces", tips_path, :class => "top_menu") do
-				link_to("Astuces", tips_path, :class => "current top_menu")
-			end
-		%>
-	</li>
-	
-	<li><%=
-			link_to_unless_current("Questions/Réponses", questions_path, :class => "top_menu") do
-				link_to("Questions/Réponses", questions_path, :class => "current top_menu")
-			end
-		%>
-	</li>
-	
-	<li><%=
-			link_to_unless_current("Évènements", events_path, :class => "top_menu") do
-				link_to("Évènements", events_path, :class => "current top_menu")
-			end
-		%>
-	</li>
-
-	<li><%=
-			link_to_unless_current("Avis/Tests produits", product_tests_path, :class => "top_menu") do
-				link_to("Avis/Tests produits", product_tests_path, :class => "current top_menu")
-			end
-		%>
-	</li>
-	<li style="margin-top:12px; margin-left:10px"><%= link_to(image_tag("/images/back_to_top.png"), "#top", :id => "back_to_top_button" ) %></li>
-
-
-	
-</ul>
-<ul id="user_menu_items">
-<% if user_signed_in? %>
-
+		<li><%=
+				link_to_unless_current("Articles", posts_path, :class => "top_menu") do
+					link_to("Articles", posts_path, :class => "current top_menu")
+				end
+			%>
+		</li>
+		<div class="vertical_rule"></div>
+		<li><%=
+				link_to_unless_current("Astuces", tips_path, :class => "top_menu") do
+					link_to("Astuces", tips_path, :class => "current top_menu")
+				end
+			%>
+		</li>
+		<div class="vertical_rule"></div>
+		<li><%=
+				link_to_unless_current("Questions/Réponses", questions_path, :class => "top_menu") do
+					link_to("Questions/Réponses", questions_path, :class => "current top_menu")
+				end
+			%>
+		</li>
+		<div class="vertical_rule"></div>
+		<li><%=
+				link_to_unless_current("Évènements", events_path, :class => "top_menu") do
+					link_to("Évènements", events_path, :class => "current top_menu")
+				end
+			%>
+		</li>
+		<div class="vertical_rule"></div>
+		<li><%=
+				link_to_unless_current("Avis/Tests produits", product_tests_path, :class => "top_menu") do
+					link_to("Avis/Tests produits", product_tests_path, :class => "current top_menu")
+				end
+			%>
+		</li>
+		
 
 	
-	<% if can? :index, :admin_dashboard %>
-	<li>
-	<%= link_to('Admin', admin_dashboard_page_path)%>
-	</li>
+	</ul>
+	
+	
+	<% if user_signed_in? %>
+		<div id="connected_user">
+			<div><%= link_to(image_tag(avatar_url(current_user, 25), :width => "25", :height => "25"), "#") %></div>
+			<div><%= link_to truncate(current_user.display_name, :length => 20), "#", :class => "user_name" %></div>
+		</div>
+		<ul id="user_menu_items">
+
+		<% if can? :index, :admin_dashboard %>
+		<li>
+		<%= link_to('Admin', admin_dashboard_page_path)%>
+		</li>
+		<% end %>
+		
+		<li><%=
+				link_to_unless_current(("<span class='icon'>Éditer profil</span>").html_safe, edit_user_registration_path, :class => "edit_profile") do
+					link_to(("<span class='icon'>Éditer profil</span>").html_safe, edit_user_registration_path, :class => "current edit_profile")
+				end
+			%>
+		</li>
+
+
+		<li>
+		<%= link_to(("<span class='icon'>Déconnexion</span>").html_safe, destroy_user_session_path, :class => "disconnect") %>        
+		</li>
+		</ul>
+	<% else %>
+		<ul id="account_links">
+			<li>
+		<%= link_to("Créer un compte", new_user_registration_path)  %>
+		</li>
+		<li>
+		<%= link_to('Se connecter', new_user_session_path, :remote => true, :class => "fancybox_signin fancybox.ajax")  %>
+		</li>
+		</ul>
 	<% end %>
-	
-	<li><%=
-			link_to_unless_current("Edit registration", edit_user_registration_path) do
-				link_to("Edit registration", edit_user_registration_path, :class => "current")
-			end
-		%>
-	</li>
+	<div style="display:inline-block;vertical-align:top;margin-top:14px; margin-left:10px"><%= link_to(image_tag("/images/back_to_top.png"), "#top", :id => "back_to_top_button" ) %></div>
+</div>
 
-
-	<li>
-	<%= link_to('Logout', destroy_user_session_path) %>        
-	</li>
-<% else %>
-	<li>
-	<%= link_to('Register', new_user_registration_path)  %>
-	</li>
-	<li>
-	<%= link_to('Login', new_user_session_path, :remote => true, :class => "fancybox_signin fancybox.ajax")  %>
-	</li>
-<% end %>
-</ul>

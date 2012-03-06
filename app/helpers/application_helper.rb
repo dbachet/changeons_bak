@@ -27,7 +27,7 @@ module ApplicationHelper
     end
   end
   
-  def avatar_url(user)
+  def avatar_url(user, size)
     if user[:id] == -1 || user[:id] == -2
       "#{root_url}images/default_user_image.jpg"
     else
@@ -37,7 +37,7 @@ module ApplicationHelper
       # else
       default_url = "#{root_url}images/default_user_image.jpg"
       gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
-      "http://gravatar.com/avatar/#{gravatar_id}.png?s=48&d=#{CGI.escape(default_url)}&s=60"
+      "http://gravatar.com/avatar/#{gravatar_id}.png?s=48&d=#{CGI.escape(default_url)}&s=#{size}"
     end
   end
 end
