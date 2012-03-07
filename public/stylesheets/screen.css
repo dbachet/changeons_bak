@@ -495,6 +495,7 @@ header nav#top_page{
 div#connected_user{
 	display: inline-block;
 	vertical-align: top;
+	float:	right;
 /*	padding-top: 0.8em;*/
 /*	height: 3.5em;*/
 /*	border-left: 1px solid rgba(255, 255, 255, 0.2);*/
@@ -530,7 +531,7 @@ div#connected_user a.user_name:hover{
 
 header nav ul#hmenu {
 	float: left;
-	width: 855px;
+	width: 810px;
 /*	padding-left: 80px;*/
 	list-style: none;	
 	margin: 0 auto;
@@ -558,14 +559,14 @@ header nav ul#hmenu li a.home {
 header nav ul#hmenu li a.changeons {
 /*		font-family: 'CaviarDreamsBold', verdana, arial;*/
 		display: inline-block;
-		font-size: 2.5em;
+		font-size: 2.3em;
 		color: #EAC895; /*#9B9BBD #55AACF*/
 		position: relative;
-		line-height: 1.1;
+		line-height: 1;
 	vertical-align: bottom;
-	width: 220px;
+	width: 180px;
 	height: 45px;
-	background: url('/images/recycle.png') 144px 9px no-repeat;
+	background: url('/images/recycle.png') 114px 5px no-repeat;
 	-webkit-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 	-moz-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
@@ -575,6 +576,7 @@ header nav ul#hmenu li a.changeons {
 	-o-transition: text-shadow 1s ease;  
 	-ms-transition: text-shadow 1s ease;  
 	transition: text-shadow 1s ease;
+	margin-right: 1em;
 }
 
 header nav ul#hmenu li a.changeons:hover,
@@ -611,11 +613,12 @@ header nav ul#hmenu li a.home.current {
 	
 	/* User items menu */
 		header nav ul#user_menu_items{
+			float: right;
 			font-family: "SansitaOneRegular", verdana, arial;
 			display: inline-block;
 			vertical-align: top;
 			border: 1px solid rgba(0,0, 0, 0.1);
-			padding: 0.2em 0 0.4em 0;
+			padding: 0.3em 0 0.4em 0;
 			margin: 0.5em 0 0 0.5em;
 			border-radius: 3px;
 			background: rgba(0, 0, 0, 0.05);
@@ -668,6 +671,7 @@ header nav ul#hmenu li a.home.current {
 		}
 		
 		ul#account_links{
+			float: right;
 			display:inline-block;
 			width: 100px;
 			padding: 0.3em;
@@ -830,6 +834,7 @@ header#top_banner div#quote{
 	margin-bottom: 25px;
 /*	padding-left: 120px;*/
 	font-family: "JournalRegular", verdana, arial;
+	position:relative;
 }
 
 header#top_banner div#top_item{

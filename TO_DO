@@ -112,5 +112,6 @@ REFACTOR ROLES
 - add lazy load
 - changer la couleur de la petite maison avec la vraie couleur d'à côté
 - when remove post/tip/... remove from categorizations
-- s'occuper de la barre d'utilisateur en haut
++ s'occuper de la barre d'utilisateur en haut
+- add picture instead of gravatar
 - s'occuper des images (lieu de stockage), sécurité de ckeditor

@@ -1,8 +1,8 @@
 <div style="margin: 0 auto;width:1160px">
 	<ul id="hmenu">
 		<li><%= 
-				link_to_unless_current(raw("Change"+"&nbsp;&nbsp;"+"ns"), root_path, :class => "changeons ") do
-					link_to(raw("Change"+"&nbsp;&nbsp;"+"ns"), root_path, :class => "changeons current")
+				link_to_unless_current(raw("change"+"&nbsp;&nbsp;"+"ns"), root_path, :class => "changeons ") do
+					link_to(raw("change"+"&nbsp;&nbsp;"+"ns"), root_path, :class => "changeons current")
 				end
 			%>
 		</li>
@@ -46,12 +46,11 @@
 	
 	</ul>
 	
-	
+	<div style="float: right;display:inline-block;vertical-align:top;margin:14px 6px 0 10px;">
+		<%= link_to(image_tag("/images/back_to_top.png"), "#top", :id => "back_to_top_button" ) %>
+	</div>
 	<% if user_signed_in? %>
-		<div id="connected_user">
-			<div><%= link_to(image_tag(avatar_url(current_user, 25), :width => "25", :height => "25"), "#") %></div>
-			<div class="user_name"><%= link_to truncate(current_user.display_name, :length => 25), "#" %></div>
-		</div>
+		
 		<ul id="user_menu_items">
 
 		<% if can? :index, :admin_dashboard %>
@@ -75,16 +74,20 @@
 		<%= link_to(("<span class='icon'>Déconnexion</span>").html_safe, destroy_user_session_path, :class => "disconnect") %>        
 		</li>
 		</ul>
+		<div id="connected_user">
+			<div><%= link_to(image_tag(avatar_url(current_user, 25), :width => "25", :height => "25"), "#") %></div>
+			<div class="user_name"><%= link_to truncate(current_user.display_name, :length => 25), "#" %></div>
+		</div>
 	<% else %>
 		<ul id="account_links">
 			<li>
-		<%= link_to("Créer un compte", new_user_registration_path)  %>
-		</li>
-		<li>
-		<%= link_to('Se connecter', new_user_session_path, :remote => true, :class => "fancybox_signin fancybox.ajax")  %>
-		</li>
+			<%= link_to("Créer un compte", new_user_registration_path)  %>
+			</li>
+			<li>
+			<%= link_to('Se connecter', new_user_session_path, :remote => true, :class => "fancybox_signin fancybox.ajax")  %>
+			</li>
 		</ul>
 	<% end %>
-	<div style="display:inline-block;vertical-align:top;margin-top:14px; margin-left:10px"><%= link_to(image_tag("/images/back_to_top.png"), "#top", :id => "back_to_top_button" ) %></div>
+
 </div>
 
