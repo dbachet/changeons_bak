@@ -75,7 +75,7 @@ page principale: 	+ afficher 4/5 articles + ajouter une recherche par tags
 					ajouter questions(done)
 sur chaque index de modele:	ajouter les tools,
 							+ajouter pagination normale
-							- changer le dessus avec un description de la section et un post mis en avant plutot que la maison
+							? changer le dessus avec un description de la section et un post mis en avant plutot que la maison (on garde ça pour plus tard)
 sur chaque show page: 	+ ajouter "à lire aussi"
 						+ changer couleur etiquette
 						+ modifier la barre share
@@ -107,7 +107,7 @@ REFACTOR ROLES
 - SEO
 - Add jQuery for form inputs, to have some text inside disappearing slowly
 - créer helper for product test title
-- recherche
++ recherche (pour plus tard)
 + show category page
 - add lazy load
 - changer la couleur de la petite maison avec la vraie couleur d'à côté
@@ -115,3 +115,10 @@ REFACTOR ROLES
 + s'occuper de la barre d'utilisateur en haut
 - add picture instead of gravatar
 - s'occuper des images (lieu de stockage), sécurité de ckeditor
+- improve home page (garder pour plus tard)
+- add légende to the picture of the post/tip/event...
+- finir les show pages avec infos sur l'auteur, etc... IMPORTANT
+- add user profile show with the possibility to show his recommendations IMPORTANT
+- messages privés entre utilisateurs (on garde pour plus tard)
+- add jquery buble to explain top page buttons
+- les + lus, les + votés, classement

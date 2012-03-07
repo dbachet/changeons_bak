@@ -831,7 +831,7 @@ header#top_banner div#quote{
 	-moz-text-shadow: 1px 1px rgba(0,0,0,0.2);
 	text-shadow: 1px 1px rgba(0,0,0,0.2);
 /*	border-bottom: 1px solid rgba(0, 0, 0, 0.2);*/
-	margin-bottom: 25px;
+	margin-bottom: 10px;
 /*	padding-left: 120px;*/
 	font-family: "JournalRegular", verdana, arial;
 	position:relative;

@@ -139,7 +139,7 @@ Changeons::Application.routes.draw do
   
   get "pages/tips"
   
-
+  
   devise_for :users, :controllers => {:sessions => 'sessions'} do
     match "admin/users/sign_up" => "admin/registrations#new", :as => :admin_new_user_registration, :via => :get
     match "admin/users/destroy/:id" => "admin/registrations#destroy", :as => :admin_destroy_user_registration, :via => :delete
@@ -147,6 +147,7 @@ Changeons::Application.routes.draw do
     match "admin/users/:id" => "admin/registrations#update", :as => :admin_update_user_registration, :via => :put
     match "admin/users" => "admin/registrations#create", :as => :admin_user_registration, :via => :post
   end
+  match "users/profile/:id" => "users#show", :as => "show_user_profile"
   
   # namespace :admin do
   #   resources :users# , :controllers => {:registrations => 'admin'}

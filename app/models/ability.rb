@@ -48,6 +48,7 @@ class Ability
       can [:show_posts], Tag
       can [:show, :index], Question
       can [:show], Category
+      can [:show], User
     else
       can [:create], NewsletterSubscriber
       can [:index, :show, :show_more_posts], Post
@@ -61,6 +62,7 @@ class Ability
       can [:show_posts], Tag
       can [:show, :index], Question
       can [:show], Category
+      can [:show], User
     end
   end
 end
