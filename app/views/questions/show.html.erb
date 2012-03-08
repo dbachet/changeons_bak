@@ -2,7 +2,7 @@
 	<article id="question" class="show">
 		<header>
 			<div class="left">
-				<div class="etiquette">Astuce</div>
+				<div class="etiquette"><%= link_to "Question", questions_path %></div>
 				<div class="date">
 					<span class="day"><%= @question.created_at.strftime("%d") %></span>
 					<span class="month"><%= getMonthFromNumber(@question.created_at.strftime("%m")) %></span>
@@ -12,10 +12,12 @@
 			</div>
 			<div class="right" style='width:30em'>
 				<h1><%= @question.title %></h1>
-				<div class="written_by"><span>écrit par</span> <%= @question.user.email %></div>
+				<div class="written_by"><span>écrit par</span> <%= link_to(@user.display_name, show_user_profile_path(@user)) %></div>
 				<div class="categories">Catégories:
-					<span><%= @categories.map{|c| c.name}.join(', ') %></span>
+					<span><%= @categories.map{|c| (link_to c.name, category_path(c.name.downcase) )}.join(', ').html_safe %></span>
 				</div>
+				
+				<%= link_to 'Edit', edit_question_path(@question) %>
 			</div>
 			<div id="small_picture">
 				<%= image_tag "/images/post_picture_missing.png" %>
@@ -41,10 +43,29 @@
 			
 		  <%= simple_format(h @question.content) %>
 	
+			<div class="horizontal_rule_questions"></div>
+			<div id="about_author">
+				<h1>À propos de l'auteur</h1>
+				<div class="left">
+					<div class="image" >
+						<%= link_to(image_tag(avatar_url(@user, 60)), show_user_profile_path(@user)) %>
+					</div>
+					<div class="author">
+						<%= link_to(@user.display_name, show_user_profile_path(@user)) %>
+					</div>
+				</div>
+				<div class="right">
+					<div class="member_state">
+						<%= @user.member_state %>
+					</div>
+					<div class="about">
+						<%= @user.about_me %>
+					</div>
+				</div>
+			</div>
+			<div class="horizontal_rule_questions"></div>
+			
 
-		<%= link_to 'Edit', edit_question_path(@question) %>
-
-		<br />
 	
 		</div>
 		<% if @question.source %>
@@ -54,7 +75,7 @@
 		</ul>
 		<% end %>
 	</article>
-	<h1 class="red_section big"><span>Les</span> RÉPONSES</h1>
+	<h1 class="red_section big">Les <span>RÉPONSES</span></h1>
 	<section id="answers">
 
 	<% @answers.each do |answer| %>

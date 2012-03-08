@@ -2,7 +2,7 @@
 	<article id="event" class="show">
 		<header>
 			<div class="left">
-				<div class="etiquette">Évènement</div>
+				<div class="etiquette"><%= link_to "Évènement", events_path %></div>
 				<div class="date">
 					<span class="day"><%= @event.created_at.strftime("%d") %></span>
 					<span class="month"><%= getMonthFromNumber(@event.created_at.strftime("%m")) %></span>
@@ -12,11 +12,9 @@
 			</div>
 			<div class="right" <%= ("style='width:30em'" if !@event.has_big_picture) %>>
 				<h1><%= @event.title %></h1>
-				<div class="written_by"><span>écrit par</span> <%= @event.user.email %></div>
+				<div class="written_by"><span>écrit par</span> <%= link_to(@user.display_name, show_user_profile_path(@user)) %></div>
 				<div class="categories">Catégories: 
-					<% @categories.each do |category| %>
-						<%= category.name %> 
-					<% end %>
+					<span><%= @categories.map{|c| (link_to c.name, category_path(c.name.downcase) )}.join(', ').html_safe %></span>
 				</div>
 			</div>
 			<% if !@event.has_big_picture %>
@@ -47,18 +45,39 @@
 				<%= image_tag @event.picture.url(:medium),  :style => ("margin: 0 9em" if !@event.picture_orientation_horizontal) %>
 			</div>
 		<% end %>
-		<%= @event.description.html_safe %>
+		
+		<%= simple_format(h @event.description) %>
+		
+		<div class="horizontal_rule_events"></div>
+		<div id="about_author">
+			<h1>À propos de l'auteur</h1>
+			<div class="left">
+				<div class="image" >
+					<%= link_to(image_tag(avatar_url(@user, 60)), show_user_profile_path(@user)) %>
+				</div>
+				<div class="author">
+					<%= link_to(@user.display_name, show_user_profile_path(@user)) %>
+				</div>
+			</div>
+			<div class="right">
+				<div class="member_state">
+					<%= @user.member_state %>
+				</div>
+				<div class="about">
+					<%= @user.about_me %>
+				</div>
+			</div>
+		</div>
+		<div class="horizontal_rule_events"></div>
 
-		<%= link_to 'Edit', edit_event_path(@event) %>
 
-		<br />
 		</div>
 	</article>
 
 	<section id="comments">
 		<!-- Comments -->
 		<header>
-		<h1 class="red_section big"><span>Les</span> COMMENTAIRES</h1>
+		<h1 class="red_section big">Les <span>COMMENTAIRES</span></h1>
 		</header>
 	
 		<div id="display_comments" data-displayed-comments=<%= @displayed_comments %>>

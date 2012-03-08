@@ -13,7 +13,7 @@
 			</div>
 			<div class="right">
 				<h1><%= @post.title %></h1>
-				<div class="written_by"><span>écrit par</span> <%= @user.display_name %></div>
+				<div class="written_by"><span>écrit par</span> <%= link_to(@user.display_name, show_user_profile_path(@user)) %></div>
 				<div class="categories">Catégories: 
 					<span><%= @categories.map{|c| (link_to c.name, category_path(c.name.downcase) )}.join(', ').html_safe %></span>
 				</div>
@@ -50,7 +50,7 @@
 			<div id="about_author">
 				<h1>À propos de l'auteur</h1>
 				<div class="left">
-					<div class="image" >
+					<div class="image">
 						<%= link_to(image_tag(avatar_url(@user, 60)), show_user_profile_path(@user)) %>
 					</div>
 					<div class="author">

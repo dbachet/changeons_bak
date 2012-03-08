@@ -64,6 +64,7 @@ class QuestionsController < AuthorizedController
   # GET /questions/1.xml
   def show
     @question = Question.find(params[:id])
+    @user = @question.user
     @answers = @question.answers
     @answer = Answer.new
     

@@ -66,6 +66,7 @@ class ProductTestsController < AuthorizedController
   # GET /product_tests/1.xml
   def show
     @product_test = ProductTest.find(params[:id])
+    @user = @product_test.user
     @categories = @product_test.categories
     
     @default_comment_offset = APP_CONFIG['default_post_offset']

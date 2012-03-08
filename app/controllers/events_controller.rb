@@ -66,6 +66,7 @@ class EventsController < AuthorizedController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
+    @user = @event.user
     @categories = @event.categories
     
     @default_comment_offset = APP_CONFIG['default_post_offset']
