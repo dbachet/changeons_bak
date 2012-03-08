@@ -30,7 +30,7 @@ class Ability
     if user.role? :admin
       can :manage, :all
       cannot [:show_guest_fields, :show_guest_fields_for_reply, :comment_as_guest, :create_comment_as_guest, :create_reply_as_guest], Comment
-    elsif user.role? :moderator
+    elsif user.role? :redactor
       can :manage, :all
       cannot [:edit, :update, :destroy], NewsletterSubscriber
       cannot [:new, :edit, :update, :destroy], :admin_registration

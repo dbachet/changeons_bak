@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = %w[user moderator admin]
+  ROLES = %w[user redactor admin]
   acts_as_voter
   
   # Include default devise modules. Others available are:
@@ -21,6 +21,14 @@ class User < ActiveRecord::Base
   
   def role?(role)
     true if self.role == role.to_s
+  end
+  
+  def member_state
+    if self.role?(:admin) || self.role?(:redactor)
+      "Membre de la rédaction"
+    else
+      "Utilisateur"
+    end
   end
   
 end

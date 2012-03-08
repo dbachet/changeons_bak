@@ -56,6 +56,7 @@ class TipsController < AuthorizedController
       @tips = Tip.recent.page(params[:page]).per(5)
     end
     
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tips }
@@ -66,6 +67,7 @@ class TipsController < AuthorizedController
   # GET /tips/1.xml
   def show
     @tip = Tip.find(params[:id])
+    @user = @tip.user
     @categories = @tip.categories
     
     @default_comment_offset = APP_CONFIG['default_post_offset']

@@ -1536,7 +1536,51 @@ article#product_test.show{
 		text-align: justify;
 		color: beige;
 	}
-
+	
+	article#tip div#about_author{
+		padding: 1em;
+		background: rgba(255,255,255,0.1);
+		text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+	}
+	
+	article#tip div#about_author h1{
+		padding: 0;
+		margin: 0.5em 0;
+		color: gainsboro;
+	}
+	
+	article#tip div#about_author div.left{
+		width:80px;
+		display: inline-block;
+		vertical-align:	top;
+	}
+	
+	article#tip div#about_author div.left div.image{
+		width: 60px;
+		margin: 0 auto;
+	}
+	
+	article#tip div#about_author div.left div.author{
+	}
+	
+	article#tip div#about_author div.right{
+		display: inline-block;
+		vertical-align:	top;
+	}
+	
+	article#tip div#about_author div.right div.member_state{
+		width:290px;
+		margin-bottom: 1em;
+	}
+	
+	article#tip div#about_author div.right div.about{
+		width: 21em;
+		min-height: 3em;
+		padding: 0.4em 1.9em 0em;
+		background: url("/images/double_quotes_opening.png") top left no-repeat, url("/images/double_quotes_closing.png") bottom right no-repeat;
+		text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.5);
+	}
+	
 /* End - Show */
 
 /* Question show */
