@@ -2,7 +2,7 @@
 	<article id="tip" class="show">
 		<header>
 			<div class="left">
-				<div class="etiquette">Astuce</div>
+				<div class="etiquette"><%= link_to "Astuce", tips_path %></div>
 				<div class="date">
 					<span class="day"><%= @tip.created_at.strftime("%d") %></span>
 					<span class="month"><%= getMonthFromNumber(@tip.created_at.strftime("%m")) %></span>
@@ -56,10 +56,10 @@
 				<h1>À propos de l'auteur</h1>
 				<div class="left">
 					<div class="image" >
-						<%= link_to image_tag(avatar_url(@user, 60)) %>
+						<%= link_to(image_tag(avatar_url(@user, 60)), show_user_profile_path(@user)) %>
 					</div>
 					<div class="author">
-						<%= @user.display_name %>
+						<%= link_to(@user.display_name, show_user_profile_path(@user)) %>
 					</div>
 				</div>
 				<div class="right">

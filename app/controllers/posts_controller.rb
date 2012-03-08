@@ -122,6 +122,7 @@ class PostsController < AuthorizedController
   # GET /posts/1
   # GET /posts/1.xml
   def show
+    @user = @post.user
     @default_comment_offset = APP_CONFIG['default_post_offset']
     @comment = Comment.new
     # @post = Post.find(params[:id])
