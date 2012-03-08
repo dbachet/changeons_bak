@@ -1845,6 +1845,10 @@ section#events header h1{
 /* End - Event show */
 
 /* forms */
+.form{
+	color:gainsboro;
+}
+
 article#post.form header div.short_description,
 article#tip.form header div.description,
 article#event.form header div.description,

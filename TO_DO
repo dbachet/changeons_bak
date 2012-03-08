@@ -123,3 +123,7 @@ REFACTOR ROLES
 - add jquery buble to explain top page buttons
 - les + lus, les + votés, classement
 - fix share
+- add captcha to comments by guests
+- finish edit pages
+- ajouter champs rue 1 et rue 2 pour events
+- validates that end date is after the start date
