@@ -566,7 +566,7 @@ header nav ul#hmenu li a.changeons {
 	vertical-align: bottom;
 	width: 180px;
 	height: 45px;
-	background: url('/images/recycle.png') 114px 5px no-repeat;
+	background: url('/images/changeons_logo_small.png') 0px 2px no-repeat;
 	-webkit-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 	-moz-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
@@ -1023,7 +1023,7 @@ input#newsletter_subscriber_submit{
 		section#tips article:hover,
 		section#events article:hover,
 		section#product_tests article:hover{
-			background: rgba(8, 8, 8, 0.4);
+/*			background: rgba(8, 8, 8, 0.4);*/
 		}
 
 			section#questions article div.left,
@@ -2766,15 +2766,17 @@ footer {
 	text-align: center;
 /*	width: 100%;*/
 /*	z-index: 1000;*/
-	padding: 10px;
-	font-family: "GoLong";
+/*	padding: 10px;*/
+	font-family: "OSPDIN", verdana, arial;
 /*	background-color: rgba(140,10,80, 1);*/
 /*	height: 15px;*/
 	height: 20em;
 	font-size: 16px;
-	color: #A2CF4B;
-	background: url("/images/background_eoliennes4.png") bottom right no-repeat;
-	
+/*	color: #A2CF4B;*/
+	color: rgba(0,0,0,0.2);
+	background: url("/images/background_eoliennes4.png") bottom right no-repeat, url("/images/changeons_logo.png") bottom left no-repeat;
+	width: 1160px;
+	margin: 0 auto;
 /*	-webkit-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
 	-moz-box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
 	box-shadow: inset 0px 5px 5px rgba(25,25,25, 1);
@@ -2782,18 +2784,15 @@ footer {
 }
 
 footer a, footer a:active, footer a:visited  {
-	color: #F88;
+	color: rgba(255, 255, 255, 1);
 }
 
 footer a{
 	display: inline-block;
-	height: 16px;
-	padding: 10px 20px 25px;
-}
-
-footer a:hover{
-  	color: #A2CF4B;
-	background-color: rgba(123, 202, 0, 1);
+	height: 2em;
+	padding: 1em 0 0;
+	width: 10em;
+	font-size: 2em;
 	transition-property: background-color;
 	transition-duration: .5s;
 	-webkit-transition-property: background-color;
@@ -2802,16 +2801,21 @@ footer a:hover{
 	-moz-transition-duration: .5s;
 }
 
+footer a:hover{
+  	color: #A2CF4B;
+	
+	background-color: rgba(123, 202, 0, 1);
+}
+
 footer nav ul {
-	margin: -10px;
-	width: 100%;
+	margin: 0;
+	width: 41em;
 	
 }
 
 footer nav ul li{
 	display: inline-block;
 	float:left;
-	display: inline-block;
 }
 
 footer nav ul li.first{
@@ -2829,11 +2833,14 @@ footer nav ul li.third{
 	box-shadow: 5px 3px 5px rgba(25,25,25, 1);*/
 }
 
+
+
 footer nav span{
 	display: inline-block;
 	float: right;
 	padding: 10px;
 	color: white;
+	margin-top: 180px;
 }
 
 footer nav ul li a.current {
