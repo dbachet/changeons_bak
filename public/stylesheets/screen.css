@@ -1387,15 +1387,15 @@ article#product_test.show{
 				font-family: 'SansitaOneRegular', verdana, arial;
 			}
 			
-		article#post header div.short_description,
-		article#post header div.short_description,
-		article#post header div.short_description,
+
 		article#post header div.short_description{
 			padding: 5px;
 			margin-top: 5px;
 			font-family: 'CaviarDreamsItalic', verdana, arial;
-			background-color: rgba(0,0,0,0.3);						/*ee*/
-			border: 1px dotted #55AACF;								/*ee*/
+			color: white;
+			font-size: 1.4em;
+/*			background-color: rgba(0,0,0,0.3);						*/
+/*			border: 1px dotted #55AACF;								*/
 		}
 		
 		
@@ -1581,6 +1581,75 @@ article#product_test.show{
 		text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.5);
 	}
 	
+	div#show_left{
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	div#show_right{
+		display: inline-block;
+		vertical-align: top;
+	/*	background-color: blue;*/
+		width: 15.3em;
+		padding: 1em;
+		margin-left: 1em;
+		min-height: 65em;
+	/*	background-color: rgba(0, 0, 0, 0.2);*/
+	}
+
+	section#also_to_read > div > h1{
+		padding-left: 2em;
+		line-height: 1.3em;
+		color: #A65240;
+	}
+
+	section#also_to_read > div.posts > h1{
+		background: url("/images/etiquette_posts_small.png") no-repeat;
+	}
+
+	section#also_to_read > div.events > h1{
+		background: url("/images/etiquette_events_small.png") no-repeat;
+	}
+
+	section#also_to_read > div.questions > h1{
+		background: url("/images/etiquette_questions_small.png") no-repeat;
+	}
+
+	section#also_to_read > div.tips > h1{
+		background: url("/images/etiquette_tips_small.png") no-repeat;
+	}
+
+	section#also_to_read > div.product_tests > h1{
+		background: url("/images/etiquette_product_tests_small.png") no-repeat;
+	}
+
+	section#also_to_read > div{
+		border-bottom: 1px solid #C3C8AC;
+		padding-bottom: 10px;
+	}
+
+	section#also_to_read > div > article > div {
+		display: inline-block;
+		vertical-align: top;
+		margin-bottom: 1em;
+	}
+
+	section#also_to_read > div > article > div img{
+		-webkit-box-shadow: 0 0 7px #000;
+		-mox-box-shadow: 0 0 7px #000;
+		box-shadow: 0 0 7px #000;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+
+	section#also_to_read > div > article > div > h2 {
+		font-size: 1em;
+		margin-top: 0em;
+		color: #4584A7;
+		width: 9.2em;
+		text-align: justify;
+	}
 /* End - Show */
 
 /* Question show */
@@ -1594,7 +1663,8 @@ section#questions{
 article#question header h1,
 article#question header div.written_by,
 section#questions article header,
-section#questions article header h1{
+section#questions article header h1,
+article#question header div.categories{
 	color: rgb(225,130,115);
 }
 
@@ -1620,7 +1690,8 @@ section#post_tag_tool header h1,
 article#post header h1,
 article#post header div.written_by,
 section#posts article header,
-section#posts article header h1{
+section#posts article header h1,
+article#post header div.categories{
 	color: rgb(225,130,115);
 }
 
@@ -1645,7 +1716,8 @@ section#product_tests{
 article#product_test header h1,
 article#product_test header div.written_by,
 section#product_tests article header,
-section#product_tests article header h1{
+section#product_tests article header h1,
+article#product_test header div.categories{
 	color: #55AACF;
 }
 
@@ -1747,76 +1819,6 @@ article#tip header div.categories span{
 	color: rgba(255,220,20,1);
 }
 
-div#show_left{
-	display: inline-block;
-	vertical-align: top;
-}
-
-div#show_right{
-	display: inline-block;
-	vertical-align: top;
-/*	background-color: blue;*/
-	width: 15.3em;
-	padding: 1em;
-	margin-left: 1em;
-	min-height: 65em;
-/*	background-color: rgba(0, 0, 0, 0.2);*/
-}
-
-section#also_to_read > div > h1{
-	padding-left: 2em;
-	line-height: 1.3em;
-	color: #A65240;
-}
-
-section#also_to_read > div.posts > h1{
-	background: url("/images/etiquette_posts_small.png") no-repeat;
-}
-
-section#also_to_read > div.events > h1{
-	background: url("/images/etiquette_events_small.png") no-repeat;
-}
-
-section#also_to_read > div.questions > h1{
-	background: url("/images/etiquette_questions_small.png") no-repeat;
-}
-
-section#also_to_read > div.tips > h1{
-	background: url("/images/etiquette_tips_small.png") no-repeat;
-}
-
-section#also_to_read > div.product_tests > h1{
-	background: url("/images/etiquette_product_tests_small.png") no-repeat;
-}
-
-section#also_to_read > div{
-	border-bottom: 1px solid #C3C8AC;
-	padding-bottom: 10px;
-}
-
-section#also_to_read > div > article > div {
-	display: inline-block;
-	vertical-align: top;
-	margin-bottom: 1em;
-}
-
-section#also_to_read > div > article > div img{
-	-webkit-box-shadow: 0 0 7px #000;
-	-mox-box-shadow: 0 0 7px #000;
-	box-shadow: 0 0 7px #000;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-}
-
-section#also_to_read > div > article > div > h2 {
-	font-size: 1em;
-	margin-top: 0em;
-	color: #4584A7;
-	width: 9.2em;
-	text-align: justify;
-}
-
 /* Event show */
 
 article#event,
@@ -1828,7 +1830,9 @@ section#events{
 article#event header h1,
 article#event header div.written_by,
 section#events article header,
-section#events article header h1{
+section#events article header h1,
+article#event header div.categories
+{
 	color: rgba(225,125,75,1);
 }
 
