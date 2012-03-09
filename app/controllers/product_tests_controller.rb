@@ -33,6 +33,14 @@ class ProductTestsController < AuthorizedController
     end
   end
   
+  def remove_advantage
+    @source = params[:source]
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   def vote_up
     begin
       if current_user.voted_for?(@product_test)
