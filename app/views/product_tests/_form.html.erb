@@ -39,6 +39,18 @@
 
 
 <h1>7. Opinion</h1><%= f.input :opinion, :label => false, :input_html => {:class => "new_form_input"} %>
+
+<h1>Ajouter un avantage</h1>
+<div id="advantage_buttons"><%= link_to("Ajouter un avantage", product_tests_show_advantage_form_field_path, :remote => true, :id => "show_advantage_form_field_button") %></div>
+<div id="advantage_form_field"></div>
+
+Prévisualisation des avantages
+<ul id="advantages_preview">
+	<% if !@product_test.advantages.blank? %>
+		<%= @product_test.advantages.html_safe %>
+	<% end %>
+</ul>
+
 <h1>8. Avantages</h1><%= f.input :advantages, :label => false, :input_html => {:class => "new_form_input"} %>
 <h1>9. Inconvénients</h1><%= f.input :drawbacks, :label => false, :input_html => {:class => "new_form_input"} %>
 

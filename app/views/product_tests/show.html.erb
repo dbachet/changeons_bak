@@ -42,14 +42,37 @@
 		</div>
 	
 		<div id="content_wrap">
+			<h2>Marque:</h2> 
+			<%= @product_test.brand %>
+			
+			<h2>Modèle:</h2> 
+			<%= @product_test.product_model %>
+			
+			<h2>Référence:</h2> 
+			<%= @product_test.product_ref %>
+
+			<h2>Prix recommandé:</h2> 
+			<%= sprintf("%.2f", @product_test.recommended_price) %> €
+			
 		<% if @product_test.has_big_picture %>
 			<div id="big_picture">
 				<%= image_tag @product_test.picture.url(:medium),  :style =>  
-				("margin: 0 9em" if !@product_test.picture_orientation_horizontal) %>
+				("margin: 0 7em" if !@product_test.picture_orientation_horizontal) %>
 			</div>
 		<% end %>
+		
+		
 		<%= simple_format(h @product_test.description) %>
 		
+		
+		<h2>Opinion:</h2> 
+		<%= @product_test.opinion %>
+		
+		<h2>Avantages:</h2> 
+		<%= @product_test.advantages %>
+		
+		<h2>Inconvénients:</h2> 
+		<%= @product_test.drawbacks %>
 		
 		<div class="horizontal_rule_product_tests"></div>
 		<div id="about_author">

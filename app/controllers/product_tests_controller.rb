@@ -21,6 +21,18 @@ class ProductTestsController < AuthorizedController
     end
   end
   
+  def show_advantage_form_field
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def add_advantage
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   def vote_up
     begin
       if current_user.voted_for?(@product_test)

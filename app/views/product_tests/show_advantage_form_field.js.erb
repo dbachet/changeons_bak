@@ -1,0 +1,5 @@
+// alert("show_advantage_form_field");
+
+$('a#show_advantage_form_field_button').remove();
+$('div#advantage_buttons').html('<%= escape_javascript(link_to("Ajouter", product_tests_add_advantage_path, :remote => true, :id => "add_advantage_button")) %>');
+$('div#advantage_form_field').html("<%= escape_javascript(render :partial => 'product_tests/advantage_form_field') %>");

@@ -34,7 +34,7 @@ var source_description_val = $('input#source_description_input').val(),
 		} else {
 			sources_val = sources_val + "<li class='" + last_source + "'>" + "<a href=" + source_val + " target='_blank' >" + source_description_val + "</a>" + "<a href='" + link_to_remove_source + "?source=" + last_source +"' data-remote='true' class='remove_source'>Supprimer</a></li>";
 		}
-		copy_textarea();
+		copy_to_textarea();
 		
 	} else if (source_description_val != ""){
 		if (sources_val == "") {
@@ -43,14 +43,14 @@ var source_description_val = $('input#source_description_input').val(),
 			sources_val = sources_val + "<li class='" + last_source + "'>" + source_description_val + "<a href='" + link_to_remove_source + "?source=" + last_source + "' data-remote='true' class='remove_source'>Supprimer</a></li>";
 		}
 		
-		copy_textarea();
+		copy_to_textarea();
 	}
 		
 	
 	$('input#html_link_input').val("http:\/\/");
 	$('input#source_description_input').val("");
 	
-function copy_textarea(){
+function copy_to_textarea(){
 	$('ul#sources_display').html(sources_val);
 	$('ul#sources_display li a.remove_source').remove();
 	var sources_val_without_remove_link = $('ul#sources_display').html();
