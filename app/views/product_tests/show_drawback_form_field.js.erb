@@ -1,0 +1,3 @@
+$('a#show_drawback_form_field_button').remove();
+$('div#drawback_buttons').html('<%= escape_javascript(link_to("Ajouter", product_tests_add_drawback_path, :remote => true, :id => "add_drawback_button")) %>');
+$('div#drawback_form_field').html("<%= escape_javascript(render :partial => 'product_tests/drawback_form_field') %>");

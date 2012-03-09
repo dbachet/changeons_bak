@@ -20,7 +20,7 @@ class ProductTest < ActiveRecord::Base
   has_many :product_test_categorizations
   has_many :categories, :through => :product_test_categorizations
   
-  attr_accessor :advantage, :advantages_preview
+  attr_accessor :advantage, :advantages_preview, :drawback, :drawbacks_preview
   
   validates_length_of :brand, :maximum => 50
   validates_length_of :source_description, :maximum => 80

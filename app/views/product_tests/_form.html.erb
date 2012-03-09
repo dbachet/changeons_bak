@@ -52,6 +52,17 @@ Prévisualisation des avantages
 </ul>
 
 <h1>8. Avantages</h1><%= f.input :advantages, :label => false, :input_html => {:class => "new_form_input"} %>
+
+<h1>Ajouter un inconvénient</h1>
+<div id="drawback_buttons"><%= link_to("Ajouter un inconvénient", product_tests_show_drawback_form_field_path, :remote => true, :id => "show_drawback_form_field_button") %></div>
+<div id="drawback_form_field"></div>
+
+Prévisualisation des inconvénients
+<ul id="drawbacks_preview">
+	<% if !@product_test.drawbacks.blank? %>
+		<%= @product_test.drawbacks.html_safe %>
+	<% end %>
+</ul>
 <h1>9. Inconvénients</h1><%= f.input :drawbacks, :label => false, :input_html => {:class => "new_form_input"} %>
 
 <div id="sources">
@@ -90,6 +101,7 @@ Prévisualisation des avantages
 		$(function(){
 			add_source_links("<%= product_tests_remove_source_path %>");
 			add_advantage_links("<%= product_tests_remove_advantage_path %>");
+			add_drawback_links("<%= product_tests_remove_drawback_path %>");
 		});
 	});
 </script>

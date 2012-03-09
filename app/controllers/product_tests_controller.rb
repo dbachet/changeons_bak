@@ -41,6 +41,26 @@ class ProductTestsController < AuthorizedController
     end
   end
   
+  def show_drawback_form_field
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def add_drawback
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def remove_drawback
+    @source = params[:source]
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   def vote_up
     begin
       if current_user.voted_for?(@product_test)
