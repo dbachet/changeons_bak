@@ -45,7 +45,7 @@
 				<%= image_tag @event.picture.url(:medium),  :style => ("margin: 0 9em" if !@event.picture_orientation_horizontal) %>
 			</div>
 		<% end %>
-		<div class="event_date" style="display:inline-block; vertical-align:top; width:10em">
+		<div class="event_date" style="display:inline-block; vertical-align:top; width:19em">
 			<% if @event.event_end_date %>
 			Du <%= @event.event_start_date.strftime("%d/%m/%Y") %>
 			</br>
@@ -55,7 +55,7 @@
 			<% end %>
 		</div>
 		<% if @event.addr_street || @event.addr_postcode || @event.addr_city %>
-		<div class="event_address" style="display:inline-block; vertical-align:top; width:10em; border-left: 4px solid rgba(255, 255, 255, 0.2); padding: 0 1em; float: right;">
+		<div class="event_address" style="display:inline-block; vertical-align:top; width:10em; border-left: 4px solid rgba(255, 255, 255, 0.2); padding: 0 1em;">
 			<%= @event.addr_street %>
 			</br>
 			<%= @event.addr_postcode %>
@@ -63,7 +63,7 @@
 			<%= @event.addr_city %>
 		</div>
 		<% end %>
-		<div class="description" style="margin-top: 2em">
+		<div class="description" style="margin-top: 3em">
 			<%= simple_format(h @event.description) %>
 		</div>
 		
