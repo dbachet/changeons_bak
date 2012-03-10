@@ -20,14 +20,15 @@ var advantage_val = $('input#product_test_advantage').val(),
 		
 		if (advantages_val != "") {
 			// alert("if");
-			advantages_val = advantages_val + "<li class='" + last_source + "'>" + advantage_val + "</a>" + "<a href='" + link_to_remove_advantage + "?source=" + last_source + "' data-remote='true' class='remove_source'>Supprimer</a></li>";
+			advantages_val = advantages_val + "<div class='advantage_icon'></div><li class='" + last_source + "'>" + advantage_val + "</a>" + "<a href='" + link_to_remove_advantage + "?source=" + last_source + "' data-remote='true' class='remove_item'>Supprimer</a></li>";
 		} else {
 			// alert(advantages_val);
-			advantages_val = "<li class='" + last_source + "'>" + advantage_val + "</a>" + "<a href='" + link_to_remove_source + "?source=" + last_source + "' data-remote='true' class='remove_source'>Supprimer</a></li>";
+			advantages_val = "<div class='advantage_icon'></div><li class='" + last_source + "'>" + advantage_val + "</a>" + "<a href='" + link_to_remove_source + "?source=" + last_source + "' data-remote='true' class='remove_item'>Supprimer</a></li>";
 		}
 		
 		$('ul#advantages_preview').html(advantages_val);
-		$('ul#advantages_preview li a.remove_source').remove();
+		$('ul#advantages_preview li a.remove_item').remove();
+		$('ul#advantages_preview div.advantage_icon').remove();
 		var advantages_val_without_remove_link = $('ul#advantages_preview').html();
 		$('textarea#product_test_advantages').val(advantages_val_without_remove_link);
 		$('ul#advantages_preview').html(advantages_val);
@@ -36,5 +37,6 @@ var advantage_val = $('input#product_test_advantage').val(),
 
 $('a#add_advantage_button').remove();
 $('input#product_test_advantage').remove();
+$('span#add_advantage_notice').remove();
 
 $('div#advantage_buttons').html('<%= escape_javascript(link_to("Ajouter un avantage", product_tests_show_advantage_form_field_path, :remote => true, :id => "show_advantage_form_field_button")) %>');

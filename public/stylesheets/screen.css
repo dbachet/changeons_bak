@@ -2258,6 +2258,75 @@ article#product_test.form ul#sources_display li a.remove_source{
 	article#product_test.form div#sources div#source_inputs{
 		border-right: 1px solid rgba(255, 255, 255, 0.2);
 	}
+	
+	/* Advantages */
+	
+	div#advantages div.left,
+	div#drawbacks div.left{
+		display:inline-block;
+		vertical-align: top;
+		width: 30em;
+	}
+	
+	div#advantages div.right,
+	div#drawbacks div.right{
+		display:inline-block;
+		vertical-align: top;
+		width: 30em;
+	}
+	
+	ul#advantages_preview,
+	ul#drawbacks_preview{
+		background: rgba(255, 255, 255, 0.1);
+		list-style: none;
+		padding: 1em;
+		margin-left: 0;
+		margin-right: 3em;
+	}
+	
+	ul#advantages_preview a.remove_item,
+	ul#drawbacks_preview a.remove_item{
+		margin-left: 10px;
+		color: #95281F;
+		background: rgba(255,255,255,0.3);
+	}
+	
+	ul#advantages_preview div.advantage_icon,
+	ul#drawbacks_preview div.drawback_icon{
+		display: inline-block;
+		vertical-align: top;
+		background: url('/images/drawback_icon.png') no-repeat;
+		height: 15px;
+		width: 2em;
+		margin-top: 3px;
+	}
+	
+	ul#advantages_preview div.advantage_icon{
+		background: url('/images/advantage_icon.png') no-repeat;
+	}
+	
+	ul#drawbacks_preview div.drawback_icon{
+		background: url('/images/drawback_icon.png') no-repeat;
+	}
+	
+	ul#advantages_preview > li,
+	ul#drawbacks_preview > li{
+		display: inline-block;
+		width: 23em;
+	}
+	
+	div#advantage_buttons,
+	div#drawback_buttons{
+		padding-top: 1em;
+	}
+	
+	div#advantage_buttons > a,
+	div#drawback_buttons > a{
+		background: url("/images/plus.png") no-repeat;
+		padding: 4px 0 5px 29px;
+	}
+	/* End - Advantages */
+	
 	/* End - Product test form */
 	
 /* End forms */

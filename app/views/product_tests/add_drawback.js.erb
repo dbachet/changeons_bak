@@ -20,14 +20,15 @@ var drawback_val = $('input#product_test_drawback').val(),
 		
 		if (drawbacks_val != "") {
 			// alert("if");
-			drawbacks_val = drawbacks_val + "<li class='" + last_source + "'>" + drawback_val + "</a>" + "<a href='" + link_to_remove_drawback + "?source=" + last_source + "' data-remote='true' class='remove_source'>Supprimer</a></li>";
+			drawbacks_val = drawbacks_val + "<div class='drawback_icon'></div><li class='" + last_source + "'>" + drawback_val + "</a>" + "<a href='" + link_to_remove_drawback + "?source=" + last_source + "' data-remote='true' class='remove_item'>Supprimer</a></li>";
 		} else {
 			// alert(drawbacks_val);
-			drawbacks_val = "<li class='" + last_source + "'>" + drawback_val + "</a>" + "<a href='" + link_to_remove_source + "?source=" + last_source + "' data-remote='true' class='remove_source'>Supprimer</a></li>";
+			drawbacks_val = "<div class='drawback_icon'></div><li class='" + last_source + "'>" + drawback_val + "</a>" + "<a href='" + link_to_remove_source + "?source=" + last_source + "' data-remote='true' class='remove_item'>Supprimer</a></li>";
 		}
 		
 		$('ul#drawbacks_preview').html(drawbacks_val);
-		$('ul#drawbacks_preview li a.remove_source').remove();
+		$('ul#drawbacks_preview li a.remove_item').remove();
+		$('ul#drawbacks_preview div.drawback_icon').remove();
 		var drawbacks_val_without_remove_link = $('ul#drawbacks_preview').html();
 		$('textarea#product_test_drawbacks').val(drawbacks_val_without_remove_link);
 		$('ul#drawbacks_preview').html(drawbacks_val);
@@ -36,5 +37,6 @@ var drawback_val = $('input#product_test_drawback').val(),
 
 $('a#add_drawback_button').remove();
 $('input#product_test_drawback').remove();
+$('span#add_drawback_notice').remove();
 
 $('div#drawback_buttons').html('<%= escape_javascript(link_to("Ajouter un avantage", product_tests_show_drawback_form_field_path, :remote => true, :id => "show_drawback_form_field_button")) %>');

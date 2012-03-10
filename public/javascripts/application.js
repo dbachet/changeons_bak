@@ -212,23 +212,26 @@ function add_source_links(link_to_remove_source){
 	}
 }
 
-function add_advantage_links(link_to_remove_advantage){
+function add_advantage_remove_links(link_to_remove_advantage){
 	var li_classes = $('ul#advantages_preview li');
 	if (li_classes.length) {
 		li_classes.each(function(index) {
-		    $(this).append('<a href="' + link_to_remove_advantage + '?source=' + $(this).attr('class') + '" data-remote="true" class="remove_source"' + '>Supprimer</a>');
+			$(this).before("<div class='advantage_icon'></div>");
+		    $(this).append('<a href="' + link_to_remove_advantage + '?source=' + $(this).attr('class') + '" data-remote="true" class="remove_item"' + '>Supprimer</a>');
 		});
 	}
 }
 
-function add_drawback_links(link_to_remove_drawback){
+function add_drawback_remove_links(link_to_remove_drawback){
 	var li_classes = $('ul#drawbacks_preview li');
 	if (li_classes.length) {
 		li_classes.each(function(index) {
-		    $(this).append('<a href="' + link_to_remove_drawback + '?source=' + $(this).attr('class') + '" data-remote="true" class="remove_source"' + '>Supprimer</a>');
+			$(this).before("<div class='drawback_icon'></div>");
+		    $(this).append('<a href="' + link_to_remove_drawback + '?source=' + $(this).attr('class') + '" data-remote="true" class="remove_item"' + '>Supprimer</a>');
 		});
 	}
 }
+	
 
 function configTop() {
     var topPageHeight = $('nav#top_page').height(),

@@ -1,8 +1,8 @@
 // alert("Let's remove that advantage li");
 
-
+$('ul#drawbacks_preview div.drawback_icon').remove();
 $('ul#drawbacks_preview li.' + "<%= @source %>").remove();
-$('ul#drawbacks_preview li a.remove_source').remove();
+$('ul#drawbacks_preview li a.remove_item').remove();
 
 var drawbacks_val = $('ul#drawbacks_preview').html();
 $('textarea#product_test_drawbacks').val(drawbacks_val);
@@ -10,5 +10,5 @@ $('textarea#product_test_drawbacks').val(drawbacks_val);
 var link_to_remove_drawback = "<%= product_tests_remove_drawback_path %>";
 
 $(function(){
-	add_drawback_links(link_to_remove_drawback);
+	add_drawback_remove_links(link_to_remove_drawback);
 });
