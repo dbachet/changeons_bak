@@ -1562,6 +1562,7 @@ article#product_test.show{
 	}
 	
 	div#about_author div.left div.author{
+		text-align: center;
 	}
 	
 	div#about_author div.right{
