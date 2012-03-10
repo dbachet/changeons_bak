@@ -10,9 +10,9 @@ $("form#comment_new").bind('ajax:success', function(evt, data, status, xhr) {
 		$('div#display_comments').html("<%= escape_javascript(display_comments(@comment_created)) %>");
 	}
 		
-		$('div#comment_<%= @comment_created.keys.first %>').hide();
+		$('article#comment_<%= @comment_created.keys.first %>').hide();
 		
-		$('div#comment_<%= @comment_created.keys.first %>').slideDown("slow");
+		$('article#comment_<%= @comment_created.keys.first %>').fadeIn("slow");
 		
 		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
 		

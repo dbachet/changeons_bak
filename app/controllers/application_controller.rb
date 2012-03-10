@@ -55,10 +55,10 @@ class ApplicationController < ActionController::Base
     @also_to_read_events = category.events.limit(3)
     @also_to_read_product_tests = category.product_tests.limit(3)
     
-    puts @also_to_read_posts.inspect
-    puts @also_to_read_tips
-    puts @also_to_read_events
-    puts @also_to_read_product_tests
+    # puts @also_to_read_posts.inspect
+    # puts @also_to_read_tips
+    # puts @also_to_read_events
+    # puts @also_to_read_product_tests
   end
   
   def fetch_best_items
@@ -68,7 +68,7 @@ class ApplicationController < ActionController::Base
   
   def top_item
     @top_item = Post.where("has_big_picture = ? AND picture_orientation_horizontal = ?", true, true).limit(1)
-    puts "Top item = #{@top_item.inspect}"
+    # puts "Top item = #{@top_item.inspect}"
   end
   
   def changeons_items

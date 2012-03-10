@@ -191,7 +191,7 @@ class PostsController < AuthorizedController
     @post = current_user.posts.create(params[:post])
     @post.tag_list = params[:post][:tag_list]
     @post.category_ids = params[:post][:category_ids]
-    puts  "#{@post.errors}"
+    # puts  "#{@post.errors}"
     
     respond_to do |format|
       if @post.save

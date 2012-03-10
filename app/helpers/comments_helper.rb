@@ -36,16 +36,16 @@ module CommentsHelper
           content_tag(:div, :class => "comment_content") do
             content_tag(:header) do
               content_tag(:div, comment.title.html_safe, :class => "title") + 
-                (link_to('Supprimer', polymorphic_path([(@tip || @post || @event || @product_test), comment]), :class => "delete_comment_link", :confirm => 'Are you sure?', :method => :delete, :remote => true) if can? :destroy, comment) +
-                (link_to('Éditer', edit_polymorphic_path([(@tip || @post || @event || @product_test), comment]), :class => "edit_comment_link fancybox.ajax") if can? :edit, comment)
+                (link_to('Supprimer', polymorphic_path([(@tip || @post || @event || @product_test || @comment_parent_object), comment]), :class => "delete_comment_link", :confirm => 'Are you sure?', :method => :delete, :remote => true) if can? :destroy, comment) +
+                (link_to('Éditer', edit_polymorphic_path([(@tip || @post || @event || @product_test || @comment_parent_object), comment]), :class => "edit_comment_link fancybox.ajax") if can? :edit, comment)
             end +
             content_tag(:div, simple_format(h comment.body), :class => "comment_body")
           end +
           content_tag(:div, "", :class => "arrow_comment") +
-          content_tag(:div, "#{user[:name] }, le #{comment.created_at.strftime("%e")} #{getMonthFromNumber(comment.created_at.strftime("%m"))} #{comment.created_at.strftime("%Y")}", :class => "author_comment_name") +
+          content_tag(:div, "#{user[:name] || user.display_name }, le #{comment.created_at.strftime("%e")} #{getMonthFromNumber(comment.created_at.strftime("%m"))} #{comment.created_at.strftime("%Y à %H:%M")}", :class => "author_comment_name") +
           content_tag(:div, image_tag(avatar_url(user, 60), :class => "avatar"), :class => "author_comment_image") +
           
-          (show_reply_link((@tip || @post || @event || @product_test), comment)) +
+          (show_reply_link((@tip || @post || @event || @product_test || @comment_parent_object), comment)) +
           (content_tag(:p, "", :class => "reply_fields", :id => "reply_comment_#{comment.id}") if comment.is_root_comment?)
       end
   end

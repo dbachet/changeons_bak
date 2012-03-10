@@ -132,7 +132,7 @@ class CommentsController < AuthorizedController
     # @comment = Comment.find(params[:id])
     
     # authorize! :edit, :comment
-    puts "new_comment => #{@new_comment.inspect} / comment => #{@comment.inspect}"
+    # puts "new_comment => #{@new_comment.inspect} / comment => #{@comment.inspect}"
   end
 
   # POST /comments
