@@ -84,46 +84,50 @@ sur chaque show page: 	+ ajouter "à lire aussi"
 pour modele question:	+ ajouter catégories
 						+ ajouter sources
 						
-pour le modele test:	- ajouter la fonctionnalité pour les avantages/inconvénients
+pour le modele test:	+ ajouter la fonctionnalité pour les avantages/inconvénients
 
 pour le modele answer: 	+ ajouter user
 						+ ajouter vote
 						+ ajouter CSS
 						
 pour le modele user: 	- check what to do when user is deleted, show as profile deleted
-						- add information fields + gravatar
+						+ add information fields + gravatar
 						
 
 pour tous les modeles: 	- ajouter mechanisme de modération/lock
 
 pour answers et comments: 	- ajouter "signaler un abus"
+
 REFACTOR ROLES
 - Think about categorizations
 - check seeds
 
 + fil d'ariane
 + ajouter categories en haut
-- footer
++- footer
 - SEO
 - Add jQuery for form inputs, to have some text inside disappearing slowly
 - créer helper for product test title
 + recherche (pour plus tard)
 + show category page
-- add lazy load
+- add lazy load (pour plus tard)
 - changer la couleur de la petite maison avec la vraie couleur d'à côté
 - when remove post/tip/... remove from categorizations
 + s'occuper de la barre d'utilisateur en haut
-- add picture instead of gravatar
+- add possible picture instead of gravatar
 - s'occuper des images (lieu de stockage), sécurité de ckeditor
 - improve home page (garder pour plus tard)
 - add légende to the picture of the post/tip/event...
-- finir les show pages avec infos sur l'auteur, etc... IMPORTANT
-- add user profile show with the possibility to show his recommendations IMPORTANT
++- finir les show pages avec infos sur l'auteur, etc... IMPORTANT
+- add user profile show with the possibility to show his recommendations(pour plus tard)
 - messages privés entre utilisateurs (on garde pour plus tard)
 - add jquery buble to explain top page buttons
 - les + lus, les + votés, classement
 - fix share
 - add captcha to comments by guests
+- fix comments
 - finish edit pages
 - ajouter champs rue 1 et rue 2 pour events
 - validates that end date is after the start date
+- jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
+- about author description, remove it if empty

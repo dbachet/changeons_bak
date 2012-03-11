@@ -2,13 +2,13 @@ $("form#reply_new").bind('ajax:success', function(evt, data, status, xhr) {
 		$('div#wrap_form_new_reply').remove();
 		
 		var last_reply = $('article.reply_for_<%= @root_comment.id %>:last');
-		
+				
 		if (last_reply[0]){
 			window.location = '#' + last_reply.attr("id");
-			last_reply.after("<%= escape_javascript(display_comments(@reply)) %>");
+			last_reply.after("<%= escape_javascript(display_comment(@reply[@root_comment.id][0])) %>");
 		} else {
 			window.location = '#' + $('article#comment_<%= @root_comment.id %>').attr("id");
-			$('article#comment_<%= @root_comment.id %>').after("<%= escape_javascript(display_comments(@reply)) %>");
+			$('article#comment_<%= @root_comment.id %>').after("<%= escape_javascript(display_comment(@reply[@root_comment.id][0])) %>");
 		}
 		
 		last_reply = $('article.reply_for_<%= @root_comment.id %>:last');

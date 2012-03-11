@@ -52,7 +52,7 @@
 			<%= @product_test.product_ref %>
 
 			<h2>Prix recommandé:</h2> 
-			<%= sprintf("%.2f", @product_test.recommended_price) %> €
+			<%= @product_test.recommended_price ? "#{sprintf("%.2f", @product_test.recommended_price)} €" : "Non détaillé" %>
 			
 		<% if @product_test.has_big_picture %>
 			<div id="big_picture">

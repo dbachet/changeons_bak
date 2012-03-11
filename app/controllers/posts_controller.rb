@@ -128,7 +128,7 @@ class PostsController < AuthorizedController
     # @post = Post.find(params[:id])
     @from = 0
     @limitation = @default_comment_offset
-    @comments = Comment.fetch_comments(@post, @from, @limitation)
+    @comments = Comment.fetch_comments(@post, @from, 10)
   
     
     @displayed_comments = @comments.length
