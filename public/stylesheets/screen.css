@@ -185,7 +185,7 @@ div#breadcrumbs div{
 }
 
 div#breadcrumbs > a > div.home_breadcrumbs{
-	background: url("/images/home_3.png") no-repeat 0 -2px;
+	background: url("/images/home_2.png") no-repeat 0 -2px;
 	line-height: 1.7;
 /*	text-indent: -9999px;*/
 	width: 1.8em;
@@ -194,7 +194,7 @@ div#breadcrumbs > a > div.home_breadcrumbs{
 
 div#breadcrumbs > a:hover > div.home_breadcrumbs,
 div#breadcrumbs > div.home_breadcrumbs{
-	background: url("/images/home_3.png") no-repeat 0 -29px;
+	background: url("/images/home_2.png") no-repeat 0 -29px;
 	line-height: 1.7;
 /*	text-indent: -9999px;*/
 	width: 1.8em;

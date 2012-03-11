@@ -111,7 +111,7 @@ REFACTOR ROLES
 + recherche (pour plus tard)
 + show category page
 - add lazy load (pour plus tard)
-- changer la couleur de la petite maison avec la vraie couleur d'à côté
+- changer la couleur de la petite maison avec la vraie couleur d'à côté !!!!!!
 - when remove post/tip/... remove from categorizations
 + s'occuper de la barre d'utilisateur en haut
 - add possible picture instead of gravatar
@@ -123,11 +123,12 @@ REFACTOR ROLES
 - messages privés entre utilisateurs (on garde pour plus tard)
 - add jquery buble to explain top page buttons
 - les + lus, les + votés, classement
-- fix share
-- add captcha to comments by guests   !!!!
+- fix share (à la fin)
++ add captcha to comments by guests
 + fix comments
 - finish edit pages
 - ajouter champs rue 1 et rue 2 pour events
 - validates that end date is after the start date
 - jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
 - about author description, remove it if empty
+- add house on changeons when :hover
