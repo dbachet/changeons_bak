@@ -76,6 +76,7 @@ class CommentsController < AuthorizedController
     
     @reply = Comment.new
     
+    
     # authorize! :show_reply, @comment
     # authorize! :show_reply, @post
     # puts "post => #{@post.inspect} / comment => #{@comment.inspect}"
@@ -93,6 +94,7 @@ class CommentsController < AuthorizedController
     @comment_parent_object = comment_parent_object
     @comment = Comment.new
     @comment.user_id = -1
+    
     
     # authorize! :show_reply, @comment
     # authorize! :show_reply, @post
@@ -113,6 +115,8 @@ class CommentsController < AuthorizedController
     @root_comment = Comment.find(params[:id])
     @reply = Comment.new
     @reply.user_id = -1
+    
+    @comment = Comment.new
     
     # authorize! :show_reply, @comment
     # authorize! :show_reply, @post
@@ -168,13 +172,15 @@ class CommentsController < AuthorizedController
     @comment = Comment.build_from_as_guest(@comment_parent_object, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website], params[:comment][:send_notification_to_root_comment] )
     
     respond_with do |format|
-      if @comment.save
+      if verify_recaptcha(:model => @comment, :message => "Vous n'avez pas saisi les bons mots !") && @comment.save
         @comment_created = Comment.set_comment_hash(@comment)
         @comment= Comment.new
         flash[:notice] = 'Comment was successfully created.'
         format.js { render :create }
       else
         flash[:alert] = 'Comment was not successfully created.'
+        puts @comment.errors.inspect
+        format.js { render :error_comment }
       end
     end
     
@@ -231,7 +237,7 @@ class CommentsController < AuthorizedController
     @reply = Comment.build_from_as_guest(@comment_parent_object, params[:reply][:body], params[:reply][:title], params[:reply][:guest_email], params[:reply][:guest_website] )
     
     respond_with do |format|
-      if @reply.save
+      if verify_recaptcha(:model => @reply, :message => "Vous n'avez pas saisi les bons mots !") && @reply.save
         @reply.move_to_child_of(@root_comment)
         
         
@@ -244,6 +250,8 @@ class CommentsController < AuthorizedController
         format.js { render :create_reply }
       else
         flash[:alert] = 'Comment was not successfully created.'
+        puts @comment.errors.inspect
+        format.js { render :error_comment }
       end
     end
     

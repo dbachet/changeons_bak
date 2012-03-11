@@ -1,4 +1,4 @@
-<%= form_for(@comment, :as => "comment", :url => create_comment_as_guest_link, :remote => true, :method => :post, :validate => true) do |f| %>
+<%= form_for(@comment, :as => "comment", :url => create_comment_as_guest_link, :remote => true, :method => :post, :validate => true, :html => {:class => "guest"}) do |f| %>
 <h1>Nouveau commentaire</h1>
 
 <div class="left">
@@ -22,6 +22,11 @@
 
   <div class="field">
 	<%= f.check_box :send_notification_to_root_comment, :validate => true %><%= f.label "M'envoyer une notification lorsque quelqu'un répond à mon commentaire" %>
+  </div>
+
+  <div class="field">
+    <%= recaptcha_tags(:display => {:theme => 'blackglass'}, :ajax => true) %>
+	<span></span>
   </div>
 
   <div class="actions">

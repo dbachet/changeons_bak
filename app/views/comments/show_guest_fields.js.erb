@@ -2,6 +2,14 @@ var comment_title = $('form#comment_new input#comment_title').val(),
 	comment_content = $('form#comment_new textarea#comment_body').val(),
 	comment_guest_email = $('form#comment_new input#comment_guest_email').val(),
 	comment_guest_website = $('form#comment_new input#comment_guest_website').val();
+	
+	var replyFormWithGuestFields = $('form#reply_new.guest');
+	
+	if (replyFormWithGuestFields[0]){
+		$('div#wrap_form_new_reply').remove();
+	}
+	
+	
 
 $('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form_with_guest_fields') %>").fadeIn();
 

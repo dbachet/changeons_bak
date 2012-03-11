@@ -1,5 +1,5 @@
 <div id="wrap_form_new_reply">
-	<%= form_for(@reply, :as => "reply", :url => create_reply_as_guest_link, :html => {:method => :post}, :validate => true, :remote => true) do |f| %>
+	<%= form_for(@reply, :as => "reply", :url => create_reply_as_guest_link, :html => {:method => :post, :class => "guest"}, :validate => true, :remote => true) do |f| %>
 
 	<h1>Votre réponse à <%= Comment.comment_author_email(@root_comment) %></h1>
 
@@ -41,7 +41,10 @@
 	    <%= f.text_area :body, :validate => true %>
 	  </div>
 
-
+	  <div class="field">
+	    <%= recaptcha_tags(:display => {:theme => 'white'}, :ajax => true) %>
+		<span></span>
+	  </div>
 	
 	  <div class="actions">
 	    <%= f.submit %>

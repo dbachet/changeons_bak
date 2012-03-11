@@ -16,3 +16,4 @@ gem "cancan"
 gem 'validates_timeliness', '~> 3.0.8'
 gem 'kaminari'
 gem "breadcrumbs_on_rails"
+gem "recaptcha", :require => "recaptcha/rails"

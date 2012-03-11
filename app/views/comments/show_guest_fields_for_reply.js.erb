@@ -3,8 +3,16 @@ var comment_title = $('form#reply_new input#reply_title').val(),
 	comment_guest_email = $('form#reply_new input#reply_guest_email').val(),
 	comment_guest_website = $('form#reply_new input#reply_guest_website').val(),
 	last_reply = $('article.reply_for_<%= @root_comment.id %>:last');
+	
+	var commentFormWithGuestFields = $('form#comment_new.guest');
+	
+	if (commentFormWithGuestFields[0]){
+		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
+	}
 
 $('div#wrap_form_new_reply').remove();
+
+
 	
 if (last_reply[0]) {
 	window.location = "#" + last_reply.attr("id");
