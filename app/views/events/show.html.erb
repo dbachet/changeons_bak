@@ -55,9 +55,11 @@
 			<%= @event.event_start_date.strftime("%d/%m/%Y") %>
 			<% end %>
 		</div>
-		<% if !@event.addr_street.blank? || !@event.addr_postcode.blank? || !@event.addr_city.blank? %>
+		<% if !@event.addr_street_1.blank? || !@event.addr_street_2.blank? || !@event.addr_postcode.blank? || !@event.addr_city.blank? %>
 		<div class="event_address" style="display:inline-block; vertical-align:top; width:10em; border-left: 4px solid rgba(255, 255, 255, 0.2); padding: 0 1em;">
-			<%= @event.addr_street %>
+			<%= @event.addr_street_1 %>
+			</br>
+			<%= @event.addr_street_2 %>
 			</br>
 			<%= "#{@event.addr_postcode} - " %>
 			<%= @event.addr_city %>

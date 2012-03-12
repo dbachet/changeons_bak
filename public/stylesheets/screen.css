@@ -2204,7 +2204,8 @@ article#product_test.form ul#sources_display li a.remove_source{
 	
 	article#event.form input#event_event_end_date,
 	article#event.form input#event_event_start_date,
-	article#event.form input#event_addr_street,
+	article#event.form input#event_addr_street_1,
+	article#event.form input#event_addr_street_2,
 	article#event.form input#event_addr_postcode,
 	article#event.form input#event_addr_city{
 		margin: 5px 0 20px 50px;

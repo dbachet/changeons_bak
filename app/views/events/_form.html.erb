@@ -38,7 +38,8 @@
 </header>
 
 <h1>6. Adresse</h1>
-<h2>Rue</h2><%= f.input :addr_street, :label => false, :input_html => {:class => "new_form_input"} %>
+<h2>Rue</h2><%= f.input :addr_street_1, :label => false, :input_html => {:class => "new_form_input"} %>
+			<%= f.input :addr_street_2, :label => false, :input_html => {:class => "new_form_input"} %>
 <h2>Code postal</h2><%= f.input :addr_postcode, :label => false, :input_html => {:class => "new_form_input"} %>
 <h2>Ville</h2><%= f.input :addr_city, :label => false, :input_html => {:class => "new_form_input"} %>
 <h2>Country</h2><%= f.input :addr_country, :as => :string, :label => false, :input_html => {:class => "new_form_input"} %>

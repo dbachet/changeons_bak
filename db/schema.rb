@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305214340) do
+ActiveRecord::Schema.define(:version => 20120312114829) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(:version => 20120305214340) do
     t.datetime "updated_at"
     t.string   "cached_slug"
     t.integer  "user_id"
-    t.string   "addr_street"
+    t.string   "addr_street_1"
     t.string   "addr_postcode"
     t.string   "addr_city"
     t.string   "addr_country"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20120305214340) do
     t.boolean  "has_big_picture"
     t.boolean  "picture_orientation_horizontal"
     t.text     "sources"
+    t.string   "addr_street_2"
   end
 
   create_table "newsletter_subscribers", :force => true do |t|
