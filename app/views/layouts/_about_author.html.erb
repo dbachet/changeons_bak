@@ -1,0 +1,23 @@
+<div id="about_author">
+	<h1>À propos de l'auteur</h1>
+	<div class="left">
+		<div class="image">
+			<%= link_to(image_tag(avatar_url(@user, 60)), show_user_profile_path(@user)) %>
+		</div>
+		<div class="author">
+			<%= link_to(@user.display_name, show_user_profile_path(@user)) %>
+		</div>
+	</div>
+	<div class="right">
+		<div class="member_state">
+			<%= @user.member_state %>
+		</div>
+		<% if !@user.about_me.blank? %>
+		<div class="about">
+			<%= @user.about_me %>
+		</div>
+		<% else %>
+		<p>Cet utilisateur n'a pas détaillé sa description</p>
+		<% end %>
+	</div>
+</div>

@@ -69,25 +69,7 @@
 		
 		
 		<div class="horizontal_rule_events"></div>
-		<div id="about_author">
-			<h1>À propos de l'auteur</h1>
-			<div class="left">
-				<div class="image" >
-					<%= link_to(image_tag(avatar_url(@user, 60)), show_user_profile_path(@user)) %>
-				</div>
-				<div class="author">
-					<%= link_to(@user.display_name, show_user_profile_path(@user)) %>
-				</div>
-			</div>
-			<div class="right">
-				<div class="member_state">
-					<%= @user.member_state %>
-				</div>
-				<div class="about">
-					<%= @user.about_me %>
-				</div>
-			</div>
-		</div>
+		<%= render 'layouts/about_author' %>
 		<div class="horizontal_rule_events"></div>
 
 
