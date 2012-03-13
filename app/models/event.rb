@@ -25,6 +25,10 @@ class Event < ActiveRecord::Base
   validates_length_of :addr_city, :maximum => 50
   validates_length_of :addr_postcode, :maximum => 10
   validates_length_of :source_description, :maximum => 80
+  validates_date :event_start_date, :format => "d/m/yyyy"
+  validates_date :event_end_date, :on_or_after => :event_start_date, 
+                          :on_or_after_message => "La date de fin doit être similaire ou ultérieure à la date de début", 
+                          :allow_blank => true, :format => "dd/mm/yyyy"
   validate :file_dimensions, :unless => "errors.any?"
   
   attr_accessor :source_description, :source

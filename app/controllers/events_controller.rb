@@ -73,7 +73,7 @@ class EventsController < AuthorizedController
     @comment = Comment.new
     @from = 0
     @limitation = @default_comment_offset
-    @comments = Comment.fetch_comments(@event, @from, @limitation)
+    @comments = Comment.fetch_comments(@event, @from, 10)
     
     also_to_read_items(@categories)
     
@@ -121,6 +121,7 @@ class EventsController < AuthorizedController
   # POST /events.xml
   def create
     @event = current_user.events.new(params[:event])
+    # @event.event_start_date = Timeliness.parse(@event.event_start_date, :format => 'dd/mm/yyyy')
 
     respond_to do |format|
       if @event.save

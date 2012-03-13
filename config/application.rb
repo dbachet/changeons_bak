@@ -37,6 +37,10 @@ module Changeons
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
+    
+    # Time zone configuration
+    config.time_zone = 'Europe/Paris'
+    # config.active_record.default_timezone = 'Europe/Paris'
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]

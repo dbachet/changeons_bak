@@ -50,6 +50,7 @@
 			</br>
 			<% if @event.event_end_date %>
 			Du <%= @event.event_start_date.strftime("%d/%m/%Y") %>
+			</br>
 			au <%= @event.event_end_date.strftime("%d/%m/%Y") %>
 			<% else %>
 			<%= @event.event_start_date.strftime("%d/%m/%Y") %>

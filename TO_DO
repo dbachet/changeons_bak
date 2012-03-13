@@ -127,8 +127,8 @@ REFACTOR ROLES
 + add captcha to comments by guests
 + fix comments
 - finish edit pages
-- ajouter champs rue 1 et rue 2 pour events
++ ajouter champs rue 1 et rue 2 pour events
 - validates that end date is after the start date
 - jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
 + about author description, remove it if empty
-- add house on changeons when :hover
++ add house on changeons when :hover
