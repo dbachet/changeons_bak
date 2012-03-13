@@ -57,6 +57,12 @@ $(document).ready(function() {
 	    });  
 	});
 	
+	$('.fancybox_signin').fancybox({
+		closeClick: false,
+		afterShow:	function() {
+			$('form#user_new[data-validate]').validate()
+		}
+	});
 	
 	$('a.admin_new_user_registration_link').fancybox({
 		closeClick: false,

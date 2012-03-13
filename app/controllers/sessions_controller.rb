@@ -17,23 +17,23 @@ class SessionsController < Devise::SessionsController
     
     
     # SHOULDN'T BE HERE
-    @action = params[:user][:action]
-    if !@action.blank?
-      if @action == "show_post"
-        @post = Post.find(params[:user][:post_id])
-        @root_comment = Comment.find(params[:user][:root_comment_id]) unless params[:user][:root_comment_id].empty?
-        @reply = Comment.new
-        @comment = Comment.new
-        
-        @displayed_comments = params[:user][:displayed_comments].to_i
-        @comments = Comment.fetch_comments(@post, 0, @displayed_comments)
-        @remaining_comments = @post.root_comments.count - @displayed_comments
-      elsif @action == "index_post"
-        @displayed_posts = params[:user][:displayed_posts].to_i
-        @posts = Post.recent.limit(@displayed_posts)
-        @remaining_posts = Post.count - @displayed_posts
-      end
-    end
+    # @action = params[:user][:action]
+    # if !@action.blank?
+    #       if @action == "show_post"
+    #         @post = Post.find(params[:user][:post_id])
+    #         @root_comment = Comment.find(params[:user][:root_comment_id]) unless params[:user][:root_comment_id].empty?
+    #         @reply = Comment.new
+    #         @comment = Comment.new
+    #         
+    #         @displayed_comments = params[:user][:displayed_comments].to_i
+    #         @comments = Comment.fetch_comments(@post, 0, @displayed_comments)
+    #         @remaining_comments = @post.root_comments.count - @displayed_comments
+    #       elsif @action == "index_post"
+    #         @displayed_posts = params[:user][:displayed_posts].to_i
+    #         @posts = Post.recent.limit(@displayed_posts)
+    #         @remaining_posts = Post.count - @displayed_posts
+    #       end
+    #     end
     
     
 
@@ -65,6 +65,8 @@ class SessionsController < Devise::SessionsController
     # @post_id = params[:post_id]
     # @root_comment_id = params[:root_comment_id]
     # SHOULDN'T BE HERE
+    
+    puts "try to log in"
     
     resource = build_resource
     clean_up_passwords(resource)

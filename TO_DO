@@ -116,6 +116,7 @@ REFACTOR ROLES
 + about author description, remove it if empty
 + add house on changeons when :hover
 
+- Try to keep filled form when logging in with cookie, then with session
 - SEO
 - Add jQuery for form inputs, to have some text inside disappearing slowly
 - créer helper for product test title
@@ -128,7 +129,6 @@ REFACTOR ROLES
 - fix share (à la fin)
 - finish edit pages
 - jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
-- how to reload he page with the forms filled when login in
 
 
 

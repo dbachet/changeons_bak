@@ -1,79 +1,13 @@
 $("form#user_new").bind('ajax:success', function(evt, data, status, xhr) {
-	
+		var inputCommentTitle = $('input#comment_title').val();
 		$.fancybox.close();
-		$('ul#hmenu').html("<%= escape_javascript(render :partial => 'layouts/menu_items') %>");
+		location.reload();
+		// alert(inputCommentTitle);
 		
-		//  For items on the new comment page 
-		// $('div#wrap_form_new_comment div.actions, div.reply_fields div.actions').html("<input id='comment_submit' name='commit' type='submit' value='Create Comment'>");
-		<% if @action == "show_post" %>
-		
-		// Change the custom data value which remembers how many comments are displayed
-		$('div#display_comments').data('displayed-comments', <%= @displayed_comments %>);
-		// Display comments
-		$('div#display_comments').html("<%= escape_javascript(display_comments(@comments)) %>");
-		// Change the param displayed_comments in url of link
-		// $('a#show_more_comments_link').attr('href', "/posts/<%= @post.cached_slug %>/show_more_comments?displayed_comments=" + <%= @displayed_comments %>);
+		$('input#comment_title').val(inputCommentTitle);
 		
 		
-		
-		var comment_title = $('form#comment_new input#comment_title').val(),
-			comment_content = $('form#comment_new textarea#comment_body').val(),
-			comment_guest_email = $('form#comment_new input#comment_guest_email').val(),
-			comment_guest_website = $('form#comment_new input#comment_guest_website').val();
-
-		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>").fadeIn();
-
-		$('form#comment_new').hide();
-
-		$('form#comment_new').fadeIn("slow");
-
-		$('form#comment_new input#comment_title').val(comment_title);
-		$('form#comment_new textarea#comment_body').val(comment_content);
-		$('form#comment_new input#comment_guest_email').val(comment_guest_email);
-		$('form#comment_new input#comment_guest_website').val(comment_guest_website);
-		
-			<% if @root_comment %>
-			var comment_title = $('form#reply_new input#reply_title').val(),
-				comment_content = $('form#reply_new textarea#reply_body').val(),
-				comment_guest_email = $('form#reply_new input#reply_guest_email').val(),
-				comment_guest_website = $('form#reply_new input#reply_guest_website').val(),
-				last_reply = $('div.reply_for_<%= @root_comment.id %>:last');
-
-			$('form#reply_new').remove();
-
-			if (last_reply[0]) {
-
-				last_reply.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
-			} else {
-
-				$('div#comment_<%= @root_comment.id %>').after("<%= escape_javascript(render :partial => 'comments/form_reply_comment') %>");
-			}
-
-			$('form#reply_new').hide();
-
-			$('form#reply_new').fadeIn("slow");
-
-
-			$('form#reply_new input#reply_title').val(comment_title);
-			$('form#reply_new textarea#reply_body').val(comment_content);
-			$('form#reply_new input#reply_guest_email').val(comment_guest_email);
-			$('form#reply_new input#reply_guest_website').val(comment_guest_website);		
-			<% end %>
-		<% elsif @action == "index_post" %>
-		// Change the custom data value which remembers how many posts are displayed
-		$('div#display_posts').data('displayed-posts', <%= @displayed_posts %>);
-
-		// Display the new posts
-		$('div#display_posts').html("<%= escape_javascript(render :partial => 'posts/posts') %>");
-		
-		// Change the param displayed_comments in url of link
-		// $('a#show_more_posts_link').attr('href', "/posts/show_more_posts?displayed_posts=" + <%= @displayed_posts %>);
-		<% end %>
-		
-		
-		
-		
-		$('form#comment_new[data-validate], form#reply_new[data-validate]').validate();
+		// $('form#comment_new[data-validate], form#reply_new[data-validate]').validate();
 });
 
 // CHANGE THE WAY THE FORM REPLY IS DISPLAYED WHEN LOGGING IN
