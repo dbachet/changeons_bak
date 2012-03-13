@@ -4,7 +4,8 @@
 	var recaptcha_err = "<%= @comment.errors[:base] %>";
 	
 	if (recaptcha_err.length > 0){
-		$('div#dynamic_recaptcha').replaceWith('<%= escape_javascript(recaptcha_tags(:display => {:theme => "blackglass"}, :ajax => true)) %>');
+		Recaptcha.reload();
+		// $('div#dynamic_recaptcha').replaceWith('<%= escape_javascript(recaptcha_tags(:display => {:theme => "blackglass"}, :ajax => true)) %>');
 		$('div#dynamic_recaptcha').next('span').html(recaptcha_err);
 	}
 <% end %>
@@ -13,7 +14,8 @@
 	var recaptcha_err = "<%= @reply.errors[:base] %>";
 	
 	if (recaptcha_err.length > 0){
-		$('div#dynamic_recaptcha').replaceWith('<%= escape_javascript(recaptcha_tags(:display => {:theme => "white"}, :ajax => true)) %>');
+		Recaptcha.reload();
+		// $('div#dynamic_recaptcha').replaceWith('<%= escape_javascript(recaptcha_tags(:display => {:theme => "white"}, :ajax => true)) %>');
 		$('div#dynamic_recaptcha').next('span').html(recaptcha_err);
 	}
 
