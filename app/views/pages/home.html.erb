@@ -6,9 +6,7 @@
 	</header>
 	<%= render "posts/posts" %>
 
-	<% if @remaining_posts != 0 %>
-		<%= link_to "Voir plus d'articles", show_more_posts_path(:displayed_posts => @displayed_posts), :id => "show_more_posts_link", :method => :post, :remote => true %>
-	<% end %>
+	<%= link_to "Voir tous les articles", posts_path %>
 
 	<br />
 
@@ -46,7 +44,7 @@
 	</header>
 	<%= render "tips/tips" %>
 
-
+	<%= link_to "Voir toutes les astuces", tips_path %>
 
 	<% if can? :new, @tip %><%= link_to 'New Post', new_tip_path %><% end %>
 </section>
@@ -72,7 +70,7 @@
 	</header>
 	<%= render "questions/questions" %>
 
-
+	<%= link_to "Voir toutes les questions", questions_path %>
 
 	<% if can? :new, @tip %><%= link_to 'New Post', new_question_path %><% end %>
 </section>
@@ -83,7 +81,7 @@
 	</header>
 	<%= render "events/events" %>
 
-
+	<%= link_to "Voir tous les évènements", events_path %>
 
 	<% if can? :new, @event %><%= link_to 'New Event', new_event_path %><% end %>
 </section>
@@ -94,7 +92,7 @@
 	</header>
 	<%= render "product_tests/product_tests" %>
 
-
+	<%= link_to "Voir tous les avis/tests produits", product_tests_path %>
 
 	<% if can? :new, @product_test %><%= link_to 'New product test', new_product_test_path %><% end %>
 </section>

@@ -105,30 +105,35 @@ REFACTOR ROLES
 + fil d'ariane
 + ajouter categories en haut
 +- footer
++ show category page
++ changer la couleur de la petite maison avec la vraie couleur d'à côté 
++ s'occuper de la barre d'utilisateur en haut
++- finir les show pages avec infos sur l'auteur, etc... IMPORTANT
++ add captcha to comments by guests
++ fix comments
++ ajouter champs rue 1 et rue 2 pour events
++ validates that end date is after the start date
++ about author description, remove it if empty
++ add house on changeons when :hover
+
 - SEO
 - Add jQuery for form inputs, to have some text inside disappearing slowly
 - créer helper for product test title
-+ recherche (pour plus tard)
-+ show category page
-- add lazy load (pour plus tard)
-+ changer la couleur de la petite maison avec la vraie couleur d'à côté 
 - when remove post/tip/... remove from categorizations
-+ s'occuper de la barre d'utilisateur en haut
 - add possible picture instead of gravatar
 - s'occuper des images (lieu de stockage), sécurité de ckeditor
-- improve home page (garder pour plus tard)
 - add légende to the picture of the post/tip/event...
-+- finir les show pages avec infos sur l'auteur, etc... IMPORTANT
-- add user profile show with the possibility to show his recommendations(pour plus tard)
-- messages privés entre utilisateurs (on garde pour plus tard)
 - add jquery buble to explain top page buttons
 - les + lus, les + votés, classement
 - fix share (à la fin)
-+ add captcha to comments by guests
-+ fix comments
 - finish edit pages
-+ ajouter champs rue 1 et rue 2 pour events
-- validates that end date is after the start date
 - jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
-+ about author description, remove it if empty
-+ add house on changeons when :hover
+- how to reload he page with the forms filled when login in
+
+
+
+- improve home page (garder pour plus tard)
+- recherche (pour plus tard)
+- add lazy load (pour plus tard)
+- add user profile show with the possibility to show his recommendations(pour plus tard)
+- messages privés entre utilisateurs (on garde pour plus tard)
