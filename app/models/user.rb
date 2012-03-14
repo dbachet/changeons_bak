@@ -9,10 +9,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :display_name, :real_name, :website, :location, :birthday, :about_me
-  attr_accessor :post_id, :root_comment_id, :action, :displayed_comments, :displayed_posts
-  
-  has_many :posts
-  has_many :tips
+  attr_accessor :post_id, :root_comment_id, :action, :displayed_comments, :displayed_posts, :stored_comment_title, :stored_comment_body, :stored_reply_title, :stored_reply_body, :scroll_position
+                                                                                             
+  has_many :posts                                                       
+  has_many :tips                                                                          
   has_many :events
   has_many :product_tests
   has_many :comments

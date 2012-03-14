@@ -2,7 +2,6 @@ $.fancybox({
     closeClick: false,
 	afterShow:	function(){
 		$('form#user_new[data-validate]').validate();
-		var  inputCommentTitle = $('input#comment_title').val();
 	},
 	afterClose: function() {
 		$('form#reply_new[data-validate], form#comment_new[data-validate]').validate();

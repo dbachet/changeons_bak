@@ -66,7 +66,6 @@ class SessionsController < Devise::SessionsController
     # @root_comment_id = params[:root_comment_id]
     # SHOULDN'T BE HERE
     
-    puts "try to log in"
     
     resource = build_resource
     clean_up_passwords(resource)

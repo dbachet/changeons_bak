@@ -60,7 +60,34 @@ $(document).ready(function() {
 	$('.fancybox_signin').fancybox({
 		closeClick: false,
 		afterShow:	function() {
-			$('form#user_new[data-validate]').validate()
+			$('form#user_new[data-validate]').validate();
+			
+			var commentTitleInput = $('#comment_title').val(), 
+				commentBodyInput = $('#comment_body').val(),
+				replyTitleInput = $('#reply_title').val(),
+				replyBodyInput = $('#reply_body').val();
+				scrollPosition = $(window).scrollTop();
+				
+			
+			$('#user_stored_comment_title').val(commentTitleInput);
+			$('#user_stored_comment_body').val(commentBodyInput);
+			$('#user_stored_reply_title').val(replyTitleInput);
+			$('#user_stored_reply_body').val(replyBodyInput);
+			$('#user_scroll_position').val(scrollPosition);
+			
+			
+			// $.cookies.setOptions({path: location.pathname, hoursToLive: 0.05});
+			// 			
+			// 			var commentTitleInput = $('#comment_title');
+			// 			var commentBodyInput = $('#comment_body');
+						
+			// if (commentTitleInput[0]){
+				// $('#comment_title').cookify();
+				// $('#comment_body').cookify();
+				
+				// $.cookies.set('commentTitle', commentTitleInput.val());
+				// $.cookies.set('commentBody', commentBodyInput.val());
+			// }
 		}
 	});
 	

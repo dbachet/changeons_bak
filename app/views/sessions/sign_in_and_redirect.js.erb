@@ -1,10 +1,41 @@
 $("form#user_new").bind('ajax:success', function(evt, data, status, xhr) {
-		var inputCommentTitle = $('input#comment_title').val();
+		
+		// :stored_comment_title, :stored_comment_body, :stored_reply_title, :stored_reply_body
+		//     
+		//     if 
+		//       @comment_title = params[:user][:stored_comment_title]
+		//     end
+		// 
+		
+		$.cookies.setOptions({path: location.pathname});
+		
+		<% if !params[:user][:stored_comment_title].blank? %>
+			$.cookies.set('commentTitle', "<%= params[:user][:stored_comment_title] %>");
+		<% end %>
+		
+		<% if !params[:user][:stored_comment_body].blank? %>
+			$.cookies.set('commentBody', "<%= params[:user][:stored_comment_body] %>");
+		<% end %>
+		
+		<% if !params[:user][:stored_reply_title].blank? %>
+			$.cookies.set('replyTitle', "<%= params[:user][:stored_reply_title] %>");
+		<% end %>
+		
+		<% if !params[:user][:stored_reply_body].blank? %>
+			$.cookies.set('replyBody', "<%= params[:user][:stored_reply_body] %>");
+		<% end %>
+		
+		<% if !params[:user][:scroll_position].blank? %>
+			$.cookies.set('scrollPosition', "<%= params[:user][:scroll_position] %>");
+		<% end %>
+		
+		
 		$.fancybox.close();
 		location.reload();
+		
 		// alert(inputCommentTitle);
 		
-		$('input#comment_title').val(inputCommentTitle);
+		// $('input#comment_title').val(inputCommentTitle);
 		
 		
 		// $('form#comment_new[data-validate], form#reply_new[data-validate]').validate();

@@ -21,6 +21,12 @@
   <%= f.hidden_field :displayed_comments %>
   <%= f.hidden_field :displayed_posts %>
 
+	<%= f.hidden_field :stored_comment_title %>
+	<%= f.hidden_field :stored_comment_body %>
+	<%= f.hidden_field :stored_reply_title %>
+	<%= f.hidden_field :stored_reply_body %>
+	<%= f.hidden_field :scroll_position %>
+
   <div><%= f.submit "Sign in" %></div>
 <% end %>
 
