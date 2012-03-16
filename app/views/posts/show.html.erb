@@ -109,7 +109,6 @@
 			commentTitleCookie = $.cookies.get('commentTitle');
 			commentBodyCookie = $.cookies.get('commentBody');
 			scrollPosition = $.cookies.get('scrollPosition');
-			// alert(scrollPosition);
 			
 			if (commentTitleCookie){
 				$('#comment_title').val(commentTitleCookie);
@@ -129,9 +128,6 @@
 				$('#wrap_form_new_comment').delay(1200).animate({backgroundColor: 'pink'}, 300);
 				$('#wrap_form_new_comment').animate({backgroundColor: mem_color}, 2800);
 			}
-			
-			// $('#comment_title').cookieFill();
-			// $('#comment_body').cookieFill();
 		});
 	});
 </script>

@@ -116,6 +116,15 @@ REFACTOR ROLES
 + about author description, remove it if empty
 + add house on changeons when :hover
 
+
+- check if git accepts my new public key
+- check how to get the domain name working for linode
+	* change the dns servers on dreamhost DONE
+	* change gmail stuff DONE
+- firewall for server
+
+
+
 - Try to keep filled form when logging in with cookie, then with session
 - SEO
 - Add jQuery for form inputs, to have some text inside disappearing slowly
