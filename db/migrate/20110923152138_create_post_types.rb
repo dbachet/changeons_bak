@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreatePostTypes < ActiveRecord::Migration
   def self.up
     create_table :post_types do |t|

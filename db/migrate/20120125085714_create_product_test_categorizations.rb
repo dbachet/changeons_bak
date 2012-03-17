@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateProductTestCategorizations < ActiveRecord::Migration
   def self.up
     create_table :product_test_categorizations do |t|

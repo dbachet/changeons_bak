@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
-gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
+gem 'rails', '3.0.9'
+# gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
+gem 'mysql2', '< 0.3'	# because last versions are not compatible rails 3.0.x
 gem 'devise'
 gem 'friendly_id', '~> 3.3.0'
 gem "simple_form"

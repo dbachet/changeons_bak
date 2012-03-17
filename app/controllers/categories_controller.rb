@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CategoriesController < AuthorizedController
   before_filter :authenticate_user!, :except => [:show, :index]
   respond_to :html, :only => [:index, :new, :edit, :show]

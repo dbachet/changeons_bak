@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChangeTypeColumnContentToQuestions < ActiveRecord::Migration
   def self.up
     change_column :questions, :content, :text

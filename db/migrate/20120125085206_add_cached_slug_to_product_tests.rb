@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCachedSlugToProductTests < ActiveRecord::Migration
   def self.up
     add_column :product_tests, :cached_slug, :string

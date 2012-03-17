@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Notifications < ActionMailer::Base
   default :to => "admin@changeons.org", :from => "admin@changeons.org"
   

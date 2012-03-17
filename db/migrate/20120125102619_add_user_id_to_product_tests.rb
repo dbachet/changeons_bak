@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddUserIdToProductTests < ActiveRecord::Migration
   def self.up
     add_column :product_tests, :user_id, :integer

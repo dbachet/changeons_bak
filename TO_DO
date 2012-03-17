@@ -117,13 +117,14 @@ REFACTOR ROLES
 + add house on changeons when :hover
 
 
-- check if git accepts my new public key
-- check how to get the domain name working for linode
++ check if git accepts my new public key DONE
++ check how to get the domain name working for linode
 	* change the dns servers on dreamhost DONE
 	* change gmail stuff DONE
 - firewall for server
 
 
+- change police to "Helvetica Neue",Helvetica,Arial,sans-serif
 
 - Try to keep filled form when logging in with cookie, then with session
 - SEO
@@ -132,13 +133,14 @@ REFACTOR ROLES
 - when remove post/tip/... remove from categorizations
 - add possible picture instead of gravatar
 - s'occuper des images (lieu de stockage), sécurité de ckeditor
+	Amazon S3 ?
 - add légende to the picture of the post/tip/event...
 - add jquery buble to explain top page buttons
 - les + lus, les + votés, classement
 - fix share (à la fin)
 - finish edit pages
 - jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
-
+- Care about caching
 
 
 - improve home page (garder pour plus tard)

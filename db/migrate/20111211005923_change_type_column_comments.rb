@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChangeTypeColumnComments < ActiveRecord::Migration
   def self.up
     

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RenamePostPictureToPosts < ActiveRecord::Migration
   def self.up
       rename_column :posts, :post_picture_file_name, :picture_file_name

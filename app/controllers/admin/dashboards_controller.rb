@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::DashboardsController < AuthorizedController
   skip_load_and_authorize_resource
   # layout false, :only => :user_index

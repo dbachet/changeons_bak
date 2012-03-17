@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnUserIdToAnswers < ActiveRecord::Migration
   def self.up
     add_column :answers, :user_id, :integer

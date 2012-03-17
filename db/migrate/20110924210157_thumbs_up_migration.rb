@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ThumbsUpMigration < ActiveRecord::Migration
   def self.up
     create_table :votes, :force => true do |t|

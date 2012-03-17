@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnPictureOrientationHorizontalToEvents < ActiveRecord::Migration
   def self.up
     add_column :events, :picture_orientation_horizontal, :boolean

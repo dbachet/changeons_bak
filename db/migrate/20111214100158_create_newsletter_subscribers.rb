@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateNewsletterSubscribers < ActiveRecord::Migration
   def self.up
     create_table :newsletter_subscribers do |t|

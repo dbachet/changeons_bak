@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnPostTypeIdToPost < ActiveRecord::Migration
   def self.up
     add_column :posts, :post_type_id, :integer

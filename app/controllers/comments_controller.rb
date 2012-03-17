@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CommentsController < AuthorizedController
   # MUST STAY BEFORE :authenticate_user!
   # before_filter :sign_in_if_guest, :only => :create

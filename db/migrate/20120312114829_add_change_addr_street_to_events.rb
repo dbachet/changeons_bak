@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddChangeAddrStreetToEvents < ActiveRecord::Migration
   def self.up
     add_column :events, :addr_street_2, :string

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Question < ActiveRecord::Base
   scope :recent, order('created_at desc')
   has_many :answers

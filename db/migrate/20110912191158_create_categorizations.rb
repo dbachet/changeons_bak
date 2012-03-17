@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateCategorizations < ActiveRecord::Migration
   def self.up
     create_table :categorizations do |t|

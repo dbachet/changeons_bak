@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Vote < ActiveRecord::Base
 
   scope :for_voter, lambda { |*args| where(["voter_id = ? AND voter_type = ?", args.first.id, args.first.class.name]) }

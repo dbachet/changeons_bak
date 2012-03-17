@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnPictureOrientationHorizontalToProductTests < ActiveRecord::Migration
   def self.up
     add_column :product_tests, :picture_orientation_horizontal, :boolean

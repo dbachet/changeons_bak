@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddPictureToTips < ActiveRecord::Migration
   def self.up
     add_column :tips, :picture_file_name,    :string

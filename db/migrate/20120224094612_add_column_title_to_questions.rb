@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnTitleToQuestions < ActiveRecord::Migration
   def self.up
     add_column :questions, :title, :string

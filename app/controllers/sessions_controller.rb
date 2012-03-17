@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SessionsController < Devise::SessionsController
     ###########################################
     # To add in config/initializers/devise.rb #

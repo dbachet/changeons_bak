@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PagesController < AuthorizedController
   skip_load_and_authorize_resource
   add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class NewsletterSubscribersController < AuthorizedController
   
   respond_to :html, :only => [:index, :edit, :create]

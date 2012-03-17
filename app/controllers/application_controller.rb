@@ -1,6 +1,8 @@
+# -*- encoding : utf-8 -*-
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :newsletter_subscriber, :fetch_best_items, :top_item, :changeons_items, :categories
+  before_filter :newsletter_subscriber, :fetch_best_items, :top_item, :categories
+  # before_filter :changeons_items
   
   # if user is logged in, return current_user, else return guest_user
   # def current_or_guest_user

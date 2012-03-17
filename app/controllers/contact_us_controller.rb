@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ContactUsController < ApplicationController
   def new
     @contact_form = ContactForm.new

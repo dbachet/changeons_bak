@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnsToProductTests < ActiveRecord::Migration
   def self.up
     add_column :product_tests, :picture_height, :integer

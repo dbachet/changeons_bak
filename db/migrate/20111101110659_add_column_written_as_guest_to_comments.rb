@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnWrittenAsGuestToComments < ActiveRecord::Migration
   def self.up
     add_column :comments, :written_as_guest, :boolean

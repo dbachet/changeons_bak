@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CommentsHelper
   
   # This is to adapt as the comments maybe will be displayed another way !!

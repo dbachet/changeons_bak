@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnCachedSlugToQuestions < ActiveRecord::Migration
   def self.up
     add_column :questions, :cached_slug, :string

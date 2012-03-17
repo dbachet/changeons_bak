@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCachedSlugToPosts < ActiveRecord::Migration
   def self.up
     add_column :posts, :cached_slug, :string

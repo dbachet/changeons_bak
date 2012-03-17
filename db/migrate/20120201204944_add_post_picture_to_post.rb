@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddPostPictureToPost < ActiveRecord::Migration
   def self.up
     add_column :posts, :post_picture_file_name,    :string

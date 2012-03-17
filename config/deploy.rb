@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 set :repository, "git@github.com:dbachet/changeons.git"  # Your clone URL
 set :scm, "git"

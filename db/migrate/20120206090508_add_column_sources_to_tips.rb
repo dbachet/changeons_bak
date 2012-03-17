@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnSourcesToTips < ActiveRecord::Migration
   def self.up
     add_column :tips, :sources, :text

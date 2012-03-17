@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ActsAsCommentableWithThreadingMigration < ActiveRecord::Migration
   def self.up
     create_table :comments, :force => true do |t|

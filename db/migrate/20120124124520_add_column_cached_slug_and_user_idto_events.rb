@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnCachedSlugAndUserIdtoEvents < ActiveRecord::Migration
   def self.up
     add_column :events, :cached_slug, :string

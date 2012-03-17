@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20120312114829) do
     t.integer  "commentable_id",                    :default => 0
     t.string   "commentable_type",                  :default => ""
     t.string   "title",                             :default => ""
-    t.text     "body",                              :default => ""
+    t.text     "body"
     t.string   "subject",                           :default => ""
     t.integer  "user_id",                           :default => 0,  :null => false
     t.integer  "parent_id"
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(:version => 20120312114829) do
     t.text     "opinion"
     t.text     "advantages"
     t.text     "drawbacks"
-    t.decimal  "recommended_price"
+    t.decimal  "recommended_price",              :precision => 7, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cached_slug"
@@ -176,7 +176,7 @@ ActiveRecord::Schema.define(:version => 20120312114829) do
   end
 
   create_table "questions", :force => true do |t|
-    t.text     "content",     :limit => 255
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cached_slug"

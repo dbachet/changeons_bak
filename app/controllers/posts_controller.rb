@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PostsController < AuthorizedController
   include ActionView::Helpers::TextHelper
   add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"

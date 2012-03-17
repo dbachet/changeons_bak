@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnEventEndDateToEvents < ActiveRecord::Migration
   def self.up
     add_column :events, :event_end_date, :datetime

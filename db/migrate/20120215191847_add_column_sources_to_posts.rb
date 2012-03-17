@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnSourcesToPosts < ActiveRecord::Migration
   def self.up
     add_column :posts, :sources, :text

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::RegistrationsController < Devise::RegistrationsController
   skip_before_filter :require_no_authentication
   # before_filter :signed_in_as_admin?

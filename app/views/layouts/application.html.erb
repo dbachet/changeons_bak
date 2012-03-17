@@ -109,30 +109,30 @@
 						</div>
 					</nav>
 				</header>
-				<div class="domtab">
-					<div id="container_1">
-					    <h2><a name="t1" id="t1">Changeons...</a></h2>
-						<ul id="items_1">
-					    <% @changeons_quoi.each do |answer| %>
-							<li><%= answer.content %></li>
-						<% end %>
-						</ul>
-						<h2>Vous, aussi, exprimez ce que vous voulez changer !</h2>
-						<%= link_to "Changeons - Quoi ? Qui ?", new_question_answer_path(1) %>
-					</div>
-				</div>
-				<div class="domtab">
-					<div id="container_2">
-					    <h2><a name="t2" id="t2">Changeons...</a></h2>
-					    <ul id="items_2">
-						<% @changeons_pourquoi.each do |answer| %>
-							<li><%= answer.content %></li>
-						<% end %>
-						</ul>
-						<h2>Vous, aussi, exprimez pourquoi vous voulez changer !</h2>
-						<%= link_to "Changeons - Pourquoi ?", new_question_answer_path(2) %>
-					</div>
-				</div>
+				<!-- div class="domtab">
+									<div id="container_1">
+									    <h2><a name="t1" id="t1">Changeons...</a></h2>
+										<ul id="items_1">
+									    <%# @changeons_quoi.each do |answer| %>
+											<li><%#= answer.content %></li>
+										<%# end %>
+										</ul>
+										<h2>Vous, aussi, exprimez ce que vous voulez changer !</h2>
+										<%#= link_to "Changeons - Quoi ? Qui ?", new_question_answer_path(1) %>
+									</div>
+								</div>
+								<div class="domtab">
+									<div id="container_2">
+									    <h2><a name="t2" id="t2">Changeons...</a></h2>
+									    <ul id="items_2">
+										<%# @changeons_pourquoi.each do |answer| %>
+											<li><%#= answer.content %></li>
+										<%# end %>
+										</ul>
+										<h2>Vous, aussi, exprimez pourquoi vous voulez changer !</h2>
+										<%#= link_to "Changeons - Pourquoi ?", new_question_answer_path(2) %>
+									</div>
+								</div> -->
 			</section>
 			<section id="sponsors">
 				<header>

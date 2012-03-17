@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Changeons::Application.routes.draw do
   match "tags/:tag_id/" => "tags#show_posts", :as => "tag_show_posts"  
 

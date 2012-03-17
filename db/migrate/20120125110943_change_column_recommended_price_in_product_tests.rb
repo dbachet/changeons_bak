@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChangeColumnRecommendedPriceInProductTests < ActiveRecord::Migration
   def self.up
     change_column :product_tests, :recommended_price, :decimal, :precision => 7, :scale => 2, :default => nil, :null => true

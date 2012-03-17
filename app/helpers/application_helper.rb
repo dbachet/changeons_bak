@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ApplicationHelper
   def getMonthFromNumber(month)
     if month == '01'

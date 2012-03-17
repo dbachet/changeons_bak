@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class TagsController < AuthorizedController
   
   def show_posts

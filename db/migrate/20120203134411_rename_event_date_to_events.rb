@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RenameEventDateToEvents < ActiveRecord::Migration
   def self.up
       rename_column :events, :event_date, :event_start_date

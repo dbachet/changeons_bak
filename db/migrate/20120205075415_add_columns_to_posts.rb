@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnsToPosts < ActiveRecord::Migration
   def self.up
     add_column :posts, :picture_height, :integer

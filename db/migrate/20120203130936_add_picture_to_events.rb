@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddPictureToEvents < ActiveRecord::Migration
   def self.up
     add_column :events, :picture_file_name,    :string

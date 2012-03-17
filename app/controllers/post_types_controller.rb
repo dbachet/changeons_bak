@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PostTypesController < AuthorizedController
   layout false, :only => :new
   before_filter :authenticate_user!

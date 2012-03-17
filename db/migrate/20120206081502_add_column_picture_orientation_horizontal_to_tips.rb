@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColumnPictureOrientationHorizontalToTips < ActiveRecord::Migration
   def self.up
     add_column :tips, :picture_orientation_horizontal, :boolean
