@@ -139,7 +139,7 @@ DEPENDENCIES
   acts_as_commentable_with_threading
   breadcrumbs_on_rails
   cancan
-  capistrano (= 2.5.21)
+  capistrano
   ckeditor
   client_side_validations
   devise
