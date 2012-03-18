@@ -37,7 +37,6 @@ require 'capistrano/ext/multistage'
 # REPLACE this below with your git repo
 set :repository,  "git@github.com:dbachet/changeons.git"
 set :scm, :git
-set :scm_passphrase, "myserverisstillalive"  # The deploy user's password
 set :branch, "master"
 set :deploy_via, :remote_cache
  
