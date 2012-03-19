@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-production.rb
+staging.rb
 Changeons::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   
@@ -17,7 +17,7 @@ Changeons::Application.configure do
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
   
-  # The production environment is meant for finished, "live" apps.
+  # The staging/production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
   config.cache_classes = true
 
