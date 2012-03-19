@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-staging.rb
 Changeons::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   
@@ -21,8 +20,8 @@ Changeons::Application.configure do
   # Code is not reloaded between requests
   config.cache_classes = true
 
-  # Full error reports are disabled and caching is turned on
-  config.consider_all_requests_local       = false
+  # Full error reports are enabled and caching is turned on
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Specifies the header that your server uses for sending files
