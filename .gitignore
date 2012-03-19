@@ -6,4 +6,3 @@ tmp/
 public/.DS_Store
 public/ckeditor_assets/
 public/system/
-config/database.yml

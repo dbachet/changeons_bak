@@ -80,7 +80,7 @@ namespace :deploy do
   task :update_shared_symlinks do
     shared_files = ["config/database.yml"]
     shared_files.each do |path|
-      run "rm -rf #{File.join(release_path, path)}"
+      # run "rm -rf #{File.join(release_path, path)}"
       run "ln -s #{File.join(deploy_to, "shared", path)} #{File.join(release_path, path)}"
     end
   end
