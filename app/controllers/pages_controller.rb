@@ -4,7 +4,7 @@ class PagesController < AuthorizedController
   add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
   
   def home
-    @default_post_offset = APP_CONFIG['default_post_offset']
+    @default_post_offset = APP_CONFIG['defaults']['default_post_offset']
     @posts = Post.recent.limit(5)
     @tips = Tip.recent.limit(3)
     @questions = Question.recent.limit(3)
