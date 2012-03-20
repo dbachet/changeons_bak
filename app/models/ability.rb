@@ -46,7 +46,7 @@ class Ability
       can :manage, Tip, :user_id => user.id
       can :manage, Event, :user_id => user.id
       can :manage, ProductTest, :user_id => user.id
-      can [:show_posts], Tag
+      can [:show_posts], ActsAsTaggableOn::Tag
       can [:show, :index], Question
       can [:show], Category
       can [:show], User
@@ -60,7 +60,7 @@ class Ability
       can [:index, :show], Tip
       can [:index, :show], Event
       can [:index, :show], ProductTest
-      can [:show_posts], Tag
+      can [:show_posts], ActsAsTaggableOn::Tag
       can [:show, :index], Question
       can [:show], Category
       can [:show], User
