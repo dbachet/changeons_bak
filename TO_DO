@@ -141,7 +141,7 @@ REFACTOR ROLES
 - finish edit pages
 - jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
 - Care about caching
-
+- Friendly_id, add index
 
 - improve home page (garder pour plus tard)
 - recherche (pour plus tard)

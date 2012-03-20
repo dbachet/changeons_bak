@@ -191,11 +191,15 @@ class PostsController < AuthorizedController
   def create
     @post = current_user.posts.create(params[:post])
     @post.tag_list = params[:post][:tag_list]
+    
     @post.category_ids = params[:post][:category_ids]
-    # puts  "#{@post.errors}"
     
     respond_to do |format|
       if @post.save
+        # generates slug for the tag
+        @post.tags.each do |tag|
+          tag.save
+        end
         
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
@@ -210,12 +214,16 @@ class PostsController < AuthorizedController
   # PUT /posts/1.xml
   def update
     # @post = Post.find(params[:id])
-
+    @post.tag_list = params[:post][:tag_list]
+    @post.category_ids = params[:post][:category_ids]
+    
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        @post.tag_list = params[:post][:tag_list]
-        @post.save
-        @post.category_ids = params[:post][:category_ids]
+        # generates slug for the tag
+        @post.tags.each do |tag|
+          tag.save
+        end
+        
         
         format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
         format.xml  { head :ok }

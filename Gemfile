@@ -4,7 +4,7 @@ gem 'rails', '3.0.9'
 # gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 gem 'mysql2', '0.2.7'	# because last versions are not compatible rails 3.0.x
 gem 'devise', '1.5.0'
-gem 'friendly_id', '3.3.0.1'
+gem 'friendly_id', "~> 3.3.0"
 gem "simple_form", '1.5.2'
 gem 'acts-as-taggable-on', '~>2.1.0'
 gem 'thumbs_up', '0.4.4'
