@@ -121,7 +121,7 @@ REFACTOR ROLES
 + check how to get the domain name working for linode
 	* change the dns servers on dreamhost DONE
 	* change gmail stuff DONE
-- firewall for server
++ firewall for server
 
 
 - change police to "Helvetica Neue",Helvetica,Arial,sans-serif
@@ -135,6 +135,7 @@ REFACTOR ROLES
 - s'occuper des images (lieu de stockage), sécurité de ckeditor
 	Amazon S3 ?
 - add légende to the picture of the post/tip/event...
+- add questions to posts form
 - add jquery buble to explain top page buttons
 - les + lus, les + votés, classement
 - fix share (à la fin)

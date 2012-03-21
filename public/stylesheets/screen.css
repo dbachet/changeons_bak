@@ -115,7 +115,7 @@ body {
 /*	padding-top: 20px;*/
 /*	padding-bottom: 35px;*/
 	width: 100%;
-	font-family: "CaviarDreamsRegular", verdana, arial;
+	font-family: "Helvetica Neue",Arial,sans-serif;
 	color: black;
 	background: url("/images/bg_body_bottom.png") bottom repeat-x, #bfbfd7; /*#c1efba*/
 	
@@ -220,7 +220,7 @@ div#right_bar{
 input,
 textarea{
 	border: 1px solid transparent;
-	font-family: "CaviarDreamsBold", verdana, arial;
+	font-family: "Helvetica Neue",Arial,sans-serif;
 	-moz-transition: border-color .2s ease;
 	-ms-transition: border-color .2s ease;
 	-o-transition: border-color .2s ease;
@@ -265,7 +265,6 @@ nav.pagination span.current{
 	
 	
 	font-weight: bold;
-	font-family: "CaviarDreamsBold", verdana, arial;
 	font-size: 11px;
 	
 	color: #555;
@@ -310,8 +309,8 @@ nav.pagination span.current{
 /* End - Pagination */
 
 h1.red_section{
-	font-family: "CaviarDreamsItalic", verdana, arial;
 	font-size: 2em;
+	font-style:italic;
 /*	font-size: 1em;*/
 	text-align: right;
 	border-bottom: 3px solid #95281F;
@@ -326,9 +325,9 @@ h1.red_section{
 		
 	h1.red_section span{
 		color: #95281F;
-/*		font-size: 1em;*/
-		font-family: 'CaviarDreamsBold', verdana, arial;
+		font-weight: bold;
 		text-transform: uppercase;
+		font-style: normal;
 	}
 		
 h1.red_section.big{
@@ -471,7 +470,7 @@ h1.red_section.big{
 /* hmenu */
 
 header nav#top_page{
-	font-family: 'CaviarDreamsBold', verdana, arial;
+	font-weight: bold;
 	position: fixed;
 	top: 0px;
 	text-align: center;
@@ -683,7 +682,7 @@ header nav ul#hmenu li a.home.current {
 		ul#account_links{
 			float: right;
 			display:inline-block;
-			width: 100px;
+/*			width: 100px;*/
 			padding: 0.3em;
 			margin: 0;
 			list-style: none;
@@ -1026,7 +1025,7 @@ input#newsletter_subscriber_submit{
 		section#tips header h1,
 		section#events header h1,
 		section#product_tests header h1{
-			font-family: 'CaviarDreamsItalic', verdana, arial;
+			font-style: italic;
 			font-size: 27px;
 			margin-top: 0px;
 		}
@@ -1104,7 +1103,7 @@ input#newsletter_subscriber_submit{
 				section#tips article header h1,
 				section#events article header h1,
 				section#product_tests article header h1{
-					font-family: 'CaviarDreamsBold', verdana, arial;
+					font-weight: bold;
 					font-size: 15px;
 					margin-top: 0px;
 					margin-bottom: 0px;
@@ -1115,9 +1114,9 @@ input#newsletter_subscriber_submit{
 			section#tips article div.description,
 			section#events article div.description,
 			section#product_tests article div.description{
-				font-family: 'CaviarDreamsItalic', verdana, arial;
 				display: block;
 				font-size: 13px;
+				font-weight: bold;
 				text-align: justify;
 				line-height: 1.2;
 			}
@@ -1168,13 +1167,13 @@ input#newsletter_subscriber_submit{
 				-webkit-border-radius: 5px;
 				-moz-border-radius: 5px;
 				border-radius: 5px;
-				font-family: 'CaviarDreamsBold', verdana, arial;
 				line-height: 0.9;
 				text-align: center;
 				color: #CCCCCC;			/*ee*/
 				-webkit-text-shadow: 2px 2px #000;
 				-moz-text-shadow: 2px 2px #000;
 				text-shadow: 2px 2px #000;
+				font-weight: bold;
 			}
 
 				section#questions article div.date span.day,
@@ -1364,8 +1363,8 @@ article#product_test.show{
 			-webkit-border-radius: 5px;
 			-moz-border-radius: 5px;
 			border-radius: 5px;
-			font-family: 'CaviarDreamsBold', verdana, arial;
 			line-height: 0.9;
+			font-weight: bold;
 			text-align: center;
 			color: #CCCCCC;							/*ee*/
 			-webkit-text-shadow: 2px 2px #000;
@@ -1403,7 +1402,7 @@ article#product_test.show{
 		article#tip header h1,
 		article#event header h1,
 		article#product_test header h1{
-			font-family: 'CaviarDreamsBold', verdana, arial;
+			font-weight: bold;
 			font-size: 27px;
 			margin-top: 0px;
 			display: inline-block;
@@ -1424,7 +1423,7 @@ article#product_test.show{
 		article#post header div.short_description{
 			padding: 5px;
 			margin-top: 5px;
-			font-family: 'CaviarDreamsItalic', verdana, arial;
+			font-style: italic;
 			color: white;
 			font-size: 1.4em;
 /*			background-color: rgba(0,0,0,0.3);						*/
@@ -1916,7 +1915,6 @@ article#post.form h1,
 article#tip.form h1,
 article#event.form h1,
 article#product_test.form h1{
-	font-family: 'CaviarDreamsRegular', verdana, arial;
 	font-size: 1.6em;
 	margin-top: 5px;
 	margin-bottom: 5px;
@@ -2734,7 +2732,7 @@ div#display_comments div.root_comment_area {
 	
 		form#comment_new h1,
 		form#reply_new h1{
-			font-family: 'CaviarDreamsBold', 'Verdana', 'Arial';
+			font-weight: bold;
 			margin: 0;
 			padding: 0;
 		}
