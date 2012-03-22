@@ -2470,7 +2470,7 @@ div#wrap_form_new_comment div.right{
 	margin-top: 1em;
 }
 
-div#wrap_form_new_reply{
+div.wrap_form_new_reply{
 	background-color: #AF4D05;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -2486,7 +2486,7 @@ div#wrap_form_new_reply{
 	color: #C4B702;
 }
 
-div#wrap_form_new_reply div.left{
+div.wrap_form_new_reply div.left{
 	display: inline-block;
 	padding-right: 0.8em;
 	width: 12em;
@@ -2495,7 +2495,7 @@ div#wrap_form_new_reply div.left{
 	margin-top: 1em;
 }
 
-div#wrap_form_new_reply div.right{
+div.wrap_form_new_reply div.right{
 	display: inline-block;
 	width: 24em;
 	border-left: 1px solid rgba(0, 0, 0, 0.1);

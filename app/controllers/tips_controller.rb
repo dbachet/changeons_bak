@@ -75,10 +75,12 @@ class TipsController < AuthorizedController
     @comment = Comment.new
     @from = 0
     @limitation = @default_comment_offset
-    @comments = Comment.fetch_comments(@tip, @from, @limitation)
+    @comments = Comment.fetch_comments(@tip, @from, 10)
     
     # puts @tip.categories.first.id
     
+    declare_variables_reply_form_after_login  # if guest fills reply form and logs in, then we have to declare these variables to 
+                                              # be able to display reply form
     
     also_to_read_items(@categories)
     

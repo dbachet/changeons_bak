@@ -124,7 +124,7 @@ REFACTOR ROLES
 + firewall for server
 
 
-- change police to "Helvetica Neue",Helvetica,Arial,sans-serif
++ change police to "Helvetica Neue",Helvetica,Arial,sans-serif
 
 - Try to keep filled form when logging in with cookie, then with session
 - SEO

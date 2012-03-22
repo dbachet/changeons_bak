@@ -25,6 +25,10 @@ $("form#user_new").bind('ajax:success', function(evt, data, status, xhr) {
 			$.cookies.set('replyBody', "<%= params[:user][:stored_reply_body] %>");
 		<% end %>
 		
+		<% if !params[:user][:reply_parent_id].blank? %>
+			$.cookies.set('replyParentId', "<%= params[:user][:reply_parent_id] %>");
+		<% end %>
+		
 		<% if !params[:user][:scroll_position].blank? %>
 			$.cookies.set('scrollPosition', "<%= params[:user][:scroll_position] %>");
 		<% end %>

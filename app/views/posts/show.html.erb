@@ -106,28 +106,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(function(){
-			commentTitleCookie = $.cookies.get('commentTitle');
-			commentBodyCookie = $.cookies.get('commentBody');
-			scrollPosition = $.cookies.get('scrollPosition');
-			
-			if (commentTitleCookie){
-				$('#comment_title').val(commentTitleCookie);
-				$.cookies.del('commentTitle', {path: location.pathname});
-				
-			}
-			
-			if (commentBodyCookie){
-				$('#comment_body').val(commentBodyCookie);
-				$.cookies.del('commentBody', {path: location.pathname});
-			}
-			
-			if (scrollPosition){
-				$.cookies.del('scrollPosition', {path: location.pathname});
-				$('html, body').scrollTop(scrollPosition);
-				var mem_color = $('#wrap_form_new_comment').css("background-color");
-				$('#wrap_form_new_comment').delay(1200).animate({backgroundColor: 'pink'}, 300);
-				$('#wrap_form_new_comment').animate({backgroundColor: mem_color}, 2800);
-			}
+			read_stored_form_details_for_comments();
 		});
 	});
 </script>

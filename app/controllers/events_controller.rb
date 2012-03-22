@@ -81,6 +81,9 @@ class EventsController < AuthorizedController
     @displayed_comments = @comments.length
     @remaining_comments = @event.root_comments.count - @displayed_comments
     
+    declare_variables_reply_form_after_login  # if guest fills reply form and logs in, then we have to declare these variables to 
+                                              # be able to display reply form
+    
     @votes_result = @event.plusminus
     
     accessed_from_this_category = accessed_from_category

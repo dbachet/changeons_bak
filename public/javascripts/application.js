@@ -62,19 +62,30 @@ $(document).ready(function() {
 		afterShow:	function() {
 			$('form#user_new[data-validate]').validate();
 			
-			var commentTitleInput = $('#comment_title').val(), 
-				commentBodyInput = $('#comment_body').val(),
-				replyTitleInput = $('#reply_title').val(),
-				replyBodyInput = $('#reply_body').val();
+			var commentTitleInput = $('#comment_title'), 
+				commentBodyInput = $('#comment_body'),
+				replyTitleInput = $('#reply_title'),
+				replyBodyInput = $('#reply_body'),
 				scrollPosition = $(window).scrollTop();
 				
+			if (commentTitleInput[0]){
+				$('#user_stored_comment_title').val(commentTitleInput.val());
+				$('#user_stored_comment_body').val(commentBodyInput.val());
+			}
 			
-			$('#user_stored_comment_title').val(commentTitleInput);
-			$('#user_stored_comment_body').val(commentBodyInput);
-			$('#user_stored_reply_title').val(replyTitleInput);
-			$('#user_stored_reply_body').val(replyBodyInput);
-			$('#user_scroll_position').val(scrollPosition);
+			// alert(replyTitleInput.val());
 			
+			if (replyTitleInput[0]){
+				var replyParent = replyTitleInput.closest('.root_comment_area').attr('class');
+				var replyParentId = replyParent.match(/\d+(,\d+)?/)[0];
+				$('#user_stored_reply_title').val(replyTitleInput.val());
+				$('#user_stored_reply_body').val(replyBodyInput.val());
+				$('#user_reply_parent_id').val(replyParentId);
+			}
+			
+			if (commentTitleInput[0] || replyTitleInput[0]){
+				$('#user_scroll_position').val(scrollPosition);
+			}
 			
 			// $.cookies.setOptions({path: location.pathname, hoursToLive: 0.05});
 			// 			
@@ -298,4 +309,61 @@ function configTop() {
     	width: widthListItems,
 	}, 400);
 	
+}
+
+function read_stored_form_details_for_comments() {
+	commentTitleCookie = $.cookies.get('commentTitle');
+	commentBodyCookie = $.cookies.get('commentBody');
+	replyTitleCookie = $.cookies.get('replyTitle');
+	replyBodyCookie = $.cookies.get('replyBody');
+	replyParentIdCookie = $.cookies.get('replyParentId');
+	scrollPosition = $.cookies.get('scrollPosition');
+	
+	if (commentTitleCookie){
+		$('#comment_title').val(commentTitleCookie);
+		$.cookies.del('commentTitle', {path: location.pathname});
+	}
+	
+	if (commentBodyCookie){
+		$('#comment_body').val(commentBodyCookie);
+		$.cookies.del('commentBody', {path: location.pathname});
+	}
+	
+	if (replyParentIdCookie){
+		$.cookies.del('replyParentId', {path: location.pathname});
+		
+		
+		
+
+		$('div.wrap_form_new_reply').hide();
+
+		$('div.wrap_form_new_reply').fadeIn("slow");
+
+
+		$('form#reply_new[data-validate], form#comment_new[data-validate]').validate();
+		
+		if (replyTitleCookie){
+			$('#reply_title').val(replyTitleCookie);
+			$.cookies.del('replyTitle', {path: location.pathname});
+		}
+	
+		if (replyBodyCookie){
+			$('#reply_body').val(replyBodyCookie);
+			$.cookies.del('replyBody', {path: location.pathname});
+		}
+	}
+	
+	
+	
+	if (scrollPosition){
+		$.cookies.del('scrollPosition', {path: location.pathname});
+		$('html, body').scrollTop(scrollPosition);
+		var mem_color = $('#wrap_form_new_comment').css("background-color");
+		var mem_color2 = $('.wrap_form_new_reply').css("background-color");
+		$('#wrap_form_new_comment').delay(1200).animate({backgroundColor: 'pink'}, 300);
+		$('.wrap_form_new_reply').delay(1200).animate({backgroundColor: 'pink'}, 300);
+		$('#wrap_form_new_comment').animate({backgroundColor: mem_color}, 2800);
+		$('.wrap_form_new_reply').animate({backgroundColor: mem_color2}, 2800);
+		
+	}
 }

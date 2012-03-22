@@ -1,5 +1,5 @@
 $("form#reply_new").bind('ajax:success', function(evt, data, status, xhr) {
-		$('div#wrap_form_new_reply').remove();
+		$('div.wrap_form_new_reply').html("");
 		
 		var last_reply = $('article.reply_for_<%= @root_comment.id %>:last');
 				

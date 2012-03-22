@@ -114,10 +114,12 @@ class ProductTestsController < AuthorizedController
     @comment = Comment.new
     @from = 0
     @limitation = @default_comment_offset
-    @comments = Comment.fetch_comments(@product_test, @from, @limitation)
+    @comments = Comment.fetch_comments(@product_test, @from, 10)
     
     also_to_read_items(@categories)
     
+    declare_variables_reply_form_after_login  # if guest fills reply form and logs in, then we have to declare these variables to 
+                                              # be able to display reply form
     
     @displayed_comments = @comments.length
     @remaining_comments = @product_test.root_comments.count - @displayed_comments

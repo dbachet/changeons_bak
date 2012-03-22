@@ -32,6 +32,21 @@ class ApplicationController < ActionController::Base
 
   private
   
+  def declare_variables_reply_form_after_login
+    @root_comment_id = cookies["replyParentId"]
+    if !@root_comment_id.nil?
+      case
+        when params[:controller] == "posts" then @comment_parent_object = Post.find(params[:id])
+        when params[:controller] == "tips" then @comment_parent_object = Tip.find(params[:id])
+        when params[:controller] == "events" then @comment_parent_object = Event.find(params[:id])
+        when params[:controller] == "product_tests" then @comment_parent_object = ProductTest.find(params[:id])
+      end
+      
+      @root_comment = Comment.find(@root_comment_id)
+      @reply = Comment.new
+    end
+  end
+  
   def accessed_from_category
     previous_url = request.referrer.split("/")
     if previous_url[3] == "categories"
