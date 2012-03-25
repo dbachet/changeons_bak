@@ -3,7 +3,6 @@ module CommentsHelper
   
   # This is to adapt as the comments maybe will be displayed another way !!
   def display_comments(comments, is_new = false)
-    puts comments.inspect
     
     if comments.any?
       sorted_keys = comments.keys.sort.reverse

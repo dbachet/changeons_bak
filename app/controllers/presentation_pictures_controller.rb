@@ -1,5 +1,8 @@
 # -*- encoding : utf-8 -*-
 class PresentationPicturesController < AuthorizedController
+  respond_to :html, :only => :new
+  respond_to :js, :only => [:create, :destroy]
+  
   def new
     @presentation_picture = PresentationPicture.new
     
@@ -12,7 +15,7 @@ class PresentationPicturesController < AuthorizedController
     
     @presentation_picture = current_user.presentation_pictures.create(params[:presentation_picture])
     
-    respond_to do |format|
+    respond_with do |format|
       if @presentation_picture.save
         puts "Should get out as js, shit!"
         format.js { render :create }
@@ -23,5 +26,9 @@ class PresentationPicturesController < AuthorizedController
         # format.xml  { render :xml => @upload_picture.errors, :status => :unprocessable_entity }
       end
     end
+  end
+  
+  def destroy
+    respond_with
   end
 end

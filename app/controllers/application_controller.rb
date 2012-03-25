@@ -32,6 +32,24 @@ class ApplicationController < ActionController::Base
 
   private
   
+  def manage_presentation_picture(object, presentation_picture_id)
+    presentation_picture = PresentationPicture.find_by_id(presentation_picture_id)
+    if !object.presentation_picture    # NO picture stored
+      if !presentation_picture.nil?  &&  presentation_picture.presentation_picturable.nil?    # A new picture is provided and exists but is not used in another model
+        presentation_picture.attach(object)
+      end
+    else                                  # A picture is stored
+      if presentation_picture_id == ""      # the picture has to be removed
+        object.presentation_picture.destroy             # We destroy picture        
+      elsif !presentation_picture.nil?               # A new picture is provided and exists
+        if object.presentation_picture.id != presentation_picture.id  &&  presentation_picture.presentation_picturable.nil?    # A new picture is provided and exists but is not used in another model
+          object.presentation_picture.destroy             # We destroy picture
+          presentation_picture.attach(object)
+        end
+      end
+    end
+  end
+  
   def declare_variables_reply_form_after_login
     @root_comment_id = cookies["replyParentId"]
     if !@root_comment_id.nil?

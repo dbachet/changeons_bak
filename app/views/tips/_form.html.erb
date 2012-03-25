@@ -31,7 +31,8 @@
 			</div>
 			
 			<%= link_to "Lier une image", new_presentation_picture_path, :class => "presentation_picture_link fancybox.ajax" %>
-			<%= f.input :presentation_picture_id, :label => true, :input_html => {:id => "presentation_picture_id"} %>
+			<div id="delete_presentation_picture_link" <%= "style=display:none" if @tip.presentation_picture.blank? %>><%= link_to "Supprimer l'image", delete_presentation_picture_path, :remote => true, :method => :delete, :confirm => 'Are you sure?' %></div>
+			<%= f.input :presentation_picture_id, :label => true, :input_html => {:id => "presentation_picture_id", :value => (@tip.presentation_picture.id if !@tip.presentation_picture.blank?) } %>
 			<div id="presentation_picture_preview"><%= @tip.presentation_picture.blank? ? "" : image_tag(@tip.presentation_picture.picture.url(:medium)) %></div>
 		</div>
 	</div>
@@ -70,6 +71,23 @@
 	$(document).ready(function() {
 		$(function(){
 			add_source_links("<%= tips_remove_source_path %>");
+			$('#delete_presentation_picture_link').click(function(event){
+				event.preventDefault();
+				$.ajax({
+			        url: '/presentation_picture',  //server script to process data
+			        type: 'DELETE',
+			        //Ajax events
+			        // beforeSend: beforeSendHandler,
+			        // 		        success: completeHandler,
+			        // 		        error: errorHandler,
+			        // Form data
+			        // data: formData,
+			        //Options to tell JQuery not to process data or worry about content-type
+			        cache: false,
+			        contentType: false,
+			        processData: false
+			    });
+			});
 		});
 	});
 </script>
