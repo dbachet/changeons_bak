@@ -55,10 +55,10 @@ a {
   text-decoration: underline;
 }
 a:link {
-  color: #A2CF4B;
+  color: #FFCA86;
 }
 a:visited {
-  color: #A2CF4B;
+  color: #FFCA86;
 }
 a:hover, a:focus, a:active {
   color: #A2CF4B;

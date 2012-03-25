@@ -1,0 +1,67 @@
+<%= simple_form_for(@presentation_picture,:url => create_presentation_picture_path, :html => { :multipart => true }, :remote => true) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+	<%= f.file_field :picture %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<progress id="progressBar" value="0" max="100" style="display:none"></progress><span id="percent" style="display:none">0%</span>
+<% end %>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(function(){
+			$(':file').change(function(){
+			    var file = this.files[0];
+			    name = file.name;
+			    size = file.size;
+			    type = file.type;
+			    //your validation
+			alert("name:" + name + ", size:" + size + ", type:" + type);
+			});
+		});
+		
+		$('#presentation_picture_submit').click(function(event){
+			event.preventDefault();
+		    var formData = new FormData($('#new_presentation_picture')[0]);
+			$('#progressBar').fadeIn();
+			$('#percent').fadeIn();
+		    $.ajax({
+		        url: '/presentation_picture',  //server script to process data
+		        type: 'POST',
+		        xhr: function() {  // custom xhr
+		            myXhr = $.ajaxSettings.xhr();
+		            if(myXhr.upload){ // check if upload property exists
+		                myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // for handling the progress of the upload
+		            }
+		            return myXhr;
+		        },
+		        //Ajax events
+		        // beforeSend: beforeSendHandler,
+		        // 		        success: completeHandler,
+		        // 		        error: errorHandler,
+		        // Form data
+		        data: formData,
+		        //Options to tell JQuery not to process data or worry about content-type
+		        cache: false,
+		        contentType: false,
+		        processData: false
+		    });
+		});
+	});
+	
+	
+	
+	function progressHandlingFunction(e){
+	    if(e.lengthComputable){
+	        $('#progressBar').attr({value:e.loaded,max:e.total});
+			$('#percent').html(100 * e.loaded / e.total + "%");
+	    }
+	}
+</script>
+
+

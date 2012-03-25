@@ -50,6 +50,7 @@ class Ability
       can [:show, :index], Question
       can [:show], Category
       can [:show], User
+      can :manage, PresentationPicture
     else
       can [:create], NewsletterSubscriber
       can [:index, :show, :show_more_posts], Post

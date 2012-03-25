@@ -1,0 +1,7 @@
+// $("form#new_presentation_picture").bind('ajax:success', function(evt, data, status, xhr) {
+	
+	// $('#percent').html("100%");
+	$.fancybox.close();
+	$('#presentation_picture_id').val("<%= @presentation_picture.id %>");
+	$('#presentation_picture_preview').html("<%= escape_javascript(image_tag @presentation_picture.picture.url(:medium)) %>");
+// });

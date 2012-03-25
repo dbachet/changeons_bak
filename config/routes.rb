@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 Changeons::Application.routes.draw do
   match "tags/:tag_id/" => "tags#show_posts", :as => "tag_show_posts"  
-
+  
   resources :upload_pictures
   
   match "/categories/:category_id/product_tests" => "product_tests#index", :as => "product_tests_from_category"
@@ -45,6 +45,8 @@ Changeons::Application.routes.draw do
   end
   
   # get "tips/remove_source" # TO ADD
+  match "presentation_picture" => "presentation_pictures#new", :via => 'get', :as => 'new_presentation_picture'
+  match "presentation_picture" => "presentation_pictures#create", :via => 'post', :as => 'create_presentation_picture'
   match "/categories/:category_id/tips" => "tips#index", :as => "tips_from_category"
   get "tips/add_source"
   get "tips/remove_source"

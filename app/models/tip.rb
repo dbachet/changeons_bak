@@ -16,10 +16,13 @@ class Tip < ActiveRecord::Base
   
   has_many :comments
   
+  has_one :presentation_picture, :as => :presentation_picturable, :dependent => :destroy
+  accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
+  
   has_many :tip_categorizations
   has_many :categories, :through => :tip_categorizations
   
-  attr_accessor :source_description, :source
+  attr_accessor :source_description, :source, :presentation_picture_id
   
   validates_uniqueness_of :title
   validates_presence_of :title, :description, :category_ids

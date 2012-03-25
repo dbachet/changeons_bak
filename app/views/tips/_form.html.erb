@@ -27,8 +27,12 @@
 				<%= image_tag @tip.picture.url(:thumb) %></br>
 				<%= f.input :picture, :as => :file, :label => false %>
 				</div>
-
+				
 			</div>
+			
+			<%= link_to "Lier une image", new_presentation_picture_path, :class => "presentation_picture_link fancybox.ajax" %>
+			<%= f.input :presentation_picture_id, :label => true, :input_html => {:id => "presentation_picture_id"} %>
+			<div id="presentation_picture_preview"><%= image_tag @tip.presentation_picture.picture.url(:medium) %></div>
 		</div>
 	</div>
 	
@@ -67,6 +71,5 @@
 		$(function(){
 			add_source_links("<%= tips_remove_source_path %>");
 		});
-		
 	});
 </script>

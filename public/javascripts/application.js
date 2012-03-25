@@ -102,6 +102,13 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('a.presentation_picture_link').fancybox({
+		closeClick: false,
+		afterShow:	function() {
+			$('form#new_presentation_picture[data-validate]').validate();
+		}
+	});
+	
 	$('a.admin_new_user_registration_link').fancybox({
 		closeClick: false,
 		afterShow:	function() {

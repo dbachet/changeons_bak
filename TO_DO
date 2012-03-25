@@ -99,8 +99,7 @@ pour tous les modeles: 	- ajouter mechanisme de modération/lock
 pour answers et comments: 	- ajouter "signaler un abus"
 
 REFACTOR ROLES
-- Think about categorizations
-- check seeds
+
 
 + fil d'ariane
 + ajouter categories en haut
@@ -126,23 +125,47 @@ REFACTOR ROLES
 
 + change police to "Helvetica Neue",Helvetica,Arial,sans-serif
 
-- Try to keep filled form when logging in with cookie, then with session
++ Try to keep filled form when logging in with cookie, then with session
 - SEO
 - Add jQuery for form inputs, to have some text inside disappearing slowly
 - créer helper for product test title
 - when remove post/tip/... remove from categorizations
 - add possible picture instead of gravatar
-- s'occuper des images (lieu de stockage), sécurité de ckeditor
-	Amazon S3 ?
+- s'occuper des images (lieu de stockage), sécurité de ckeditor(use the answer from the creator on github) !!!!!!!!
+	Amazon S3 ? For CKEDITOR also
+	
+	open a fancybox to upload a picture from model uploaded_picture. When the file is submitted, we change add the preview of the image and we put the id of the picture in the corresponding hidden_field.
+
+
+- ID must be generated randomly
+- picture must be created by current_user, edited only by the same user (ability)
+
+picture.presentation_picturable_id = tip.id
+picture.presentation_picturable_id = tip.class.to_s
+
+
+
+	
+	
+	
+	
+	
+- secure the images opened by ckeditor
+- symlink the attcahments
 - add légende to the picture of the post/tip/event...
 - add questions to posts form
-- add jquery buble to explain top page buttons
+- add jquery buble to explain top page buttons !!!!!
 - les + lus, les + votés, classement
 - fix share (à la fin)
 - finish edit pages
 - jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
 - Care about caching
 - Friendly_id, add index
+- Think about categorizations
+- check seeds
+- use yield(:head) to personalize the javascript scprits in views with <% content_for(:head) do %>
+- design
+
 
 - improve home page (garder pour plus tard)
 - recherche (pour plus tard)

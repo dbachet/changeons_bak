@@ -29,7 +29,7 @@ class UploadPicturesController < ApplicationController
     @upload_picture = UploadPicture.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render :new, :layout => false}
       format.xml  { render :xml => @upload_picture }
     end
   end
@@ -46,9 +46,9 @@ class UploadPicturesController < ApplicationController
 
     respond_to do |format|
       if @upload_picture.save
-        format.json { render :json => [{ :name => @upload_picture.picture_file_name, :size => @upload_picture.picture_file_size, :url => @upload_picture.picture.url, :thumbnail_url => @upload_picture.picture.url(:thumb), :delete_url => "", :delete_type => "" }] }
-        # format.html { redirect_to(@upload_picture, :notice => 'Upload picture was successfully created.') }
-        #         format.xml  { render :xml => @upload_picture, :status => :created, :location => @upload_picture }
+        # format.json { render :json => [{ :name => @upload_picture.picture_file_name, :size => @upload_picture.picture_file_size, :url => @upload_picture.picture.url, :thumbnail_url => @upload_picture.picture.url(:thumb), :delete_url => "", :delete_type => "" }] }
+        format.html { redirect_to(@upload_picture, :notice => 'Upload picture was successfully created.') }
+                        format.xml  { render :xml => @upload_picture, :status => :created, :location => @upload_picture }
       else
         # format.html { render :action => "new" }
         # format.xml  { render :xml => @upload_picture.errors, :status => :unprocessable_entity }

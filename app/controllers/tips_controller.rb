@@ -113,6 +113,8 @@ class TipsController < AuthorizedController
   # GET /tips/new.xml
   def new
     @tip = Tip.new
+    @upload_picture = UploadPicture.new
+    
     add_breadcrumb "Nouvelle astuce", :new_tip_path
     respond_to do |format|
       format.html # new.html.erb
@@ -131,7 +133,7 @@ class TipsController < AuthorizedController
   # POST /tips.xml
   def create
     @tip = current_user.tips.new(params[:tip])
-
+    
     respond_to do |format|
       if @tip.save
         @tip.category_ids = params[:tip][:category_ids]
@@ -148,9 +150,18 @@ class TipsController < AuthorizedController
   # PUT /tips/1.xml
   def update
     @tip = Tip.find(params[:id])
+    @presentation_picture = PresentationPicture.find(params[:tip][:presentation_picture_id])
 
     respond_to do |format|
       if @tip.update_attributes(params[:tip])
+        
+        if !@tip.presentation_picture.nil?
+          @tip.presentation_picture.destroy
+        end
+        @presentation_picture.presentation_picturable_id = @tip.id
+        @presentation_picture.presentation_picturable_type = @tip.class.to_s
+        @presentation_picture.save
+        
         format.html { redirect_to(@tip, :notice => 'Tip was successfully updated.') }
         format.xml  { head :ok }
       else
