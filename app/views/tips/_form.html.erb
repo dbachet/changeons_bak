@@ -32,7 +32,7 @@
 			
 			<%= link_to "Lier une image", new_presentation_picture_path, :class => "presentation_picture_link fancybox.ajax" %>
 			<%= f.input :presentation_picture_id, :label => true, :input_html => {:id => "presentation_picture_id"} %>
-			<div id="presentation_picture_preview"><%= image_tag @tip.presentation_picture.picture.url(:medium) %></div>
+			<div id="presentation_picture_preview"><%= @tip.presentation_picture.blank? ? "" : image_tag(@tip.presentation_picture.picture.url(:medium)) %></div>
 		</div>
 	</div>
 	

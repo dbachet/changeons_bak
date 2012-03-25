@@ -50,7 +50,7 @@ class Ability
       can [:show, :index], Question
       can [:show], Category
       can [:show], User
-      can :manage, PresentationPicture
+      can :manage, PresentationPicture, :user_id => user.id
     else
       can [:create], NewsletterSubscriber
       can [:index, :show, :show_more_posts], Post

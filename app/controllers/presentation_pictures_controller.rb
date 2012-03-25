@@ -10,7 +10,7 @@ class PresentationPicturesController < AuthorizedController
   
   def create
     
-    @presentation_picture = PresentationPicture.create(params[:presentation_picture])
+    @presentation_picture = current_user.presentation_pictures.create(params[:presentation_picture])
     
     respond_to do |format|
       if @presentation_picture.save

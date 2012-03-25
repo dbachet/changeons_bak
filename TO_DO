@@ -137,17 +137,11 @@ REFACTOR ROLES
 	open a fancybox to upload a picture from model uploaded_picture. When the file is submitted, we change add the preview of the image and we put the id of the picture in the corresponding hidden_field.
 
 
-- ID must be generated randomly
++ ID must be generated randomly (We forget about this, this not good to do)
 - picture must be created by current_user, edited only by the same user (ability)
+- can be removed
+- adapt to other models
 
-picture.presentation_picturable_id = tip.id
-picture.presentation_picturable_id = tip.class.to_s
-
-
-
-	
-	
-	
 	
 	
 - secure the images opened by ckeditor

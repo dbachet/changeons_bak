@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class User < ActiveRecord::Base
+  # before_save :set_default_role, :on => :create
   ROLES = %w[user redactor admin]
   acts_as_voter
   
@@ -19,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :questions
   has_many :answers
+  has_many :presentation_pictures
   
   def role?(role)
     true if self.role == role.to_s
@@ -32,4 +34,12 @@ class User < ActiveRecord::Base
     end
   end
   
+  protected
+  
+  def set_default_role
+    puts "controller: #{params[:controller]}"
+    if self.role.blank?
+      self.role = "user"
+    end
+  end
 end
