@@ -15,6 +15,9 @@ class Event < ActiveRecord::Base
   
   has_many :comments
   
+  has_one :presentation_picture, :as => :presentation_picturable, :dependent => :destroy
+  accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
+  
   has_many :event_categorizations
   has_many :categories, :through => :event_categorizations
   
@@ -32,7 +35,7 @@ class Event < ActiveRecord::Base
                           :allow_blank => true, :format => "dd/mm/yyyy"
   validate :file_dimensions, :unless => "errors.any?"
   
-  attr_accessor :source_description, :source
+  attr_accessor :source_description, :source, :presentation_picture_id
   
   def attachment_sizes
     if self.picture_orientation_horizontal

@@ -130,6 +130,7 @@ class EventsController < AuthorizedController
     respond_to do |format|
       if @event.save
         @event.category_ids = params[:event][:category_ids]
+        manage_presentation_picture(@event, params[:event][:presentation_picture_id])
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
@@ -146,6 +147,8 @@ class EventsController < AuthorizedController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
+        @event.category_ids = params[:event][:category_ids]
+        manage_presentation_picture(@event, params[:event][:presentation_picture_id])
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
         format.xml  { head :ok }
       else

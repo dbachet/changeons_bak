@@ -199,6 +199,8 @@ class PostsController < AuthorizedController
     respond_to do |format|
       if @post.save
         # generates slug for the tag
+        manage_presentation_picture(@post, params[:post][:presentation_picture_id])
+        
         @post.tags.each do |tag|
           tag.save
         end
@@ -226,6 +228,7 @@ class PostsController < AuthorizedController
           tag.save
         end
         
+        manage_presentation_picture(@post, params[:post][:presentation_picture_id])
         
         format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
         format.xml  { head :ok }

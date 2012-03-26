@@ -12,6 +12,10 @@ class Post < ActiveRecord::Base
   has_attached_file :picture, :styles => Proc.new { |clip| clip.instance.attachment_sizes }, :default_url => '/images/post_picture_missing.png'
   # missing_:style.png
   has_many :comments
+  
+  has_one :presentation_picture, :as => :presentation_picturable, :dependent => :destroy
+  accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
+  
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
   
   has_many :categorizations
@@ -28,7 +32,7 @@ class Post < ActiveRecord::Base
   validates_length_of :source_description, :maximum => 80
   validate :file_dimensions, :unless => "errors.any?"
   
-  attr_accessor :source_description, :source
+  attr_accessor :source_description, :source, :presentation_picture_id
   
   def attachment_sizes
     if self.picture_orientation_horizontal

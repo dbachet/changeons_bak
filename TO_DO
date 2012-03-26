@@ -139,21 +139,9 @@ REFACTOR ROLES
 
 + ID must be generated randomly (We forget about this, this not good to do)
 + picture must be created by current_user, edited only by the same user (ability)
-- can be removed
++ can be removed
 - adapt to other models
 
-if no picture stored
-	if picture_id_new
-		attach to tip
-	end
-else if picture_stored
-	if no new picture id
-		destroy picture_stored
-	else if picture_stored_id != picture_id_new
-		destroy picture_stored
-		attach new picture to tip 
-	end
-end
 
 	
 	
