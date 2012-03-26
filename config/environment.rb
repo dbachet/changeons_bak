@@ -7,3 +7,5 @@ Encoding.default_internal = Encoding::UTF_8
 
 # Initialize the rails application
 Changeons::Application.initialize!
+
+AWS::S3::DEFAULT_HOST.replace "s3-eu-west-1.amazonaws.com"

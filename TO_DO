@@ -138,7 +138,7 @@ REFACTOR ROLES
 + ID must be generated randomly (We forget about this, this not good to do)
 + picture must be created by current_user, edited only by the same user (ability)
 + can be removed
-- adapt to other models
++ adapt to other models
 
 
 
@@ -152,7 +152,7 @@ REFACTOR ROLES
 - les + lus, les + votés, classement
 - fix share (à la fin)
 - finish edit pages
-- jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
++ jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
 - Care about caching
 - Friendly_id, add index
 - Think about categorizations

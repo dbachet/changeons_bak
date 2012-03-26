@@ -19,3 +19,4 @@ gem 'kaminari', '0.13.0'
 gem "breadcrumbs_on_rails", '2.2.0'
 gem "recaptcha", '0.3.4', :require => "recaptcha/rails"
 gem 'capistrano', '2.11.2'
+gem 'aws-s3'
