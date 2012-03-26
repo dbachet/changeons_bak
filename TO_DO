@@ -94,9 +94,7 @@ pour le modele user: 	- check what to do when user is deleted, show as profile d
 						+ add information fields + gravatar
 						
 
-pour tous les modeles: 	- ajouter mechanisme de modération/lock
 
-pour answers et comments: 	- ajouter "signaler un abus"
 
 REFACTOR ROLES
 
@@ -143,8 +141,9 @@ REFACTOR ROLES
 - adapt to other models
 
 
-	
-	
+
+- ajouter mechanisme de modération/lock
+- ajouter "signaler un abus"
 - secure the images opened by ckeditor
 - symlink the attcahments
 - add légende to the picture of the post/tip/event...

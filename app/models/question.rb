@@ -11,7 +11,10 @@ class Question < ActiveRecord::Base
   has_many :question_categorizations
   has_many :categories, :through => :question_categorizations
   
-  attr_accessor :source_description, :source
+  has_one :presentation_picture, :as => :presentation_picturable, :dependent => :destroy
+  accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
+  
+  attr_accessor :source_description, :source, :presentation_picture_id
   
   validates_uniqueness_of :title
   validates_presence_of :title, :category_ids

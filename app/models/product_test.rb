@@ -18,10 +18,14 @@ class ProductTest < ActiveRecord::Base
   end
   
   has_many :comments
+  
+  has_one :presentation_picture, :as => :presentation_picturable, :dependent => :destroy
+  accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
+  
   has_many :product_test_categorizations
   has_many :categories, :through => :product_test_categorizations
   
-  attr_accessor :advantage, :advantages_preview, :drawback, :drawbacks_preview
+  attr_accessor :advantage, :advantages_preview, :drawback, :drawbacks_preview, :presentation_picture_id
   
   validates_length_of :brand, :maximum => 50
   validates_length_of :source_description, :maximum => 80

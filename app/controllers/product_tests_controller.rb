@@ -173,6 +173,7 @@ class ProductTestsController < AuthorizedController
     respond_to do |format|
       if @product_test.save
         @product_test.category_ids = params[:product_test][:category_ids]
+        manage_presentation_picture(@product_test, params[:product_test][:presentation_picture_id])
         format.html { redirect_to(@product_test, :notice => 'Product test was successfully created.') }
         format.xml  { render :xml => @product_test, :status => :created, :location => @product_test }
       else
@@ -189,6 +190,8 @@ class ProductTestsController < AuthorizedController
 
     respond_to do |format|
       if @product_test.update_attributes(params[:product_test])
+        @product_test.category_ids = params[:product_test][:category_ids]
+        manage_presentation_picture(@product_test, params[:product_test][:presentation_picture_id])
         format.html { redirect_to(@product_test, :notice => 'Product test was successfully updated.') }
         format.xml  { head :ok }
       else
