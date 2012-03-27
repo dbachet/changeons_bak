@@ -4,6 +4,17 @@ class ApplicationController < ActionController::Base
   before_filter :newsletter_subscriber, :fetch_best_items, :top_item, :categories
   # before_filter :changeons_items
   
+  rescue_from CanCan::AccessDenied do |exception|
+   flash[:error] = exception.message
+   
+   
+   # redirect_to root_url
+   respond_to do |format|
+     format.html { redirect_to root_url }
+     format.js { redirect_to new_user_session_path }
+   end
+  end
+  
   # if user is logged in, return current_user, else return guest_user
   # def current_or_guest_user
   #   if current_user
@@ -116,6 +127,15 @@ class ApplicationController < ActionController::Base
     if !user.role?("admin")
       redirect_to root_path
     end
+  end
+  
+  protected
+  
+  # Cancan example
+  def ckeditor_authenticate
+    authorize! :index, @asset
+    authorize! :create, @asset
+    authorize! :destroy, @asset
   end
 
   # protected
