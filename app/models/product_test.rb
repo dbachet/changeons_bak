@@ -22,8 +22,11 @@ class ProductTest < ActiveRecord::Base
   has_one :presentation_picture, :as => :presentation_picturable, :dependent => :destroy
   accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
   
-  has_many :product_test_categorizations
-  has_many :categories, :through => :product_test_categorizations
+  has_many :categorizations, :as => :categorizable
+  has_many :categories, :through => :categorizations
+  accepts_nested_attributes_for :categories
+  
+  attr_accessible :category_ids, :categories_attributes
   
   attr_accessor :advantage, :advantages_preview, :drawback, :drawbacks_preview, :presentation_picture_id
   

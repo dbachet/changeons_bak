@@ -170,6 +170,7 @@ class PostsController < AuthorizedController
   # GET /posts/new.xml
   def new
     # @post = Post.new
+    # @post.categories.build
     add_breadcrumb "Nouvel article", :new_post_path
     
     respond_to do |format|
@@ -193,8 +194,9 @@ class PostsController < AuthorizedController
   def create
     @post = current_user.posts.create(params[:post])
     @post.tag_list = params[:post][:tag_list]
+    @post.categories.build params[:post][:category_ids]
+    # Category.attach_to(@post, params[:post][:category_ids])
     
-    @post.category_ids = params[:post][:category_ids]
     
     respond_to do |format|
       if @post.save
@@ -219,7 +221,10 @@ class PostsController < AuthorizedController
   def update
     # @post = Post.find(params[:id])
     @post.tag_list = params[:post][:tag_list]
-    @post.category_ids = params[:post][:category_ids]
+  
+    @post.categories.build params[:post][:category_ids]
+    
+    # Category.attach_to(@post, params[:post][:category_ids])
     
     respond_to do |format|
       if @post.update_attributes(params[:post])

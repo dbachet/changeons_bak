@@ -124,35 +124,34 @@ REFACTOR ROLES
 + change police to "Helvetica Neue",Helvetica,Arial,sans-serif
 
 + Try to keep filled form when logging in with cookie, then with session
-- SEO
-- Add jQuery for form inputs, to have some text inside disappearing slowly
-- créer helper for product test title
-- when remove post/tip/... remove from categorizations
-- add possible picture instead of gravatar
 + s'occuper des images (lieu de stockage), 
 	Amazon S3 ? For CKEDITOR also
 	
-- sécurité de ckeditor(use the answer from the creator on github) !!!!!!!!	
++/- sécurité de ckeditor(use the answer from the creator on github) !!!!!!!!	
 
 
 + ID must be generated randomly (We forget about this, this not good to do)
 + picture must be created by current_user, edited only by the same user (ability)
 + can be removed
 + adapt to other models
-
++/- secure the images opened by ckeditor
++ symlink the attcahments (doesn't have to be done because the forlders are already separated by environment)
++ jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
 
 
 - ajouter mechanisme de modération/lock
 - ajouter "signaler un abus"
-- secure the images opened by ckeditor
-- symlink the attcahments
+- SEO
+- Add jQuery for form inputs, to have some text inside disappearing slowly
+- créer helper for product test title
+- when remove post/tip/... remove from categorizations !!!!
+- add possible picture instead of gravatar !!!!!
 - add légende to the picture of the post/tip/event...
 - add questions to posts form
 - add jquery buble to explain top page buttons !!!!!
 - les + lus, les + votés, classement
 - fix share (à la fin)
 - finish edit pages
-+ jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
 - Care about caching
 - Friendly_id, add index
 - Think about categorizations

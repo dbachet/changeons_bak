@@ -19,8 +19,11 @@ class Tip < ActiveRecord::Base
   has_one :presentation_picture, :as => :presentation_picturable, :dependent => :destroy
   accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
   
-  has_many :tip_categorizations
-  has_many :categories, :through => :tip_categorizations
+  has_many :categorizations, :as => :categorizable
+  has_many :categories, :through => :categorizations
+  accepts_nested_attributes_for :categories
+  
+  attr_accessible :category_ids, :categories_attributes
   
   attr_accessor :source_description, :source, :presentation_picture_id
   

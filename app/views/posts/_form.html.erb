@@ -48,6 +48,7 @@
 <div id="categories">
 	<h1>4. Catégories*</h1>
 	<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
+
 	
 	<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list", :class => "new_form_input"} %>
 </div>

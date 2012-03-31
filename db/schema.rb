@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120325140626) do
+ActiveRecord::Schema.define(:version => 20120331094930) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20120325140626) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "categorizable_id"
+    t.string   "categorizable_type"
   end
 
   create_table "ckeditor_assets", :force => true do |t|

@@ -133,10 +133,10 @@ class TipsController < AuthorizedController
   # POST /tips.xml
   def create
     @tip = current_user.tips.new(params[:tip])
-      
+    @tip.categories.build params[:tip][:category_ids]
+    
     respond_to do |format|
       if @tip.save
-        @tip.category_ids = params[:tip][:category_ids]
         
         
         manage_presentation_picture(@tip, params[:tip][:presentation_picture_id])
@@ -157,6 +157,7 @@ class TipsController < AuthorizedController
   # PUT /tips/1.xml
   def update
     @tip = Tip.find(params[:id])
+    @tip.categories.build params[:tip][:category_ids]
     
     respond_to do |format|
       if @tip.update_attributes(params[:tip])

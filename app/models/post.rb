@@ -18,15 +18,17 @@ class Post < ActiveRecord::Base
   
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
   
-  has_many :categorizations
-  has_many :categories, :through => :categorizations
+  has_many :categorizations, :as => :categorizable
+  has_many :categories, :through => :categorizations, :dependent => :destroy
+  accepts_nested_attributes_for :categories
   
-  attr_accessible :category_ids, :post_type_id, :title, :content, :short_description, :picture, :width, :height, :sources
   
-  validates_attachment_presence :picture
+  attr_accessible :category_ids, :post_type_id, :title, :content, :short_description, :picture, :width, :height, :sources, :categories_attributes
+  
+  # validates_attachment_presence :picture
   validates_attachment_size :picture, :less_than => 2.megabytes
   validates_attachment_content_type :picture, :content_type => [ /^image\/(?:jpeg|gif|png)$/, nil ]
-  validates_presence_of :title, :content, :category_ids, :tag_list, :short_description
+  validates_presence_of :title, :content, :tag_list, :short_description, :category_ids
   validates_length_of :title, :maximum => 100
   validates_length_of :short_description, :maximum => 200
   validates_length_of :source_description, :maximum => 80

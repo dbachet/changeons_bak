@@ -125,11 +125,11 @@ class EventsController < AuthorizedController
   # POST /events.xml
   def create
     @event = current_user.events.new(params[:event])
+    @event.categories.build params[:event][:category_ids]
     # @event.event_start_date = Timeliness.parse(@event.event_start_date, :format => 'dd/mm/yyyy')
 
     respond_to do |format|
       if @event.save
-        @event.category_ids = params[:event][:category_ids]
         manage_presentation_picture(@event, params[:event][:presentation_picture_id])
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
@@ -144,10 +144,10 @@ class EventsController < AuthorizedController
   # PUT /events/1.xml
   def update
     @event = Event.find(params[:id])
-
+    @event.categories.build params[:event][:category_ids]
+    
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        @event.category_ids = params[:event][:category_ids]
         manage_presentation_picture(@event, params[:event][:presentation_picture_id])
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
         format.xml  { head :ok }
