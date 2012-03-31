@@ -137,7 +137,7 @@ REFACTOR ROLES
 +/- secure the images opened by ckeditor
 + symlink the attcahments (doesn't have to be done because the forlders are already separated by environment)
 + jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
-
++ Think about categorizations
 
 - ajouter mechanisme de modération/lock
 - ajouter "signaler un abus"
@@ -154,7 +154,7 @@ REFACTOR ROLES
 - finish edit pages
 - Care about caching
 - Friendly_id, add index
-- Think about categorizations
+
 - check seeds
 - use yield(:head) to personalize the javascript scprits in views with <% content_for(:head) do %>
 - design
