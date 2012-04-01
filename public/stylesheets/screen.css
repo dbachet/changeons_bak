@@ -167,7 +167,7 @@ div#main{
 nav#small_top_bar{
 	overflow: auto;
 	width: 75em;
-	margin: 3em auto 0;
+	margin: 1em auto 0;
 }
 
 	nav#small_top_bar div.share{
@@ -925,6 +925,7 @@ header#top_banner div#top_item{
 	height: 250px;
 	vertical-align: top;
 	position: relative;
+	margin-top: 1em;
 /*	-webkit-border-radius: 2px; 
 	-moz-border-radius: 2px; 
 	-o-border-radius: 2px; 
@@ -988,54 +989,86 @@ header#top_banner div#top_item div.description{
 
 
 header#top_banner div#user_area{
+	font-family: "CaviarDreamsRegular", verdana, arial;
 	display:inline-block;
 	width: 22em;
 /*	background: red;*/
-	height: 250px;
+/*	height: 250px;*/
 	vertical-align: top;
 /*	border-left: 1px solid rgba(0, 0, 0, 0.1);*/
 	margin-left: 1em;
 	padding: 0;
+	color: #32324B;
 }
 
 div#user_area h1{
-	font-family: "CaviarDreamsRegular", verdana, arial;
 /*	color: #C86439;
 	text-shadow: -1px -1px 1px #9A9BB0;*/
 	color: #32324B;
 	text-shadow: 0 1px 1px white;
+	margin-top: 0.3em;
 }
 
+div#user_area ul#top_banner_add_new_item,
 div#user_area ul#top_banner_user_links{
 	list-style: none;
+}
+
+div#user_area ul#top_banner_add_new_item li{
+	margin: 0 0;
 }
 
 div#user_area ul#top_banner_user_links li{
 	margin: 1em 0;
 }
 
+div#user_area ul#top_banner_add_new_item li a{
+/*	color: #32324B;
+	text-shadow: -1px -1px 1px white;*/
+/*	color: #B3B3B8;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.7), 0 1px 1px #fff;*/
+	color: #6E6E87;
+	text-shadow: 0 1px 1px white;
+	font-size: 1.2em;
+}
+
 div#user_area ul#top_banner_user_links li a{
 /*	color: #32324B;
 	text-shadow: -1px -1px 1px white;*/
-	color: #B3B3B8;
-	text-shadow: 0 -1px 1px rgba(0,0,0,0.7), 0 1px 1px #fff;
+	color: #6E6E87;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.2), 0 1px 1px #fff;
 	font-size: 1.4em;
 }
 
+div#user_area ul#top_banner_add_new_item li a:hover,
 div#user_area ul#top_banner_user_links li a:hover{
-	color: #a0a0a5;
+/*	color: #a0a0a5;*/
 }
-	
+
+div#user_area ul#top_banner_add_new_item li a span.icon,
+div#user_area ul#top_banner_user_links li a span.icon{
+
+}
+
 div#user_area ul#top_banner_user_links li a span.icon{
 	display: inline-block;
 	vertical-align: top;
-	background: url("/images/bg_top_banner_icons.png") top no-repeat;
-/*	padding: 1em 0 1em 3em;*/
 	width: 25px;
 	height: 25px;
 	margin-right: 0.5em;
+	background: url("/images/bg_top_banner_icons.png") top no-repeat;
 }
 
+div#user_area ul#top_banner_add_new_item li a span.icon{
+	display: inline-block;
+	vertical-align: top;
+	width: 12px;
+	height: 20px;
+	margin-right: 0.5em;
+	background: url("/images/bg_top_banner_plus.png") top no-repeat;
+}
+
+/* top_banner_user_links */
 div#user_area ul#top_banner_user_links li a.create_account_top_banner span{
 	background-position: 0px -1px;
 }
@@ -1052,11 +1085,40 @@ div#user_area ul#top_banner_user_links li a.new_session_top_banner:hover span{
 	background-position: -28px -28px;
 }
 
+/* top_banner_add_new_item */
+div#user_area ul#top_banner_add_new_item li a.post span,
+div#user_area ul#top_banner_add_new_item li a.tip span,
+div#user_area ul#top_banner_add_new_item li a.question span,
+div#user_area ul#top_banner_add_new_item li a.event span,
+div#user_area ul#top_banner_add_new_item li a.product_test span{
+	background-position: 0px 3px;
+}
+
+div#user_area ul#top_banner_add_new_item li a.post:hover span{
+	background-position: 0px -35px;
+}
+
+div#user_area ul#top_banner_add_new_item li a.tip:hover span{
+	background-position: 0px -16px;
+}
+
+div#user_area ul#top_banner_add_new_item li a.question:hover span{
+	background-position: 0px -53px;
+}
+
+div#user_area ul#top_banner_add_new_item li a.event:hover span{
+	background-position: 0px -73px;
+}
+
+div#user_area ul#top_banner_add_new_item li a.product_test:hover span{
+	background-position: 0px -92px;
+}
+
 header#top_banner div#website_presentation{
 	display: inline-block;
 	width: 19em;
 	height: 13.5em;
-	margin-top: 0.5em;
+	margin-top: 1.6em;
 	vertical-align: top;
 	font-size: 1.2em;
 	text-align: justify;

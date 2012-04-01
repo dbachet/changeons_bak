@@ -43,7 +43,7 @@
 		<header id="top_banner" class="gradient">
 			<div class="horizontal_rule_top_banner"></div>
 			<div id="quote">"Changeons... nous, nos habitudes, la société ! D'autres l 'ont fait, pourquoi pas vous ?"</div>
-			<div style="position: absolute;height: 50px;width: 150px;left: 775px;background: url('/images/arrow_quote.png') no-repeat;margin-top: -22px;"></div>
+			<!-- <div style="position: absolute;height: 50px;width: 150px;left: 775px;background: url('/images/arrow_quote.png') no-repeat;margin-top: -22px;"></div> -->
 			<div id="top_item">
 				<%= image_tag "/images/maison_eco.jpg", :height => "250px" %>
 				<div class="description">erifeurhfi euh rifueh irufheu rfiuh </div>
@@ -53,14 +53,15 @@
 				<ul id="top_banner_user_links">
 					<li><%= link_to(("<span class='icon'> </span>Créer un compte").html_safe, new_user_registration_path, :class => "create_account_top_banner") %></li>
 					<li><%= link_to(("<span class='icon'> </span>Se connecter").html_safe, new_user_session_path, :class => "new_session_top_banner fancybox_signin fancybox.ajax") %>
-					
 					</li>
 				</ul>
 				<h1>Passez à l'acte !</h1>
-				<ul>
-					<li>Ajouter une astuce</li>
-					<li>Ajouter un évènement</li>
-					<li>Ajouter un avis/test de produit</li>
+				<ul id="top_banner_add_new_item">
+					<% if can? :new, @post %><li><%= link_to(("<span class='icon'> </span>Ajouter un article").html_safe, new_post_path, :class => "post") %></li><% end %>
+					<li><%= link_to(("<span class='icon'> </span>Ajouter une astuce").html_safe, new_tip_path, :class => "tip") %></li>
+					<li><%= link_to(("<span class='icon'> </span>Ajouter une question").html_safe, new_question_path, :class => "question") %></li>
+					<li><%= link_to(("<span class='icon'> </span>Ajouter un évènement").html_safe, new_event_path, :class => "event") %></li>
+					<li><%= link_to(("<span class='icon'> </span>Ajouter un avis/test de produit").html_safe, new_product_test_path, :class => "product_test") %></li>
 				</ul>
 				Seule la rédaction de Changeons.org peut ajouter des articles.
 			</div>
