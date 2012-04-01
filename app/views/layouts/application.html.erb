@@ -49,12 +49,14 @@
 				<div class="description">erifeurhfi euh rifueh irufheu rfiuh </div>
 			</div>
 			<div id="user_area">
+				<% if !user_signed_in? %>
 				<h1>Vous voulez participer ?</h1>
 				<ul id="top_banner_user_links">
 					<li><%= link_to(("<span class='icon'> </span>Créer un compte").html_safe, new_user_registration_path, :class => "create_account_top_banner") %></li>
 					<li><%= link_to(("<span class='icon'> </span>Se connecter").html_safe, new_user_session_path, :class => "new_session_top_banner fancybox_signin fancybox.ajax") %>
 					</li>
 				</ul>
+				<% end %>
 				<h1>Passez à l'acte !</h1>
 				<ul id="top_banner_add_new_item">
 					<% if can? :new, @post %><li><%= link_to(("<span class='icon'> </span>Ajouter un article").html_safe, new_post_path, :class => "post") %></li><% end %>
