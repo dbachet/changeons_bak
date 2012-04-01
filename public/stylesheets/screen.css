@@ -410,7 +410,7 @@ h1.red_section.big{
 	
 
 	
-		text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.4);
+		text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.4);
 		border-style: none;
 		
 		
@@ -676,7 +676,6 @@ header nav ul#hmenu li a.home.current {
 			height: 22px;
 			background: url("/images/icons_top_page.png") no-repeat;
 			width: 24px;
-			
 		}
 		
 		header nav ul#account_links > li a.edit_profile span{
@@ -836,10 +835,10 @@ nav#top_categories ul li{
 }
 
 nav#top_categories a.category_top{
-	color: #32324B;
+	color: white;
 	padding: 0.5em 0.5em 0.2em 0.5em;
 	font-size: 1.5em;
-	text-shadow: -1px -1px 1px white;
+	text-shadow: 0px 0px 5px black;
 	border-bottom: 4px solid transparent;
 	
 	transition-property: border;
@@ -905,10 +904,11 @@ header#top_banner{
 header#top_banner div#quote{
 	display: block;
 	font-size: 3.6em;
-	color: #C86439; /*rgba(149, 40, 31, 1)*/
-	-webkit-text-shadow: -1px -1px 1px white;
-	-moz-text-shadow: -1px -1px 1px white;
-	text-shadow: -1px -1px 1px white;
+	-webkit-text-shadow: 0px 1px 0px white, 0 -1px 0 white;
+	-moz-text-shadow: 0px 1px 0px white, 0 -1px 0 white;
+	text-shadow: 0px 1px 0px white, 0 -1px 0 white;
+	
+	color: #32324B;
 /*	border-bottom: 1px solid rgba(0, 0, 0, 0.2);*/
 /*	padding-left: 120px;*/
 	font-family: "JournalRegular", verdana, arial;
@@ -996,6 +996,60 @@ header#top_banner div#user_area{
 /*	border-left: 1px solid rgba(0, 0, 0, 0.1);*/
 	margin-left: 1em;
 	padding: 0;
+}
+
+div#user_area h1{
+	font-family: "CaviarDreamsRegular", verdana, arial;
+/*	color: #C86439;
+	text-shadow: -1px -1px 1px #9A9BB0;*/
+	color: #32324B;
+	text-shadow: 0 1px 1px white;
+}
+
+div#user_area ul#top_banner_user_links{
+	list-style: none;
+}
+
+div#user_area ul#top_banner_user_links li{
+	margin: 1em 0;
+}
+
+div#user_area ul#top_banner_user_links li a{
+/*	color: #32324B;
+	text-shadow: -1px -1px 1px white;*/
+	color: #B3B3B8;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.7), 0 1px 1px #fff;
+	font-size: 1.4em;
+}
+
+div#user_area ul#top_banner_user_links li a:hover{
+	color: #a0a0a5;
+}
+	
+div#user_area ul#top_banner_user_links li a span.icon{
+	display: inline-block;
+	vertical-align: top;
+	background: url("/images/bg_top_banner_icons.png") top no-repeat;
+/*	padding: 1em 0 1em 3em;*/
+	width: 25px;
+	height: 25px;
+	margin-right: 0.5em;
+}
+
+div#user_area ul#top_banner_user_links li a.create_account_top_banner span{
+	background-position: 0px -1px;
+}
+
+div#user_area ul#top_banner_user_links li a.create_account_top_banner:hover span{
+	background-position: 0px -28px;
+}
+
+div#user_area ul#top_banner_user_links li a.new_session_top_banner span{
+	background-position: -28px 0px;
+}
+
+div#user_area ul#top_banner_user_links li a.new_session_top_banner:hover span{
+	background-position: -28px -28px;
 }
 
 header#top_banner div#website_presentation{

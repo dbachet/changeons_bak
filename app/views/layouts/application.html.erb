@@ -50,9 +50,11 @@
 			</div>
 			<div id="user_area">
 				<h1>Vous voulez participer ?</h1>
-				<ul>
-					<li>Créer un compte</li>
-					<li>Se connecter</li>
+				<ul id="top_banner_user_links">
+					<li><%= link_to(("<span class='icon'> </span>Créer un compte").html_safe, new_user_registration_path, :class => "create_account_top_banner") %></li>
+					<li><%= link_to(("<span class='icon'> </span>Se connecter").html_safe, new_user_session_path, :class => "new_session_top_banner fancybox_signin fancybox.ajax") %>
+					
+					</li>
 				</ul>
 				<h1>Passez à l'acte !</h1>
 				<ul>
