@@ -13,28 +13,28 @@
 				end
 			%>
 		</li>
-		<div class="vertical_rule"></div>
+		<!-- <div class="vertical_rule"></div> -->
 		<li><%=
 				link_to_unless_current("Astuces", tips_path, :class => "top_menu") do
 					link_to("Astuces", tips_path, :class => "current top_menu")
 				end
 			%>
 		</li>
-		<div class="vertical_rule"></div>
+		<!-- <div class="vertical_rule"></div> -->
 		<li><%=
 				link_to_unless_current("Questions/Réponses", questions_path, :class => "top_menu") do
 					link_to("Questions/Réponses", questions_path, :class => "current top_menu")
 				end
 			%>
 		</li>
-		<div class="vertical_rule"></div>
+		<!-- <div class="vertical_rule"></div> -->
 		<li><%=
 				link_to_unless_current("Évènements", events_path, :class => "top_menu") do
 					link_to("Évènements", events_path, :class => "current top_menu")
 				end
 			%>
 		</li>
-		<div class="vertical_rule"></div>
+		<!-- <div class="vertical_rule"></div> -->
 		<li><%=
 				link_to_unless_current("Avis/Tests produits", product_tests_path, :class => "top_menu") do
 					link_to("Avis/Tests produits", product_tests_path, :class => "current top_menu")
@@ -79,7 +79,7 @@
 			</ul>
 			
 	<% else %>
-		<ul id="account_links">
+		<ul id="account_links" style="width: 10em;">
 			<li>
 			<%= link_to("Créer un compte", new_user_registration_path)  %>
 			</li>
