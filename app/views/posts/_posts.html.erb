@@ -1,6 +1,5 @@
 <% @posts.each do |post| %>
 <article id="post_<%= post.id %>">
-	<div class="horizontal_rule_posts"></div>
 	<div class="left">
 		<div class="image"><%= image_tag post.picture.url(:thumb) %></div>
 		<div class="date"><span class="day"><%= post.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(post.created_at.strftime("%m")) %></span></br><span class="year"><%= post.created_at.strftime("%Y") %></span></div>
@@ -16,4 +15,5 @@
 	    <% if can? :destroy, post %><%= link_to '| Supprimer', post, :confirm => 'Are you sure?', :method => :delete %><% end %>
 	</div>
 </article>
+<div class="horizontal_rule"></div>
 <% end %>

@@ -154,7 +154,7 @@ REFACTOR ROLES
 - finish edit pages
 - Care about caching
 - Friendly_id, add index
-
+- ajouter annuaire pages entreprises bio
 - check seeds
 - use yield(:head) to personalize the javascript scprits in views with <% content_for(:head) do %>
 - design

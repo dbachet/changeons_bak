@@ -1,9 +1,11 @@
 <div id="page_info" data-action=""></div>
-
+<h1 class="red_section big">Les <span>ARTICLES</span></h1>
 <section id="posts">
 	<header>
-		<h1>Résultats de recherche par tag: <span class="tag"><%= @tag.name %></span></h1>
+		<h1>Résultats de la recherche par tag <span class="tag"><%= @tag.name %></span></h1>
 	</header>
 	<%= render "posts/posts" %>
 	<br />
 </section>
+
+<%= paginate @posts %>

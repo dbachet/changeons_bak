@@ -1,6 +1,5 @@
 <% @tips.each do |tip| %>
 <article id="tip_<%= tip.id %>">
-	<div class="horizontal_rule_tips"></div>
 	<div class="left">
 		<div class="image"><%= image_tag tip.picture.url(:thumb) %></div>
 		<div class="date"><span class="day"><%= tip.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(tip.created_at.strftime("%m")) %></span></br><span class="year"><%= tip.created_at.strftime("%Y") %></span></div>
@@ -17,4 +16,5 @@
 	    <% if can? :destroy, tip %><%= link_to '| Supprimer', tip, :confirm => 'Are you sure?', :method => :delete %><% end %>
 	</div>
 </article>
+<div class="horizontal_rule"></div>
 <% end %>

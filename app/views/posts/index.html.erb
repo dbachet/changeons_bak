@@ -1,5 +1,10 @@
 <div id="page_info" data-action="index_post"></div>
-
+<h1 class="red_section big">
+	Les <span>ARTICLES</span>
+	<% if @category %>
+		 de la catégorie <span>"<%= @category.name %>"</span>
+	<% end %>
+</h1>
 <section id="posts" data-displayed-posts=<%= @displayed_posts %>>
 	<header>
 		<h1>Derniers articles</h1>

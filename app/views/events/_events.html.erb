@@ -1,6 +1,5 @@
 <% @events.each do |event| %>
 <article id="event_<%= event.id %>">
-	<div class="horizontal_rule_events"></div>
 	<div class="left">
 		<div class="image"><%= image_tag event.picture.url(:thumb) %></div>
 		<div class="date"><span class="day"><%= event.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(event.created_at.strftime("%m")) %></span></br><span class="year"><%= event.created_at.strftime("%Y") %></span></div>
@@ -16,4 +15,5 @@
 	    <% if can? :destroy, event %><%= link_to '| Supprimer', event, :confirm => 'Are you sure?', :method => :delete %><% end %>
 	</div>
 </article>
+<div class="horizontal_rule"></div>
 <% end %>

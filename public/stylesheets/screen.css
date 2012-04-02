@@ -332,29 +332,34 @@ nav.pagination span.current{
 /* End - Pagination */
 
 h1.red_section{
+	font-family: "CaviarDreamsRegular", verdana, arial;
+/*	font-family: "JournalRegular", verdana, arial;*/
 	font-size: 2em;
 	font-style:italic;
 /*	font-size: 1em;*/
-	text-align: right;
-	border-bottom: 3px solid #95281F;
+	text-align: center;
+/*	border-bottom: 3px solid #95281F;*/
 	margin-top: 0px;
-	color: grey;
-	background-color: white;
+	color: #6E6E87;
+/*	background-color: white;*/
 	padding: 5px;
-	-webkit-text-shadow: 1px 1px grey;
+/*	-webkit-text-shadow: 1px 1px grey;
 	-moz-text-shadow: 1px 1px grey;
-	text-shadow: 1px 1px grey;
+	text-shadow: 1px 1px grey;*/
+	-webkit-text-shadow: 0px 1px 0px white, 0 -1px 0 white;
+	-moz-text-shadow: 0px 1px 0px white, 0 -1px 0 white;
+	text-shadow: 0px 1px 0px white, 0 -1px 0 white;
 }
 		
 	h1.red_section span{
-		color: #95281F;
+		color: #32324B;
 		font-weight: bold;
 		text-transform: uppercase;
 		font-style: normal;
 	}
 		
 h1.red_section.big{
-	font-size: 2.5em;
+	font-size: 3.5em;
 	text-align: left;
 }
 
@@ -743,6 +748,12 @@ border-bottom: 1px solid #CCCCE5;
 /*z-index: -99;*/
 }
 
+.horizontal_rule{
+	margin: 0;
+	height: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.17);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 .horizontal_rule_top_banner {
 margin: 0 auto;
 width: 75em;
@@ -1010,6 +1021,10 @@ div#user_area h1{
 	margin-top: 0.3em;
 }
 
+div#user_area > span{
+	font-family: "Helvetica Neue",Arial,sans-serif;
+}
+
 div#user_area ul#top_banner_add_new_item,
 div#user_area ul#top_banner_user_links{
 	list-style: none;
@@ -1197,9 +1212,9 @@ input#newsletter_subscriber_submit{
 		-webkit-border-radius: 2px;
 		-moz-border-radius: 2px;
 		border-radius: 2px;
-		-webkit-box-shadow: 0 0 4px #000;
+/*		-webkit-box-shadow: 0 0 4px #000;
 		-mox-box-shadow: 0 0 4px #000;
-		box-shadow: 0 0 4px #000;
+		box-shadow: 0 0 4px #000;*/
 	}
 	
 	section#questions,
