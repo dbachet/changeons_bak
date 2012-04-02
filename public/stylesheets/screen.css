@@ -240,20 +240,29 @@ div#right_bar{
 	vertical-align: top;
 }
 
-input,
+input[type="text"],
+input[type="email"],
 textarea{
-	border: 1px solid transparent;
+	display:block;
+	border: 1px solid rgba(0,0,0,0.5);
+	background-color: transparent;
 	font-family: "Helvetica Neue",Arial,sans-serif;
-	-moz-transition: border-color .2s ease;
-	-ms-transition: border-color .2s ease;
-	-o-transition: border-color .2s ease;
-	-webkit-transition: border-color .2s ease;
-	transition: border-color .2s ease;
+	-moz-transition: all .2s ease;
+	-ms-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+	box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3);
+	color: gainsboro;
+	font-size: 1em;
+	text-shadow: 0 0px 3px black;
 }
 
-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
 textarea:focus,
-input:active,
+input[type="text"]:active,
+input[type="email"]:active,
 textarea:active{
 	border: 1px solid #55CEFF;
 }
@@ -346,9 +355,9 @@ h1.red_section{
 /*	-webkit-text-shadow: 1px 1px grey;
 	-moz-text-shadow: 1px 1px grey;
 	text-shadow: 1px 1px grey;*/
-	-webkit-text-shadow: 0px 1px 0px white, 0 -1px 0 white;
-	-moz-text-shadow: 0px 1px 0px white, 0 -1px 0 white;
-	text-shadow: 0px 1px 0px white, 0 -1px 0 white;
+	-webkit-text-shadow: 0px 1px 0px white, 0 -1px 0 rgba(0, 0, 0, 0.6);
+	-moz-text-shadow: 0px 1px 0px white, 0 -1px 0 rgba(0, 0, 0, 0.6);
+	text-shadow: 0px 1px 0px white, 0 -1px 0 rgba(0, 0, 0, 0.6);
 }
 		
 	h1.red_section span{
@@ -915,11 +924,11 @@ header#top_banner{
 header#top_banner div#quote{
 	display: block;
 	font-size: 3.6em;
-	-webkit-text-shadow: 0px 1px 0px white, 0 -1px 0 white;
-	-moz-text-shadow: 0px 1px 0px white, 0 -1px 0 white;
-	text-shadow: 0px 1px 0px white, 0 -1px 0 white;
+	-webkit-text-shadow: 0px 1px 0px white, 0 -1px 0 rgba(0, 0, 0, 0.4);
+	-moz-text-shadow: 0px 1px 0px white, 0 -1px 0 rgba(0, 0, 0, 0.4);
+	text-shadow: 0px 1px 0px white, 0 -1px 0 rgba(0, 0, 0, 0.4);
 	
-	color: #32324B;
+	color: #E57322;
 /*	border-bottom: 1px solid rgba(0, 0, 0, 0.2);*/
 /*	padding-left: 120px;*/
 	font-family: "JournalRegular", verdana, arial;
@@ -1154,16 +1163,18 @@ header#top_banner div#website_presentation{
 /* NEWSLETTER FORM + Sponsor */
 
 input#newsletter_subscriber_email{
-	-webkit-box-shadow: 0 0 7px #000;
+/*	-webkit-box-shadow: 0 0 7px #000;
 	-mox-box-shadow: 0 0 7px #000;
-	box-shadow: 0 0 7px #000;
+	box-shadow: 0 0 7px #000;*/
 	width: 225px;
 	height: 24px;
 	outline: none!important;
 	margin-left: 0px;
 	margin-bottom: 10px;
-	background: url('/images/form_field_email.png') no-repeat 132px;
-	background-color: #BBD199;
+	background-image: url('/images/form_field_email.png');
+	background-repeat: no-repeat;
+	background-position: 132px;
+	background-color: rgba(0, 0, 0, 0.3);
 	-webkit-border-radius: 2px; 
 	-moz-border-radius: 2px; 
 	-o-border-radius: 2px; 
@@ -1175,7 +1186,7 @@ input#newsletter_subscriber_submit{
 }
 	
 	section#sponsors div{
-		padding: 0px 2.5em 0px;
+		padding: 0;
 		display: inline-block;
 	}
 		
@@ -1185,9 +1196,9 @@ input#newsletter_subscriber_submit{
 		text-align: center;
 		border: 1px solid darkgrey;
 		color: grey;
-		height: 5em;
-		width: 6.1em;
-		padding-top: 1em;
+		height: 5.4em;
+		width: 8.4em;
+		padding-top: 3em;
 		margin-bottom: 5px;
 		background: lightGrey;
 	}
@@ -1227,20 +1238,22 @@ input#newsletter_subscriber_submit{
 		width: 31.2em;
 		display: inline-block;
 		margin-bottom: 30px;
+		font-family: "CaviarDreamsRegular", verdana, arial;
 	}
 	
-		section#questions header h1,
-		section#product_tests_ranking header h1,
-		section#posts_ranking header h1,
-		section#tips_ranking header h1,
-		section#post_tag_tool header h1,
-		section#posts header h1,
-		section#tips header h1,
-		section#events header h1,
-		section#product_tests header h1{
+		section#questions > header h1,
+		section#product_tests_ranking > header h1,
+		section#posts_ranking > header h1,
+		section#tips_ranking > header h1,
+		section#post_tag_tool > header h1,
+		section#posts > header h1,
+		section#tips > header h1,
+		section#events > header h1,
+		section#product_tests > header h1{
 			font-style: italic;
 			font-size: 27px;
 			margin-top: 0px;
+			text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
 		}
 
 		section#questions article,
@@ -1248,7 +1261,7 @@ input#newsletter_subscriber_submit{
 		section#tips article,
 		section#events article,
 		section#product_tests article{
-			min-height: 150px;
+			min-height: 10em;
 			width: 410px;
 			padding: 0px;
 			-webkit-transition: width 0.3s linear, background 0.2s ease;
@@ -1261,6 +1274,7 @@ input#newsletter_subscriber_submit{
 			-moz-border-radius-bottomright: 5px;
 			border-top-right-radius: 5px;
 			border-bottom-right-radius: 5px;
+			margin-bottom: 1em;
 		}
 
 		section#questions article:hover,
@@ -1301,6 +1315,8 @@ input#newsletter_subscriber_submit{
 				padding-top:10px;
 				display: block;
 				font-size: 11px;
+				color: rgba(255, 255, 255, 0.8);
+				text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
 			}
 
 				section#questions article header span,
@@ -1311,6 +1327,11 @@ input#newsletter_subscriber_submit{
 					font-family: 'SansitaOneRegular', verdana, arial;
 				}
 
+/*				section#questions article header,
+				section#posts article header,
+				section#tips article header,
+				section#events article header,
+				section#product_tests article header,*/
 				section#questions article header h1,
 				section#posts article header h1,
 				section#tips article header h1,
@@ -1320,18 +1341,23 @@ input#newsletter_subscriber_submit{
 					font-size: 15px;
 					margin-top: 0px;
 					margin-bottom: 0px;
+					color: rgba(255, 255, 255, 0.8);
+					text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
 				}
 
-			section#questions article div.short_description,
+			section#questions article div.description,
 			section#posts article div.short_description,
 			section#tips article div.description,
 			section#events article div.description,
 			section#product_tests article div.description{
 				display: block;
 				font-size: 13px;
-				font-weight: bold;
+				font-weight: normal;
 				text-align: justify;
 				line-height: 1.2;
+				font-family: "Helvetica Neue",Arial,sans-serif;
+				color: rgba(255, 255, 255, 0.3);
+				text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
 			}
 
 
@@ -1373,7 +1399,7 @@ input#newsletter_subscriber_submit{
 			section#events article div.date,
 			section#product_tests article div.date{
 				padding: 2px 0px 0px 2px;
-				margin: 10px 0px 0px 0px;
+				margin: 0px 0px 0px 0px;
 				display: block;
 				height: 43px;
 				width: 60px;
@@ -1383,9 +1409,9 @@ input#newsletter_subscriber_submit{
 				line-height: 0.9;
 				text-align: center;
 				color: #CCCCCC;			/*ee*/
-				-webkit-text-shadow: 2px 2px #000;
-				-moz-text-shadow: 2px 2px #000;
-				text-shadow: 2px 2px #000;
+				-webkit-text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.7);
+				-moz-text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.7);
+				text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.7);
 				font-weight: bold;
 			}
 
@@ -1580,9 +1606,9 @@ article#product_test.show{
 			font-weight: bold;
 			text-align: center;
 			color: #CCCCCC;							/*ee*/
-			-webkit-text-shadow: 2px 2px #000;
-			-moz-text-shadow: 2px 2px #000;
-			text-shadow: 2px 2px #000;
+			-webkit-text-shadow: 0 1px rgba(255, 255, 255, 0.2), 0 -1px 0 rgba(0, 0, 0, 1);
+			-moz-text-shadow: 0 1px rgba(255, 255, 255, 0.2), 0 -1px 0 rgba(0, 0, 0, 1);
+			text-shadow: 0 1px rgba(255, 255, 255, 0.2), 0 -1px 0 rgba(0, 0, 0, 1);
 
 		}
 
@@ -1913,7 +1939,7 @@ article#question header div.written_by,
 section#questions article header,
 section#questions article header h1,
 article#question header div.categories{
-	color: rgb(225,130,115);
+/*	color: rgb(225,130,115);*/
 }
 
 section#questions_ranking header h1,
@@ -1940,7 +1966,7 @@ article#post header div.written_by,
 section#posts article header,
 section#posts article header h1,
 article#post header div.categories{
-	color: rgb(225,130,115);
+/*	color: rgb(225,130,115);*/
 }
 
 section#posts_ranking header h1,
@@ -1966,7 +1992,7 @@ article#product_test header div.written_by,
 section#product_tests article header,
 section#product_tests article header h1,
 article#product_test header div.categories{
-	color: #55AACF;
+/*	color: #55AACF;*/
 }
 
 section#product_tests_ranking header h1,
@@ -2057,7 +2083,7 @@ article#tip header div.written_by,
 section#tips article header,
 section#tips article header h1,
 article#tip header div.categories{
-	color: #A2CF4B;
+/*	color: #A2CF4B;*/
 }
 
 section#tips_ranking header h1,
@@ -2065,7 +2091,7 @@ article#tip header div.written_by span,
 section#tips article header span,
 section#tips header h1,
 article#tip header div.categories span{
-	color: rgba(255,220,20,1);
+	color: #B1F100;
 }
 
 /* Event show */
@@ -2082,7 +2108,7 @@ section#events article header,
 section#events article header h1,
 article#event header div.categories
 {
-	color: rgba(225,125,75,1);
+/*	color: rgba(225,125,75,1);*/
 }
 
 article#event header div.written_by span,
