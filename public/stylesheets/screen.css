@@ -148,7 +148,7 @@ a{
 
 /* main div */
 div#main{
-	margin: 2em auto 0;
+	margin: 0em auto 0;
 	width: 1100px;
 	padding: 20px 30px 0 30px;
 	display: block;
@@ -361,7 +361,7 @@ h1.red_section{
 }
 		
 	h1.red_section span{
-		color: #32324B;
+		color: #E57322;
 		font-weight: bold;
 		text-transform: uppercase;
 		font-style: normal;
@@ -1067,7 +1067,7 @@ div#user_area ul#top_banner_user_links li a{
 
 div#user_area ul#top_banner_add_new_item li a:hover,
 div#user_area ul#top_banner_user_links li a:hover{
-/*	color: #a0a0a5;*/
+	color: #E57322;
 }
 
 div#user_area ul#top_banner_add_new_item li a span.icon,
@@ -1201,6 +1201,7 @@ input#newsletter_subscriber_submit{
 		padding-top: 3em;
 		margin-bottom: 5px;
 		background: lightGrey;
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
 	}
 
 /* END - NEWSLETTER FORM */
@@ -1315,7 +1316,7 @@ input#newsletter_subscriber_submit{
 				padding-top:10px;
 				display: block;
 				font-size: 11px;
-				color: rgba(255, 255, 255, 0.8);
+				color: #B1F100;
 				text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
 			}
 
@@ -1341,7 +1342,7 @@ input#newsletter_subscriber_submit{
 					font-size: 15px;
 					margin-top: 0px;
 					margin-bottom: 0px;
-					color: rgba(255, 255, 255, 0.8);
+					color: #B1F100;
 					text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
 				}
 
@@ -1946,7 +1947,7 @@ section#questions_ranking header h1,
 article#question header div.written_by span,
 section#questions article header span,
 section#questions header h1{
-	color: #A2CF4B;
+	color: rgba(255, 255, 255, 0.8);
 }
 
 /* End - Post show */
@@ -1974,7 +1975,7 @@ section#post_tag_tool header h1,
 article#post header div.written_by span,
 section#posts article header span,
 section#posts header h1{
-	color: #A2CF4B;
+	color: rgba(255, 255, 255, 0.8);
 }
 
 /* End - Post show */
@@ -1999,7 +2000,7 @@ section#product_tests_ranking header h1,
 article#product_test header div.written_by span,
 section#product_tests article header span,
 section#product_tests header h1{
-	color: #A2CF4B;
+	color: rgba(255, 255, 255, 0.8);
 }
 
 article#product_test div#mark{
@@ -2091,7 +2092,7 @@ article#tip header div.written_by span,
 section#tips article header span,
 section#tips header h1,
 article#tip header div.categories span{
-	color: #B1F100;
+	color: rgba(255, 255, 255, 0.8);
 }
 
 /* Event show */
@@ -2114,7 +2115,7 @@ article#event header div.categories
 article#event header div.written_by span,
 section#events article header span,
 section#events header h1{
-	color: #A2CF4B;
+	color: rgba(255, 255, 255, 0.8);
 }
 
 /* End - Event show */
