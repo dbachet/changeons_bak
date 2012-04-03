@@ -16,7 +16,6 @@
 				<div class="categories">Catégories:
 					<span><%= @categories.map{|c| (link_to c.name, category_path(c.name.downcase) )}.join(', ').html_safe %></span>
 				</div>
-				
 				<%= link_to 'Edit', edit_question_path(@question) %>
 			</div>
 			<div id="small_picture">
@@ -24,18 +23,10 @@
 			</div>
 			
 		</header>
+		<%= render 'layouts/share_buttons_show_top' %>
 		<div id="left_bar">
 			<div id="share">
-				<div id="vote">
-					<div id="vote_up">
-						<%= link_to(image_tag("thumbs_up_vote_03.png", :width => "26px", :height => "26px"), vote_up_question_path(@question), :method => :post, :remote => true) %>
-					</div>
-
-					<div id="votes_result">
-						<%= render "layouts/votes_result" %>
-					</div>
-				</div>
-				<%= render 'layouts/share_buttons' %>
+				<%= render 'layouts/share_buttons', :voteable => @question %>
 			</div>
 		</div>
 	

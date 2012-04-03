@@ -21,20 +21,14 @@
 				<div class="short_description">
 					<%= @post.short_description %>
 				</div>
+				
 			</div>
 		</header>
+		<%= render 'layouts/share_buttons_show_top' %>
 		<div id="left_bar">
 			<div id="share">
-				<div id="vote">
-					<div id="vote_up">
-						<%= link_to(image_tag("thumbs_up_vote_03.png", :width => "26px", :height => "26px"), vote_up_post_path(@post), :method => :post, :remote => true) %>
-					</div>
-
-					<div id="votes_result">
-						<%= render "layouts/votes_result" %>
-					</div>
-				</div>
-				<%= render 'layouts/share_buttons' %>
+				
+				<%= render 'layouts/share_buttons', :voteable => @post %>
 			</div>
 		</div>
 	

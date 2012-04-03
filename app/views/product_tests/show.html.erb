@@ -25,18 +25,10 @@
 			<% end %>
 			<div id="mark"><div class="label">Note</div><div class="group_items"><div class="mark_left"><%= @product_test.mark %></div></br><div class="slash">/</div></br><div class="mark_right">5</div></div></div>
 		</header>
+		<%= render 'layouts/share_buttons_show_top' %>
 		<div id="left_bar">
 			<div id="share">
-				<div id="vote">
-					<div id="vote_up">
-						<%= link_to(image_tag("thumbs_up_vote_03.png", :width => "26px", :height => "26px"), vote_up_product_test_path(@product_test), :method => :post, :remote => true) %>
-					</div>
-
-					<div id="votes_result">
-						<%= render "layouts/votes_result" %>
-					</div>
-				</div>
-				<%= render 'layouts/share_buttons' %>
+				<%= render 'layouts/share_buttons', :voteable => @product_test %>
 			</div>
 			
 		</div>

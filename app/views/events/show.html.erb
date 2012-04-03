@@ -16,6 +16,7 @@
 				<div class="categories">Catégories: 
 					<span><%= @categories.map{|c| (link_to c.name, category_path(c.name.downcase) )}.join(', ').html_safe %></span>
 				</div>
+				
 			</div>
 			<% if !@event.has_big_picture %>
 				<div id="small_picture">
@@ -23,18 +24,10 @@
 				</div>
 			<% end %>
 		</header>
+		<%= render 'layouts/share_buttons_show_top' %>
 		<div id="left_bar">
 			<div id="share">
-				<div id="vote">
-					<div id="vote_up">
-						<%= link_to(image_tag("thumbs_up_vote_03.png", :width => "26px", :height => "26px"), vote_up_event_path(@event), :method => :post, :remote => true) %>
-					</div>
-
-					<div id="votes_result">
-						<%= render "layouts/votes_result" %>
-					</div>
-				</div>
-				<%= render 'layouts/share_buttons' %>
+				<%= render 'layouts/share_buttons', :voteable => @event %>
 			</div>
 		</div>
 	
@@ -75,8 +68,9 @@
 		<%= render 'layouts/about_author' %>
 		<div class="horizontal_rule_events"></div>
 
-
+		
 		</div>
+		
 	</article>
 
 	<section id="comments">

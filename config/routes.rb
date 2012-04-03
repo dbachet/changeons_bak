@@ -83,6 +83,8 @@ Changeons::Application.routes.draw do
   match "/categories/:category_id/posts" => "posts#index", :as => "posts_from_category"        # TO CHANGE
   get "posts/add_source"
   get "posts/remove_source"
+  match 'posts/:post_id/vote_up' => 'votes#vote_up', :as => "vote_up"
+  match 'posts/:post_id/vote_down' => 'votes#vote_down', :as => "vote_down"
   resources :posts do
     resources :upload_pictures
     resources :comments, :except => [:index, :show, :new] do
@@ -93,8 +95,8 @@ Changeons::Application.routes.draw do
       end
     end
     member do
-      post :vote_up
-      post :vote_down
+      # post :vote_up
+      # post :vote_down
     end
   end
   
