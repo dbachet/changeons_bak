@@ -1,7 +1,7 @@
 <% @questions.each do |question| %>
 <article id="question_<%= question.id %>">
 	<div class="left">
-		<div class="image"><%= image_tag "/images/post_picture_missing.png" %></div>
+		<div class="image"><%= image_tag question.picture.url(:thumb) %></div>
 		<div class="date"><span class="day"><%= question.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(question.created_at.strftime("%m")) %></span></br><span class="year"><%= question.created_at.strftime("%Y") %></span></div>
 	</div>
 	<div class="content">

@@ -1,17 +1,18 @@
 # -*- encoding : utf-8 -*-
 class Event < ActiveRecord::Base
   scope :recent, order('created_at desc')
-
+  delegate :picture, :to => :presentation_picture, :allow_nil => true
+  
   belongs_to :user
   
   acts_as_commentable
   acts_as_voteable
   
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
-  has_attached_file :picture, :styles => Proc.new { |clip| clip.instance.attachment_sizes }, :default_url => '/images/post_picture_missing.png'
+  # has_attached_file :picture, :styles => Proc.new { |clip| clip.instance.attachment_sizes }, :default_url => '/images/post_picture_missing.png'
   
-  validates_attachment_size :picture, :less_than => 2.megabytes
-  validates_attachment_content_type :picture, :content_type => [ /^image\/(?:jpeg|gif|png)$/, nil ]
+  # validates_attachment_size :picture, :less_than => 2.megabytes
+  # validates_attachment_content_type :picture, :content_type => [ /^image\/(?:jpeg|gif|png)$/, nil ]
   
   has_many :comments
   
@@ -36,7 +37,7 @@ class Event < ActiveRecord::Base
   validates_date :event_end_date, :on_or_after => :event_start_date, 
                           :on_or_after_message => "La date de fin doit être similaire ou ultérieure à la date de début", 
                           :allow_blank => true, :format => "dd/mm/yyyy"
-  validate :file_dimensions, :unless => "errors.any?"
+  # validate :file_dimensions, :unless => "errors.any?"
   
   attr_accessor :source_description, :source, :presentation_picture_id
   

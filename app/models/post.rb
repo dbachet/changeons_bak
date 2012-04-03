@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Post < ActiveRecord::Base
   scope :recent, order('created_at desc')
+  delegate :picture, :to => :presentation_picture, :allow_nil => true
   
   acts_as_taggable_on :tags
   acts_as_voteable
@@ -9,7 +10,8 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :post_type
   
-  has_attached_file :picture, :styles => Proc.new { |clip| clip.instance.attachment_sizes }, :default_url => '/images/post_picture_missing.png'
+  # has_attached_file :picture, :styles => Proc.new { |clip| clip.instance.attachment_sizes }, :default_url => '/images/post_picture_missing.png'
+  
   # missing_:style.png
   has_many :comments
   
@@ -26,13 +28,13 @@ class Post < ActiveRecord::Base
   attr_accessible :category_ids, :post_type_id, :title, :content, :short_description, :picture, :width, :height, :sources, :categories_attributes
   
   # validates_attachment_presence :picture
-  validates_attachment_size :picture, :less_than => 2.megabytes
-  validates_attachment_content_type :picture, :content_type => [ /^image\/(?:jpeg|gif|png)$/, nil ]
+  # validates_attachment_size :picture, :less_than => 2.megabytes
+  # validates_attachment_content_type :picture, :content_type => [ /^image\/(?:jpeg|gif|png)$/, nil ]
   validates_presence_of :title, :content, :tag_list, :short_description, :category_ids
   validates_length_of :title, :maximum => 100
   validates_length_of :short_description, :maximum => 200
   validates_length_of :source_description, :maximum => 80
-  validate :file_dimensions, :unless => "errors.any?"
+  # validate :file_dimensions, :unless => "errors.any?"
   
   attr_accessor :source_description, :source, :presentation_picture_id
   

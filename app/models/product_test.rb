@@ -1,17 +1,18 @@
 # -*- encoding : utf-8 -*-
 class ProductTest < ActiveRecord::Base
   scope :recent, order('created_at desc')
-
+  delegate :picture, :to => :presentation_picture, :allow_nil => true
+  
   belongs_to :user
   
   acts_as_commentable
   acts_as_voteable
   
   has_friendly_id :brand_and_product_model, :use_slug => true, :approximate_ascii => true
-  has_attached_file :picture, :styles => Proc.new { |clip| clip.instance.attachment_sizes }, :default_url => '/images/post_picture_missing.png'
+  # has_attached_file :picture, :styles => Proc.new { |clip| clip.instance.attachment_sizes }, :default_url => '/images/post_picture_missing.png'
   
-  validates_attachment_size :picture, :less_than => 2.megabytes
-  validates_attachment_content_type :picture, :content_type => [ /^image\/(?:jpeg|gif|png)$/, nil ]
+  # validates_attachment_size :picture, :less_than => 2.megabytes
+  # validates_attachment_content_type :picture, :content_type => [ /^image\/(?:jpeg|gif|png)$/, nil ]
   
   def brand_and_product_model
     "#{brand} #{product_model}"
@@ -41,7 +42,7 @@ class ProductTest < ActiveRecord::Base
   #                                                   :if => Proc.new {|p| p.recommended_price.blank?}
   
   validates_presence_of :product_model, :description, :opinion, :category_ids, :mark
-  validate :file_dimensions, :unless => "errors.any?"
+  # validate :file_dimensions, :unless => "errors.any?"
   
   attr_accessor :source_description, :source
   

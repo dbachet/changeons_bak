@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Tip < ActiveRecord::Base
   scope :recent, order('created_at desc')
+  delegate :picture, :to => :presentation_picture, :allow_nil => true
   
   belongs_to :user
   # INDEX_COLUMNS = column_names - ['title', 'picture_file_name', 'picture_content_type', 'picture_file_size', 'picture_updated_at']
@@ -9,10 +10,10 @@ class Tip < ActiveRecord::Base
   acts_as_voteable
   
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
-  has_attached_file :picture, :styles => Proc.new { |clip| clip.instance.attachment_sizes }, :default_url => '/images/post_picture_missing.png'
+  # has_attached_file :picture, :styles => Proc.new { |clip| clip.instance.attachment_sizes }, :default_url => '/images/post_picture_missing.png'
   
-  validates_attachment_size :picture, :less_than => 2.megabytes
-  validates_attachment_content_type :picture, :content_type => [ /^image\/(?:jpeg|gif|png)$/, nil ]
+  # validates_attachment_size :picture, :less_than => 2.megabytes
+  # validates_attachment_content_type :picture, :content_type => [ /^image\/(?:jpeg|gif|png)$/, nil ]
   
   has_many :comments
   
@@ -31,7 +32,7 @@ class Tip < ActiveRecord::Base
   validates_presence_of :title, :description, :category_ids
   validates_length_of :title, :maximum => 100
   validates_length_of :source_description, :maximum => 80
-  validate :file_dimensions, :unless => "errors.any?"
+  # validate :file_dimensions, :unless => "errors.any?"
     
   def attachment_sizes
     if self.picture_orientation_horizontal

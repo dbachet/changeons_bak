@@ -22,11 +22,7 @@
 				<%= f.input :description, :label => false, :input_html => {:class => "new_form_input"} %>
 			</div>
 			<div id="image">
-				<h1>3. Image de l'évènement</h1>
-				<div class="new_form_input">
-				<%= image_tag @event.picture.url(:thumb) %></br>
-				<%= f.input :picture, :as => :file, :label => false %>
-				</div>
+				
 				<h1>4. Date de début*</h1>
 				<%= f.input :event_start_date, :label => false, :as => :string, :input_html => {:class => "datepicker new_form_input", :value => (@event.event_start_date ? @event.event_start_date.strftime("%d/%m/%Y") : "")} %>
 				<h1>5. Date de fin</h1>

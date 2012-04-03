@@ -142,6 +142,8 @@ REFACTOR ROLES
 - ajouter mechanisme de modération/lock
 - ajouter "signaler un abus"
 - SEO
+- error management, css
+- problème with the remove picture in form, confirmation not working
 - Add jQuery for form inputs, to have some text inside disappearing slowly
 - créer helper for product test title
 - when remove post/tip/... remove from categorizations !!!!

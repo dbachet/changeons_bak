@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class Question < ActiveRecord::Base
   scope :recent, order('created_at desc')
+  delegate :picture, :to => :presentation_picture, :allow_nil => true
+  
   has_many :answers
   
   acts_as_voteable
