@@ -1255,6 +1255,8 @@ input#newsletter_subscriber_submit{
 		display: inline-block;
 		margin-right: 1em;
 		width: 2.5em;
+		border-radius: 2px;
+		box-shadow: 0 1px 1px rgba(255, 255, 255, 0.4), 0 -1px 1px rgba(0, 0, 0, 1);
 	}
 	
 	section#product_tests_ranking article aside,
@@ -1420,10 +1422,9 @@ input#newsletter_subscriber_submit{
 				section#tips article div.image img,
 				section#events article div.image img,
 				section#product_tests article div.image img{
-					-webkit-border-radius: 5px;
-					-moz-border-radius: 5px;
-					border-radius: 5px;
-					border: 3px solid beige;
+					border-radius: 2px;
+					box-shadow: 0 1px 1px rgba(255, 255, 255, 0.4), 0 -1px 1px rgba(0, 0, 0, 1);
+					
 					opacity: 0.5;
 				}
 
@@ -1690,6 +1691,30 @@ article#product_test.show{
 			line-height: 1;
 			margin: 0px 0px 0px 0px;
 			vertical-align: top;
+			font-family: "CaviarDreamsRegular", verdana, arial;
+			color: #B1F100;
+			text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
+		}
+		
+		article#question header div.categories a,
+		article#post header div.categories a,
+		article#tip header div.categories a,
+		article#event header div.categories a,
+		article#product_test header div.categories a{
+			color: rgba(0, 0, 0, 0.6);
+			border-radius: 2px;
+/*			border: 1px solid rgba(255, 255, 255, 0);*/
+			padding: 0 0.2em;
+			box-shadow: 0 1px rgba(0, 0, 0, 0.4), 0 -1px 0 rgba(255, 255, 255, 0.6);
+			background: rgba(255, 255, 255, 0.3);
+		}
+			
+		article#question header div.categories,
+		article#post header div.categories,
+		article#tip header div.categories,
+		article#event header div.categories,
+		article#product_test header div.categories{
+			color: rgba(255,255,255,0.5);
 		}
 		
 			article#question header div.written_by span,
@@ -1698,6 +1723,14 @@ article#product_test.show{
 			article#event header div.written_by span,
 			article#product_test header div.written_by span{
 				font-family: 'SansitaOneRegular', verdana, arial;
+			}
+			
+			article#question header div.written_by a,
+			article#post header div.written_by a,
+			article#tip header div.written_by a,
+			article#event header div.written_by a,
+			article#product_test header div.written_by a{
+				color: #B1F100;
 			}
 			
 
@@ -1906,13 +1939,30 @@ article#product_test.show{
 		display: inline-block;
 		vertical-align: top;
 	/*	background-color: blue;*/
-		width: 15.3em;
-		padding: 1em;
+		width: 16.3em;
+		padding: 1em 0 1em 1em;
 		margin-left: 1em;
 		min-height: 65em;
 	/*	background-color: rgba(0, 0, 0, 0.2);*/
 	}
-
+	
+	section#also_to_read{
+		border-right: 1px solid rgba(255, 255, 255, 0.2);
+		position: relative;
+/*		display: inline-block;*/
+	}
+	
+	section#also_to_read:after{
+		content: '';
+		width: 0;
+		height: 100%;
+		border-right: 1px solid rgba(0, 0, 0, 0.1);
+		position: absolute;
+		right: 0;
+		top: 0;
+/*		display: inline-block;*/
+	}
+	
 	section#also_to_read > div > h1{
 		padding-left: 2em;
 		line-height: 1.3em;

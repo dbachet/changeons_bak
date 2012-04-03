@@ -15,7 +15,7 @@
 				<h1><%= @post.title %></h1>
 				<div class="written_by"><span>écrit par</span> <%= link_to(@user.display_name, show_user_profile_path(@user)) %></div>
 				<div class="categories">Catégories: 
-					<span><%= @categories.map{|c| (link_to c.name, category_path(c.name.downcase) )}.join(', ').html_safe %></span>
+					<span><%= @categories.map{|c| (link_to c.name, category_path(c.name.downcase) )}.join(' ').html_safe %></span>
 				</div>
 				<%= link_to 'Edit', edit_post_path(@post) %>
 				<div class="short_description">
