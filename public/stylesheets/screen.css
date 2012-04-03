@@ -1229,6 +1229,47 @@ input#newsletter_subscriber_submit{
 		box-shadow: 0 0 4px #000;*/
 	}
 	
+	section#product_tests_ranking article,
+	section#tips_ranking article,
+	section#posts_ranking article,
+	section#post_tag_tool article{
+		margin: 1em;
+	}
+	
+	section#product_tests_ranking article header span,
+	section#tips_ranking article header span,
+	section#posts_ranking article header span,
+	section#post_tag_tool article header span{
+		vertical-align: top;
+		display: inline-block;
+		color: #B1F100;
+		width: 14em;
+		text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
+	}
+	
+	section#product_tests_ranking article header img,
+	section#tips_ranking article header img,
+	section#posts_ranking article header img,
+	section#post_tag_tool article header img{
+		vertical-align: top;
+		display: inline-block;
+		margin-right: 1em;
+		width: 2.5em;
+	}
+	
+	section#product_tests_ranking article aside,
+	section#tips_ranking article aside,
+	section#posts_ranking article aside,
+	section#post_tag_tool article aside{
+		color: rgba(255, 255, 255, 0.3);
+		text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
+		text-align: right;
+	}
+	
+	section#product_tests_ranking,
+	section#tips_ranking,
+	section#posts_ranking,
+	section#post_tag_tool,
 	section#questions,
 	section#posts,
 	section#tips,

@@ -15,22 +15,20 @@
 <div style="display:inline-block; width:22em; vertical-align: top">
 	<section id="posts_ranking">
 		<header>
-			<h1>Classement des meilleurs articles</h1>
+			<h1>Classement</h1>
 		</header>
 		<% @top_posts.each do |post| %>
 			<article>
-				<div>
-					<%= image_tag post.picture.url(:thumb) %>
-				</div>
-				<div>
-					<h2><%= truncate(post.title, :length => 55, :separator => ' ') %></h2>
-				</div>
+				<header>
+					<%= image_tag post.picture.url(:thumb) %><span><%= truncate(post.title, :length => 55, :separator => ' ') %></span>
+				</header>
+				<aside><%= post.plusminus %> votes, <%= Comment.fetch_comments(post, 0, 0).size %> commentaires</aside>
 			</article>
 		<% end %>
 	</section>
 	<section id="post_tag_tool">
 		<header>
-			<h1>Tags recensés dans les articles</h1>
+			<h1>Tags</h1>
 		</header>
 		<% @tags.each do |tag| %>
 			<span style="font-size: <%= 8 + rand(20) %>px"><%= link_to tag, tag_show_posts_path(tag.cached_slug) %>
@@ -50,16 +48,14 @@
 </section>
 <section id="tips_ranking">
 	<header>
-		<h1>Classement des meilleurs astuces</h1>
+		<h1>Classement</h1>
 	</header>
 	<% @top_tips.each do |tip| %>
 		<article>
-			<div>
-				<%= image_tag tip.picture.url(:thumb) %>
-			</div>
-			<div>
-				<h2><%= truncate(tip.title, :length => 55, :separator => ' ') %></h2>
-			</div>
+			<header>
+				<%= image_tag tip.picture.url(:thumb) %><span><%= truncate(tip.title, :length => 55, :separator => ' ') %></span>
+			</header>
+			<aside><%= tip.plusminus %> votes, <%= Comment.fetch_comments(tip, 0, 0).size %> commentaires</aside>
 		</article>
 	<% end %>
 </section>
@@ -102,12 +98,10 @@
 	</header>
 	<% @top_product_tests.each do |product_test| %>
 		<article>
-			<div>
-				<%= image_tag product_test.picture.url(:thumb) %>
-			</div>
-			<div>
-				<h2><%= truncate("#{product_test.brand} #{product_test.product_model}", :length => 55, :separator => ' ') %></h2>
-			</div>
+			<header>
+				<%= image_tag product_test.picture.url(:thumb) %><span><%= truncate("#{product_test.brand} #{product_test.product_model}", :length => 55, :separator => ' ') %></span>
+			</header>
+			<aside><%= product_test.plusminus %> votes, <%= Comment.fetch_comments(product_test, 0, 0).size %> commentaires</aside>
 		</article>
 	<% end %>
 </section>
