@@ -6,7 +6,8 @@
 
 $(document).ready(function() {
 	$(function() {        
-      $("#share").floatingFixed({ padding: 70 });
+	var topPageHeight = $('nav#top_page').height() + 40;
+      $("#share").floatingFixed({ padding: topPageHeight });
     });
 
 	$('#back_to_top_button').click(

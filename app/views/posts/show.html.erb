@@ -49,18 +49,9 @@
 	
 		<h1>Listing tags</h1>
 
-		<table>
-		  <tr>
-		    <th>Name</th>
-		    <th></th>
-		  </tr>
-
 		<% @tags.each do |tag| %>
-		  <tr>
-		    <td><%= tag %></td>
-		  </tr>
+		    <div><%= tag %></div>
 		<% end %>
-		</table>
 
 		<br />
 		</div>

@@ -24,7 +24,7 @@ class Tip < ActiveRecord::Base
   has_many :categories, :through => :categorizations
   accepts_nested_attributes_for :categories
   
-  attr_accessible :category_ids, :categories_attributes
+  attr_accessible :category_ids, :categories_attributes, :title, :description, :presentation_picture_id, :source_description, :source, :sources
   
   attr_accessor :source_description, :source, :presentation_picture_id
   

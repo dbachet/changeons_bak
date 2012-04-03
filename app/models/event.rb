@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
   has_many :categories, :through => :categorizations
   accepts_nested_attributes_for :categories
   
-  attr_accessible :category_ids, :categories_attributes
+  attr_accessible :category_ids, :categories_attributes, :title, :description, :event_start_date, :event_end_date, :presentation_picture_id, :addr_street_1, :addr_street_2, :addr_postcode, :addr_city, :addr_country, :source_description, :source, :sources
   
   validates_uniqueness_of :title
   validates_presence_of :title, :description, :event_start_date, :category_ids

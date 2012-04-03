@@ -15,7 +15,7 @@ class Question < ActiveRecord::Base
   has_many :categories, :through => :categorizations
   accepts_nested_attributes_for :categories
   
-  attr_accessible :category_ids, :categories_attributes
+  attr_accessible :category_ids, :categories_attributes, :title, :content, :presentation_picture_id, :source_description, :source, :sources
   
   has_one :presentation_picture, :as => :presentation_picturable, :dependent => :destroy
   accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
