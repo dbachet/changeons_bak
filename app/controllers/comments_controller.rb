@@ -204,7 +204,7 @@ class CommentsController < AuthorizedController
           Comment.send_notification_to_root_comment(@root_comment, @reply) 
         end
         
-        @reply = Comment.set_comment_hash(@reply, @root_comment)
+        # @reply = Comment.set_comment_hash(@reply, @root_comment)
         flash[:notice] = 'Comment was successfully created.'
       else
         flash[:alert] = 'Comment was not successfully created.'
@@ -239,7 +239,7 @@ class CommentsController < AuthorizedController
           Comment.send_notification_to_root_comment(@root_comment, @reply) 
         end
         
-        @reply = Comment.set_comment_hash(@reply, @root_comment)
+        # @reply = Comment.set_comment_hash(@reply, @root_comment)
         flash[:notice] = 'Comment was successfully created.'
         format.js { render :create_reply }
       else
@@ -292,7 +292,7 @@ class CommentsController < AuthorizedController
   # DELETE /comments/1.xml
   def destroy
     @comment = Comment.find(params[:id])
-    @post = Post.find(params[:post_id])
+    
     
     if @comment.has_children?
       @comment.children.each do |child|

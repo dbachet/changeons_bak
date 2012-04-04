@@ -1,3 +1,7 @@
-$("div#comment_<%= @comment.id %>").slideUp();
-$("div.reply_for_<%= @comment.id %>").slideUp();
 
+<% if @comment.is_root_comment? %>
+$("div.root_comment_area.<%= @comment.id %>").slideUp();
+$('div.root_comment_area.<%= @comment.id %>').next('.horizontal_rule_main').remove();
+<% else %>
+$("article#comment_<%= @comment.id %>").slideUp();
+<% end %>

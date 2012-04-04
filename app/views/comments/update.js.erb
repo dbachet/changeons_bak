@@ -8,7 +8,7 @@ $("form#comment_edit").bind('ajax:success', function(evt, data, status, xhr) {
 	
 	updatedCommentField.replaceWith("<%= escape_javascript(display_comment(@comment_updated)) %>");
 	updatedCommentField.hide();
-	updatedCommentField.fadeIn("slow");
+	updatedCommentField.delay(1000).fadeIn("slow");
 	
 	$('form#comment_new[data-validate], form#reply_new[data-validate]').validate();
 });

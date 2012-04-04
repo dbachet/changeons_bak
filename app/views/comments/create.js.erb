@@ -17,8 +17,8 @@ $("form#comment_new").bind('ajax:success', function(evt, data, status, xhr) {
 	}
 	
 	newComment = $('article#comment_<%= @comment_created.keys.first %>');
-	newComment.hide();	
-	newComment.fadeIn("slow");
+	newComment.hide();
+	newComment.delay(500).fadeIn("slow");
 		
 	$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
 

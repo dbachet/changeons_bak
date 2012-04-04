@@ -117,7 +117,8 @@ Changeons::Application.routes.draw do
   match 'comments/:commentable_type/:commentable_id/:root_comment_id/create_reply_as_guest' => 'comments#create_reply_as_guest', :as => "create_comment_reply_as_guest", :via => 'post'
   match 'comments/:commentable_type/:commentable_id/:id/edit' => 'comments#edit', :as => "edit_comment", :via => 'get'
   match 'comments/:commentable_type/:commentable_id/:id/update' => 'comments#update', :as => "update_comment", :via => 'put'
-  
+  match 'comments/:id/destroy' => 'comments#destroy', :as => "destroy_comment", :via => 'delete'
+    
   get 'posts/archives'
   
 

@@ -11,7 +11,7 @@ replyField.html("<%= escape_javascript(render :partial => 'comments/form_reply_c
 
 replyField.hide();
 
-replyField.fadeIn("slow");
+replyField.delay(500).fadeIn("slow");
 
 
 $('form#reply_new[data-validate], form#comment_new[data-validate]').validate();

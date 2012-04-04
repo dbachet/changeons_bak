@@ -2,17 +2,27 @@ $("form#reply_new").bind('ajax:success', function(evt, data, status, xhr) {
 		$('div.wrap_form_new_reply').html("");
 		
 		var last_reply = $('article.reply_for_<%= @root_comment.id %>:last');
-				
+		
+		
+		
 		if (last_reply[0]){
-			window.location = '#' + last_reply.attr("id");
-			last_reply.after("<%= escape_javascript(display_comment(@reply[@root_comment.id][0])) %>");
+			// window.location = '#' + last_reply.attr("id");
+			last_reply.after("<%= escape_javascript(display_comment(@reply)) %>");
 		} else {
-			window.location = '#' + $('article#comment_<%= @root_comment.id %>').attr("id");
-			$('article#comment_<%= @root_comment.id %>').after("<%= escape_javascript(display_comment(@reply[@root_comment.id][0])) %>");
+			// window.location = '#' + $('article#comment_<%= @root_comment.id %>').attr("id");
+			$('article#comment_<%= @root_comment.id %>').after("<%= escape_javascript(display_comment(@reply)) %>");
 		}
 		
 		last_reply = $('article.reply_for_<%= @root_comment.id %>:last');
 		last_reply.hide();
+		
+		var lastReplyTop = last_reply.position().top - $('nav#top_page').height() - 10;
+
+
+
+		$('html, body').animate({scrollTop: lastReplyTop + 'px'}, 800);
+		
+		
 		
 		last_reply.fadeIn("slow");
 		
