@@ -953,12 +953,12 @@ header#top_banner div#top_item{
 	border-radius: 2px;*/
 
 	margin-left: 0.2em;
-	border: 8px solid #D2D2D7;
+	border: 8px solid #DFDFDF;
 }
 
 div#top_item:before {  
     border: 1px solid;
-	border-color: #E7E7E6 #E7E7E6 #5E5A58 #E7E7E6;
+	border-color: #FFFFFF #E7E7E6 #5E5A58 #E7E7E6;
 	content: '';
 	width: 449px;
 	height: 264px;
@@ -2826,7 +2826,7 @@ div#wrap_form_new_comment div.right{
 	margin-top: 1em;
 }
 
-div.wrap_form_new_reply{
+form#reply_new{
 	background-color: #AF4D05;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -2842,7 +2842,7 @@ div.wrap_form_new_reply{
 	color: #C4B702;
 }
 
-div.wrap_form_new_reply div.left{
+form#reply_new div.left{
 	display: inline-block;
 	padding-right: 0.8em;
 	width: 12em;
@@ -2851,7 +2851,7 @@ div.wrap_form_new_reply div.left{
 	margin-top: 1em;
 }
 
-div.wrap_form_new_reply div.right{
+form#reply_new div.right{
 	display: inline-block;
 	width: 24em;
 	border-left: 1px solid rgba(0, 0, 0, 0.1);

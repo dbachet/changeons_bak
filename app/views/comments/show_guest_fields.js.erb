@@ -9,14 +9,17 @@ var comment_title = $('form#comment_new input#comment_title').val(),
 		$('div#wrap_form_new_reply').remove();
 	}
 	
+var commentField = $('div#wrap_form_new_comment'),
+	commentFieldTop = commentField.position().top - $('nav#top_page').height() - 10;
 	
 
-$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form_with_guest_fields') %>").fadeIn();
+commentField.html("<%= escape_javascript(render :partial => 'comments/form_with_guest_fields') %>").fadeIn();
 
-$('form#comment_new').hide();
+$('html, body').animate({scrollTop: commentFieldTop + 'px'}, 800);
 
-$('form#comment_new').fadeIn("slow");
-window.location = "#wrap_form_new_comment";
+commentField.hide();
+
+commentField.fadeIn("slow");
 
 $('form#comment_new input#comment_title').val(comment_title);
 $('form#comment_new textarea#comment_body').val(comment_content);

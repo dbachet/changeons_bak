@@ -10,22 +10,18 @@ var comment_title = $('form#reply_new input#reply_title').val(),
 		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
 	}
 
-$('div#wrap_form_new_reply').remove();
+$('div.wrap_form_new_reply').html("");
 
+var replyField = $('div.root_comment_area.<%= @root_comment.id %> div.wrap_form_new_reply'),
+	replyFieldTop = replyField.position().top - $('nav#top_page').height() - 10;
 
-	
-if (last_reply[0]) {
-	window.location = "#" + last_reply.attr("id");
-	last_reply.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
-} else {
-	var root_com = $('article#comment_<%= @root_comment.id %>');
-	window.location = "#" + root_com.attr("id");
-	root_com.after("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
-}
+$('html, body').animate({scrollTop: replyFieldTop + 'px'}, 800);
 
-$('div#wrap_form_new_reply').hide();
+replyField.html("<%= escape_javascript(render :partial => 'comments/form_reply_comment_with_guest_fields') %>");
 
-$('div#wrap_form_new_reply').fadeIn("slow");
+replyField.hide();
+
+replyField.fadeIn("slow");
 
 
 $('form#reply_new input#reply_title').val(comment_title);

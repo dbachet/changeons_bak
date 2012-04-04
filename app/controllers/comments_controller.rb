@@ -73,7 +73,7 @@ class CommentsController < AuthorizedController
   def show_reply
     # @post = Post.find(params[:post_id])
     commentable = find_commentable_object
-    @root_comment = Comment.find(params[:id])
+    @root_comment = Comment.find(params[:root_comment_id])
     
     @reply = Comment.new
     
@@ -110,9 +110,8 @@ class CommentsController < AuthorizedController
   
   # show the fields to write reply as a guest
   def show_guest_fields_for_reply
-    # @post = Post.find(params[:post_id])
-    @comment_parent_object = comment_parent_object
-    @root_comment = Comment.find(params[:id])
+    commentable = find_commentable_object
+    @root_comment = Comment.find(params[:root_comment_id])
     @reply = Comment.new
     @reply.user_id = -1
     
@@ -189,11 +188,10 @@ class CommentsController < AuthorizedController
   end
   
   def create_reply
-    # @post = Post.find(params[:post_id])
-    @comment_parent_object = comment_parent_object
-    @root_comment = Comment.find(params[:id])
+    commentable = find_commentable_object
+    @root_comment = Comment.find(params[:root_comment_id])
     
-    @reply = Comment.build_from(@comment_parent_object, current_user.id, params[:reply][:body], params[:reply][:title])
+    @reply = Comment.build_from(commentable, current_user.id, params[:reply][:body], params[:reply][:title])
     
     
     respond_with do |format|
@@ -225,10 +223,10 @@ class CommentsController < AuthorizedController
   
   def create_reply_as_guest
     # @post = Post.find(params[:post_id])
-    @comment_parent_object = comment_parent_object
-    @root_comment = Comment.find(params[:id])
+    commentable = find_commentable_object
+    @root_comment = Comment.find(params[:root_comment_id])
     
-    @reply = Comment.build_from_as_guest(@comment_parent_object, params[:reply][:body], params[:reply][:title], params[:reply][:guest_email], params[:reply][:guest_website] )
+    @reply = Comment.build_from_as_guest(commentable, params[:reply][:body], params[:reply][:title], params[:reply][:guest_email], params[:reply][:guest_website] )
     
     respond_with do |format|
       if verify_recaptcha(:model => @reply, :message => "Vous n'avez pas saisi les bons mots !") && @reply.save
@@ -244,7 +242,6 @@ class CommentsController < AuthorizedController
         format.js { render :create_reply }
       else
         flash[:alert] = 'Comment was not successfully created.'
-        puts @comment.errors.inspect
         format.js { render :error_comment }
       end
     end

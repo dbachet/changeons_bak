@@ -1,4 +1,4 @@
-<%= form_for(@reply, :as => "reply", :url => create_reply_as_guest_link, :html => {:method => :post, :class => "guest"}, :validate => true, :remote => true) do |f| %>
+<%= form_for(@reply, :as => "reply", :url => create_comment_reply_as_guest_path(commentable_class, commentable, @root_comment), :html => {:method => :post, :class => "guest"}, :validate => true, :remote => true) do |f| %>
 
 <h1>Votre réponse à <%= Comment.comment_author_email(@root_comment) %></h1>
 
