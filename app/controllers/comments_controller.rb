@@ -72,7 +72,7 @@ class CommentsController < AuthorizedController
   # show the reply fields
   def show_reply
     # @post = Post.find(params[:post_id])
-    @comment_parent_object = comment_parent_object
+    commentable = find_commentable_object
     @root_comment = Comment.find(params[:id])
     
     @reply = Comment.new
@@ -91,8 +91,7 @@ class CommentsController < AuthorizedController
   
   # show the fields to write comment as a guest
   def show_guest_fields
-    # @post = Post.find(params[:post_id])
-    @comment_parent_object = comment_parent_object
+    commentable = find_commentable_object
     @comment = Comment.new
     @comment.user_id = -1
     
@@ -143,34 +142,28 @@ class CommentsController < AuthorizedController
   # POST /comments
   # POST /comments.xml
   def create
-    # model_name = ("Post" if params[:post_id]) || ("Tip" if params[:tip_id]) || ("Event" if params[:event_id]) || ("ProductTest" if params[:product_test_id])
-    # puts parent_comment
-    # @commentable = Tip.find((params[:post_id] || params[:tip_id] || params[:event_id] || params[:product_test_id]))
     commentable = find_commentable_object
-    # @commentable = Post.find(params[:post_id])
     @comment = Comment.build_from(commentable, current_user.id, params[:comment][:body], params[:comment][:title], params[:comment][:send_notification_to_root_comment] )
         
     respond_with do |format|
-          if @comment.save
-            @comment_created = Comment.set_comment_hash(@comment)
-            @comment = Comment.new
-            flash[:notice] = 'Comment was successfully created.'
-            # redirect_to(@post, :notice => 'Comment was successfully created.')
-          else
-            flash[:alert] = 'Comment was not successfully created.'
-                  # @comments = @post.comment_threads
-                  # @tags = @post.tag_list
-                  # @votes_result = @post.plusminus
-                  # render :action => "posts/show"
-          end
-        end
+      if @comment.save
+        @comment_created = Comment.set_comment_hash(@comment)
+        @comment = Comment.new
+        flash[:notice] = 'Comment was successfully created.'
+      else
+        flash[:alert] = 'Comment was not successfully created.'
+              # @comments = @post.comment_threads
+              # @tags = @post.tag_list
+              # @votes_result = @post.plusminus
+              # render :action => "posts/show"
+      end
+    end
   end
   
-  def create_comment_as_guest
-    # @post = Post.find(params[:post_id])
-    @comment_parent_object = comment_parent_object
+  def create_as_guest
+    commentable = find_commentable_object
     
-    @comment = Comment.build_from_as_guest(@comment_parent_object, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website], params[:comment][:send_notification_to_root_comment] )
+    @comment = Comment.build_from_as_guest(commentable, params[:comment][:body], params[:comment][:title], params[:comment][:guest_email], params[:comment][:guest_website], params[:comment][:send_notification_to_root_comment] )
     
     respond_with do |format|
       if verify_recaptcha(:model => @comment, :message => "Vous n'avez pas saisi les bons mots !") && @comment.save

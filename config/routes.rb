@@ -109,8 +109,8 @@ Changeons::Application.routes.draw do
   # end
   
   match 'comments/:commentable_type/:commentable_id/create' => 'comments#create', :as => "create_comment", :via => 'post'
-  
-  
+  match 'comments/:commentable_type/:commentable_id/create_as_guest' => 'comments#create_as_guest', :as => "create_comment_as_guest", :via => 'post'
+  match 'comments/:commentable_type/:commentable_id/show_guest_fields' => 'comments#show_guest_fields', :as => "show_comment_guest_fields", :via => 'get'
   
   match 'posts/:post_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "post_show_guest_fields"
   match 'tips/:tip_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "tip_show_guest_fields"

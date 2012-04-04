@@ -5,7 +5,7 @@
 			<%= link_to "Utilisateur enregistré", new_user_session_path, :id => "write_as_login_link", :title => "Log in your favourite website!", :class => "fancybox_signin fancybox.ajax" %>
 		</li>
 		<li>
-			<%= show_guest_fields_link(@comment_parent_object || @tip || @post || @event || @product_test) %>
+			<%= link_to "Invité", show_comment_guest_fields_path(commentable_class, commentable), :remote => true %>
 		</li>
 	</ul>
 </div>
