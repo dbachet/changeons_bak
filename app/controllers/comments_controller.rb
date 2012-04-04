@@ -4,8 +4,7 @@ class CommentsController < AuthorizedController
   # before_filter :sign_in_if_guest, :only => :create
   # load_and_authorize_resource
   # skip_load_and_authorize_resource :except => [:destroy]
-  layout false, :only => :edit
-  respond_to :js
+  respond_to :js, :except => :edit
   
   # parent_resources :post, :tip, :event, :product_test
   
@@ -131,11 +130,14 @@ class CommentsController < AuthorizedController
   
   # GET /comments/1/edit
   def edit
-    @post = Post.find(params[:post_id])
-    # @comment = Comment.find(params[:id])
+    commentable = find_commentable_object
+    
+    @comment = Comment.find(params[:id])
     
     # authorize! :edit, :comment
-    # puts "new_comment => #{@new_comment.inspect} / comment => #{@comment.inspect}"
+    respond_with do |format|
+      format.html { render :edit, :layout => false}
+    end
   end
 
   # POST /comments
@@ -260,14 +262,15 @@ class CommentsController < AuthorizedController
 
   # PUT /comments/1
   # PUT /comments/1.xml
-  def update
-    @post = Post.find(params[:post_id])
+  def update    
+    commentable = find_commentable_object
     @comment = Comment.find(params[:id])
-
+    
     respond_with do |format|
       if @comment.update_attributes(params[:comment])
         @comment_updated = @comment
-        # @comment_updated = Comment.set_comment_hash(@comment)
+        @comment= Comment.new
+        
         flash[:notice] = 'Comment was successfully updated.'
       else
         flash[:alert] = 'Comment was not successfully updated.'

@@ -115,8 +115,10 @@ Changeons::Application.routes.draw do
   match 'comments/:commentable_type/:commentable_id/:root_comment_id/show_guest_fields_for_reply' => 'comments#show_guest_fields_for_reply', :as => "show_guest_fields_for_comment_reply", :via => 'get'
   match 'comments/:commentable_type/:commentable_id/:root_comment_id/create_reply' => 'comments#create_reply', :as => "create_comment_reply", :via => 'post'
   match 'comments/:commentable_type/:commentable_id/:root_comment_id/create_reply_as_guest' => 'comments#create_reply_as_guest', :as => "create_comment_reply_as_guest", :via => 'post'
+  match 'comments/:commentable_type/:commentable_id/:id/edit' => 'comments#edit', :as => "edit_comment", :via => 'get'
+  match 'comments/:commentable_type/:commentable_id/:id/update' => 'comments#update', :as => "update_comment", :via => 'put'
   
-    get 'posts/archives'
+  get 'posts/archives'
   
 
 

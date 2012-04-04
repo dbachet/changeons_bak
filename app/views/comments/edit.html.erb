@@ -1,6 +1,6 @@
 
 
-<%= form_for(@comment, :as => "comment",:url => polymorphic_path([@comment_parent_object, @comment]), :remote => true, :validate => (current_user ? true : false)) do |f| %>
+<%= form_for(@comment, :as => "comment",:url => update_comment_path(commentable_class, commentable, @comment), :remote => true, :validate => (current_user ? true : false)) do |f| %>
 	
 	<h1>Editing comment</h1>
 	
@@ -20,7 +20,7 @@
 
 	<div class="field">
 	  <%= f.label :title %><br />
-	  <%= f.text_field :title, 'data-post-id' => (@comment_parent_object.id) %>
+	  <%= f.text_field :title %>
 	</div>
 	
 	<div class="field">

@@ -1,7 +1,13 @@
 $("form#comment_new").bind('ajax:success', function(evt, data, status, xhr) {
 	var last_comment = $('div#display_comments > div:first');
 	
-	window.location = "#display_comments";
+	
+	var newCommentField = $('#display_comments'),
+		newCommentFieldTop = newCommentField.position().top - $('nav#top_page').height() - 10;
+
+
+
+	$('html, body').animate({scrollTop: newCommentFieldTop + 'px'}, 800);
 		
 	if (last_comment[0]){
 		last_comment.before("<%= escape_javascript(display_comments(@comment_created)) %>");
@@ -9,13 +15,13 @@ $("form#comment_new").bind('ajax:success', function(evt, data, status, xhr) {
 	} else {
 		$('div#display_comments').html("<%= escape_javascript(display_comments(@comment_created)) %>");
 	}
+	
+	newComment = $('article#comment_<%= @comment_created.keys.first %>');
+	newComment.hide();	
+	newComment.fadeIn("slow");
 		
-		$('article#comment_<%= @comment_created.keys.first %>').hide();
-		
-		$('article#comment_<%= @comment_created.keys.first %>').fadeIn("slow");
-		
-		$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
-		
-		$('form#comment_new[data-validate], form#reply_new[data-validate]').validate();
+	$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
+
+	$('form#comment_new[data-validate], form#reply_new[data-validate]').validate();
 		
 });
