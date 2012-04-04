@@ -24,7 +24,7 @@
 				
 			</div>
 		</header>
-		<%= render 'layouts/share_buttons_show_top' %>
+		
 		<div id="left_bar">
 			<div id="share">
 				
@@ -33,6 +33,7 @@
 		</div>
 	
 		<div id="content_wrap">
+			<%= render 'layouts/share_buttons_show_top' %>
 		  	<% if @post.has_big_picture %>
 				<div id="big_picture">
 					<%= image_tag @post.picture.url(:medium),  :style => ("margin: 0 9em" if !@post.picture_orientation_horizontal) %>

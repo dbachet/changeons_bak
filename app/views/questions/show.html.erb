@@ -23,7 +23,7 @@
 			</div>
 			
 		</header>
-		<%= render 'layouts/share_buttons_show_top' %>
+		
 		<div id="left_bar">
 			<div id="share">
 				<%= render 'layouts/share_buttons', :voteable => @question %>
@@ -31,6 +31,7 @@
 		</div>
 	
 		<div id="content_wrap">
+		<%= render 'layouts/share_buttons_show_top' %>
 		<h1>Plus de détails sur la question:</h1>
 		  <%= simple_format(h @question.content) %>
 	

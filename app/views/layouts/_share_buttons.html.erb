@@ -47,22 +47,22 @@ a2a_config.locale = "fr";
 
 <div id="vote">
 	<div id="vote_up">
-		<%= link_to(image_tag("/images/changeons2-3.png", :width => "68px", :height => "61px"), vote_up_path(voteable), :method => :post, :remote => true) %>
+		<%= link_to(image_tag("/images/changeons2-3.png", :width => "68px", :height => "61px"), vote_up_path(voteable.class.to_s.underscore.downcase, voteable), :method => :post, :remote => true) %>
 		<div id="votes_result">
 			<%= render "layouts/votes_result" %>
 		</div>
 	</div>
 </div>
 
-<span class='st_facebook_large' displayText='Facebook'></span>
-<span class='st_twitter_large' displayText='Tweet'></span>
-<span class='st_viadeo_large' displayText='Viadeo'></span>
-<span class='st_linkedin_large' displayText='LinkedIn'></span>
-<span class='st_sharethis_large' displayText='ShareThis'></span>
-<span class='st_email_large' displayText='Email'></span>
+<span class='st_facebook_large' displayText='Facebook' style="display: none;"></span>
+<span class='st_twitter_large' displayText='Tweet' style="display: none;"></span>
+<span class='st_viadeo_large' displayText='Viadeo' style="display: none;"></span>
+<span class='st_linkedin_large' displayText='LinkedIn' style="display: none;"></span>
+<span class='st_sharethis_large' displayText='ShareThis' style="display: none;"></span>
+<span class='st_email_large' displayText='Email' style="display: none;"></span>
 
 
-<span class="google_plusone_show_page">
+<span class="google_plusone_show_page" style="display: none;">
 	<div class="g-plusone" data-size="tall" data-annotation="none"></div>
 <span>
 <!-- Placez cet appel d'affichage à l'endroit approprié. -->

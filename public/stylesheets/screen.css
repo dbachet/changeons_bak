@@ -1833,9 +1833,10 @@ article#product_test.show{
 	article#tip div#share_line_show_top,
 	article#event div#share_line_show_top,
 	article#product_test div#share_line_show_top{
-		margin-left: 7em;
+		margin-left: 0em;
 		padding: 0.4em 0;
 		text-align: center;
+		height: 1.8em;
 	}
 	
 	article#question div#share > span.google_plusone_show_page,
@@ -1893,8 +1894,7 @@ article#product_test.show{
 	article#product_test div#content_wrap{
 		display: inline-block;
 		vertical-align: top;
-		width: 34em;
-		padding: 5px;
+		width: 35.8em;
 		text-align: justify;
 		color: beige;
 	}

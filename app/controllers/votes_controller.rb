@@ -45,10 +45,11 @@ class VotesController < AuthorizedController
   
     def vote_parent_object
       case
-        when params[:post_id] then Post.find(params[:post_id])
-        when params[:tip_id] then Tip.find(params[:tip_id])
-        when params[:event_id] then Event.find(params[:event_id])
-        when params[:product_test_id] then ProductTest.find(params[:product_test_id])
+        when params[:voteable_type] == "post" then Post.find(params[:voteable_id])
+        when params[:voteable_type] == "tip" then Tip.find(params[:voteable_id])
+        when params[:voteable_type] == "event" then Event.find(params[:voteable_id])
+        when params[:voteable_type] == "product_test" then ProductTest.find(params[:voteable_id])
+        when params[:voteable_type] == "question" then Question.find(params[:voteable_id])
       end    
     end
 end

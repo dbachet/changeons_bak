@@ -21,10 +21,6 @@ Changeons::Application.routes.draw do
         post :create_reply
       end
     end
-    member do
-      post :vote_up
-      post :vote_down
-    end
   end
 
   match "/categories/:category_id/events" => "events#index", :as => "events_from_category"
@@ -37,11 +33,7 @@ Changeons::Application.routes.draw do
         get :reply
         post :create_reply
       end
-    end
-    member do
-      post :vote_up
-      post :vote_down
-    end    
+    end  
   end
   
   # get "tips/remove_source" # TO ADD
@@ -59,13 +51,11 @@ Changeons::Application.routes.draw do
         post :create_reply
       end
     end
-    member do
-      post :vote_up
-      post :vote_down
-    end
   end
   
   match "/categories/:category_id/questions" => "questions#index", :as => "questions_from_category"
+  # match 'questions/:question_id/vote_up' => 'votes#vote_up', :as => "vote_up"
+  # match 'questions/:question_id/vote_down' => 'votes#vote_down', :as => "vote_down"
   get "questions/add_source"
   get "questions/remove_source"
   resources :questions do
@@ -75,16 +65,13 @@ Changeons::Application.routes.draw do
         post :vote_down
       end
     end
-    member do
-      post :vote_up
-    end
   end
 
   match "/categories/:category_id/posts" => "posts#index", :as => "posts_from_category"        # TO CHANGE
   get "posts/add_source"
   get "posts/remove_source"
-  match 'posts/:post_id/vote_up' => 'votes#vote_up', :as => "vote_up"
-  match 'posts/:post_id/vote_down' => 'votes#vote_down', :as => "vote_down"
+  # match 'posts/:post_id/vote_up' => 'votes#vote_up', :as => "vote_up"
+  # match 'posts/:post_id/vote_down' => 'votes#vote_down', :as => "vote_down"
   resources :posts do
     resources :upload_pictures
     resources :comments, :except => [:index, :show, :new] do
@@ -94,11 +81,9 @@ Changeons::Application.routes.draw do
         post :create_reply
       end
     end
-    member do
-      # post :vote_up
-      # post :vote_down
-    end
   end
+  
+  match '/vote_up/:voteable_type/:voteable_id' => 'votes#vote_up', :as => "vote_up"
   
   resources :newsletter_subscribers, :except => [:show, :new]
 

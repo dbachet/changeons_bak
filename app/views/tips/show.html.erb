@@ -24,7 +24,7 @@
 				</div>
 			<% end %>
 		</header>
-		<%= render 'layouts/share_buttons_show_top' %>
+		
 		<div id="left_bar">
 			<div id="share">
 				<%= render 'layouts/share_buttons', :voteable => @tip %>
@@ -32,6 +32,7 @@
 		</div>
 	
 		<div id="content_wrap">
+			<%= render 'layouts/share_buttons_show_top' %>
 			<% if @tip.has_big_picture %>
 				<div id="big_picture">
 					<%= image_tag @tip.picture.url(:medium),  :style => ("margin: 0 9em" if !@tip.picture_orientation_horizontal) %>

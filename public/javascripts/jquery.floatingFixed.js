@@ -44,13 +44,15 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	  var pageContentHeight = $('article.show').height(),
 		  pageContentPosition = $('article.show').position(),
 		  topPageHeight = $('nav#top_page').height(),
-		  pageContentBottom = pageContentPosition.top + pageContentHeight;
+		  pageContentBottom = pageContentPosition.top + pageContentHeight,
+		  shareLine = $('div#share_line_show_top').position().top + $('div#share_line_show_top').height() + 50; // +20 is too make it more accurate
 		
       $this.data("floatingFixedOrig", pos);
-	alert("début: " + pageContentHeight);
+		alert("début: " + shareLine);
 	  $this.data("floatFixedEnd", pageContentBottom - (pos.height + topPageHeight));
-		
+	  $this.data("displayShareButtonsStart", shareLine);
       $this.data("floatingFixedOptions", options);
+	  $this.data("displaysButtons", false);
       triggers.push($this);
     });
     windowScroll();
@@ -67,12 +69,13 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     if(triggers.length === 0) { return; }
     var scrollY = $window.scrollTop();
     for(var i = 0; i < triggers.length; i++) {
-      var t = triggers[i], opt = t.data("floatingFixedOptions"), origin = t.data("floatingFixedOrig"), end = t.data("floatFixedEnd");
+      var t = triggers[i], opt = t.data("floatingFixedOptions"), origin = t.data("floatingFixedOrig"), end = t.data("floatFixedEnd"), shareLine = t.data("displayShareButtonsStart");
       if(!t.data("isFloating") && !t.data("hasEnded")) {
         var off = t.offset();
         t.data("floatingFixedTop", off.top);
         t.data("floatingFixedLeft", off.left);
       }
+	  
       var top = top = t.data("floatingFixedTop");
 
 		// When scroll pass the level which is fixing the share bar on the screen going down
@@ -87,8 +90,18 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       } // When the scroll pass the end level which is keeping the share bar at the end point
 		else if(end < scrollY + opt.padding && t.data("isFloating")) {
 		t.css({position: 'absolute', top: end, left: t.data("floatingFixedLeft"), width: t.width() }).data("isFloating", false).data("hasEnded", true);
-		alert("Case 3");
+		// alert("Case 3");
       }
+
+	  if(scrollY >= shareLine - opt.padding && t.data("displaysButtons") == false) {
+		// alert("Hey");
+		t.data("displaysButtons", true);
+		$('div#share > span').fadeIn("slow");
+	  } else if (scrollY < shareLine - opt.padding && t.data("displaysButtons") == true) {
+		// alert("oO");
+		t.data("displaysButtons", false);
+		$('div#share > span').fadeOut("slow");
+	  }
     }
   };
 
