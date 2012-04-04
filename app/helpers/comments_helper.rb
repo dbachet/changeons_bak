@@ -37,8 +37,8 @@ module CommentsHelper
           content_tag(:div, :class => "comment_content") do
             content_tag(:header) do
               content_tag(:div, comment.title.html_safe, :class => "title") + 
-                (link_to('Supprimer', polymorphic_path([(@tip || @post || @event || @product_test || @comment_parent_object), comment]), :class => "delete_comment_link", :confirm => 'Are you sure?', :method => :delete, :remote => true) if can? :destroy, comment) +
-                (link_to('Éditer', edit_polymorphic_path([(@tip || @post || @event || @product_test || @comment_parent_object), comment]), :class => "edit_comment_link fancybox.ajax") if can? :edit, comment)
+                (link_to('Supprimer', "", :class => "delete_comment_link", :confirm => 'Are you sure?', :method => :delete, :remote => true) if can? :destroy, comment) +
+                (link_to('Éditer', "", :class => "edit_comment_link fancybox.ajax") if can? :edit, comment)
             end +
             content_tag(:div, simple_format(h comment.body), :class => "comment_body")
           end +
@@ -46,44 +46,18 @@ module CommentsHelper
           content_tag(:div, "#{user[:name] || user.display_name }, le #{comment.created_at.strftime("%e")} #{getMonthFromNumber(comment.created_at.strftime("%m"))} #{comment.created_at.strftime("%Y à %H:%M")}", :class => "author_comment_name") +
           content_tag(:div, image_tag(avatar_url(user, 60), :class => "avatar"), :class => "author_comment_image") +
           
-          (show_reply_link((@tip || @post || @event || @product_test || @comment_parent_object), comment)) +
+          ("") +
           (content_tag(:p, "", :class => "reply_fields", :id => "reply_comment_#{comment.id}") if comment.is_root_comment?)
       end
   end
   
-  def show_reply_link(model_variable, comment)
-    model_name = model_variable.class.to_s.underscore
-    link_to('Répondre', eval("show_reply_#{model_name}_comment_path(#{model_variable.id}, #{comment.id})"), :remote => true, :class => "show_reply_fields awesome orange") if comment.is_root_comment?
+  def commentable
+    @tip || @post || @event || @product_test
   end
   
-  def create_reply_link
-    model_name = @comment_parent_object.class.to_s.underscore
-    eval("create_reply_#{model_name}_comment_path(#{@comment_parent_object.id}, #{@root_comment.id})")
-    # create_reply_post_comment_path(@post, @root_comment, :anchor => "reply_comment_#{@root_comment.id}")
+  def commentable_class
+    (@tip || @post || @event || @product_test).class.to_s.underscore.downcase
   end
-  
-  def create_comment_as_guest_link
-    model_name = @comment_parent_object.class.to_s.underscore
-    eval("#{model_name}_create_comment_as_guest_path(#{@comment_parent_object.id})")
-    # create_comment_as_guest_path(@post)
-  end
-  
-  def create_reply_as_guest_link
-    model_name = @comment_parent_object.class.to_s.underscore
-    eval("#{model_name}_create_reply_as_guest_path(#{@comment_parent_object.id}, #{@root_comment.id})")
-    # create_reply_as_guest_path(@post, @root_comment)
-  end
-  
-  def show_guest_fields_link(model_variable)
-    model_name = model_variable.class.to_s.underscore
-    # eval("#{model_name}_show_guest_fields_path(#{@commentable.id})")
-    link_to "Invité", eval("#{model_name}_show_guest_fields_path(#{model_variable.id})"), :remote => true
-    # show_guest_fields_path(@tip || @post || @event || @product_test)
-  end
-  
-  def show_guest_fields_for_reply_link(model_variable)
-    model_name = model_variable.class.to_s.underscore
-    link_to "Invité", eval("#{model_name}_show_guest_fields_for_reply_path(#{model_variable.id})"), :remote => true, :id => "write_reply_as_guest_link"
-  end
+
 end
 # TRY TO WRAP THE CHILDREN INTO A ROOT DIV

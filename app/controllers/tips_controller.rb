@@ -67,7 +67,7 @@ class TipsController < AuthorizedController
   # GET /tips/1
   # GET /tips/1.xml
   def show
-    @tip = Tip.find(params[:id])
+    # @tip = Tip.find(params[:id])
     @user = @tip.user
     @categories = @tip.categories
     

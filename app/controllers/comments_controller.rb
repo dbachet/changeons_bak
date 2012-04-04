@@ -146,14 +146,14 @@ class CommentsController < AuthorizedController
     # model_name = ("Post" if params[:post_id]) || ("Tip" if params[:tip_id]) || ("Event" if params[:event_id]) || ("ProductTest" if params[:product_test_id])
     # puts parent_comment
     # @commentable = Tip.find((params[:post_id] || params[:tip_id] || params[:event_id] || params[:product_test_id]))
-    @comment_parent_object = comment_parent_object
+    commentable = find_commentable_object
     # @commentable = Post.find(params[:post_id])
-    @comment = Comment.build_from(@comment_parent_object, current_user.id, params[:comment][:body], params[:comment][:title], params[:comment][:send_notification_to_root_comment] )
+    @comment = Comment.build_from(commentable, current_user.id, params[:comment][:body], params[:comment][:title], params[:comment][:send_notification_to_root_comment] )
         
     respond_with do |format|
           if @comment.save
             @comment_created = Comment.set_comment_hash(@comment)
-            @comment= Comment.new
+            @comment = Comment.new
             flash[:notice] = 'Comment was successfully created.'
             # redirect_to(@post, :notice => 'Comment was successfully created.')
           else
@@ -313,12 +313,12 @@ class CommentsController < AuthorizedController
   
   private
 
-    def comment_parent_object
+    def find_commentable_object
       case
-        when params[:post_id] then Post.find(params[:post_id])
-        when params[:tip_id] then Tip.find(params[:tip_id])
-        when params[:event_id] then Event.find(params[:event_id])
-        when params[:product_test_id] then ProductTest.find(params[:product_test_id])
+        when params[:commentable_type] == "post" then @post = Post.find(params[:commentable_id])
+        when params[:commentable_type] == "tip" then @tip = Tip.find(params[:commentable_id])
+        when params[:commentable_type] == "event" then @event = Event.find(params[:commentable_id])
+        when params[:commentable_type] == "product_test" then @product_test = ProductTest.find(params[:commentable_id])
       end    
     end  
 

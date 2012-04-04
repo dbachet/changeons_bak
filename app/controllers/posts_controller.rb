@@ -126,7 +126,6 @@ class PostsController < AuthorizedController
     @user = @post.user
     @default_comment_offset = APP_CONFIG['default_post_offset']
     @comment = Comment.new
-    # @post = Post.find(params[:id])
     @from = 0
     @limitation = @default_comment_offset
     @comments = Comment.fetch_comments(@post, @from, 10)

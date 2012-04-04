@@ -138,9 +138,9 @@ REFACTOR ROLES
 + symlink the attcahments (doesn't have to be done because the forlders are already separated by environment)
 + jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
 + Think about categorizations
++ fix share (à la fin)
 
-- ajouter mechanisme de modération/lock
-- ajouter "signaler un abus"
+
 - SEO
 - error management, css
 - problème with the remove picture in form, confirmation not working
@@ -152,7 +152,6 @@ REFACTOR ROLES
 - add questions to posts form
 - add jquery buble to explain top page buttons !!!!!
 - les + lus, les + votés, classement
-- fix share (à la fin)
 - finish edit pages
 - Care about caching
 - Friendly_id, add index
@@ -160,6 +159,9 @@ REFACTOR ROLES
 - check seeds
 - use yield(:head) to personalize the javascript scprits in views with <% content_for(:head) do %>
 - design
+
+- ajouter mechanisme de modération/lock
+- ajouter "signaler un abus"
 
 
 - improve home page (garder pour plus tard)

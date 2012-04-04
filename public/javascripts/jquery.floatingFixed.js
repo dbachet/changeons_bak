@@ -48,7 +48,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 		  shareLine = $('div#share_line_show_top').position().top + $('div#share_line_show_top').height() + 50; // +20 is too make it more accurate
 		
       $this.data("floatingFixedOrig", pos);
-		alert("début: " + shareLine);
+		// alert("début: " + shareLine);
 	  $this.data("floatFixedEnd", pageContentBottom - (pos.height + topPageHeight));
 	  $this.data("displayShareButtonsStart", shareLine);
       $this.data("floatingFixedOptions", options);

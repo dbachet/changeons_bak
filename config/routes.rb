@@ -44,13 +44,13 @@ Changeons::Application.routes.draw do
   get "tips/add_source"
   get "tips/remove_source"
   resources :tips do
-    resources :comments, :except => [:index, :show, :new] do
-      member do
-        get :show_reply
-        get :reply
-        post :create_reply
-      end
-    end
+    # resources :comments, :except => [:index, :show, :new] do
+    #   member do
+    #     get :show_reply
+    #     get :reply
+    #     post :create_reply
+    #   end
+    # end
   end
   
   match "/categories/:category_id/questions" => "questions#index", :as => "questions_from_category"
@@ -100,6 +100,18 @@ Changeons::Application.routes.draw do
 
   resources :categories
   
+  # resources :comments, :except => [:index, :show, :new] do
+  #   member do
+  #     get :show_reply
+  #     get :reply
+  #     post :create_reply
+  #   end
+  # end
+  
+  match 'comments/:commentable_type/:commentable_id/create' => 'comments#create', :as => "create_comment", :via => 'post'
+  
+  
+  
   match 'posts/:post_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "post_show_guest_fields"
   match 'tips/:tip_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "tip_show_guest_fields"
   match 'events/:event_id/comments/show_guest_fields' => 'comments#show_guest_fields', :as => "event_show_guest_fields"
@@ -120,8 +132,8 @@ Changeons::Application.routes.draw do
   match 'events/:event_id/comments/:id/create_reply_as_guest' => 'comments#create_reply_as_guest', :as => 'event_create_reply_as_guest', :via => 'post'
   match 'product_tests/:product_test_id/comments/:id/create_reply_as_guest' => 'comments#create_reply_as_guest', :as => 'product_test_create_reply_as_guest', :via => 'post'
   
-  post 'posts/show_more_posts', :as => 'show_more_posts'
-  match 'posts/:post_id/show_more_comments' => 'comments#show_more_comments', :as => 'show_more_comments', :via => 'post'
+  # post 'posts/show_more_posts', :as => 'show_more_posts'
+  # match 'posts/:post_id/show_more_comments' => 'comments#show_more_comments', :as => 'show_more_comments', :via => 'post'
   get 'posts/archives'
   
 
