@@ -1,0 +1,134 @@
+/*		*{
+			margin:0;
+			padding:0;
+			list-style:none;
+			border:none;
+		}
+		body{
+			font-family:Verdana,Arial,Sans-Serif;
+			font-size:90%;
+			background:#333;
+			color:#ccc;
+		}*/
+		
+		div.domtab{
+			padding:0 0;
+			width:100%;
+			font-size:90%;
+		}
+		ul.domtabs{
+			float:left;
+			width:100%;
+			margin:0 0 0 0;
+/*			font-family: 'SansitaOneRegular';*/
+			color: #55AACF;			
+		}
+		ul.domtabs li{
+			/*font-size: 20px; => for home */
+			font-size: 1.4em;
+			display: inline-block;
+			float: right;
+			padding: 0 0 0 .4em;
+		}
+		ul.domtabs a:link,
+		ul.domtabs a:visited,
+		ul.domtabs a:active,
+		ul.domtabs a:hover{
+/*			width:100%;*/
+			padding:.1em 0.2em;
+			display:block;
+			background:rgba(70, 70, 70, 0.1);
+			color: #55AACF;
+			height:3em;
+			font-weight:bold;
+			text-decoration:none;
+		}
+		html>body ul.domtabs a:link,
+		html>body ul.domtabs a:visited,
+		html>body ul.domtabs a:active,
+		html>body ul.domtabs a:hover{
+			height:auto;
+			min-height:1.5em;
+		}
+		ul.domtabs a:hover{
+/*			background:rgba(8, 8, 8, 0.4);*/
+		}
+		div.domtab > div{
+			clear:both;
+			width:auto;
+			background:rgba(8, 8, 8, 0.4);
+			color:#888;
+			padding:1em 3em;
+		}
+		ul.domtabs li.active a:link,
+		ul.domtabs li.active a:visited,
+		ul.domtabs li.active a:active,
+		ul.domtabs li.active a:hover{
+			background:rgba(8, 8, 8, 0.4);
+/*			color: #55AACF;*/
+			color: #fff;
+		}
+		#domtabprintview{
+			float:right;
+			padding-right:1em;
+			text-align:right;
+		}
+		#domtabprintview a:link,
+		#domtabprintview a:visited,
+		#domtabprintview a:active,
+		#domtabprintview a:hover{
+			background:rgba(8, 8, 8, 0.4);
+		}
+/*		p{
+			margin:0 0 .5em 0;
+			line-height:1.3em;
+		}
+		h2{
+			font-size:1.3em;
+			color:#cfc;
+			text-transform:uppercase;
+			font-family:"Trebuchet MS",Arial,Sans-Serif;
+			padding:0 0 .7em .2em;
+		}
+		h1{
+			font-size:2em;
+			text-align:center;
+			font-weight:normal;
+			text-transform:uppercase;
+			font-family:"Trebuchet MS",Arial,Sans-Serif;
+			padding:.5em 0;
+			background:#000;
+			border-bottom:1px solid #666;
+		}*/
+		pre{
+			font-size:1.2em;
+			padding:1em;
+		}
+		div.domtab div a:link,
+		div.domtab div a:visited,
+		div.domtab div a:active
+		{
+			color:#888;
+			display:block;
+			padding:1em .5em;
+			font-weight:bold;
+			font-size:1.3em;
+		}
+		div.domtab div h2 a,
+		div.domtab div h2 a:hover,
+		div.domtab div h2 a:active,
+		div.domtab div h2
+		{
+			color:#A2CF4B;
+			display:inline;
+			padding:0;
+			font-weight:normal;
+			font-size:1em;
+			word-wrap: break-word;
+		}
+		
+		div.domtab div h2
+		{
+			font-family: "CaviarDreamsRegular", verdana, arial;
+			font-size:1.2em;		
+		}

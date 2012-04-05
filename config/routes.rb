@@ -134,7 +134,7 @@ Changeons::Application.routes.draw do
   get "pages/tips"
   
   
-  devise_for :users, :controllers => {:sessions => 'sessions', :registrations => 'registrations'} do
+  devise_for :users, :controllers => {:sessions => 'sessions'} do #, :registrations => 'registrations'
     match "admin/users/sign_up" => "admin/registrations#new", :as => :admin_new_user_registration, :via => :get
     match "admin/users/destroy/:id" => "admin/registrations#destroy", :as => :admin_destroy_user_registration, :via => :delete
     match "admin/users/:id" => "admin/registrations#edit", :as => :admin_edit_user_registration, :via => :get
