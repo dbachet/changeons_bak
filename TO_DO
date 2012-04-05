@@ -149,7 +149,7 @@ REFACTOR ROLES
 - when remove post/tip/... remove from categorizations !!!!
 - add possible picture instead of gravatar !!!!!
 - add légende to the picture of the post/tip/event...
-- add questions to posts form
+
 - add jquery buble to explain top page buttons !!!!!
 - les + lus, les + votés, classement
 - finish edit pages
@@ -159,11 +159,12 @@ REFACTOR ROLES
 - check seeds
 - use yield(:head) to personalize the javascript scprits in views with <% content_for(:head) do %>
 - design
-
+- fix datapicker from client side validation with > https://github.com/bcardarella/client_side_validations/wiki/jQuery-Plugins
+- secure role during editing user
 - ajouter mechanisme de modération/lock
 - ajouter "signaler un abus"
 
-
+- add questions to posts form (garder pour plus tard)
 - improve home page (garder pour plus tard)
 - recherche (pour plus tard)
 - add lazy load (pour plus tard)

@@ -4,12 +4,16 @@
 	<%= render "layouts/flash_messages"%>
 </div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :remote => true, :validate => true) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :validate => { :uniqueness => false, :presence => true } %></div>
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :remote => true, :validate => true) do |f| %>
+<div class="inputs">
+	<%= f.input :email, :input_html => { :validate => {:uniqueness => false} } %>
+</div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password, :validate => { :confirmation => false, :presence => true } %></div>
+<div class="inputs">
+	<%= f.input :password, :input_html => { :validate => {:confirmation => false, :length => false} } %>	
+</div>
+
+
 
   <% if devise_mapping.rememberable? -%>
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
@@ -28,7 +32,9 @@
 	<%= f.hidden_field :reply_parent_id %>
 	<%= f.hidden_field :scroll_position %>
 
-  <div><%= f.submit "Sign in" %></div>
+ 	<div class="action">
+	<%= f.button :submit, "Se connecter" %>
+	</div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

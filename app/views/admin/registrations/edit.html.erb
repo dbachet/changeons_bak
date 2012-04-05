@@ -1,17 +1,57 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for([:admin, @user], :as => "user", :url => admin_update_user_registration_path(@user), :html => { :method => :put }, :validate => true, :remote => true) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, :validate => true) do |f| %>
 
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email, :validate => { :presence => true } %></p>
+<%= devise_error_messages! %>
 
-  <p><%= f.label :role %><br />
+<div class="inputs">
+<%= f.input :display_name %>
+</div>
 
-  <%= f.select(:role, User::ROLES, {:selected => @user.role}) %>
+<div class="inputs">
+<%= f.input :email %>
+</div>
 
-  <p><%= f.submit "Update" %></p>
+<div class="inputs">
+<%= f.input :password, :input_html => { :validate => {:presence => false, :length => false}} %> <i>(leave blank if you don't want to change it)</i><br />	
+</div>
+
+<div class="inputs">
+<%= f.input :password_confirmation %>
+</div>
+
+<div class="inputs">
+<%= f.input :current_password, :input_html => { :validate => {:presence => true}} %><i>(we need your current password to confirm your changes)</i><br />
+</div>
+
+<div class="inputs">
+<%= f.input :real_name %>
+</div>
+
+<div class="inputs">
+<%= f.input :website %>
+</div>
+
+<div class="inputs">
+<%= f.input :location %>
+</div>
+
+<div class="inputs">
+<%= f.input :birthday %>
+</div>
+
+<div class="inputs">
+<%= f.input :about_me, :as => :text %>
+</div>
+
+<div class="action">
+<%= f.button :submit, "Mettre à jour" %>
+</div>
+
 <% end %>
 
+<h3>Cancel my account</h3>
 
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
 
-<% if can? :index, :admin_registration %><%= link_to 'Back', admin_users_path, :class => "admin_users_link fancybox.ajax" %><% end %>
+<%= link_to "Back", :back %>

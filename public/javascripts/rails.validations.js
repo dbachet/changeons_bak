@@ -348,8 +348,11 @@ var clientSideValidations = {
           wrapper.addClass(settings.wrapper_error_class);
           var errorElement = $('<' + settings.error_tag + ' class="' + settings.error_class + '">' + message + '</' + settings.error_tag + '>');
           wrapper.append(errorElement);
+		  element.next('.valid_field.' + element.attr('id')).remove();
+		  // element.after('<span class="invalid_field"></span>');
         } else {
           element.parent().find(settings.error_tag + '.' + settings.error_class).text(message);
+		  element.next('.valid_field.' + element.attr('id')).remove();
         }
       },
       remove: function(element, settings) {
@@ -357,7 +360,18 @@ var clientSideValidations = {
         wrapper.removeClass(settings.wrapper_error_class);
         var errorElement = wrapper.find(settings.error_tag + '.' + settings.error_class);
         errorElement.remove();
-      }
+		// element.next('.invalid_field').remove();
+		var validField = $('span.valid_field.' + element.attr('id'));
+		if (!validField[0]) {
+			element.after('<span class="valid_field ' + element.attr('id') + '">correct</span>');
+		}
+      }//,
+		// 	  pass: function(element, settings) {
+		// var validField = $('span.valid_field.' + element.attr('id'));
+		// if (!validField[0]) {
+		// 	element.after('<span class="valid_field ' + element.attr('id') + '">Correct</span>');
+		// }
+		// 	  }
 
     },
     'Formtastic::FormBuilder': {

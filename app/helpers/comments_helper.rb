@@ -18,7 +18,7 @@ module CommentsHelper
             end.join.html_safe +
             content_tag(:div, (@root_comment && @root_comment.id == root_comment_key) ? (render :partial => 'comments/form_reply_comment') : "", :class => "wrap_form_new_reply")
           end +
-          content_tag(:div,"", :class => "horizontal_rule_main")
+          content_tag(:div,"", :class => "horizontal_rule")
           # )
         end.join
         )

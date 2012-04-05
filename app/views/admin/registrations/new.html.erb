@@ -1,20 +1,49 @@
-<h2>Create a new user</h2>
+<h2>Create a new user via admin page</h2>
 
-<%= form_for(@user, :as => "user", :url => admin_user_registration_path, :validate => true, :remote => true) do |f| %>
+<%= simple_form_for(@user, :as => "user", :url => admin_user_registration_path, :validate => true, :remote => true) do |f| %>
   
+<div class="inputs">
+<%= f.input :display_name %>
+</div>
 
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email, :validate => { :presence => true } %></p>
+<div class="inputs">
+<%= f.input :email %>
+</div>
 
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password, :validate => { :presence => true } %></p>
+<div class="inputs">
+<%= f.input :password %>	
+</div>
 
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, :validate => { :presence => true } %></p>
+<div class="inputs">
+<%= f.input :password_confirmation %>
+</div>
 
-  <p><%= f.label :role %><br />
-  <%= f.select(:role, User::ROLES, {:selected => "user"}) %>
+<div class="inputs">
+<%= f.input :real_name %>
+</div>
 
-  <p><%= f.submit "Sign up" %></p>
+<div class="inputs">
+<%= f.input :website %>
+</div>
+
+<div class="inputs">
+<%= f.input :location %>
+</div>
+
+<div class="inputs">
+<%= f.input :birthday %>
+</div>
+
+<div class="inputs">
+<%= f.input :about_me, :as => :text %>
+</div>
+
+<p><%= f.label :role %><br />
+<%= f.select(:role, User::ROLES, {:selected => "user"}) %>
+
+<div class="action">
+<%= f.button :submit, "Enregistrer" %>
+</div>
+
 <% end %>
 

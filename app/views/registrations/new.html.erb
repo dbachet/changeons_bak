@@ -1,36 +1,47 @@
 <h2>Sign up</h2>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f| %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f| %>
-  <%= devise_error_messages! %>
+<%= f.error_notification %>
 
-  <p><%= f.label :display_name %><br />
-  <%= f.text_field :display_name, :validate => true %></p>
+<div class="inputs">
+<%= f.input :display_name %>
+</div>
 
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email, :validate => true %></p>
+<div class="inputs">
+<%= f.input :email %>
+</div>
 
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password, :validate => true %></p>
+<div class="inputs">
+<%= f.input :password %>	
+</div>
 
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
+<div class="inputs">
+<%= f.input :password_confirmation %>
+</div>
 
-  <p><%= f.label :real_name %><br />
-  <%= f.text_field :real_name, :validate => true %></p>
+<div class="inputs">
+<%= f.input :real_name %>
+</div>
 
-  <p><%= f.label :website %><br />
-  <%= f.text_field :website, :validate => true %></p>
+<div class="inputs">
+<%= f.input :website %>
+</div>
 
-  <p><%= f.label :location %><br />
-  <%= f.text_field :location, :validate => true %></p>
+<div class="inputs">
+<%= f.input :location %>
+</div>
 
-  <p><%= f.label :birthday %><br />
-  <%= f.text_field :birthday, :validate => true %></p>
+<div class="inputs">
+<%= f.input :birthday %>
+</div>
 
-  <p><%= f.label :about_me %><br />
-  <%= f.text_field :about_me, :validate => true %></p>
+<div class="inputs">
+<%= f.input :about_me, :as => :text %>
+</div>
 
-  <p><%= f.submit "Sign up" %></p>
+<div class="action">
+<%= f.button :submit %>
+</div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
