@@ -12,8 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= fancybox/jquery.easing-1.3.pack
-//= fancybox/jquery.fancybox.pack
+//= require fancybox
 //= rails.validations
 //= jquery-ui-1.8.17.custom.min
 //= jquery.ui.datepicker-fr
@@ -25,7 +24,7 @@
 
 
 $(document).ready(function() {
-	alert("hmm, elle est pas contente...");
+	// alert("hmm, elle est pas contente...");
 	
 	$(function() {        
 		
