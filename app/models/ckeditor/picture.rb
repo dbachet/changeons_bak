@@ -4,7 +4,7 @@ class Ckeditor::Picture < Ckeditor::Asset
                     :path => "/ckeditor_assets/pictures/:id/:style_:basename.:extension",
 	                  :styles => { :content => '800>', :thumb => '118x100#' },
                     :storage => :s3,
-                    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+                    :s3_credentials => "#{Rails.root.to_s}/config/s3.yml",
                     :url  => ":s3_eu_url"
 	
 	validates_attachment_size :data, :less_than => 2.megabytes

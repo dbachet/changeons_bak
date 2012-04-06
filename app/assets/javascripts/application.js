@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require fancybox
+//= require ckeditor/init
 //= rails.validations
 //= jquery-ui-1.8.17.custom.min
 //= jquery.ui.datepicker-fr

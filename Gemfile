@@ -19,7 +19,7 @@ gem 'jquery-rails'
 gem 'fancybox-rails'
 gem 'acts_as_commentable_with_threading'
 gem 'client_side_validations', '3.1.3'
-gem "ckeditor", '3.6.3'
+gem "ckeditor", "3.7.0.rc3"
 gem "paperclip", "~> 3.0"
 gem "cancan", '1.6.7'
 gem 'validates_timeliness', '~> 3.0.8'

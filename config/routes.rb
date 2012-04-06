@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 Changeons::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   match "tags/:tag_id/" => "tags#show_posts", :as => "tag_show_posts"  
   
   resources :upload_pictures
