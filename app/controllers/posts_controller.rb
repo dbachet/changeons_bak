@@ -180,8 +180,10 @@ class PostsController < AuthorizedController
 
   # GET /posts/1/edit
   def edit
+    @presentation_picture = PresentationPicture.new
     add_breadcrumb truncate(@post.title, :length => 20), :post_path
     add_breadcrumb "Éditer l'article", :edit_post_path
+    
     # @post = Post.find(params[:id])
     # authorize! :edit, @post
     # puts "post => #{@post.inspect}" # / comment => #{@comment.inspect}"
@@ -191,11 +193,10 @@ class PostsController < AuthorizedController
   # POST /posts
   # POST /posts.xml
   def create
-    @post = current_user.posts.create(params[:post])
+    @post = current_user.posts.new(params[:post])
     @post.tag_list = params[:post][:tag_list]
-    @post.categories.build params[:post][:category_ids]
+    # @post.categories.build params[:post][:category_ids]
     # Category.attach_to(@post, params[:post][:category_ids])
-    
     
     respond_to do |format|
       if @post.save
@@ -221,9 +222,8 @@ class PostsController < AuthorizedController
     # @post = Post.find(params[:id])
     @post.tag_list = params[:post][:tag_list]
   
-    @post.categories.build params[:post][:category_ids]
+    # @post.categories.build params[:post][:category_ids]
     
-    # Category.attach_to(@post, params[:post][:category_ids])
     
     respond_to do |format|
       if @post.update_attributes(params[:post])

@@ -1,6 +1,10 @@
 # -*- encoding : utf-8 -*-
 module ApplicationHelper
   
+  def javascript(*files)
+      content_for(:javascript_includes) { javascript_include_tag(*files) }
+  end
+  
   def getMonthFromNumber(month)
     if month == '01'
       "Jan"

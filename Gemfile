@@ -20,11 +20,20 @@ gem 'fancybox-rails'
 gem 'acts_as_commentable_with_threading'
 gem 'client_side_validations', '3.1.3'
 gem "ckeditor", "3.7.0.rc3"
-gem "paperclip", "~> 3.0"
+
 gem "cancan", '1.6.7'
 gem 'validates_timeliness', '~> 3.0.8'
 gem 'kaminari', '0.13.0'
 gem "breadcrumbs_on_rails", '2.2.0'
 gem "recaptcha", '0.3.4', :require => "recaptcha/rails"
 gem 'capistrano', '2.11.2'
-gem 'aws-s3'
+
+# gem "paperclip", "2.3.11"
+# gem 'aws-s3'
+
+
+# gem "paperclip", "~> 3.0"
+# gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip", "3.0.0"
+gem 'nokogiri', '1.4.7'
+gem 'aws-sdk'

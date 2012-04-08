@@ -1,0 +1,1 @@
+$('form#reply_new[data-validate]').validate();

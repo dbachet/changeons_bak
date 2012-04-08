@@ -1,7 +1,8 @@
 // $("form#new_presentation_picture").bind('ajax:success', function(evt, data, status, xhr) {
 	
 	// $('#percent').html("100%");
-	$.fancybox.close();
+	// $.fancybox.close();
+	$('#picture_upload_status').html("L'image a été téléchargée !");
 	$('#presentation_picture_id').val("<%= @presentation_picture.id %>");
 	$('#presentation_picture_preview').html("<%= escape_javascript(image_tag @presentation_picture.picture.url(:medium)) %>").fadeIn("slow");
 	$('#delete_presentation_picture_link').fadeIn("slow");

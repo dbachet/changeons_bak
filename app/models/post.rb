@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   has_many :comments
   
   has_one :presentation_picture, :as => :presentation_picturable, :dependent => :destroy
-  accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
+  # accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
   
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
   
@@ -25,7 +25,7 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :categories
   
   
-  attr_accessible :category_ids, :post_type_id, :title, :content, :short_description, :picture, :width, :height, :sources, :categories_attributes
+  attr_accessible :category_ids, :post_type_id, :title, :content, :short_description, :picture, :width, :height, :sources, :categories_attributes, :presentation_picture_id, :source_description, :source, :tag_list
   
   # validates_attachment_presence :picture
   # validates_attachment_size :picture, :less_than => 2.megabytes
