@@ -34,9 +34,9 @@
 	
 		<div id="content_wrap">
 			<%= render 'layouts/share_buttons_show_top' %>
-		  	<% if @post.has_big_picture %>
+		  	<% if !@post.presentation_picture.blank? %>
 				<div id="big_picture">
-					<%= image_tag @post.picture.url(:medium),  :style => ("margin: 0 9em" if !@post.picture_orientation_horizontal) %>
+					<%= image_tag @post.picture.url(:medium),  :style => ("margin: 0 9em") %>
 				</div>
 			<% end %>
 		  <%= @post.content.html_safe %>

@@ -113,7 +113,7 @@ class TipsController < AuthorizedController
   # GET /tips/new.xml
   def new
     @tip = Tip.new
-    @upload_picture = UploadPicture.new
+    # @upload_picture = UploadPicture.new
     
     add_breadcrumb "Nouvelle astuce", :new_tip_path
     respond_to do |format|
@@ -124,7 +124,7 @@ class TipsController < AuthorizedController
 
   # GET /tips/1/edit
   def edit
-    @tip = Tip.find(params[:id])
+    # @tip = Tip.find(params[:id])
     add_breadcrumb truncate(@tip.title, :length => 20), :tip_path
     add_breadcrumb "Éditer l'astuce", :edit_tip_path
   end
@@ -132,8 +132,7 @@ class TipsController < AuthorizedController
   # POST /tips
   # POST /tips.xml
   def create
-    @tip = current_user.tips.new(params[:tip])
-    @tip.categories.build params[:tip][:category_ids]
+    # @tip = current_user.tips.new(params[:tip])
     
     respond_to do |format|
       if @tip.save
@@ -157,7 +156,6 @@ class TipsController < AuthorizedController
   # PUT /tips/1.xml
   def update
     @tip = Tip.find(params[:id])
-    @tip.categories.build params[:tip][:category_ids]
     
     respond_to do |format|
       if @tip.update_attributes(params[:tip])

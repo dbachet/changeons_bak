@@ -1,0 +1,25 @@
+<%= simple_form_for(@presentation_picture,:url => create_presentation_picture_path, :html => { :multipart => true }, :remote => true) do |pic| %>
+
+	<div class="inputs" id="presentation_picture_input" <%= "style=display:none" if !@presentation_picture.id.blank? %>>
+		<%= pic.file_field :picture %>
+	
+		
+	</div>
+	
+	<div id="picture_upload_status">
+		<progress id="progressBar" value="0" max="100" style="display:none"></progress><span id="percent" style="display:none">0%</span>
+		</br>
+		<span id="status"></span>
+	</div>
+
+	
+	<div id="presentation_picture_preview" <%= "style=display:none" if @presentation_picture.id.blank? %>><%= @presentation_picture.id.blank? ? "" : image_tag(@presentation_picture.picture.url(:medium)) %></div>
+
+	<div id="delete_presentation_picture_link" <%= "style=display:none" if @presentation_picture.id.blank? %>>
+		<%= link_to "Supprimer l'image", delete_presentation_picture_path, :remote => true, :method => :delete, :confirm => 'Are you sure?' %>
+	</div>
+
+
+
+
+<% end %>

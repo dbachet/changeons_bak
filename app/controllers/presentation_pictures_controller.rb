@@ -31,6 +31,7 @@ class PresentationPicturesController < AuthorizedController
   end
   
   def destroy
+    @presentation_picture = PresentationPicture.new
     respond_with
   end
 end

@@ -170,6 +170,7 @@ class PostsController < AuthorizedController
   def new
     # @post = Post.new
     # @post.categories.build
+    @presentation_picture = PresentationPicture.new
     add_breadcrumb "Nouvel article", :new_post_path
     
     respond_to do |format|
@@ -180,7 +181,8 @@ class PostsController < AuthorizedController
 
   # GET /posts/1/edit
   def edit
-    @presentation_picture = PresentationPicture.new
+    @presentation_picture = @post.presentation_picture || PresentationPicture.new
+    puts @presentation_picture.inspect
     add_breadcrumb truncate(@post.title, :length => 20), :post_path
     add_breadcrumb "Éditer l'article", :edit_post_path
     

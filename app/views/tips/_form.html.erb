@@ -1,4 +1,24 @@
+<% javascript 'tips/form.js' %>
+<%= simple_form_for(@tip.presentation_picture,:url => create_presentation_picture_path, :html => { :multipart => true }, :remote => true) do |pic| %>
+
+  <div class="inputs">
+	<%= pic.file_field :picture %>
+  </div>
+
+
+<progress id="progressBar" value="0" max="100" style="display:none"></progress><span id="percent" style="display:none">0%</span>
+</br><span id="picture_upload_status"></span>
+<% end %>
+
+
+<div id="delete_presentation_picture_link" <%= "style=display:none" if @tip.presentation_picture.blank? %>><%= link_to "Supprimer l'image", delete_presentation_picture_path, :remote => true, :method => :delete, :confirm => 'Are you sure?' %></div>
+
+<div id="presentation_picture_preview"><%= @tip.presentation_picture.blank? ? "" : image_tag(@tip.picture.url(:medium)) %></div>
+
+
 <%= simple_form_for(@tip, :validate => true, :html => { :multipart => true }) do |f| %>
+<%= f.input :presentation_picture_id, :label => true, :input_html => {:id => "presentation_picture_id", :value => (@tip.presentation_picture.id if !@tip.presentation_picture.blank?) } %>
+
 <header>
 	<div class="left">
 		<div class="etiquette">Astuce</div>
@@ -26,10 +46,6 @@
 				
 			</div>
 			
-			<%= link_to "Lier une image", new_presentation_picture_path, :class => "presentation_picture_link fancybox.ajax" %>
-			<div id="delete_presentation_picture_link" <%= "style=display:none" if @tip.presentation_picture.blank? %>><%= link_to "Supprimer l'image", delete_presentation_picture_path, :remote => true, :method => :delete, :confirm => 'Are you sure?' %></div>
-			<%= f.input :presentation_picture_id, :label => true, :input_html => {:id => "presentation_picture_id", :value => (@tip.presentation_picture.id if !@tip.presentation_picture.blank?) } %>
-			<div id="presentation_picture_preview"><%= @tip.presentation_picture.blank? ? "" : image_tag(@tip.presentation_picture.picture.url(:medium)) %></div>
 		</div>
 	</div>
 	
@@ -62,12 +78,3 @@
 	
     <%= f.button :submit %>
 <% end %>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$(function(){
-			add_source_links("<%= tips_remove_source_path %>");
-			bind_delete_presentation_picture_link();
-		});
-	});
-</script>

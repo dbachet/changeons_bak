@@ -1,4 +1,10 @@
-$('#picture_upload_status').html("");
-$('#presentation_picture_preview').fadeOut("slow");
+// $('#picture_upload_status').fadeOut("slow");
+// $('#status').html("");
+// $('#progressBar').val("0%");
+// $('#presentation_picture_preview').fadeOut("slow");
 $('#presentation_picture_id').val("");
-$('#delete_presentation_picture_link').fadeOut("slow");
+// $('#delete_presentation_picture_link').fadeOut("slow");
+// $('#presentation_picture_input').fadeIn("slow");
+
+$('#new_presentation_picture').replaceWith("<%= escape_javascript(render :partial => 'layouts/presentation_picture_form') %>");
+presentation_picture_form();
