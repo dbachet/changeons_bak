@@ -19,7 +19,7 @@
 				<%= link_to 'Edit', edit_question_path(@question) %>
 			</div>
 			<div id="small_picture">
-				<%= image_tag "/images/post_picture_missing.png" %>
+				<%= image_tag @question.picture.url(:thumb) if !@question.presentation_picture.blank? %>
 			</div>
 			
 		</header>
@@ -58,10 +58,10 @@
 				<header>
 					<div id="answer_vote" style="display: inline-block; vertical-align: top;width:5em;">
 						<span class="answer_vote_up">
-							<%= link_to(image_tag("/images/thumbs_up_answer.png", :width => "25px", :height => "24px"), vote_up_question_answer_path(@question, answer), :method => :post, :remote => true) %>
+							<%= link_to(image_tag("thumbs_up_answer.png", :width => "25px", :height => "24px"), vote_up_question_answer_path(@question, answer), :method => :post, :remote => true) %>
 						</span>|
 						<span class="anwser_vote_down">
-							<%= link_to(image_tag("/images/thumbs_down_answer.png", :width => "25px", :height => "24px"), vote_down_question_answer_path(@question, answer), :method => :post, :remote => true) %>
+							<%= link_to(image_tag("thumbs_down_answer.png", :width => "25px", :height => "24px"), vote_down_question_answer_path(@question, answer), :method => :post, :remote => true) %>
 						</span>
 						<span class="answer_votes_result ">
 							<%= @answer_votes_result || answer.plusminus %>
@@ -72,7 +72,7 @@
 				
 				<div class="answer_body" style="display: inline-block; vertical-align: top;"><%= simple_format(h answer.content) %></div>
 			</div>
-			<%= content_tag(:div, content_tag(:img, "", :src => asset_path "default_user_image.jpg", :class => "avatar"), :class => "author_answer_image") %>
+			<%= content_tag(:div, content_tag(:img, "", :src => asset_path("default_user_image.jpg"), :class => "avatar"), :class => "author_answer_image") %>
 		</article>
 	<% end %>
 	</section>

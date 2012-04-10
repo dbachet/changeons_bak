@@ -47,7 +47,7 @@ a2a_config.locale = "fr";
 
 <div id="vote">
 	<div id="vote_up">
-		<%= link_to(image_tag("/images/changeons2-3.png", :width => "68px", :height => "61px"), vote_up_path(voteable.class.to_s.underscore.downcase, voteable), :method => :post, :remote => true) %>
+		<%= link_to(image_tag("changeons2-3.png", :width => "68px", :height => "61px"), vote_up_path(voteable.class.to_s.underscore.downcase, voteable), :method => :post, :remote => true) %>
 		<div id="votes_result">
 			<%= render "layouts/votes_result" %>
 		</div>

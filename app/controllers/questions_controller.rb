@@ -64,7 +64,7 @@ class QuestionsController < AuthorizedController
   # GET /questions/1
   # GET /questions/1.xml
   def show
-    @question = Question.find(params[:id])
+    # @question = Question.find(params[:id])
     @user = @question.user
     @answers = @question.answers
     @answer = Answer.new
@@ -93,7 +93,8 @@ class QuestionsController < AuthorizedController
   # GET /questions/new
   # GET /questions/new.xml
   def new
-    @question = Question.new
+    # @question = Question.new
+    @presentation_picture = PresentationPicture.new
     add_breadcrumb "Nouvelle question", :new_question_path
     respond_to do |format|
       format.html # new.html.erb
@@ -103,7 +104,8 @@ class QuestionsController < AuthorizedController
 
   # GET /questions/1/edit
   def edit
-    @question = Question.find(params[:id])
+    # @question = Question.find(params[:id])
+    @presentation_picture = @question.presentation_picture || PresentationPicture.new
     add_breadcrumb truncate(@question.content, :length => 20), :question_path
     add_breadcrumb "Éditer la question", :edit_question_path
   end
