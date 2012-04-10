@@ -200,7 +200,7 @@
 					    <% @best_items2.each do |item| %>
 							<article>
 								<div>
-									<%= image_tag item.picture.url(:thumb) %>
+									<%= image_tag item.picture.url(:thumb) if !item.presentation_picture.blank? %>
 								</div>
 								<div>
 									<h2><%= truncate(item.title, :length => 55, :separator => ' ') %></h2>

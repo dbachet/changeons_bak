@@ -106,7 +106,8 @@ class EventsController < AuthorizedController
   # GET /events/new
   # GET /events/new.xml
   def new
-    @event = Event.new
+    # @event = Event.new
+    @presentation_picture = PresentationPicture.new
     add_breadcrumb "Nouvel évènement", :new_event_path
     respond_to do |format|
       format.html # new.html.erb
@@ -116,7 +117,8 @@ class EventsController < AuthorizedController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
+    # @event = Event.find(params[:id])
+    @presentation_picture = @event.presentation_picture || PresentationPicture.new
     add_breadcrumb truncate(@event.title, :length => 20), :event_path
     add_breadcrumb "Éditer l'évènement", :edit_event_path
   end
@@ -125,7 +127,7 @@ class EventsController < AuthorizedController
   # POST /events.xml
   def create
     @event = current_user.events.new(params[:event])
-    @event.categories.build params[:event][:category_ids]
+    # @event.categories.build params[:event][:category_ids]
     # @event.event_start_date = Timeliness.parse(@event.event_start_date, :format => 'dd/mm/yyyy')
 
     respond_to do |format|
@@ -144,7 +146,7 @@ class EventsController < AuthorizedController
   # PUT /events/1.xml
   def update
     @event = Event.find(params[:id])
-    @event.categories.build params[:event][:category_ids]
+    # @event.categories.build params[:event][:category_ids]
     
     respond_to do |format|
       if @event.update_attributes(params[:event])

@@ -1,6 +1,9 @@
-<% javascript 'events/form.js' %>
+<% javascript 'layouts/form.js' %>
+<%= render "layouts/presentation_picture_form" %>
+
+
 <%= simple_form_for(@event, :validate => true, :html => { :multipart => true }) do |f| %>
-<header>
+<%= f.input :presentation_picture_id, :label => true, :input_html => {:id => "presentation_picture_id", :value => (@event.presentation_picture.id if !@event.presentation_picture.blank?) } %><header>
 	<div class="left">
 		<div class="etiquette">Évènement</div>
 		<div class="date">
@@ -30,10 +33,6 @@
 				<%= f.input :event_end_date, :label => false, :as => :string, :input_html => {:class => "datepicker new_form_input", :value => (@event.event_end_date ? @event.event_end_date.strftime("%d/%m/%Y") : "")} %>
 			</div>
 			
-			<%= link_to "Lier une image", new_presentation_picture_path, :class => "presentation_picture_link fancybox.ajax" %>
-			<div id="delete_presentation_picture_link" <%= "style=display:none" if @event.presentation_picture.blank? %>><%= link_to "Supprimer l'image", delete_presentation_picture_path, :remote => true, :method => :delete, :confirm => 'Are you sure?' %></div>
-			<%= f.input :presentation_picture_id, :label => true, :input_html => {:id => "presentation_picture_id", :value => (@event.presentation_picture.id if !@event.presentation_picture.blank?) } %>
-			<div id="presentation_picture_preview"><%= @event.presentation_picture.blank? ? "" : image_tag(@event.presentation_picture.picture.url(:medium)) %></div>
 			
 		</div>
 	</div>
@@ -76,12 +75,3 @@
 	
     <%= f.button :submit %>
 <% end %>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$(function(){
-			add_source_links("<%= events_remove_source_path %>");
-			bind_delete_presentation_picture_link();
-		});
-	});
-</script>
