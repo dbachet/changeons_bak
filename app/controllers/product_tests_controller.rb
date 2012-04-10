@@ -150,7 +150,8 @@ class ProductTestsController < AuthorizedController
   # GET /product_tests/new
   # GET /product_tests/new.xml
   def new
-    @product_test = ProductTest.new
+    # @product_test = ProductTest.new
+    @presentation_picture = PresentationPicture.new
     add_breadcrumb "Nouvel avis/test", :new_product_test_path
     respond_to do |format|
       format.html # new.html.erb
@@ -160,7 +161,8 @@ class ProductTestsController < AuthorizedController
 
   # GET /product_tests/1/edit
   def edit
-    @product_test = ProductTest.find(params[:id])
+    # @product_test = ProductTest.find(params[:id])
+    @presentation_picture = @product_test.presentation_picture || PresentationPicture.new
     add_breadcrumb truncate("#{@product_test.brand} #{@product_test.product_model}", :length => 20), :product_test_path
     add_breadcrumb "Éditer l'avis/test", :edit_product_test_path
   end
@@ -172,7 +174,7 @@ class ProductTestsController < AuthorizedController
 
     respond_to do |format|
       if @product_test.save
-        @product_test.category_ids = params[:product_test][:category_ids]
+        # @product_test.category_ids = params[:product_test][:category_ids]
         manage_presentation_picture(@product_test, params[:product_test][:presentation_picture_id])
         format.html { redirect_to(@product_test, :notice => 'Product test was successfully created.') }
         format.xml  { render :xml => @product_test, :status => :created, :location => @product_test }
@@ -190,7 +192,7 @@ class ProductTestsController < AuthorizedController
 
     respond_to do |format|
       if @product_test.update_attributes(params[:product_test])
-        @product_test.category_ids = params[:product_test][:category_ids]
+        # @product_test.category_ids = params[:product_test][:category_ids]
         manage_presentation_picture(@product_test, params[:product_test][:presentation_picture_id])
         format.html { redirect_to(@product_test, :notice => 'Product test was successfully updated.') }
         format.xml  { head :ok }

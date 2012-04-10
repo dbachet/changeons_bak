@@ -1,4 +1,8 @@
+<% javascript 'layouts/form.js' %>
+<%= render "layouts/presentation_picture_form" %>
+
 <%= simple_form_for(@product_test, :validate => true, :html => { :multipart => true }) do |f| %>
+<%= f.input :presentation_picture_id, :label => true, :input_html => {:id => "presentation_picture_id", :value => (@product_test.presentation_picture.id if !@product_test.presentation_picture.blank?) } %>
 <header>
 	<div class="left">
 		<div class="etiquette">Test</div>
@@ -29,10 +33,7 @@
 				<h1>7. Note attribuée</h1><%= f.input :mark, :label => false, :input_html => {:class => "new_form_input"} %>
 			</div>
 			
-			<%= link_to "Lier une image", new_presentation_picture_path, :class => "presentation_picture_link fancybox.ajax" %>
-			<div id="delete_presentation_picture_link" <%= "style=display:none" if @product_test.presentation_picture.blank? %>><%= link_to "Supprimer l'image", delete_presentation_picture_path, :remote => true, :method => :delete, :confirm => 'Are you sure?' %></div>
-			<%= f.input :presentation_picture_id, :label => true, :input_html => {:id => "presentation_picture_id", :value => (@product_test.presentation_picture.id if !@product_test.presentation_picture.blank?) } %>
-			<div id="presentation_picture_preview"><%= @product_test.presentation_picture.blank? ? "" : image_tag(@product_test.presentation_picture.picture.url(:medium)) %></div>
+			
 		</div>
 	</div>
 	
