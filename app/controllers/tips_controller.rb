@@ -112,7 +112,8 @@ class TipsController < AuthorizedController
   # GET /tips/new
   # GET /tips/new.xml
   def new
-    @tip = Tip.new
+    # @tip = Tip.new
+    @presentation_picture = PresentationPicture.new
     # @upload_picture = UploadPicture.new
     
     add_breadcrumb "Nouvelle astuce", :new_tip_path
@@ -125,6 +126,7 @@ class TipsController < AuthorizedController
   # GET /tips/1/edit
   def edit
     # @tip = Tip.find(params[:id])
+    @presentation_picture = @tip.presentation_picture || PresentationPicture.new 
     add_breadcrumb truncate(@tip.title, :length => 20), :tip_path
     add_breadcrumb "Éditer l'astuce", :edit_tip_path
   end

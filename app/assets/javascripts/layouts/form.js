@@ -1,10 +1,21 @@
 // <script type="text/javascript">
-	// $(document).ready(function() {
+	$(document).ready(function() {
 		$(function(){
 			add_source_links(""); // Change to hard coded link
 			bind_delete_presentation_picture_link();
 		});
+		presentation_picture_form();
 		
+	});
+	
+	function progressHandlingFunction(e){
+	    if(e.lengthComputable){
+	        $('#progressBar').attr({value:e.loaded,max:e.total});
+			$('#percent').html(100 * e.loaded / e.total + "%");
+	    }
+	}
+	
+	function presentation_picture_form(){
 		$(function(){
 			$(':file').change(function(event){
 			    var file = this.files[0];
@@ -17,7 +28,7 @@
 		    var formData = new FormData($('#new_presentation_picture')[0]);
 			$('#progressBar').fadeIn();
 			$('#percent').fadeIn();
-			$('#picture_upload_status').html("L'image est en cours de téléchargement...");
+			$('#status').html("L'image est en cours de téléchargement...");
 		    $.ajax({
 		        url: '/presentation_picture',  //server script to process data
 		        type: 'POST',
@@ -41,16 +52,5 @@
 		    });
 			});
 		});
-		
-		// $('input#submit_picture').click(function(event){
-		// 	
-		// });
-	// });
-	
-	function progressHandlingFunction(e){
-	    if(e.lengthComputable){
-	        $('#progressBar').attr({value:e.loaded,max:e.total});
-			$('#percent').html(100 * e.loaded / e.total + "%");
-	    }
 	}
 // </script>

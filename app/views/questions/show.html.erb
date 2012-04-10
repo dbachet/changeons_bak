@@ -72,7 +72,7 @@
 				
 				<div class="answer_body" style="display: inline-block; vertical-align: top;"><%= simple_format(h answer.content) %></div>
 			</div>
-			<%= content_tag(:div, content_tag(:img, "", :src => "/images/default_user_image.jpg", :class => "avatar"), :class => "author_answer_image") %>
+			<%= content_tag(:div, content_tag(:img, "", :src => asset_path "default_user_image.jpg", :class => "avatar"), :class => "author_answer_image") %>
 		</article>
 	<% end %>
 	</section>
