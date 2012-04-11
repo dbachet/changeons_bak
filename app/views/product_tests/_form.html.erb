@@ -1,4 +1,4 @@
-<% javascript 'layouts/form.js' %>
+<% javascript 'layouts/form.js', 'layouts/sources.js' %>
 <%= render "layouts/presentation_picture_form" %>
 
 <%= simple_form_for(@product_test, :validate => true, :html => { :multipart => true }) do |f| %>
@@ -88,7 +88,7 @@
 		Lien hypertexte (URL) - non obligatoire
 		<%= f.input :source, :label => false, :wrapper_html => {:id => "html_link"}, :input_html => {:class => "new_form_input", :value => 'http://', :id => "html_link_input"}, :validate => false %>
 		<%= f.input :sources, :label => false, :input_html => {:id => "sources_input"}, :validate => false %>
-		<%= link_to "+ Ajouter la source", product_tests_add_source_path, :remote => true, :class => "awesome" %>
+		<%= link_to "+ Ajouter la source", "", :remote => true, :class => "awesome", :id => "add_source" %>
 	</div>
 	<div id="source_list">
 		Prévisualisation des sources
