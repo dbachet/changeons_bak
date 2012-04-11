@@ -79,10 +79,10 @@ class QuestionsController < AuthorizedController
       add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
       add_breadcrumb @category.name.camelize, category_path(@category)
       add_breadcrumb "Questions", questions_from_category_path(@category), :title => "Revenir à la liste des questions"
-      add_breadcrumb truncate(@question.content, :length => 30), :question_path
+      add_breadcrumb truncate(@question.title, :length => 30), :question_path
     else
       add_breadcrumb "Questions", :questions_path, :title => "Revenir à la liste des questions"
-      add_breadcrumb truncate(@question.content, :length => 30), :question_path
+      add_breadcrumb truncate(@question.title, :length => 30), :question_path
     end
     respond_to do |format|
       format.html # show.html.erb
@@ -106,7 +106,7 @@ class QuestionsController < AuthorizedController
   def edit
     # @question = Question.find(params[:id])
     @presentation_picture = @question.presentation_picture || PresentationPicture.new
-    add_breadcrumb truncate(@question.content, :length => 20), :question_path
+    add_breadcrumb truncate(@question.title, :length => 20), :question_path
     add_breadcrumb "Éditer la question", :edit_question_path
   end
 
