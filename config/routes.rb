@@ -9,12 +9,14 @@ Changeons::Application.routes.draw do
   match "/categories/:category_id/product_tests" => "product_tests#index", :as => "product_tests_from_category"
   # get "product_tests/add_source"
   # get "product_tests/remove_source"
-  get "product_tests/show_advantage_form_field"
-  get "product_tests/add_advantage"
-  get "product_tests/remove_advantage"
-  get "product_tests/show_drawback_form_field"
-  get "product_tests/add_drawback"
-  get "product_tests/remove_drawback"
+  
+  # get "product_tests/show_advantage_form_field"
+  # get "product_tests/add_advantage"
+  # get "product_tests/remove_advantage"
+  
+  # get "product_tests/show_drawback_form_field"
+  # get "product_tests/add_drawback"
+  # get "product_tests/remove_drawback"
   resources :product_tests do
     # resources :comments, :except => [:index, :show, :new] do
     #   member do

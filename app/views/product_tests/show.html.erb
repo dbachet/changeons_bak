@@ -1,3 +1,4 @@
+<% javascript 'product_tests/show.js' %>
 <div id="show_left">
 	<article id="product_test" class="show">
 		<header>
@@ -62,10 +63,18 @@
 		<%= @product_test.opinion %>
 		
 		<h2>Avantages:</h2> 
-		<%= @product_test.advantages %>
+		<ul id="advantages_preview">
+			<% if !@product_test.advantages.blank? %>
+				<%= @product_test.advantages.html_safe %>
+			<% end %>
+		</ul>
 		
 		<h2>Inconvénients:</h2> 
-		<%= @product_test.drawbacks %>
+		<ul id="drawbacks_preview">
+			<% if !@product_test.drawbacks.blank? %>
+				<%= @product_test.drawbacks.html_safe %>
+			<% end %>
+		</ul>
 		
 		<div class="horizontal_rule_product_tests"></div>
 		<%= render 'layouts/about_author' %>

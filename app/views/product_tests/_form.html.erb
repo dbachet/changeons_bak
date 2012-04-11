@@ -1,4 +1,4 @@
-<% javascript 'layouts/form.js', 'layouts/sources.js' %>
+<% javascript 'layouts/form.js', 'layouts/sources.js', 'product_tests/advantages.js', 'product_tests/drawbacks.js' %>
 <%= render "layouts/presentation_picture_form" %>
 
 <%= simple_form_for(@product_test, :validate => true, :html => { :multipart => true }) do |f| %>
@@ -46,16 +46,23 @@
 	<h1>8. Avantages</h1>
 	
 	<div class="left">
+		<div id="advantage_form_field">
+			<span id="add_advantage_notice">Veuillez écrire, dans le champs ci-dessous, l'avantage que vous souhaitez ajouter:</span>
+			<%= f.input :advantage, :label => false %>
+		</div>
+		<div id="advantage_buttons">
+			<%= link_to("Ajouter un avantage", "", :remote => true, :id => "add_advantage_button") %>
+		</div>
+		
+		
+	</div>
+	<div class="right">
 		Prévisualisation des avantages
 		<ul id="advantages_preview">
 			<% if !@product_test.advantages.blank? %>
 				<%= @product_test.advantages.html_safe %>
 			<% end %>
 		</ul>
-	</div>
-	<div class="right">
-		<div id="advantage_form_field"></div>
-		<div id="advantage_buttons"><%= link_to("Ajouter un avantage", product_tests_show_advantage_form_field_path, :remote => true, :id => "show_advantage_form_field_button") %></div>
 	</div>
 
 	<%= f.input :advantages, :label => false, :input_html => {:class => "new_form_input", :style => "display: none;"} %>
@@ -64,16 +71,22 @@
 	<h1>9. Inconvénients</h1>
 	
 	<div class="left">
+		<div id="drawback_form_field">
+			<span id="add_drawback_notice">Veuillez écrire, dans le champs ci-dessous, l'inconvénient que vous souhaitez ajouter:</span>
+			<%= f.input :drawback, :label => false %>
+		</div>
+		<div id="drawback_buttons">
+			<%= link_to("Ajouter un inconvénient", "", :remote => true, :id => "add_drawback_button") %>
+		</div>
+	</div>
+	<div class="right">
 		Prévisualisation des inconvénients
 		<ul id="drawbacks_preview">
 			<% if !@product_test.drawbacks.blank? %>
 				<%= @product_test.drawbacks.html_safe %>
 			<% end %>
 		</ul>
-	</div>
-	<div class="right">
-		<div id="drawback_form_field"></div>
-		<div id="drawback_buttons"><%= link_to("Ajouter un inconvénient", product_tests_show_drawback_form_field_path, :remote => true, :id => "show_drawback_form_field_button") %></div>
+		
 	</div>
 	<%= f.input :drawbacks, :label => false, :input_html => {:class => "new_form_input", :style => "display: none;"} %>
 </div>

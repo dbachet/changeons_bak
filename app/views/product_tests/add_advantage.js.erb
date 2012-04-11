@@ -6,24 +6,24 @@ var advantage_val = $('input#product_test_advantage').val(),
 	
 	
 	
-	if (last_source.length){
-		last_source = parseInt(last_source.attr('class'));
-		last_source++;
+	if (last_advantage.length){
+		last_advantage = parseInt(last_advantage.attr('class'));
+		last_advantage++;
 	} else{
-		last_source = "0";
+		last_advantage = "0";
 	}
 	
-	var link_to_remove_advantage = "<%= product_tests_remove_advantage_path %>";
+	// var link_to_remove_advantage = "<%= product_tests_remove_advantage_path %>";
 	
 	
 	if (advantage_val != ""){
 		
 		if (advantages_val != "") {
 			// alert("if");
-			advantages_val = advantages_val + "<div class='advantage_icon'></div><li class='" + last_source + "'>" + advantage_val + "</a>" + "<a href='" + link_to_remove_advantage + "?source=" + last_source + "' data-remote='true' class='remove_item'>Supprimer</a></li>";
+			advantages_val = advantages_val + "<div class='advantage_icon'></div><li class='" + last_advantage + "'>" + advantage_val + "</a>" + "<a href='' data-remote='true' class='remove_item'>Supprimer</a></li>";
 		} else {
 			// alert(advantages_val);
-			advantages_val = "<div class='advantage_icon'></div><li class='" + last_source + "'>" + advantage_val + "</a>" + "<a href='" + link_to_remove_source + "?source=" + last_source + "' data-remote='true' class='remove_item'>Supprimer</a></li>";
+			advantages_val = "<div class='advantage_icon'></div><li class='" + last_advantage + "'>" + advantage_val + "</a>" + "<a href='' data-remote='true' class='remove_item'>Supprimer</a></li>";
 		}
 		
 		$('ul#advantages_preview').html(advantages_val);

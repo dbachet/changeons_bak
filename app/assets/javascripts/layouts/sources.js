@@ -3,7 +3,7 @@ $(document).ready(function() {
 	
 	bind_add_source();
 	
-	bind_remove_sources();
+	// bind_remove_sources();
 	
 });
 
@@ -94,6 +94,8 @@ function add_remove_source_links(){
 		    $(this).append('<a href="" data-remote="true" class="remove_source"' + '>Supprimer</a>');
 		});
 	}
+	
+	bind_remove_sources();
 }
 	
 function copy_to_textarea(sources_val){
