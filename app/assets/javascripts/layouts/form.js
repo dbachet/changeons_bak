@@ -1,7 +1,7 @@
 // <script type="text/javascript">
 	$(document).ready(function() {
 		$(function(){
-			add_source_links(""); // Change to hard coded link
+			 // Change to hard coded link
 			bind_delete_presentation_picture_link();
 		});
 		presentation_picture_form();

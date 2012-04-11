@@ -7,8 +7,8 @@ Changeons::Application.routes.draw do
   resources :upload_pictures
   
   match "/categories/:category_id/product_tests" => "product_tests#index", :as => "product_tests_from_category"
-  get "product_tests/add_source"
-  get "product_tests/remove_source"
+  # get "product_tests/add_source"
+  # get "product_tests/remove_source"
   get "product_tests/show_advantage_form_field"
   get "product_tests/add_advantage"
   get "product_tests/remove_advantage"
@@ -16,26 +16,26 @@ Changeons::Application.routes.draw do
   get "product_tests/add_drawback"
   get "product_tests/remove_drawback"
   resources :product_tests do
-    resources :comments, :except => [:index, :show, :new] do
-      member do
-        get :show_reply
-        get :reply
-        post :create_reply
-      end
-    end
+    # resources :comments, :except => [:index, :show, :new] do
+    #   member do
+    #     get :show_reply
+    #     get :reply
+    #     post :create_reply
+    #   end
+    # end
   end
 
   match "/categories/:category_id/events" => "events#index", :as => "events_from_category"
-  get "events/add_source"
-  get "events/remove_source"
+  # get "events/add_source"
+  # get "events/remove_source"
   resources :events do
-    resources :comments, :except => [:index, :show, :new] do
-      member do
-        get :show_reply
-        get :reply
-        post :create_reply
-      end
-    end  
+    # resources :comments, :except => [:index, :show, :new] do
+    #   member do
+    #     get :show_reply
+    #     get :reply
+    #     post :create_reply
+    #   end
+    # end  
   end
   
   # get "tips/remove_source" # TO ADD
@@ -43,8 +43,8 @@ Changeons::Application.routes.draw do
   match "presentation_picture" => "presentation_pictures#new", :via => 'get', :as => 'new_presentation_picture'
   match "presentation_picture" => "presentation_pictures#create", :via => 'post', :as => 'create_presentation_picture'
   match "/categories/:category_id/tips" => "tips#index", :as => "tips_from_category"
-  get "tips/add_source"
-  get "tips/remove_source"
+  # get "tips/add_source"
+  # get "tips/remove_source"
   resources :tips do
     # resources :comments, :except => [:index, :show, :new] do
     #   member do
@@ -58,8 +58,8 @@ Changeons::Application.routes.draw do
   match "/categories/:category_id/questions" => "questions#index", :as => "questions_from_category"
   # match 'questions/:question_id/vote_up' => 'votes#vote_up', :as => "vote_up"
   # match 'questions/:question_id/vote_down' => 'votes#vote_down', :as => "vote_down"
-  get "questions/add_source"
-  get "questions/remove_source"
+  # get "questions/add_source"
+  # get "questions/remove_source"
   resources :questions do
     resources :answers do
       member do
@@ -70,19 +70,19 @@ Changeons::Application.routes.draw do
   end
 
   match "/categories/:category_id/posts" => "posts#index", :as => "posts_from_category"        # TO CHANGE
-  get "posts/add_source"
-  get "posts/remove_source"
+  # get "/add_source"
+  # get "/remove_source"
   # match 'posts/:post_id/vote_up' => 'votes#vote_up', :as => "vote_up"
   # match 'posts/:post_id/vote_down' => 'votes#vote_down', :as => "vote_down"
   resources :posts do
-    resources :upload_pictures
-    resources :comments, :except => [:index, :show, :new] do
-      member do
-        get :show_reply
-        get :reply
-        post :create_reply
-      end
-    end
+    # resources :upload_pictures
+    # resources :comments, :except => [:index, :show, :new] do
+    #   member do
+    #     get :show_reply
+    #     get :reply
+    #     post :create_reply
+    #   end
+    # end
   end
   
   match '/vote_up/:voteable_type/:voteable_id' => 'votes#vote_up', :as => "vote_up"

@@ -5,15 +5,15 @@ $('ul#sources_display li a.remove_source').remove();
 var sources_val = $('ul#sources_display').html();
 $('textarea#sources_input').val(sources_val);
 
-<% if @page == "tips" %>
-	var link_to_remove_source = "<%= tips_remove_source_path %>";
-<% elsif @page == "posts" %>
-	var link_to_remove_source = "<%= posts_remove_source_path %>";
-<% elsif @page == "events" %>
-	var link_to_remove_source = "<%= events_remove_source_path %>";
-<% elsif @page == "product_tests" %>
-	var link_to_remove_source = "<%= product_tests_remove_source_path %>";
-<% end %>
+<%# if @page == "tips" %>
+	var link_to_remove_source = "";
+<%# elsif @page == "posts" %>
+	// var link_to_remove_source = "<%= posts_remove_source_path %>";
+<%# elsif @page == "events" %>
+	// var link_to_remove_source = "<%= events_remove_source_path %>";
+<%# elsif @page == "product_tests" %>
+	// var link_to_remove_source = "<%= product_tests_remove_source_path %>";
+<%# end %>
 
 $(function(){
 	add_source_links(link_to_remove_source);

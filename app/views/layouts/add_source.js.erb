@@ -1,4 +1,17 @@
-var source_description_val = $('input#source_description_input').val(),
+function remove_source(source) {
+	$('ul#sources_display li.' + source).remove();
+	$('ul#sources_display li a.remove_source').remove();
+
+	var sources_val = $('ul#sources_display').html();
+	$('textarea#sources_input').val(sources_val);
+
+	var link_to_remove_source = "";
+
+	add_source_links(link_to_remove_source);
+}
+
+function add_source() {
+	var source_description_val = $('input#source_description_input').val(),
 	source_val = $('input#html_link_input').val(),
 	sources_val = $('ul#sources_display').html(),
 	last_source = $('ul#sources_display li:last-child');
@@ -12,15 +25,8 @@ var source_description_val = $('input#source_description_input').val(),
 		last_source = "0";
 	}
 	
-	<% if @page == "tips" %>
-		var link_to_remove_source = "<%= tips_remove_source_path %>";
-	<% elsif @page == "posts" %>
-		var link_to_remove_source = "<%= posts_remove_source_path %>";
-	<% elsif @page == "events" %>
-		var link_to_remove_source = "<%= events_remove_source_path %>";
-	<% elsif @page == "product_tests" %>
-		var link_to_remove_source = "<%= product_tests_remove_source_path %>";
-	<% end %>
+		var link_to_remove_source = "";
+
 
 	
 	if (source_val != "http://" && source_val != ""){
@@ -49,6 +55,7 @@ var source_description_val = $('input#source_description_input').val(),
 	
 	$('input#html_link_input').val("http:\/\/");
 	$('input#source_description_input').val("");
+}
 	
 function copy_to_textarea(){
 	$('ul#sources_display').html(sources_val);

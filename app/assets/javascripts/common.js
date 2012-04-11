@@ -243,16 +243,6 @@ $(document).ready(function() {
 
 });
 
-
-function add_source_links(link_to_remove_source){
-	var li_classes = $('ul#sources_display li');
-	if (li_classes.length) {
-		li_classes.each(function(index) {
-		    $(this).append('<a href="' + link_to_remove_source + '?source=' + $(this).attr('class') + '" data-remote="true" class="remove_source"' + '>Supprimer</a>');
-		});
-	}
-}
-
 function add_advantage_remove_links(link_to_remove_advantage){
 	var li_classes = $('ul#advantages_preview li');
 	if (li_classes.length) {
