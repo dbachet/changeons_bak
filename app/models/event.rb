@@ -53,7 +53,7 @@ class Event < ActiveRecord::Base
   private
   
   def file_dimensions
-    if (picture.to_s <=> "/images/post_picture_missing.png") == 1
+    if (picture.to_s <=> "post_picture_missing.png") == 1
       dimensions = Paperclip::Geometry.from_file(picture.to_file(:original))
       self.picture_width = dimensions.width
       self.picture_height = dimensions.height

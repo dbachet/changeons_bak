@@ -2,23 +2,23 @@
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f| %>
   <%= devise_error_messages! %>
 
-<%= f.input :display_name, :label => true, :wrapper => true %>
+<%= f.input :display_name %>
 
-<%= f.email :email, :label => true, :wrapper => true %>
+<%= f.input :email %>
 
-<%= f.password :password, :label => true, :wrapper => true %>	
+<%= f.input :password %>	
 
-<%= f.password :password_confirmation, :label => true, :wrapper => true %>
+<%= f.input :password_confirmation %>
 
-<%= f.input :real_name, :label => true, :wrapper => true %>
+<%= f.input :real_name %>
 
-<%= f.input :website, :label => true, :wrapper => true %>
+<%= f.input :website %>
 
-<%= f.input :location, :label => true, :wrapper => true %>
+<%= f.input :location %>
 
-<%= f.input :birthday, :label => true, :wrapper => true %>
+<%= f.input :birthday %>
 
-<%= f.input :about_me, :label => true, :wrapper => true %>
+<%= f.input :about_me %>
 
 <%= f.button :submit %>
 <% end %>

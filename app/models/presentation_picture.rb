@@ -3,7 +3,7 @@ class PresentationPicture < ActiveRecord::Base
   belongs_to :presentation_picturable, :polymorphic => true
   belongs_to :user
   
-        has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "50x50>" }, :default_url => '/images/post_picture_missing.png',
+        has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "50x50>" }, :default_url => 'post_picture_missing.png',
              :storage => :s3,
              :s3_credentials => Rails.root.join("config/aws.yml"),
              # :s3_credentials => Rails.root.join("config/s3.yml"),

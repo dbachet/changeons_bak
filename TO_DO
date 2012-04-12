@@ -140,7 +140,7 @@ REFACTOR ROLES
 + Think about categorizations
 + fix share (à la fin)
 
-- remove not use js.erb files
+- remove not used js.erb files
 - SEO
 - error management, css
 - problème with the remove picture in form, confirmation not working

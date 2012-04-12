@@ -13,7 +13,7 @@
 </div>
 
 <div class="inputs">
-<%= f.input :password, :input_html => { :validate => {:presence => false, :length => false}} %> <i>(leave blank if you don't want to change it)</i><br />	
+<%= f.input :password, :validate => {:presence => false, :length => false} %> <i>(leave blank if you don't want to change it)</i><br />	
 </div>
 
 <div class="inputs">
@@ -21,7 +21,7 @@
 </div>
 
 <div class="inputs">
-<%= f.input :current_password, :input_html => { :validate => {:presence => true}} %><i>(we need your current password to confirm your changes)</i><br />
+<%= f.input :current_password, :validate => {:presence => true} %><i>(we need your current password to confirm your changes)</i><br />
 </div>
 
 <div class="inputs">

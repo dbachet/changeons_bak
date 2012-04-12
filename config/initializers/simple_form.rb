@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
   # Components used by the form builder to generate a complete input. You can remove
@@ -65,7 +64,6 @@ SimpleForm.setup do |config|
   # Tell browsers whether to use default HTML5 validations (novalidate option).
   # Default is enabled.
   # config.browser_validations = true
-  config.browser_validations = false
 
   # Determines whether HTML5 types (:email, :url, :search, :tel) and attributes
   # (e.g. required) are used or not. True by default.

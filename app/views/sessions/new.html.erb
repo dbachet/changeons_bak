@@ -6,11 +6,13 @@
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :remote => true, :validate => true) do |f| %>
 <div class="inputs">
-	<%= f.input :email, :input_html => { :validate => {:uniqueness => false} } %>
+	<%#= f.input :email %>
+	<%= f.input :email, :validate => {:uniqueness => false} %>
 </div>
 
 <div class="inputs">
-	<%= f.input :password, :input_html => { :validate => {:confirmation => false, :length => false} } %>	
+	<%#= f.input :password %>
+	<%= f.input :password, :validate => {:confirmation => false, :length => false} %>	
 </div>
 
 
