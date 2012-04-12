@@ -15,10 +15,10 @@
 //= require ckeditor/init
 //= require rails.validations
 //= require rails.validations.simple_form
-//= jquery-ui-1.8.17.custom.min
-//= jquery.ui.datepicker-fr
-//= jquery.floatingFixed
-//= jquery.cookies.2.2.0.min
+//= require jquery-ui-1.8.17.custom.min
+//= require jquery.ui.datepicker-fr
+//= require jquery.floatingFixed
+//= require jquery.cookies.2.2.0.min
 //= require common
 //= require fancybox_binds
 //= require_self

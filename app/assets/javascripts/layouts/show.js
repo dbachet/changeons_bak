@@ -1,3 +1,4 @@
-var topPageHeight = $('nav#top_page').height() + 40;
-  $("#share").floatingFixed({ padding: topPageHeight });
+$(document).ready(function() {
+	var topPageHeight = $('nav#top_page').height() + 40;
+	$("#share").floatingFixed({ padding: topPageHeight });
 });

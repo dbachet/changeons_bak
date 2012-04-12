@@ -139,12 +139,11 @@ REFACTOR ROLES
 + jeter un coup d'oeuil aux images, serait-il possible de mettre un id plutot qu'une image entière
 + Think about categorizations
 + fix share (à la fin)
++ error management, css
 
 - remove not used js.erb files
 - SEO
-- error management, css
 - problème with the remove picture in form, confirmation not working
-- Add jQuery for form inputs, to have some text inside disappearing slowly
 - créer helper for product test title
 - when remove post/tip/... remove from categorizations !!!!
 - add possible picture instead of gravatar !!!!!
@@ -157,12 +156,13 @@ REFACTOR ROLES
 - Friendly_id, add index
 - ajouter annuaire pages entreprises bio
 - check seeds
-- use yield(:head) to personalize the javascript scprits in views with <% content_for(:head) do %>
+- use yield(:head) to personalize the javascript scrits in views with <% content_for(:head) do %>
 - design
 - fix datapicker from client side validation with > https://github.com/bcardarella/client_side_validations/wiki/jQuery-Plugins
 - secure role during editing user
-- ajouter mechanisme de modération/lock
-- ajouter "signaler un abus"
+- ajouter mechanisme de modération/lock		!!!!!!!!!!
+- ajouter "signaler un abus"			!!!!!!!!!
+
 
 - add questions to posts form (garder pour plus tard)
 - improve home page (garder pour plus tard)
@@ -170,3 +170,5 @@ REFACTOR ROLES
 - add lazy load (pour plus tard)
 - add user profile show with the possibility to show his recommendations(pour plus tard)
 - messages privés entre utilisateurs (on garde pour plus tard)
+
+//Add jQuery for form inputs, to have some text inside disappearing slowly
