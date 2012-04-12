@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require fancybox
+ *= require tipsy
  *= require_tree .
 */

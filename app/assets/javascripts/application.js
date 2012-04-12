@@ -20,5 +20,7 @@
 //= require jquery.floatingFixed
 //= require jquery.cookies.2.2.0.min
 //= require common
+//= require tipsy
+//= require tooltips
 //= require fancybox_binds
 //= require_self

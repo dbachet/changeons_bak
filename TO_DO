@@ -148,7 +148,7 @@ REFACTOR ROLES
 - when remove post/tip/... remove from categorizations !!!!
 - add possible picture instead of gravatar !!!!!
 - add légende to the picture of the post/tip/event...
-
+- refactor category bar, use slide down to display it !!!!
 - add jquery buble to explain top page buttons !!!!!
 - les + lus, les + votés, classement
 - finish edit pages

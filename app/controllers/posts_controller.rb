@@ -155,7 +155,7 @@ class PostsController < AuthorizedController
       add_breadcrumb "Articles", posts_from_category_path(@category), :title => "Revenir à la liste des articles"
       add_breadcrumb truncate(@post.title, :length => 30), :post_path
     else
-      add_breadcrumb "Articles", posts_path, :title => "Revenir à la liste des articles"
+      add_breadcrumb "Articles", :posts_path, :title => "Revenir à la liste des articles"
       add_breadcrumb truncate(@post.title, :length => 30), :post_path
     end
     
@@ -183,7 +183,7 @@ class PostsController < AuthorizedController
   def edit
     @presentation_picture = @post.presentation_picture || PresentationPicture.new
     puts @presentation_picture.inspect
-    add_breadcrumb truncate(@post.title, :length => 20), :post_path
+    add_breadcrumb truncate(@post.title, :length => 20), :post_path, :title => "Revenir à l'article"
     add_breadcrumb "Éditer l'article", :edit_post_path
     
     # @post = Post.find(params[:id])

@@ -57,24 +57,16 @@
 				<li class="user_name"><%= link_to truncate(current_user.display_name, :length => 25), show_user_profile_path(current_user) %></li>
 			
 			<% if can? :index, :admin_dashboard %>
-			<li><%=
-					link_to_unless_current(("<span class='icon'>Administration</span>").html_safe, admin_dashboard_page_path, :class => "admin") do
-					link_to(("<span class='icon'>Administration</span>").html_safe, admin_dashboard_page_path, :class => "current admin")
-				end
-				%>
+			<li><%= link_to(("<span class='icon'>Administration</span>").html_safe, admin_dashboard_page_path, :class => "admin tooltipped", :title => 'Administration') %>
 			</li>
 			<% end %>
 		
-			<li><%=
-					link_to_unless_current(("<span class='icon'>Éditer profil</span>").html_safe, edit_user_registration_path, :class => "edit_profile") do
-						link_to(("<span class='icon'>Éditer profil</span>").html_safe, edit_user_registration_path, :class => "current edit_profile")
-					end
-				%>
+			<li><%= link_to(("<span class='icon'>Éditer profil</span>").html_safe, edit_user_registration_path, :class => "edit_profile tooltipped", :title => 'Éditer profil') %>
 			</li>
 
 
 			<li>
-			<%= link_to(("<span class='icon'>Déconnexion</span>").html_safe, destroy_user_session_path, :class => "disconnect") %>        
+			<%= link_to(("<span class='icon'>Déconnexion</span>").html_safe, destroy_user_session_path, :class => "disconnect tooltipped", :title => 'Déconnexion') %>        
 			</li>
 			</ul>
 			
