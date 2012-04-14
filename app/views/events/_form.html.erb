@@ -1,9 +1,5 @@
 <% javascript 'layouts/form.js', 'layouts/sources.js' %>
-<%= render "layouts/presentation_picture_form" %>
-
-
-<%= simple_form_for(@event, :validate => true, :html => { :multipart => true }) do |f| %>
-<%= f.input :presentation_picture_id, :label => true, :input_html => {:id => "presentation_picture_id", :value => (@event.presentation_picture.id if !@event.presentation_picture.blank?) } %><header>
+<header>
 	<div class="left">
 		<div class="etiquette">Évènement</div>
 		<div class="date">
@@ -15,63 +11,74 @@
 	</div>
 	<div class="right">
 		<div class="written_by"><span>écrit par</span> <%= (@event.user.email if @event.user) || current_user.email %></div>
-		<h1>1. Titre*</h1>
-		<div>
-			<%= f.input :title, :label => false, :as => :text, :wrapper => false, :input_html => {:class => "new_form_input char_count"} %>
-			<span class="counter"></span>
-		</div>
-		<div class="group_items">
-			<div class="description">
-				<h1>2. Description*</h1>
-				<%= f.input :description, :label => false, :input_html => {:class => "new_form_input"} %>
+		
+		<%= render "layouts/presentation_picture_form" %>
+		<%= simple_form_for(@event, :validate => true, :html => { :multipart => true }) do |f| %>
+		<%= f.input :presentation_picture_id, :label => false, :input_html => {:id => "presentation_picture_id", :value => (@event.presentation_picture.id if !@event.presentation_picture.blank?) } %>
+		
+		
+		<fieldset class="title">
+			<label>Titre*</label>
+			<div>
+				<%= f.input :title, :label => false, :as => :text, :wrapper => false, :input_html => {:class => "char_count", 'original-title' => "100 caractères maximum"} %>
+				<span class="counter"></span>
 			</div>
-			<div id="image">
-				
-				<h1>4. Date de début*</h1>
-				<%= f.input :event_start_date, :label => false, :as => :string, :input_html => {:class => "datepicker new_form_input", :value => (@event.event_start_date ? @event.event_start_date.strftime("%d/%m/%Y") : "")} %>
-				<h1>5. Date de fin</h1>
-				<%= f.input :event_end_date, :label => false, :as => :string, :input_html => {:class => "datepicker new_form_input", :value => (@event.event_end_date ? @event.event_end_date.strftime("%d/%m/%Y") : "")} %>
+		</fieldset>
+		
+		<fieldset>
+			<label>Description*</label>
+			<div>
+				<%= f.input :description, :label => false, :wrapper => false, :input_html => {} %>
 			</div>
-			
-			
-		</div>
+		</fieldset>
+		
+		<fieldset>
+			<label>Date de début*</label>
+			<div>
+				<%= f.input :event_start_date, :label => false, :as => :string, :input_html => {:class => "datepicker ", :value => (@event.event_start_date ? @event.event_start_date.strftime("%d/%m/%Y") : "")} %>
+			</div>
+		</fieldset>
+		
+		<fieldset>
+			<label>Date de fin</label>
+			<div>
+				<%= f.input :event_end_date, :label => false, :as => :string, :input_html => {:class => "datepicker ", :value => (@event.event_end_date ? @event.event_end_date.strftime("%d/%m/%Y") : "")} %>
+			</div>
+		</fieldset>
+		
+		<fieldset>
+			<label>Adresse de l'évènement</label>
+			<div>
+				Rue
+				</br>
+				<%= f.input :addr_street_1, :label => false, :input_html => {:class => ""} %>
+				<%= f.input :addr_street_2, :label => false, :input_html => {:class => ""} %>
+			</div>
+			<div>
+				Code postal
+				</br>
+				<%= f.input :addr_postcode, :label => false, :input_html => {:class => ""} %>
+			</div>
+			<div>
+				Ville
+				</br>
+				<%= f.input :addr_city, :label => false, :input_html => {:class => ""} %>
+			</div>
+			<div>
+				Pays
+				</br>
+				<%= f.input :addr_country, :as => :string, :label => false, :input_html => {:class => ""} %>
+			</div>
+		</fieldset>
+		
+		<%= render 'layouts/sources_form', :f => f, :model_var => @event %>
+		
+		<%= render 'categories/category_list_checkboxes', :f => f %>
+		
+		<%= f.button :submit %>
 	</div>
 	
 </header>
-
-<h1>6. Adresse</h1>
-<h2>Rue</h2><%= f.input :addr_street_1, :label => false, :input_html => {:class => "new_form_input"} %>
-			<%= f.input :addr_street_2, :label => false, :input_html => {:class => "new_form_input"} %>
-<h2>Code postal</h2><%= f.input :addr_postcode, :label => false, :input_html => {:class => "new_form_input"} %>
-<h2>Ville</h2><%= f.input :addr_city, :label => false, :input_html => {:class => "new_form_input"} %>
-<h2>Country</h2><%= f.input :addr_country, :as => :string, :label => false, :input_html => {:class => "new_form_input"} %>
-
-<div id="sources">
-	<h1>4. Sources / liens utilisés pour la rédaction de cette astuce</h1>
 	
-	<div id="source_inputs">
-		Description de la source - non obligatoire
-		<%= f.input :source_description, :label => false, :wrapper_html => {:id => "source_description"}, :input_html => {:class => "new_form_input", :value => '', :id => "source_description_input"}, :validate => false %>
-		Lien hypertexte (URL) - non obligatoire
-		<%= f.input :source, :label => false, :wrapper_html => {:id => "html_link"}, :input_html => {:class => "new_form_input", :value => 'http://', :id => "html_link_input"}, :validate => false %>
-		<%= f.input :sources, :label => false, :input_html => {:id => "sources_input"}, :validate => false %>
-		<%= link_to "+ Ajouter la source", "", :remote => true, :class => "awesome", :id => "add_source" %>
-	</div>
-	<div id="source_list">
-		Prévisualisation des sources
-		<ul id="sources_display">
-			<% if !@event.sources.blank? %>
-				<%= @event.sources.html_safe %>
-			<% end %>
-		</ul>
-	</div>
-</div>
-<div id="categories">
-	<h1>4. Catégories*</h1>
-	<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
-	
-	<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:id => "category_list", :class => "new_form_input"} %>
-</div>
-	
-    <%= f.button :submit %>
+    
 <% end %>

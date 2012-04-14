@@ -151,8 +151,10 @@ REFACTOR ROLES
 - when remove post/tip/... remove from categorizations !!!!
 - add légende to the picture of the post/tip/event...
 - les + lus, les + votés, classement
-- finish edit pages
+- finish edit pages (Bien faire gaffe que toutes les bulles soient bien notées pour chaque champs)
 - Care about caching
+- add country selector on event form
+- add departement on event form
 - fix problem for updating user by admin
 - Friendly_id, add index
 - ajouter annuaire pages entreprises bio
