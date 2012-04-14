@@ -222,8 +222,10 @@ div#right_bar{
 	vertical-align: top;
 }
 
-input{
+input,
+textarea{
 	outline: none!important;
+	padding: 0.2em;
 }
 
 input[type="text"],
@@ -289,7 +291,8 @@ section#best{
 
 .field_with_errors input[type="text"], 
 .field_with_errors input[type="email"], 
-.field_with_errors input[type="password"]{
+.field_with_errors input[type="password"],
+.field_with_errors textarea{
 	background-color: rgba(255, 0, 0, 0.2);
 	border: 1px solid red;
 }
@@ -1717,11 +1720,11 @@ article#product_test.show{
 				font-size: 25px;
 			}
 		
-		article#question header h1,
-		article#post header h1,
-		article#tip header h1,
-		article#event header h1,
-		article#product_test header h1{
+		article#question h1,
+		article#post h1,
+		article#tip h1,
+		article#event h1,
+		article#product_test h1{
 			font-weight: bold;
 			font-size: 27px;
 			margin-top: 0px;
@@ -2278,7 +2281,7 @@ section#events header h1{
 	color:gainsboro;
 }
 
-article#post.form header div.short_description,
+/*article#post.form header div.short_description,
 article#tip.form header div.description,
 article#event.form header div.description,
 article#product_test.form header div.description{
@@ -2293,27 +2296,77 @@ article#product_test.form header div.description{
 	vertical-align: top;
 	overflow: auto;
 	margin-top: 0px;
-}
+}*/
 
-article#question.form header div.written_by,
-article#post.form header div.written_by,
-article#tip.form header div.written_by,
-article#event.form header div.written_by,
-article#product_test.form header div.written_by{
+article.form header div.written_by{
 	padding-bottom: 20px;
 }
 
-article#question.form h1,
+article.form {
+	font-family: "CaviarDreamsRegular", verdana, arial;
+}
+
+article.form fieldset{
+	margin-bottom:6em;
+	position: relative;
+}
+
+article.form fieldset:after{
+	clear:both;
+	content: '';
+	height: 0;
+	width: 100%;
+	border-top: 1px solid rgba(0,0,0,0.1);
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+	position: absolute;
+	bottom: -2.5em;
+	left: 0;
+}
+
+article.form fieldset textarea{
+	width: 36em;
+	height: 8em;
+}
+
+article.form fieldset input[type="text"]{
+	width: 26em;
+}
+
+article.form fieldset > label{
+	float:left;
+	width:150px;
+	padding-top: 0.3em;
+	text-align: right;
+}
+
+article.form fieldset > div{
+	margin-left: 170px;
+	color: rgba(255,255,255,0.5);
+}
+
+article.form fieldset > div label.additionnal_info{
+	color: gainsboro;
+}
+
+article.form fieldset > div input{
+	margin-bottom: 1em;
+}
+
+article.form fieldset#categories_fieldset > div span label{
+	vertical-align: top;
+	margin-right: 1em;
+}
+
+/*article#question.form h1,
 article#post.form h1,
 article#tip.form h1,
 article#event.form h1,
 article#product_test.form h1{
-	font-size: 1.6em;
 	margin-top: 5px;
 	margin-bottom: 5px;
-}
+}*/
 
-article#question.form h1.top,
+/*article#question.form h1.top,
 article#post.form h1.top,
 article#tip.form h1.top,
 article#event.form h1.top,
@@ -2322,17 +2375,17 @@ article#product_test.form h1.top{
 	padding: 10px;
 	margin-bottom: 20px;
 	line-height: 0.7;
-}
+}*/
 
-article#question.form h1.top span,
+/*article#question.form h1.top span,
 article#post.form h1.top span,
 article#tip.form h1.top span,
 article#event.form h1.top span,
 article#product_test.form h1.top span{
 	font-size: .5em;
-}
+}*/
 
-article#question.form header textarea#question_content,
+/*article#question.form header textarea#question_content,
 article#post.form header textarea#post_short_description,
 article#tip.form header textarea#tip_description,
 article#event.form header textarea#event_description,
@@ -2341,13 +2394,12 @@ article#product_test.form textarea#product_test_opinion,
 article#product_test.form textarea#product_test_advantages,
 article#product_test.form textarea#product_test_drawbacks{
 	padding: 5px;
-/*	font-family: 'CaviarDreamsItalic';*/
 	height: 59px;
 	width: 320px;
 	font-size: 1em;
-}
+}*/
 
-article#question.form .new_form_input,
+/*article#question.form .new_form_input,
 article#post.form .new_form_input,
 article#tip.form .new_form_input,
 article#event.form .new_form_input,
@@ -2362,23 +2414,21 @@ article#product_test.form .new_form_input{
 	padding: 10px;
 	outline: none!important;
 	margin: 15px 0 30px 5px;
-}
+}*/
 
-article#question.form header div.right textarea#question_title,
+/*article#question.form header div.right textarea#question_title,
 article#post.form header div.right textarea#post_title,
 article#tip.form header div.right textarea#tip_title,
 article#event.form header div.right textarea#event_title,
 article#product_test.form header div.right input#product_test_brand,
 article#product_test.form header div.right input#product_test_product_model{
-/*	font-family: 'CaviarDreamsBold';*/
 	font-size: 27px;
-/*	margin-top: 0px;*/
 	line-height: 1;
 	margin: 10px 0px 10px 5px;
-	max-height: 60px;
-}
+	height: 85px;
+}*/
 
-article#question.form div.group_items,
+/*article#question.form div.group_items,
 article#post.form div.group_items,
 article#tip.form div.group_items,
 article#event.form div.group_items,
@@ -2386,18 +2436,18 @@ article#product_test.form div.group_items{
 	display: block;
 	padding: 20px 0 0 0;
 	min-height: 145px;
-}
+}*/
 	
-article#question.form div#categories,
+/*article#question.form div#categories,
 article#post.form div#categories,
 article#tip.form div#categories,
 article#event.form div#categories,
 article#product_test.form div#categories{
 	display: block;
 	margin: 0 0 30px 0;
-}
+}*/
 
-article#post.form div.group_items div#image,
+/*article#post.form div.group_items div#image,
 article#tip.form div.group_items div#image,
 article#event.form div.group_items div#image,
 article#product_test.form div.group_items div#image{
@@ -2405,25 +2455,23 @@ article#product_test.form div.group_items div#image{
 	vertical-align: top;
 	padding-left: 30px;
 	padding-bottom: 10px;
-}
+}*/
 	
-article#question.form div#categories a,
-article#post.form div#categories a,
-article#tip.form div#categories a,
-article#event.form div#categories a,
-article#product_test.form div#categories a{
+article.form a.new_category_link,
+article.form a.edit_category_link{
 	margin: 0 10px 10px 0;
 }
 
-article#question.form div#categories div#category_list span,
+
+/*article#question.form div#categories div#category_list span,
 article#post.form div#categories div#category_list span,
 article#tip.form div#categories div#category_list span,
 article#event.form div#categories div#category_list span,
 article#product_test.form div#categories div#category_list span{
 	margin-right: 10px;
-}
+}*/
 
-article#question.form div#sources,
+/*article#question.form div#sources,
 article#post.form div#sources,
 article#tip.form div#sources,
 article#event.form div#sources,
@@ -2456,13 +2504,18 @@ article#tip.form textarea#sources_input,
 article#event.form textarea#sources_input,
 article#product_test.form textarea#sources_input{
 	display: none;
+}*/
+
+article.form textarea#sources_input{
+	display: none;
 }
 
-article#question.form ul#sources_display li,
-article#post.form ul#sources_display li,
-article#tip.form ul#sources_display li,
-article#event.form ul#sources_display li,
-article#product_test.form ul#sources_display li{
+article.form div#source_inputs{
+/*	margin-top: 2em;*/
+	margin-bottom: 2em;
+}
+
+article.form ul#sources_display li{
 	color: #fff;
 	background-color: rgba(255, 255, 255, 0.3);
 	padding: 5px;
@@ -2471,19 +2524,11 @@ article#product_test.form ul#sources_display li{
 	list-style: none;
 }
 
-article#question.form ul#sources_display li a,
-article#post.form ul#sources_display li a,
-article#tip.form ul#sources_display li a,
-article#event.form ul#sources_display li a,
-article#product_test.form ul#sources_display li a{
+article.form ul#sources_display li a{
 	color: white;
 }
 
-article#question.form ul#sources_display li a.remove_source,
-article#post.form ul#sources_display li a.remove_source,
-article#tip.form ul#sources_display li a.remove_source,
-article#event.form ul#sources_display li a.remove_source,
-article#product_test.form ul#sources_display li a.remove_source{
+article.form ul#sources_display li a.remove_source{
 	margin-left: 10px;
 	color: #95281F;
 }
@@ -2502,9 +2547,9 @@ article#product_test.form ul#sources_display li a.remove_source{
 	}
 	
 
-	article#question.form .new_form_input{
+/*	article#question.form .new_form_input{
 		background-color: rgba(255, 255, 255, 0.4);
-	}
+	}*/
 	
 	article#question.form div#sources div#source_inputs{
 		border-right: 1px solid #772018;
@@ -2535,9 +2580,9 @@ article#product_test.form ul#sources_display li a.remove_source{
 		overflow: hidden;
 	}
 
-	article#post.form .new_form_input{
+/*	article#post.form .new_form_input{
 		background-color: rgba(255, 255, 255, 0.4);
-	}
+	}*/
 	
 	article#post.form div#sources div#source_inputs{
 		border-right: 1px solid #772018;
@@ -2564,9 +2609,9 @@ article#product_test.form ul#sources_display li a.remove_source{
 		height: 300px;
 	}
 
-	article#tip.form .new_form_input{
+/*	article#tip.form .new_form_input{
 		background-color: rgba(255, 255, 255, 0.4);
-	}
+	}*/
 
 	article#tip.form header div.right textarea#tip_title{
 /*		color: #55AACF;*/
@@ -2604,9 +2649,9 @@ article#product_test.form ul#sources_display li a.remove_source{
 		height: 300px;
 	}
 
-	article#event.form .new_form_input{
+/*	article#event.form .new_form_input{
 		background-color: rgba(255, 255, 255, 0.4);
-	}
+	}*/
 	
 	article#event.form input#event_event_end_date,
 	article#event.form input#event_event_start_date,
@@ -2666,9 +2711,9 @@ article#product_test.form ul#sources_display li a.remove_source{
 		margin: 0 25%;
 	}
 
-	article#product_test.form .new_form_input{
+/*	article#product_test.form .new_form_input{
 		background-color: rgba(255, 255, 255, 0.4);
-	}
+	}*/
 	
 	article#product_test.form input#product_test_product_ref{
 		height: 10px;
