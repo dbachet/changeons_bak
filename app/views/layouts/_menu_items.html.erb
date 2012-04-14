@@ -42,7 +42,7 @@
 			%>
 		</li>
 		<li>
-			<%= link_to ("<span style=\"display: inline-block;vertical-align: top;\">Catégories </span><span class='top_categories_arrows' style=\"background: url('/assets/top_categories_arrows.png');height: 15px;width: 15px;display: inline-block;vertical-align: top;margin: 0.3em 0 0 0.4em;\"></span>").html_safe, "#", :id => "display_categories_button", 'data-show' => false, :style => "color: #21c734;text-shadow: 0 -1px 1px rgba(0,0,0,0.1);padding: 0.8em 0;display: inline-block;width: 7.5em;" %>
+			<%= link_to ("<span style=\"display: inline-block;vertical-align: top;\">Catégories </span><span class='top_categories_arrows' style=\"background: url('/assets/top_categories_arrows.png');height: 15px;width: 15px;display: inline-block;vertical-align: top;margin: 0.3em 0 0 0.4em;\"></span>").html_safe, "#", :id => "display_categories_button", :class => "tooltipped", :title => "Afficher les catégories", 'data-show' => false, :style => "color: #21c734;text-shadow: 0 -1px 1px rgba(0,0,0,0.1);padding: 0.8em 0;display: inline-block;width: 7.5em;" %>
 		</li>
 		
 

@@ -8,6 +8,7 @@ $(document).ready(function(){
 		
 		if (showOrHide){
 			$(this).find('.top_categories_arrows').css("background-position", "0 0");
+			$(this).attr('title', 'Afficher les catégories');
 			list_categories.animate({marginTop: '-13px'}, 70);
 			list_categories.animate({marginTop: '-3px'}, 120);
 			list_categories.animate({marginTop: '-45px', opacity: '0'}, 200);
@@ -16,6 +17,7 @@ $(document).ready(function(){
 			list_categories.hide(10);
 		} else{
 			$(this).find('.top_categories_arrows').css("background-position", "0 -15px");
+			$(this).attr('title', 'Retirer la liste des catégories');
 			list_categories.show();
 			list_categories.delay(200).animate({marginTop: '-10px', opacity: '1'}, 160);
 			list_categories.animate({marginTop: '-20px'}, 140);
