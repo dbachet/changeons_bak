@@ -19,9 +19,6 @@
 				</div>
 				<%= link_to 'Edit', edit_question_path(@question) %>
 			</div>
-			<div id="small_picture">
-				<%= image_tag @question.picture.url(:thumb) if !@question.presentation_picture.blank? %>
-			</div>
 			
 		</header>
 		
@@ -33,6 +30,11 @@
 	
 		<div id="content_wrap">
 		<%= render 'layouts/share_buttons_show_top' %>
+		<% if !@question.presentation_picture.blank? %>
+			<div id="big_picture">
+				<%= image_tag @question.picture.url(:medium) %>
+			</div>
+		<% end %>
 		<h1>Plus de détails sur la question:</h1>
 		  <%= simple_format(h @question.content) %>
 	
