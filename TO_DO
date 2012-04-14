@@ -153,6 +153,7 @@ REFACTOR ROLES
 - les + lus, les + votés, classement
 - finish edit pages (Bien faire gaffe que toutes les bulles soient bien notées pour chaque champs)
 - Care about caching
+- Add certification on product_test
 - add country selector on event form
 - add departement on event form
 - fix problem for updating user by admin

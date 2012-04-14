@@ -11,7 +11,7 @@
 					<span class="year"><%= @product_test.created_at.strftime("%Y") %></span>
 				</div>
 			</div>
-			<div class="right"  <%= (!@product_test.has_big_picture ? "style='width:24em'" : "style='width:29em'") %>>
+			<div class="right" style='width:29em'>
 				<h1><%= "#{@product_test.brand || "Marque non détaillée"} #{@product_test.product_model}" %></h1>
 				<div class="written_by"><span>écrit par</span> <%= link_to(@user.display_name, show_user_profile_path(@user)) %></div>
 				<div class="categories">Catégories: 
@@ -19,11 +19,6 @@
 				</div>
 				<%= link_to 'Edit', edit_product_test_path(@product_test) %>
 			</div>
-			<% if !@product_test.has_big_picture %>
-				<div id="small_picture">
-					<%= image_tag @product_test.picture.url(:thumb) %>
-				</div>
-			<% end %>
 			<div id="mark"><div class="label">Note</div><div class="group_items"><div class="mark_left"><%= @product_test.mark %></div></br><div class="slash">/</div></br><div class="mark_right">5</div></div></div>
 		</header>
 		
@@ -36,6 +31,11 @@
 	
 		<div id="content_wrap">
 			<%= render 'layouts/share_buttons_show_top' %>
+			<% if !@product_test.presentation_picture.blank? %>
+				<div id="big_picture">
+					<%= image_tag @product_test.picture.url(:medium) %>
+				</div>
+			<% end %>
 			<h2>Marque:</h2> 
 			<%= @product_test.brand %>
 			
