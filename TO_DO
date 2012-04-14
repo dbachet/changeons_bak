@@ -153,6 +153,7 @@ REFACTOR ROLES
 - les + lus, les + votés, classement
 - finish edit pages
 - Care about caching
+- fix problem for updating user by admin
 - Friendly_id, add index
 - ajouter annuaire pages entreprises bio
 - check seeds

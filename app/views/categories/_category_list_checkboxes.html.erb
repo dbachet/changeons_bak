@@ -1,0 +1,7 @@
+<fieldset id="categories_fieldset">	
+	<label>Catégories*</label>
+	<div>
+		<%= f.association :categories, :label => false, :as => :check_boxes, :wrapper_html => {:class => ""} %>
+		<%= link_to "Créer une nouvelle catégorie", new_category_path, :class => "new_category_link fancybox.ajax awesome" %><%= link_to "Afficher toutes les catégories", categories_path, :class => "index_categories_link fancybox.ajax awesome" %>
+	</div>
+</fieldset>
