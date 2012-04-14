@@ -21,6 +21,8 @@
 //= require jquery.cookies.2.2.0.min
 //= require common
 //= require tipsy
+//= require config_top
 //= require tooltips
 //= require fancybox_binds
 //= require_self
+

@@ -41,27 +41,30 @@
 				end
 			%>
 		</li>
+		<li>
+			<%= link_to ("<span style=\"display: inline-block;vertical-align: top;\">Catégories </span><span class='top_categories_arrows' style=\"background: url('/assets/top_categories_arrows.png');height: 15px;width: 15px;display: inline-block;vertical-align: top;margin: 0.3em 0 0 0.4em;\"></span>").html_safe, "#", :id => "display_categories_button", 'data-show' => false, :style => "color: #21c734;text-shadow: 0 -1px 1px rgba(0,0,0,0.1);padding: 0.8em 0;display: inline-block;width: 7.5em;" %>
+		</li>
 		
 
 	
 	</ul>
 	
-	<div style="float: right;display:inline-block;vertical-align:top;margin:14px 6px 0 10px;">
-		<%= link_to(image_tag("back_to_top.png"), "#top", :id => "back_to_top_button" ) %>
+	<div style="float: right;display:inline-block;vertical-align:top;margin:0.7em 0 0 0.5em;">
+		<%= link_to(image_tag("back_to_top.png"), "#top", :id => "back_to_top_button", :class => "tooltipped", :title => "Revenir en haut" ) %>
 	</div>
 	<% if user_signed_in? %>
 		
 		<ul id="account_links">
 			
 				<li><%= link_to(image_tag(avatar_url(current_user, 25), :width => "25", :height => "25"), show_user_profile_path(current_user)) %></li>
-				<li class="user_name"><%= link_to truncate(current_user.display_name, :length => 25), show_user_profile_path(current_user) %></li>
+				<li class="user_name"><%= link_to truncate(current_user.display_name, :length => 15), show_user_profile_path(current_user), :class => "tooltipped", :title => "Voir votre profil" %></li>
 			
 			<% if can? :index, :admin_dashboard %>
 			<li><%= link_to(("<span class='icon'>Administration</span>").html_safe, admin_dashboard_page_path, :class => "admin tooltipped", :title => 'Administration') %>
 			</li>
 			<% end %>
 		
-			<li><%= link_to(("<span class='icon'>Éditer profil</span>").html_safe, edit_user_registration_path, :class => "edit_profile tooltipped", :title => 'Éditer profil') %>
+			<li><%= link_to(("<span class='icon'>Éditer profil</span>").html_safe, edit_user_registration_path, :class => "edit_profile tooltipped", :title => 'Éditer votre profil') %>
 			</li>
 
 

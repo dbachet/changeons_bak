@@ -140,6 +140,8 @@ REFACTOR ROLES
 + Think about categorizations
 + fix share (à la fin)
 + error management, css
++ add jquery buble to explain top page buttons !!!!!
+
 
 - remove not used js.erb files
 - SEO
@@ -149,7 +151,6 @@ REFACTOR ROLES
 - add possible picture instead of gravatar !!!!!
 - add légende to the picture of the post/tip/event...
 - refactor category bar, use slide down to display it !!!!
-- add jquery buble to explain top page buttons !!!!!
 - les + lus, les + votés, classement
 - finish edit pages
 - Care about caching
@@ -163,7 +164,7 @@ REFACTOR ROLES
 - ajouter mechanisme de modération/lock		!!!!!!!!!!
 - ajouter "signaler un abus"			!!!!!!!!!
 
-
+- resize top bar for users with less than 1200px
 - add questions to posts form (garder pour plus tard)
 - improve home page (garder pour plus tard)
 - recherche (pour plus tard)

@@ -8,21 +8,8 @@ $(document).ready(function() {
         }
     );
 	
-	var resizeTimer = null;
-	$(window).bind(
-	'load', function() {
-		if (resizeTimer) clearTimeout(resizeTimer); 
-		    resizeTimer = setTimeout(configTop, 100);
-	});
-	
-	$(window).bind(
-	'resize', function() {
-	  	if (resizeTimer) clearTimeout(resizeTimer); 
-		    resizeTimer = setTimeout(configTop, 100);
-	});
-	
-	// $.event.add(window, "load", configTop);
-	// $.event.add(window, "resize", configTop);
+
+
 	
 
 	
@@ -143,39 +130,7 @@ function add_drawback_remove_links(link_to_remove_drawback){
 }
 	
 
-function configTop() {
-    var topPageHeight = $('nav#top_page').height(),
-		widthListItems = 0,
-		topCategoriesUl = $('nav#top_categories > ul'),
-		topCategoriesLi = $('nav#top_categories > ul > li'),
-		windowWidth = $(window).width(),
-		maxWidth = 1200,
-		navCategories = $('nav#top_categories'),
-		paddingUl = topCategoriesUl.css('padding');
 
-	// Set the margin-top of the menu to be able to see categories
-	navCategories.css('margin-top', topPageHeight);
-	
-	// Set the width of the ul menu to fit in the window
-	topCategoriesLi.each(function(index) {
-		widthListItems += $(this).width() + 24;
-	});
-	
-	if (navCategories.width() - 20 <= widthListItems){
-		widthListItems = navCategories.width();
-		// alert("hoooo");
-	}
-	
-	if (maxWidth - (paddingUl*2) - 20 <= widthListItems){
-		widthListItems = maxWidth - 20;
-		// alert("hoooo");
-	}
-	
-	topCategoriesUl.animate({
-    	width: widthListItems,
-	}, 400);
-	
-}
 
 function read_stored_form_details_for_comments() {
 	commentTitleCookie = $.cookies.get('commentTitle');
