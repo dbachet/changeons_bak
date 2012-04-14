@@ -36,7 +36,7 @@
 			<%= render 'layouts/share_buttons_show_top' %>
 		  	<% if !@post.presentation_picture.blank? %>
 				<div id="big_picture">
-					<%= image_tag @post.picture.url(:medium),  :style => ("margin: 0 9em") %>
+					<%= image_tag @post.picture.url(:medium) %>
 				</div>
 			<% end %>
 		  <%= @post.content.html_safe %>

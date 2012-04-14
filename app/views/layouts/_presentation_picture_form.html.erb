@@ -4,9 +4,9 @@
 
 		
 		<div id="presentation_picture_preview" <%= "style=display:none" if @presentation_picture.id.blank? %>>
-			<label class="additionnal_info">Aperçu de l'image</label>
+			Aperçu de l'image
 			</br>
-			<%= @presentation_picture.id.blank? ? "" : image_tag(@presentation_picture.picture.url(:medium), :width => "150px") %>
+			<%= @presentation_picture.id.blank? ? "" : image_tag(@presentation_picture.picture.url(:medium), :width => "300px") %>
 		</div>
 
 		<div id="delete_presentation_picture_link" <%= "style=display:none" if @presentation_picture.id.blank? %>>

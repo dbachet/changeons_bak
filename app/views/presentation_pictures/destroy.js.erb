@@ -6,5 +6,5 @@ $('#presentation_picture_id').val("");
 // $('#delete_presentation_picture_link').fadeOut("slow");
 // $('#presentation_picture_input').fadeIn("slow");
 
-$('#new_presentation_picture').replaceWith("<%= escape_javascript(render :partial => 'layouts/presentation_picture_form') %>");
+$('form.presentation_picture').replaceWith("<%= escape_javascript(render :partial => 'layouts/presentation_picture_form') %>");
 presentation_picture_form();
