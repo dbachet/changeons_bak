@@ -48,20 +48,6 @@
 		</fieldset>
 		
 		<fieldset>
-			<label>Prix recommandé</label>
-			<div>
-				<%= f.input :recommended_price, :label => false, :wrapper => false, :input_html => {'original-title' => "Indiquez ici le prix de vente du produit"} %> €
-			</div>
-		</fieldset>
-		
-		<fieldset>
-			<label>Note attribuée</label>
-			<div>
-				<%= f.input :mark, :label => false, :wrapper => false, :input_html => {'original-title' => "De 0 à 5"} %>
-			</div>
-		</fieldset>
-		
-		<fieldset>
 			<label>Opinion</label>
 			<div>
 				<%= f.input :opinion, :label => false, :wrapper => false, :input_html => {'original-title' => "Ne mâchez pas vos mots ! On veut savoir la vérité :)"} %>
@@ -106,6 +92,46 @@
 				</ul>
 			</div>
 			<%= f.input :drawbacks, :label => false, :wrapper => false, :input_html => {:class => "", :style => "display: none;"} %>
+		</fieldset>
+		
+		<fieldset>
+			<label>Note attribuée</label>
+			<div>
+				<%= f.input :mark, :label => false, :wrapper => false, :input_html => {'original-title' => "De 0 à 5"} %>
+			</div>
+		</fieldset>
+		
+		<fieldset>
+			<label>Prix recommandé</label>
+			<div>
+				<%= f.input :recommended_price, :label => false, :wrapper => false, :input_html => {'original-title' => "Indiquez ici le prix de vente du produit"} %> €
+			</div>
+		</fieldset>
+		
+		<fieldset>
+			<label>
+				Organisme de certification
+				<div style="margin-top:1em">
+					<span style="margin-right:1em">
+						<%= image_tag "logoAB.gif", :width => "30px" %>
+					</span>
+					<span>
+						<%= image_tag "logoEuro.gif", :width => "50px" %>
+					</span>
+				</div>
+			</label>
+			<div>
+				<label class="additionnal_info">Si le produit est BIO, alors il devrait y avoir les détails d'un organisme de certification sur l'étiquette. Vous pouvez ici détailler ces informations, et le produit sera alors automatiquement considéré comme BIO sur notre site.</label>
+				</br>
+				</br>
+				Nom de l'organisme
+				<%= f.input :certifying_organization, :label => false, :wrapper => false, :input_html => {'original-title' => "Veuillez indiquer ici, le nom de l'organisme de certification si le produit est certifié BIO. Ex: Ecocert, Qualisud, ..."} %>
+			</div>
+			<div>
+				Identifiant de l'organisme
+				<%= f.input :certifying_organization_identifier, :label => false, :wrapper => false, :input_html => {'original-title' => "Veuillez indiquer ici, l'identifiant de l'organisme de certification. Ex: FR-BIO-13, PL-EKO-09, ..."} %>
+			</div>
+			
 		</fieldset>
 		
 		<%= render 'layouts/sources_form', :f => f, :model_var => @product_test %>

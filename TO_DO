@@ -142,6 +142,8 @@ REFACTOR ROLES
 + error management, css
 + add jquery buble to explain top page buttons !!!!!
 + refactor category bar, use slide down to display it !!!!
++ finish edit pages (Bien faire gaffe que toutes les bulles soient bien notées pour chaque champs)
++ fix datapicker from client side validation with > https://github.com/bcardarella/client_side_validations/wiki/jQuery-Plugins
 
 
 - remove not used js.erb files
@@ -151,7 +153,6 @@ REFACTOR ROLES
 - when remove post/tip/... remove from categorizations !!!!
 - add légende to the picture of the post/tip/event...
 - les + lus, les + votés, classement
-+/- finish edit pages (Bien faire gaffe que toutes les bulles soient bien notées pour chaque champs)
 - Care about caching
 - Add certification on product_test
 - add country selector on event form
@@ -162,7 +163,6 @@ REFACTOR ROLES
 - check seeds
 - use yield(:head) to personalize the javascript scrits in views with <% content_for(:head) do %>
 - design
-- fix datapicker from client side validation with > https://github.com/bcardarella/client_side_validations/wiki/jQuery-Plugins
 - secure role during editing user
 - ajouter mechanisme de modération/lock		!!!!!!!!!!
 - ajouter "signaler un abus"			!!!!!!!!!

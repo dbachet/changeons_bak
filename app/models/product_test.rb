@@ -27,7 +27,7 @@ class ProductTest < ActiveRecord::Base
   has_many :categories, :through => :categorizations
   accepts_nested_attributes_for :categories
   
-  attr_accessible :category_ids, :categories_attributes, :brand, :product_model, :product_ref, :description, :recommended_price, :mark, :presentation_picture_id, :opinion, :advantages, :advantage, :drawbacks, :drawback, :source_description, :source, :sources
+  attr_accessible :certifying_organization, :certifying_organization_identifier, :category_ids, :categories_attributes, :brand, :product_model, :product_ref, :description, :recommended_price, :mark, :presentation_picture_id, :opinion, :advantages, :advantage, :drawbacks, :drawback, :source_description, :source, :sources
   
   attr_accessor :advantage, :advantages_preview, :drawback, :drawbacks_preview, :presentation_picture_id
   

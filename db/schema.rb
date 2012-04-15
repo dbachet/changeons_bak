@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405203940) do
+ActiveRecord::Schema.define(:version => 20120415150825) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(:version => 20120405203940) do
     t.text     "opinion"
     t.text     "advantages"
     t.text     "drawbacks"
-    t.decimal  "recommended_price",              :precision => 7, :scale => 2
+    t.decimal  "recommended_price",                  :precision => 7, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cached_slug"
@@ -182,6 +182,8 @@ ActiveRecord::Schema.define(:version => 20120405203940) do
     t.boolean  "has_big_picture"
     t.boolean  "picture_orientation_horizontal"
     t.text     "sources"
+    t.string   "certifying_organization"
+    t.string   "certifying_organization_identifier"
   end
 
   create_table "question_categorizations", :force => true do |t|
