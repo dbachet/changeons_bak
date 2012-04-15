@@ -36,43 +36,42 @@
 		<fieldset>
 			<label>Référence</label>
 			<div>
-				<%= f.input :product_ref, :label => false, :wrapper => false, :input_html => {} %>
+				<%= f.input :product_ref, :label => false, :wrapper => false, :input_html => {'original-title' => "La référence peut être un code, une série de caractères, que l'on trouve sur l'étiquette du produit"} %>
 			</div>
 		</fieldset>
 		
 		<fieldset>
 			<label>Description du produit</label>
 			<div>
-				<%= f.input :description, :label => false, :wrapper => false, :input_html => {} %>
+				<%= f.input :description, :label => false, :wrapper => false, :input_html => {'original-title' => "Donnez ici VOTRE description du produit. Changeons.org ne peut être tenu responsable si vous utilisez des informations dont la publication n'est pas autorisée par son propriétaire. En deux mots, ne copiez pas la description du produit à partir d'un site marchand par exemple :)"} %>
 			</div>
 		</fieldset>
 		
 		<fieldset>
 			<label>Prix recommandé</label>
 			<div>
-				<%= f.input :recommended_price, :label => false, :wrapper => false, :input_html => {} %> €
+				<%= f.input :recommended_price, :label => false, :wrapper => false, :input_html => {'original-title' => "Indiquez ici le prix de vente du produit"} %> €
 			</div>
 		</fieldset>
 		
 		<fieldset>
 			<label>Note attribuée</label>
 			<div>
-				<%= f.input :mark, :label => false, :wrapper => false, :input_html => {} %> sur 5
+				<%= f.input :mark, :label => false, :wrapper => false, :input_html => {'original-title' => "De 0 à 5"} %>
 			</div>
 		</fieldset>
 		
 		<fieldset>
 			<label>Opinion</label>
 			<div>
-				<%= f.input :opinion, :label => false, :wrapper => false, :input_html => {} %>
+				<%= f.input :opinion, :label => false, :wrapper => false, :input_html => {'original-title' => "Ne mâchez pas vos mots ! On veut savoir la vérité :)"} %>
 			</div>
 		</fieldset>
 		
 		<fieldset id="advantages">
 			<label>Avantages</label>
 			<div id="advantage_form_field">
-				<span id="add_advantage_notice">Veuillez écrire, dans le champs ci-dessous, l'avantage que vous souhaitez ajouter:</span>
-				<%= f.input :advantage, :label => false, :wrapper => false %>
+				<%= f.input :advantage, :label => false, :wrapper => false, :input_html => {'original-title' => "Veuillez écrire, ici, l'avantage que vous souhaitez ajouter et cliquez sur \"Ajouter un avantage\""} %>
 			</div>
 			<div id="advantage_buttons">
 				<%= link_to("Ajouter un avantage", "", :remote => true, :id => "add_advantage_button") %>
@@ -92,8 +91,7 @@
 		<fieldset id="drawbacks">
 			<label>Inconvénients</label>
 			<div id="drawback_form_field">
-				<span id="add_drawback_notice">Veuillez écrire, dans le champs ci-dessous, l'inconvénient que vous souhaitez ajouter:</span>
-				<%= f.input :drawback, :label => false, :wrapper => false %>
+				<%= f.input :drawback, :label => false, :wrapper => false, :input_html => {'original-title' => "Veuillez écrire, ici, l'inconvénient que vous souhaitez ajouter et cliquez sur \"Ajouter un inconvénient\""} %>
 			</div>
 			<div id="drawback_buttons">
 				<%= link_to("Ajouter un inconvénient", "", :remote => true, :id => "add_drawback_button") %>

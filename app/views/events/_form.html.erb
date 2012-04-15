@@ -20,7 +20,7 @@
 		<fieldset class="title">
 			<label>Titre*</label>
 			<div>
-				<%= f.input :title, :label => false, :as => :text, :wrapper => false, :input_html => {:class => "char_count", 'original-title' => "100 caractères maximum"} %>
+				<%= f.input :title, :label => false, :wrapper => false, :input_html => {:class => "char_count", 'original-title' => "100 caractères maximum"} %>
 				<span class="counter"></span>
 			</div>
 		</fieldset>
@@ -28,7 +28,7 @@
 		<fieldset>
 			<label>Description*</label>
 			<div>
-				<%= f.input :description, :label => false, :wrapper => false, :input_html => {} %>
+				<%= f.input :description, :label => false, :wrapper => false, :input_html => {'original-title' => "Décrivez ici l'évènement"} %>
 			</div>
 		</fieldset>
 		
@@ -51,23 +51,23 @@
 			<div>
 				Rue
 				</br>
-				<%= f.input :addr_street_1, :label => false, :input_html => {:class => ""} %>
-				<%= f.input :addr_street_2, :label => false, :input_html => {:class => ""} %>
+				<%= f.input :addr_street_1, :label => false, :input_html => {'original-title' => "Détaillez ici la rue, le lieu, la bâtiment... Un deuxième champs est à votre disposition ci-dessous."} %>
+				<%= f.input :addr_street_2, :label => false, :input_html => {'original-title' => "Ajoutez plus de détails si besoin"} %>
 			</div>
 			<div>
 				Code postal
 				</br>
-				<%= f.input :addr_postcode, :label => false, :input_html => {:class => ""} %>
+				<%= f.input :addr_postcode, :label => false, :input_html => {'original-title' => "En France, le code postal est composé de 5 chiffres"} %>
 			</div>
 			<div>
 				Ville
 				</br>
-				<%= f.input :addr_city, :label => false, :input_html => {:class => ""} %>
+				<%= f.input :addr_city, :label => false, :input_html => {'original-title' => "Indiquez la ville où aura lieu l'évènement"} %>
 			</div>
 			<div>
 				Pays
 				</br>
-				<%= f.input :addr_country, :as => :string, :label => false, :input_html => {:class => ""} %>
+				<%= f.input :addr_country, :as => :string, :label => false, :input_html => {'original-title' => "Indiquez le pays où aura lieu l'évènement"} %>
 			</div>
 		</fieldset>
 		

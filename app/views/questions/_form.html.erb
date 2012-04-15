@@ -20,9 +20,9 @@
 		<%= f.input :presentation_picture_id, :label => false, :input_html => {:id => "presentation_picture_id", :value => (@question.presentation_picture.id if !@question.presentation_picture.blank?) } %>
 		
 		<fieldset class="title">
-			<label>Question*</label>
+			<label>Titre*</label>
 			<div>
-				<%= f.input :title, :label => false, :as => :text, :wrapper => false, :input_html => {:class => "char_count", 'original-title' => "100 caractères maximum"} %>
+				<%= f.input :title, :label => false, :wrapper => false, :input_html => {:class => "char_count", 'original-title' => "100 caractères maximum"} %>
 				<span class="counter"></span>
 			</div>
 		</fieldset>
@@ -30,7 +30,7 @@
 		<fieldset>
 			<label>Description*</label>
 			<div>
-				<%= f.input :content, :label => false, :wrapper => false, :input_html => {} %>
+				<%= f.input :content, :label => false, :wrapper => false, :input_html => {'original-title' => "Ajoutez ici des détails à votre question"} %>
 			</div>
 		</fieldset>
 		
