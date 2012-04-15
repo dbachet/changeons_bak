@@ -148,6 +148,7 @@ class TipsController < AuthorizedController
         format.html { redirect_to(@tip, :notice => 'Tip was successfully created.') }
         format.xml  { render :xml => @tip, :status => :created, :location => @tip }
       else
+        @presentation_picture = @tip.presentation_picture || PresentationPicture.new
         format.html { render :action => "new" }
         format.xml  { render :xml => @tip.errors, :status => :unprocessable_entity }
       end
@@ -170,6 +171,7 @@ class TipsController < AuthorizedController
         format.html { redirect_to(@tip, :notice => 'Tip was successfully updated.') }
         format.xml  { head :ok }
       else
+        @presentation_picture = @tip.presentation_picture || PresentationPicture.new
         format.html { render :action => "edit" }
         format.xml  { render :xml => @tip.errors, :status => :unprocessable_entity }
       end

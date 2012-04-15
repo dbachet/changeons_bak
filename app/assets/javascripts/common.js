@@ -77,20 +77,20 @@ $(document).ready(function() {
 	// END - form hover
 	
 	
-	$('article#post div#post_vote').live({
-	mouseenter: function() {
-	  	$('img', this).animate({
-	    	width: '36px',
-			height: '34px'
-		}, 0);
-	},
-	mouseleave: function() {
-		$('img', this).animate({
-		  	width: '30px',
-			height: '29px'
-		}, 0);
-	}
-	});
+	// $('article#post div#post_vote').live({
+	// mouseenter: function() {
+	//   	$('img', this).animate({
+	//     	width: '36px',
+	// 		height: '34px'
+	// 	}, 0);
+	// },
+	// mouseleave: function() {
+	// 	$('img', this).animate({
+	// 	  	width: '30px',
+	// 		height: '29px'
+	// 	}, 0);
+	// }
+	// });
 	
 
 	// jQuery(function($){ 

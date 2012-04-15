@@ -122,6 +122,7 @@ class QuestionsController < AuthorizedController
         format.html { redirect_to(@question, :notice => 'Question was successfully created.') }
         format.xml  { render :xml => @question, :status => :created, :location => @question }
       else
+        @presentation_picture = @question.presentation_picture || PresentationPicture.new
         format.html { render :action => "new" }
         format.xml  { render :xml => @question.errors, :status => :unprocessable_entity }
       end
@@ -139,6 +140,7 @@ class QuestionsController < AuthorizedController
         format.html { redirect_to(@question, :notice => 'Question was successfully updated.') }
         format.xml  { head :ok }
       else
+        @presentation_picture = @question.presentation_picture || PresentationPicture.new
         format.html { render :action => "edit" }
         format.xml  { render :xml => @question.errors, :status => :unprocessable_entity }
       end

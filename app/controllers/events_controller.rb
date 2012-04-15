@@ -136,6 +136,7 @@ class EventsController < AuthorizedController
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
+        @presentation_picture = @event.presentation_picture || PresentationPicture.new
         format.html { render :action => "new" }
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
       end
@@ -154,6 +155,7 @@ class EventsController < AuthorizedController
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
         format.xml  { head :ok }
       else
+        @presentation_picture = @event.presentation_picture || PresentationPicture.new
         format.html { render :action => "edit" }
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
       end

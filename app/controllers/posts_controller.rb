@@ -240,6 +240,7 @@ class PostsController < AuthorizedController
         format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
         format.xml  { head :ok }
       else
+        @presentation_picture = @post.presentation_picture || PresentationPicture.new
         format.html { render :action => "edit" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end

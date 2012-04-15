@@ -1,4 +1,4 @@
-<% javascript 'layouts/form.js', 'layouts/sources.js' %>
+<% javascript 'layouts/form.js', 'layouts/sources.js', 'events/form.js' %>
 <header>
 	<div class="left">
 		<div class="etiquette">Évènement</div>
@@ -35,14 +35,14 @@
 		<fieldset>
 			<label>Date de début*</label>
 			<div>
-				<%= f.input :event_start_date, :label => false, :as => :string, :input_html => {:class => "datepicker ", :value => (@event.event_start_date ? @event.event_start_date.strftime("%d/%m/%Y") : "")} %>
+				<%= f.input :event_start_date, :label => false, :as => :string, :input_html => {:class => "datepicker ", 'original-title' => "Veuillez remplir la champs en utilisant le calendrier", :value => (@event.event_start_date ? @event.event_start_date.strftime("%d/%m/%Y") : "")} %>
 			</div>
 		</fieldset>
 		
 		<fieldset>
 			<label>Date de fin</label>
 			<div>
-				<%= f.input :event_end_date, :label => false, :as => :string, :input_html => {:class => "datepicker ", :value => (@event.event_end_date ? @event.event_end_date.strftime("%d/%m/%Y") : "")} %>
+				<%= f.input :event_end_date, :label => false, :as => :string, :input_html => {:class => "datepicker ", 'original-title' => "Veuillez remplir la champs en utilisant le calendrier et vérifiez que la date de fin soit similaire ou ultérieure à la date de début de l'évènement", :value => (@event.event_end_date ? @event.event_end_date.strftime("%d/%m/%Y") : "")} %>
 			</div>
 		</fieldset>
 		

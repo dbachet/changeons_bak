@@ -179,6 +179,7 @@ class ProductTestsController < AuthorizedController
         format.html { redirect_to(@product_test, :notice => 'Product test was successfully created.') }
         format.xml  { render :xml => @product_test, :status => :created, :location => @product_test }
       else
+        @presentation_picture = @product_test.presentation_picture || PresentationPicture.new
         format.html { render :action => "new" }
         format.xml  { render :xml => @product_test.errors, :status => :unprocessable_entity }
       end
@@ -197,6 +198,7 @@ class ProductTestsController < AuthorizedController
         format.html { redirect_to(@product_test, :notice => 'Product test was successfully updated.') }
         format.xml  { head :ok }
       else
+        @presentation_picture = @product_test.presentation_picture || PresentationPicture.new
         format.html { render :action => "edit" }
         format.xml  { render :xml => @product_test.errors, :status => :unprocessable_entity }
       end
