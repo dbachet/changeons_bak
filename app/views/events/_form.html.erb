@@ -35,14 +35,14 @@
 		<fieldset>
 			<label>Date de début*</label>
 			<div>
-				<%= f.input :event_start_date, :label => false, :as => :string, :input_html => {:class => "datepicker ", 'original-title' => "Veuillez remplir la champs en utilisant le calendrier", :value => (@event.event_start_date ? @event.event_start_date.strftime("%d/%m/%Y") : "")} %>
+				<%= f.input :event_start_date, :label => false, :wrapper => false, :as => :string, :input_html => {:class => "datepicker ", 'original-title' => "Veuillez remplir la champs en utilisant le calendrier", :value => (@event.event_start_date ? @event.event_start_date.strftime("%d/%m/%Y") : "")} %>
 			</div>
 		</fieldset>
 		
 		<fieldset>
 			<label>Date de fin</label>
 			<div>
-				<%= f.input :event_end_date, :label => false, :as => :string, :input_html => {:class => "datepicker ", 'original-title' => "Veuillez remplir la champs en utilisant le calendrier et vérifiez que la date de fin soit similaire ou ultérieure à la date de début de l'évènement", :value => (@event.event_end_date ? @event.event_end_date.strftime("%d/%m/%Y") : "")} %>
+				<%= f.input :event_end_date, :label => false, :wrapper => false, :as => :string, :input_html => {:class => "datepicker ", 'original-title' => "Veuillez remplir la champs en utilisant le calendrier et vérifiez que la date de fin soit similaire ou ultérieure à la date de début de l'évènement", :value => (@event.event_end_date ? @event.event_end_date.strftime("%d/%m/%Y") : "")} %>
 			</div>
 		</fieldset>
 		
@@ -51,23 +51,28 @@
 			<div>
 				Rue
 				</br>
-				<%= f.input :addr_street_1, :label => false, :input_html => {'original-title' => "Détaillez ici la rue, le lieu, la bâtiment... Un deuxième champs est à votre disposition ci-dessous."} %>
-				<%= f.input :addr_street_2, :label => false, :input_html => {'original-title' => "Ajoutez plus de détails si besoin"} %>
+				<%= f.input :addr_street_1, :label => false, :wrapper => false, :input_html => {'original-title' => "Détaillez ici la rue, le lieu, la bâtiment... Un deuxième champs est à votre disposition ci-dessous."} %>
+				<%= f.input :addr_street_2, :label => false, :wrapper => false, :input_html => {'original-title' => "Ajoutez plus de détails si besoin"} %>
 			</div>
 			<div>
 				Code postal
 				</br>
-				<%= f.input :addr_postcode, :label => false, :input_html => {'original-title' => "En France, le code postal est composé de 5 chiffres"} %>
+				<%= f.input :addr_postcode, :label => false, :wrapper => false, :input_html => {'original-title' => "En France, le code postal est composé de 5 chiffres"} %>
 			</div>
 			<div>
 				Ville
 				</br>
-				<%= f.input :addr_city, :label => false, :input_html => {'original-title' => "Indiquez la ville où aura lieu l'évènement"} %>
+				<%= f.input :addr_city, :label => false, :wrapper => false, :input_html => {'original-title' => "Indiquez la ville où aura lieu l'évènement"} %>
 			</div>
 			<div>
 				Pays
 				</br>
-				<%= f.input :addr_country, :as => :string, :label => false, :input_html => {'original-title' => "Indiquez le pays où aura lieu l'évènement"} %>
+				<%= f.input :addr_country, :collection => Event::COUNTRY_LIST, :prompt => "France", :label => false, :wrapper => false, :input_html => {'original-title' => "Indiquez le pays où aura lieu l'évènement"} %>
+			</div>
+			<div style="display:none">
+				Département
+				</br>
+				<%= f.input :department, :collection => Event::DEPARTMENT_LIST, :prompt => "Sélectionner un département", :label => false, :wrapper => false, :input_html => {'original-title' => "Indiquez le pays où aura lieu l'évènement"} %>
 			</div>
 		</fieldset>
 		

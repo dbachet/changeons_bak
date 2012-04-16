@@ -14,6 +14,7 @@ gem 'mysql2'	# because last versions are not compatible rails 3.0.x
 gem 'devise', '1.5.0'
 gem 'friendly_id', "~> 3.3.0"
 gem "simple_form", '1.5.2'
+# gem 'country-select'
 gem 'acts-as-taggable-on', '~>2.1.0'
 gem 'thumbs_up', '0.4.4'
 gem 'fancybox-rails', :git => 'https://github.com/sverigemeny/fancybox-rails'

@@ -144,6 +144,7 @@ REFACTOR ROLES
 + refactor category bar, use slide down to display it !!!!
 + finish edit pages (Bien faire gaffe que toutes les bulles soient bien notées pour chaque champs)
 + fix datapicker from client side validation with > https://github.com/bcardarella/client_side_validations/wiki/jQuery-Plugins
++ Add certification on product_test
 
 
 - remove not used js.erb files
@@ -154,7 +155,6 @@ REFACTOR ROLES
 - add légende to the picture of the post/tip/event...
 - les + lus, les + votés, classement
 - Care about caching
-- Add certification on product_test
 - add country selector on event form
 - add departement on event form
 - fix problem for updating user by admin
