@@ -53,7 +53,7 @@
 	<% @top_tips.each do |tip| %>
 		<article>
 			<header>
-				<%= image_tag tip.picture.url(:thumb) %><span><%= truncate(tip.title, :length => 55, :separator => ' ') %></span>
+				<%= image_tag tip.picture.url(:thumb) if !tip.presentation_picture.blank? %><span><%= truncate(tip.title, :length => 55, :separator => ' ') %></span>
 			</header>
 			<aside><%= tip.plusminus %> votes, <%= Comment.fetch_comments(tip, 0, 0).size %> commentaires</aside>
 		</article>

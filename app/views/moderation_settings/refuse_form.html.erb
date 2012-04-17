@@ -1,0 +1,11 @@
+<%= simple_form_for(@moderation_setting,:url => failed_moderation_path(moderatable_class, moderatable), :remote => true, :validate => true, :method => :post) do |f| %>
+	<fieldset>
+		<label>Explication du refus</label>
+		
+		<div>
+			<%= f.input :refuse_cause, :label => false, :wrapper => false %>
+		</div>
+		
+	</fieldset>
+	<%= f.button :submit, "Enregistrer le refus" %>
+<% end %>

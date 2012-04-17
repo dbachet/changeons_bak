@@ -1,15 +1,14 @@
 # -*- encoding : utf-8 -*-
-class ModerationSettingsController < ApplicationController
+class ModerationSettingsController < AuthorizedController
   
-  respond_to :js# , :only => :approve
+  respond_to :js , :only => [:approve, :refuse]
+  respond_to :html, :only => :refuse_form
   
   def approve
     @moderatable = moderatable_object
-    
     if !@moderatable.nil?
-      @moderatable.approve
+      puts "test: #{@moderatable.approve}"
     end
-    
     respond_with
   end
   
@@ -17,12 +16,25 @@ class ModerationSettingsController < ApplicationController
     @moderatable = moderatable_object
     
     if !@moderatable.nil?
-      @moderatable.refuse
+      @moderation_setting = @moderatable.moderation_setting
+      if @moderation_setting.update_attributes(params[:moderation_setting])
+        
+        @moderatable.refuse(params[:moderation_setting][:refuse_cause])
+        
+        respond_with
+      end
+      
     end
-    
-    respond_with
   end
   
+  def refuse_form
+    @moderatable = moderatable_object
+    @moderation_setting = @moderatable.moderation_setting
+    
+    respond_with do |format|
+      format.html { render :layout => false }
+    end
+  end
   
   private
   

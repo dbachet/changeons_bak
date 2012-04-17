@@ -3,16 +3,9 @@
 <div id="show_left">
 	<article id="event" class="show">
 		
-		
-		<%= link_to "Approuver", passed_moderation_path(moderatable_class, moderatable), :remote => true, :id => "approve_link", :style => (@event.was_moderated == false || @event.is_published == false ? "" : "display:none") %>
-		<div id="approved" style=<%= (@event.was_moderated == true && @event.is_published == true) ? "" : "display:none" %>>
-			Accepté !!!!
-		</div>
-		<%= link_to "Refuser", failed_moderation_path(moderatable_class, moderatable), :remote => true, :id => "refuse_link", :style => (@event.is_published == true ? "" : "display:none") %>
-		<div id="refused" style=<%= (@event.was_moderated == true && @event.is_published == false) ? "" : "display:none" %>>
-			Refusé !!!!
-		</div>
-		
+		<% if can? :manage, ModerationSetting %>
+		<%= render 'moderation_settings/moderation_links' %>
+		<% end %>
 		
 		
 		<header>

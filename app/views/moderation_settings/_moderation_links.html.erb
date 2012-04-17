@@ -1,0 +1,11 @@
+<%= link_to "Approuver", passed_moderation_path(moderatable_class, moderatable), :remote => true, :id => "approve_link", :style => (moderatable.was_moderated == false || moderatable.is_published == false ? "" : "display:none") %>
+
+<span id="approved" style=<%= (moderatable.was_moderated == true && moderatable.is_published == true) ? "" : "display:none" %>>
+	Accepté !!!!
+</span>
+
+<%= link_to "Refuser", failed_moderation_form_path(moderatable_class, moderatable), :id => "refuse_link", :class => "fancybox.ajax", :style => (moderatable.is_published == true ? "" : "display:none") %>
+
+<span id="refused" style=<%= (moderatable.was_moderated == true && moderatable.is_published == false) ? "" : "display:none" %>>
+	Refusé !!!!
+</span>

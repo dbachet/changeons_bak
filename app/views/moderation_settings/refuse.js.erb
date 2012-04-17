@@ -1,4 +1,9 @@
-$('#refuse_link').hide();
-$('#refused').show();
-$('#approve_link').show();
-$('#approved').hide();
+$("form.moderation_setting").bind('ajax:success', function(evt, data, status, xhr) {
+	
+	$.fancybox.close();
+	$('#refuse_link').hide();
+	$('#refused').show();
+	$('#approve_link').show();
+	$('#approved').hide();
+
+});
