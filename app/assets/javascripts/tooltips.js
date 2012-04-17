@@ -5,4 +5,5 @@ $(document).ready(function(){
 	$('#breadcrumbs a').tipsy({fade:true, live:true, offset: 0});
 	$('article.form textarea').tipsy({trigger: 'focus', gravity: 'e'});
 	$('article.form input[type="text"]').tipsy({trigger: 'focus', gravity: 'w'});
+	$('article.form select').tipsy({trigger: 'focus', gravity: 'w'});
 });

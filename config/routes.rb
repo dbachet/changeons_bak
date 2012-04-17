@@ -1,7 +1,10 @@
 # -*- encoding : utf-8 -*-
 Changeons::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-
+  
+  match "moderation_settings/:moderatable_type/:moderatable_id/approve" => "moderation_settings#approve", :as => "passed_moderation"
+  match "moderation_settings/:moderatable_type/:moderatable_id/refuse" => "moderation_settings#refuse", :as => "failed_moderation"
+    
   match "tags/:tag_id/" => "tags#show_posts", :as => "tag_show_posts"  
   
   resources :upload_pictures

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120416050408) do
+ActiveRecord::Schema.define(:version => 20120416190744) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -104,6 +104,16 @@ ActiveRecord::Schema.define(:version => 20120416050408) do
     t.text     "sources"
     t.string   "addr_street_2"
     t.string   "department"
+  end
+
+  create_table "moderation_settings", :force => true do |t|
+    t.boolean  "published"
+    t.boolean  "moderated"
+    t.string   "refuse_cause"
+    t.integer  "moderatable_id"
+    t.string   "moderatable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "newsletter_subscribers", :force => true do |t|

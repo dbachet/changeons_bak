@@ -67,12 +67,12 @@
 			<div>
 				Pays
 				</br>
-				<%= f.input :addr_country, :collection => Event::COUNTRY_LIST, :prompt => "France", :label => false, :wrapper => false, :input_html => {'original-title' => "Indiquez le pays où aura lieu l'évènement"} %>
+				<%= f.input :addr_country, :collection => Event::COUNTRY_LIST, :selected => "France", :label => false, :wrapper => false, :input_html => {'original-title' => "Indiquez le pays où aura lieu l'évènement"} %>
 			</div>
 			<div style="display:none">
 				Département
 				</br>
-				<%= f.input :department, :collection => Event::DEPARTMENT_LIST, :prompt => "Sélectionner un département", :label => false, :wrapper => false, :input_html => {'original-title' => "Indiquez le pays où aura lieu l'évènement"} %>
+				<%= f.input :department, :collection => Event::DEPARTMENT_LIST, :prompt => "Sélectionner un département", :label => false, :wrapper => false, :input_html => {'original-title' => "Indiquez le départment où aura lieu l'évènement, si ce sera en France"} %>
 			</div>
 		</fieldset>
 		

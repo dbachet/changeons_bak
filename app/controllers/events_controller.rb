@@ -86,6 +86,7 @@ class EventsController < AuthorizedController
     
     @votes_result = @event.plusminus
     
+    
     accessed_from_this_category = accessed_from_category
     if !accessed_from_this_category.nil?                                         # TO CHANGE
       @category = Category.find_by_cached_slug(accessed_from_this_category)
@@ -133,6 +134,7 @@ class EventsController < AuthorizedController
     respond_to do |format|
       if @event.save
         manage_presentation_picture(@event, params[:event][:presentation_picture_id])
+        @event.moderation_setting = ModerationSetting.create(:published => true, :moderated => false)
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
@@ -149,9 +151,11 @@ class EventsController < AuthorizedController
     @event = Event.find(params[:id])
     # @event.categories.build params[:event][:category_ids]
     
+    
     respond_to do |format|
       if @event.update_attributes(params[:event])
         manage_presentation_picture(@event, params[:event][:presentation_picture_id])
+        @event.pending_for_moderation
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
         format.xml  { head :ok }
       else
