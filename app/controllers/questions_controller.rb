@@ -47,13 +47,13 @@ class QuestionsController < AuthorizedController
     
     if params[:category_id]                                                     # TO CHANGE
       @category = Category.find_by_cached_slug(params[:category_id])
-      @questions = @category.questions.page(params[:page]).per(5)
+      @questions = @category.questions.published.recent.page(params[:page]).per(5)
       add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
       add_breadcrumb @category.name.camelize, category_path(@category)
       add_breadcrumb "Questions", questions_from_category_path(@category), :title => "Revenir à la liste des questions"
     else
       add_breadcrumb "Questions", :questions_path, :title => "Revenir à la liste des questions"
-      @questions = Question.recent.page(params[:page]).per(5)
+      @questions = Question.published.recent.page(params[:page]).per(5)
     end
     respond_to do |format|
       format.html # index.html.erb

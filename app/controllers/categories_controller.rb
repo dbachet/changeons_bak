@@ -24,14 +24,14 @@ class CategoriesController < AuthorizedController
     
     # taken from pages#home action
     @default_post_offset = APP_CONFIG['default_post_offset']
-    @posts = @category.posts.limit(5)
-    @tips = @category.tips.limit(3)
-    @questions = @category.questions.limit(3)
-    @top_tips = Tip.recent.limit(3)
-    @events = @category.events.limit(3)
-    @product_tests = @category.product_tests.limit(3)
-    @top_posts = Post.recent.limit(5)
-    @top_product_tests = ProductTest.recent.limit(3)
+    @posts = @category.posts.published.recent.limit(5)
+    @tips = @category.tips.published.recent.limit(3)
+    @questions = @category.questions.published.recent.limit(3)
+    @top_tips = Tip.published.recent.limit(3)
+    @events = @category.events.published.limit(3)
+    @product_tests = @category.product_tests.published.recent.limit(3)
+    @top_posts = Post.published.recent.limit(5)
+    @top_product_tests = ProductTest.published.recent.limit(3)
     @tags =  ActsAsTaggableOn::Tag.all
     @displayed_posts = @posts.length
     @remaining_posts = Post.count - @displayed_posts

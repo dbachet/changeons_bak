@@ -88,13 +88,13 @@ class ProductTestsController < AuthorizedController
     
     if params[:category_id]                                                     # TO CHANGE
       @category = Category.find_by_cached_slug(params[:category_id])
-      @product_tests = @category.product_tests.page(params[:page]).per(5)
+      @product_tests = @category.published.product_tests.recent.page(params[:page]).per(5)
       add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
       add_breadcrumb @category.name.camelize, category_path(@category)
       add_breadcrumb "Avis/Tests de produits", product_tests_from_category_path(@category), :title => "Revenir à la liste des avis/tests de produits"
     else
       add_breadcrumb "Avis/Tests de produits", :product_tests_path, :title => "Revenir à la liste des avis/tests de produits"
-      @product_tests = ProductTest.recent.page(params[:page]).per(5)
+      @product_tests = ProductTest.published.recent.page(params[:page]).per(5)
     end
     
     respond_to do |format|

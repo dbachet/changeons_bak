@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Tip < ActiveRecord::Base
+  scope :published, joins(:moderation_setting).where("moderation_settings.published = ?", true)
   scope :recent, order('created_at desc')
   delegate :picture, :to => :presentation_picture, :allow_nil => true
   

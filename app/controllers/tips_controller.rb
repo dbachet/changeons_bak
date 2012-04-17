@@ -48,13 +48,13 @@ class TipsController < AuthorizedController
     
     if params[:category_id]                                                     # TO CHANGE
       @category = Category.find_by_cached_slug(params[:category_id])
-      @tips = @category.tips.page(params[:page]).per(5)
+      @tips = @category.tips.published.recent.page(params[:page]).per(5)
       add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
       add_breadcrumb @category.name.camelize, category_path(@category)
       add_breadcrumb "Astuces", tips_from_category_path(@category), :title => "Revenir à la liste des astuces"
     else
       add_breadcrumb "Astuces", :tips_path, :title => "Revenir à la liste des astuces"
-      @tips = Tip.recent.page(params[:page]).per(5)
+      @tips = Tip.published.recent.page(params[:page]).per(5)
     end
     
     

@@ -47,13 +47,13 @@ class EventsController < AuthorizedController
   def index
     if params[:category_id]                                                     # TO CHANGE
       @category = Category.find_by_cached_slug(params[:category_id])
-      @events = @category.events.page(params[:page]).per(5)
+      @events = @category.events.published.recent.page(params[:page]).per(5)
       add_breadcrumb "Catégories", :categories_path, :title => "Revenir à la liste des catégories"
       add_breadcrumb @category.name.camelize, category_path(@category)
       add_breadcrumb "Évènements", events_from_category_path(@category), :title => "Revenir à la liste des évènements"
     else
       add_breadcrumb "Évènements", :events_path, :title => "Revenir à la liste des évènements"
-      @events = Event.recent.page(params[:page]).per(5)
+      @events = Event.published.recent.page(params[:page]).per(5)
     end
     
     
