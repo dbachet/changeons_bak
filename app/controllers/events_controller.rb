@@ -134,7 +134,7 @@ class EventsController < AuthorizedController
     respond_to do |format|
       if @event.save
         manage_presentation_picture(@event, params[:event][:presentation_picture_id])
-        @event.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => " ")
+        @event.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else

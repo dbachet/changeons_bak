@@ -1,6 +1,11 @@
 # -*- encoding : utf-8 -*-
 class Comment < ActiveRecord::Base
   scope :recent, order('created_at desc')
+  scope :published, joins(:moderation_setting).where("moderation_settings.published = ?", true)
+  
+  delegate :approve, :refuse, :pending_for_moderation, :to => :moderation_setting, :allow_nil => true
+  delegate :published, :to => :moderation_setting, :allow_nil => true, :prefix => :is
+  delegate :moderated, :to => :moderation_setting, :allow_nil => true, :prefix => :was
   
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
   
@@ -8,9 +13,12 @@ class Comment < ActiveRecord::Base
   validates_presence_of :user, :unless => :written_as_guest?
   validates_presence_of :guest_email, :guest_website, :if => :written_as_guest?
   
+  attr_accessible  :title, :body, :send_notification_to_root_comment
   # NOTE: install the acts_as_votable plugin if you 
   # want user to vote on the quality of comments.
   #acts_as_voteable
+  
+  has_one :moderation_setting, :as => :moderatable, :dependent => :destroy
   
   # NOTE: Comments belong to a user
   belongs_to :user

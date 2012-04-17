@@ -32,11 +32,11 @@ module CommentsHelper
   def display_comment(comment, is_new = false)
       
       user = comment.getUserInfo
-      
       content_tag(:article, :class => (comment.is_root_comment? ? (is_new ? "root_comment new" : "root_comment") : (is_new ? "comment_reply new reply_for_#{comment.parent_id}" : "comment_reply reply_for_#{comment.parent_id}")), :id => "comment_#{comment.id}" ) do
           content_tag(:div, :class => "comment_content") do
             content_tag(:header) do
               content_tag(:div, comment.title.html_safe, :class => "title") + 
+                render('moderation_settings/comment_moderation_links', :comment => comment) +
                 (link_to('Supprimer', destroy_comment_path(comment), :class => "delete_comment_link", :confirm => 'Are you sure?', :method => :delete, :remote => true) if can? :destroy, comment) +
                 (link_to('Éditer', edit_comment_path(commentable_class, commentable, comment), :class => "edit_comment_link fancybox.ajax") if can? :edit, comment)
             end +

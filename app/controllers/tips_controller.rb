@@ -142,7 +142,7 @@ class TipsController < AuthorizedController
         
         manage_presentation_picture(@tip, params[:tip][:presentation_picture_id])
         
-        @tip.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => " ")
+        @tip.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         
         
         format.html { redirect_to(@tip, :notice => 'Tip was successfully created.') }

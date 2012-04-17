@@ -148,6 +148,7 @@ class CommentsController < AuthorizedController
         
     respond_with do |format|
       if @comment.save
+        @comment.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         @comment_created = Comment.set_comment_hash(@comment)
         @comment = Comment.new
         flash[:notice] = 'Comment was successfully created.'
@@ -168,6 +169,7 @@ class CommentsController < AuthorizedController
     
     respond_with do |format|
       if verify_recaptcha(:model => @comment, :message => "Vous n'avez pas saisi les bons mots !") && @comment.save
+        @comment.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         @comment_created = Comment.set_comment_hash(@comment)
         @comment= Comment.new
         flash[:notice] = 'Comment was successfully created.'
@@ -198,6 +200,7 @@ class CommentsController < AuthorizedController
     
     respond_with do |format|
       if @reply.save
+        @reply.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         @reply.move_to_child_of(@root_comment)
         
         if @root_comment.send_notification_to_root_comment?
@@ -232,6 +235,7 @@ class CommentsController < AuthorizedController
     
     respond_with do |format|
       if verify_recaptcha(:model => @reply, :message => "Vous n'avez pas saisi les bons mots !") && @reply.save
+        @reply.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         @reply.move_to_child_of(@root_comment)
         
         
@@ -268,8 +272,9 @@ class CommentsController < AuthorizedController
     
     respond_with do |format|
       if @comment.update_attributes(params[:comment])
+        @comment.pending_for_moderation
         @comment_updated = @comment
-        @comment= Comment.new
+        @comment = Comment.new
         
         flash[:notice] = 'Comment was successfully updated.'
       else

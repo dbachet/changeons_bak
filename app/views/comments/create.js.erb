@@ -1,4 +1,4 @@
-$("form#comment_new").bind('ajax:success', function(evt, data, status, xhr) {
+$("form#new_comment").bind('ajax:success', function(evt, data, status, xhr) {
 	var last_comment = $('div#display_comments > div:first');
 	
 	
@@ -22,6 +22,6 @@ $("form#comment_new").bind('ajax:success', function(evt, data, status, xhr) {
 		
 	$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
 
-	$('form#comment_new[data-validate], form#reply_new[data-validate]').validate();
+	$('form#new_comment[data-validate], form#new_reply[data-validate]').validate();
 		
 });

@@ -1,4 +1,11 @@
-$('#approve_link').hide();
-$('#approved').show();
-$('#refuse_link').show();
-$('#refused').hide();
+<% if @moderatable.class.to_s.underscore.downcase == 'comment' %>
+	$('article#comment_<%= moderatable.id %> .comment_approve_link').hide();
+	$('article#comment_<%= moderatable.id %> .comment_approved').show();
+	$('article#comment_<%= moderatable.id %> .comment_refuse_link').show();
+	$('article#comment_<%= moderatable.id %> .comment_refused').hide();
+<% else %>
+	$('#approve_link').hide();
+	$('#approved').show();
+	$('#refuse_link').show();
+	$('#refused').hide();
+<% end %>

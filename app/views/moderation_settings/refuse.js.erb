@@ -1,9 +1,16 @@
 $("form.moderation_setting").bind('ajax:success', function(evt, data, status, xhr) {
 	
 	$.fancybox.close();
-	$('#refuse_link').hide();
-	$('#refused').show();
-	$('#approve_link').show();
-	$('#approved').hide();
+	<% if @moderatable.class.to_s.underscore.downcase == 'comment' %>
+		$('article#comment_<%= moderatable.id %> .comment_approve_link').show();
+		$('article#comment_<%= moderatable.id %> .comment_approved').hide();
+		$('article#comment_<%= moderatable.id %> .comment_refuse_link').hide();
+		$('article#comment_<%= moderatable.id %> .comment_refused').show();
+	<% else %>
+		$('#refuse_link').hide();
+		$('#refused').show();
+		$('#approve_link').show();
+		$('#approved').hide();
+	<% end %>
 
 });

@@ -176,7 +176,7 @@ class ProductTestsController < AuthorizedController
       if @product_test.save
         # @product_test.category_ids = params[:product_test][:category_ids]
         manage_presentation_picture(@product_test, params[:product_test][:presentation_picture_id])
-        @product_test.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => " ")
+        @product_test.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         format.html { redirect_to(@product_test, :notice => 'Product test was successfully created.') }
         format.xml  { render :xml => @product_test, :status => :created, :location => @product_test }
       else

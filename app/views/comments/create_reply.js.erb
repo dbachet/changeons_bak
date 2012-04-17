@@ -1,4 +1,4 @@
-$("form#reply_new").bind('ajax:success', function(evt, data, status, xhr) {
+$("form#new_reply").bind('ajax:success', function(evt, data, status, xhr) {
 		$('div.wrap_form_new_reply').html("");
 		
 		var last_reply = $('article.reply_for_<%= @root_comment.id %>:last');
@@ -26,6 +26,6 @@ $("form#reply_new").bind('ajax:success', function(evt, data, status, xhr) {
 		
 		last_reply.fadeIn("slow");
 		
-		$('form#comment_new[data-validate], form#reply_new[data-validate]').validate();
+		$('form#comment_new[data-validate], form#new_reply[data-validate]').validate();
 		
 });

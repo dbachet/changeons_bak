@@ -1,0 +1,11 @@
+<%= link_to "Approuver", passed_moderation_path(comment.class.to_s.underscore.downcase, comment), :remote => true, :class => "comment_approve_link", :style => (comment.was_moderated == false || comment.is_published == false ? "" : "display:none") %>
+
+<span class="comment_approved" style=<%= (comment.was_moderated == true && comment.is_published == true) ? "" : "display:none" %>>
+	Accepté !!!!
+</span>
+
+<%= link_to "Refuser", failed_moderation_form_path(comment.class.to_s.underscore.downcase, comment), :class => "comment_refuse_link fancybox.ajax", :style => (comment.is_published == true ? "" : "display:none") %>
+
+<span class="comment_refused" style=<%= (comment.was_moderated == true && comment.is_published == false) ? "" : "display:none" %>>
+	Refusé !!!!
+</span>
