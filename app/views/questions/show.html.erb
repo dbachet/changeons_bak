@@ -74,6 +74,7 @@
 						<span class="answer_votes_result ">
 							<%= @answer_votes_result || answer.plusminus %>
 						</span>
+						<%= render('moderation_settings/comment_moderation_links', :comment => answer) %>
 					</div>
 					<div class="author_answer_name" style="display: inline-block; vertical-align: top;"><%= "#{answer.user.email}, le #{answer.created_at.strftime("%e")} #{getMonthFromNumber(answer.created_at.strftime("%m"))} #{answer.created_at.strftime("%Y")}" %></div>
 				</header>

@@ -3,6 +3,11 @@
 	$('article#comment_<%= moderatable.id %> .comment_approved').show();
 	$('article#comment_<%= moderatable.id %> .comment_refuse_link').show();
 	$('article#comment_<%= moderatable.id %> .comment_refused').hide();
+<% elsif @moderatable.class.to_s.underscore.downcase == 'answer' %>
+	$('article#answer_<%= moderatable.id %> .comment_approve_link').hide();
+	$('article#answer_<%= moderatable.id %> .comment_approved').show();
+	$('article#answer_<%= moderatable.id %> .comment_refuse_link').show();
+	$('article#answer_<%= moderatable.id %> .comment_refused').hide();
 <% else %>
 	$('#approve_link').hide();
 	$('#approved').show();

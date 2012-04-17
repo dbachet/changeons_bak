@@ -89,11 +89,10 @@ class AnswersController < ApplicationController
     
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to(@answer, :notice => 'Answer was successfully created.') }
-        format.xml  { render :xml => @answer, :status => :created, :location => @answer }
+        @answer.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
+        format.js 
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @answer.errors, :status => :unprocessable_entity }
+        format.js 
       end
     end
   end
@@ -105,6 +104,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.update_attributes(params[:answer])
+        @answer.pending_for_moderation
         format.html { redirect_to(@answer, :notice => 'Answer was successfully updated.') }
         format.xml  { head :ok }
       else
