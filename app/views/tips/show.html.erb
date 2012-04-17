@@ -1,6 +1,11 @@
 <% javascript 'comments/show.js', 'layouts/show.js' %>
 <div id="show_left">
 	<article id="tip" class="show">
+		
+		<% if can? :manage, ModerationSetting %>
+		<%= render 'moderation_settings/moderation_links' %>
+		<% end %>
+		
 		<header>
 			<div class="left">
 				<div class="etiquette"><%= link_to "Astuce", tips_path %></div>

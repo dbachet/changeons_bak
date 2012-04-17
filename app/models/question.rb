@@ -3,6 +3,10 @@ class Question < ActiveRecord::Base
   scope :recent, order('created_at desc')
   delegate :picture, :to => :presentation_picture, :allow_nil => true
   
+  delegate :approve, :refuse, :pending_for_moderation, :to => :moderation_setting, :allow_nil => true
+  delegate :published, :to => :moderation_setting, :allow_nil => true, :prefix => :is
+  delegate :moderated, :to => :moderation_setting, :allow_nil => true, :prefix => :was
+  
   has_many :answers
   
   acts_as_voteable
@@ -18,7 +22,8 @@ class Question < ActiveRecord::Base
   attr_accessible :category_ids, :categories_attributes, :title, :content, :presentation_picture_id, :source_description, :source, :sources
   
   has_one :presentation_picture, :as => :presentation_picturable, :dependent => :destroy
-  accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
+  has_one :moderation_setting, :as => :moderatable, :dependent => :destroy
+  # accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
   
   attr_accessor :source_description, :source, :presentation_picture_id
   

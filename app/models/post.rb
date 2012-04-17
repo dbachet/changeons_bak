@@ -3,6 +3,10 @@ class Post < ActiveRecord::Base
   scope :recent, order('created_at desc')
   delegate :picture, :to => :presentation_picture, :allow_nil => true
   
+  delegate :approve, :refuse, :pending_for_moderation, :to => :moderation_setting, :allow_nil => true
+  delegate :published, :to => :moderation_setting, :allow_nil => true, :prefix => :is
+  delegate :moderated, :to => :moderation_setting, :allow_nil => true, :prefix => :was
+  
   acts_as_taggable_on :tags
   acts_as_voteable
   acts_as_commentable
@@ -16,6 +20,8 @@ class Post < ActiveRecord::Base
   has_many :comments
   
   has_one :presentation_picture, :as => :presentation_picturable, :dependent => :destroy
+  has_one :moderation_setting, :as => :moderatable, :dependent => :destroy
+  # accepts_nested_attributes_for :moderation_setting, :allow_destroy => true
   # accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
   
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true

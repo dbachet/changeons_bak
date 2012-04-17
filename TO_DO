@@ -178,5 +178,6 @@ REFACTOR ROLES
 - add lazy load (pour plus tard)
 - add user profile show with the possibility to show his recommendations(pour plus tard)
 - messages privés entre utilisateurs (on garde pour plus tard)
+- ajouter des recettes
 
 //Add jQuery for form inputs, to have some text inside disappearing slowly

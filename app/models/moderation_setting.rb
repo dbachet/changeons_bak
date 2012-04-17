@@ -11,7 +11,7 @@ class ModerationSetting < ActiveRecord::Base
     def approve
       self.moderated = true
       self.published = true
-      self.refuse_cause = ""
+      self.refuse_cause = " "
       self.save(:validate => false)
     end
     

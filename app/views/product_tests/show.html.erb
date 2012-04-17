@@ -1,6 +1,11 @@
 <% javascript 'comments/show.js', 'layouts/show.js', 'product_tests/show.js' %>
 <div id="show_left">
 	<article id="product_test" class="show">
+		
+		<% if can? :manage, ModerationSetting %>
+		<%= render 'moderation_settings/moderation_links' %>
+		<% end %>
+		
 		<header>
 			<div class="left">
 				<div class="etiquette"><%= link_to "Avis/Test", product_test_path %></div>

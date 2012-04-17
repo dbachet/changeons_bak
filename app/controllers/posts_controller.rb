@@ -204,7 +204,7 @@ class PostsController < AuthorizedController
       if @post.save
         # generates slug for the tag
         manage_presentation_picture(@post, params[:post][:presentation_picture_id])
-        
+        @post.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => " ")
         @post.tags.each do |tag|
           tag.save
         end
@@ -236,7 +236,7 @@ class PostsController < AuthorizedController
         end
         
         manage_presentation_picture(@post, params[:post][:presentation_picture_id])
-        
+        @post.pending_for_moderation
         format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
         format.xml  { head :ok }
       else

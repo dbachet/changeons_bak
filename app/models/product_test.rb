@@ -3,6 +3,10 @@ class ProductTest < ActiveRecord::Base
   scope :recent, order('created_at desc')
   delegate :picture, :to => :presentation_picture, :allow_nil => true
   
+  delegate :approve, :refuse, :pending_for_moderation, :to => :moderation_setting, :allow_nil => true
+  delegate :published, :to => :moderation_setting, :allow_nil => true, :prefix => :is
+  delegate :moderated, :to => :moderation_setting, :allow_nil => true, :prefix => :was
+  
   belongs_to :user
   
   acts_as_commentable
@@ -21,7 +25,8 @@ class ProductTest < ActiveRecord::Base
   has_many :comments
   
   has_one :presentation_picture, :as => :presentation_picturable, :dependent => :destroy
-  accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
+  has_one :moderation_setting, :as => :moderatable, :dependent => :destroy
+  # accepts_nested_attributes_for :presentation_picture, :allow_destroy => true
   
   has_many :categorizations, :as => :categorizable
   has_many :categories, :through => :categorizations

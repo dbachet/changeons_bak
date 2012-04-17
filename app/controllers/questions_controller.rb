@@ -118,7 +118,7 @@ class QuestionsController < AuthorizedController
     respond_to do |format|
       if @question.save
         manage_presentation_picture(@question, params[:question][:presentation_picture_id])
-        
+        @question.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => " ")
         format.html { redirect_to(@question, :notice => 'Question was successfully created.') }
         format.xml  { render :xml => @question, :status => :created, :location => @question }
       else
@@ -137,6 +137,7 @@ class QuestionsController < AuthorizedController
     respond_to do |format|
       if @question.update_attributes(params[:question])
         manage_presentation_picture(@question, params[:question][:presentation_picture_id])
+        @question.pending_for_moderation
         format.html { redirect_to(@question, :notice => 'Question was successfully updated.') }
         format.xml  { head :ok }
       else
