@@ -83,9 +83,9 @@ class Comment < ActiveRecord::Base
   # sort as {1=>[#<Comment>, #<Comment>], 8=>[#<Comment>]} where the key is the id of each root comment
   def self.fetch_comments(post, from = 0, limitation = 0) # from, to
     if limitation > 0
-      comments = post.root_comments.recent.offset(from).limit(limitation)
+      comments = post.root_comments.published.recent.offset(from).limit(limitation)
     else
-      comments = post.root_comments.recent.offset(from)
+      comments = post.root_comments.published.recent.offset(from)
     end
     
     fetch_children(comments)
@@ -165,7 +165,7 @@ class Comment < ActiveRecord::Base
     comments.each do |comment|
       hash[comment.id] = [comment]
       if comment.has_children?
-        comment.children.each do |child|
+        comment.children.published.each do |child|
           hash[comment.id] << child
         end
       end

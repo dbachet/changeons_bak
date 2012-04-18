@@ -7,11 +7,11 @@ $("form.moderation_setting").bind('ajax:success', function(evt, data, status, xh
 		$('article#comment_<%= moderatable.id %> .comment_refuse_link').hide();
 		$('article#comment_<%= moderatable.id %> .comment_refused').show();
 	<% elsif @moderatable.class.to_s.underscore.downcase == 'answer' %>
-			$('article#answer_<%= moderatable.id %> .comment_approve_link').show();
-			$('article#answer_<%= moderatable.id %> .comment_approved').hide();
-			$('article#answer_<%= moderatable.id %> .comment_refuse_link').hide();
-			$('article#answer_<%= moderatable.id %> .comment_refused').show();
-		<% else %>
+		$('article#answer_<%= moderatable.id %> .comment_approve_link').show();
+		$('article#answer_<%= moderatable.id %> .comment_approved').hide();
+		$('article#answer_<%= moderatable.id %> .comment_refuse_link').hide();
+		$('article#answer_<%= moderatable.id %> .comment_refused').show();
+	<% else %>
 		$('#refuse_link').hide();
 		$('#refused').show();
 		$('#approve_link').show();

@@ -66,7 +66,7 @@ class QuestionsController < AuthorizedController
   def show
     # @question = Question.find(params[:id])
     @user = @question.user
-    @answers = @question.answers
+    @answers = @question.answers.published.recent
     @answer = Answer.new
     
     @categories = @question.categories
