@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   ROLES = %w[user redactor admin]
   acts_as_voter
   
+  delegate :avatar, :to => :avatar, :allow_nil => true, :prefix => :get
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,10 +17,12 @@ class User < ActiveRecord::Base
   # validates_presence_of :password, :on => :create
   # validates_presence_of :current_password
   # validates_uniqueness_of :email, :on => :create
+  
+  has_one :avatar, :dependent => :destroy
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :display_name, :real_name, :website, :location, :birthday, :about_me
-  attr_accessor :post_id, :root_comment_id, :action, :displayed_comments, :displayed_posts, :stored_comment_title, :stored_comment_body, :stored_reply_title, :stored_reply_body, :scroll_position, :reply_parent_id
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :display_name, :real_name, :website, :location, :birthday, :about_me, :avatar_id
+  attr_accessor :post_id, :root_comment_id, :action, :displayed_comments, :displayed_posts, :stored_comment_title, :stored_comment_body, :stored_reply_title, :stored_reply_body, :scroll_position, :reply_parent_id, :avatar_id
                                                                                              
   has_many :posts                                                       
   has_many :tips                                                                          

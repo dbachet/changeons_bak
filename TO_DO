@@ -157,6 +157,7 @@ REFACTOR ROLES
 - add légende to the picture of the post/tip/event...
 - les + lus, les + votés, classement
 - Care about caching
+- add validation on presentation_picture
 
 - fix problem for updating user by admin
 - Friendly_id, add index
@@ -165,6 +166,7 @@ REFACTOR ROLES
 - use yield(:head) to personalize the javascript scrits in views with <% content_for(:head) do %>
 - design
 - secure role during editing user
+- ajouter logo redaction changeons sur les items de la redaction
 - tooltips on breadcrumb
 - add possible picture instead of gravatar !!!!!
 - redirect to 404 page when errors

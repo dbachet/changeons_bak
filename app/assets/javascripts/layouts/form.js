@@ -53,4 +53,24 @@
 			});
 		});
 	}
+	
+	function bind_delete_presentation_picture_link() {
+		$('#delete_presentation_picture_link').click(function(event){
+			event.preventDefault();
+			$.ajax({
+		        url: '/presentation_picture',  //server script to process data
+		        type: 'DELETE',
+		        //Ajax events
+		        // beforeSend: beforeSendHandler,
+		        // 		        success: completeHandler,
+		        // 		        error: errorHandler,
+		        // Form data
+		        // data: formData,
+		        //Options to tell JQuery not to process data or worry about content-type
+		        cache: false,
+		        contentType: false,
+		        processData: false
+		    });
+		});
+	}
 // </script>

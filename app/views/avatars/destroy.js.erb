@@ -1,0 +1,6 @@
+$('#avatar_id').val("");
+// $('#delete_presentation_picture_link').fadeOut("slow");
+// $('#presentation_picture_input').fadeIn("slow");
+
+$('form.avatar').replaceWith("<%= escape_javascript(render :partial => 'layouts/avatar_form') %>");
+avatar_form();

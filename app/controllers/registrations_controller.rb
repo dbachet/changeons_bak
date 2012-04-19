@@ -5,6 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    @avatar = Avatar.new
     resource = build_resource({})
     respond_with_navigational(resource){ render_with_scope :new }
   end
@@ -13,8 +14,13 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource
     resource.role = "user"
+    @avatar = Avatar.find(params[:user][:avatar_id])
+    
+    
     
     if resource.save
+      @avatar.user_id = resource.id
+      @avatar.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_in(resource_name, resource)
@@ -32,6 +38,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
+    @avatar = resource.avatar || Avatar.new
     render_with_scope :edit
   end
 
@@ -40,8 +47,12 @@ class RegistrationsController < Devise::RegistrationsController
   # the current user in place.
   def update
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
-
+    @avatar = Avatar.find(params[:user][:avatar_id])
+    
     if resource.update_with_password(params[resource_name])
+      @avatar.user_id = resource.id
+      @avatar.save
+      
       set_flash_message :notice, :updated if is_navigational_format?
       sign_in resource_name, resource, :bypass => true
       respond_with resource, :location => after_update_path_for(resource)

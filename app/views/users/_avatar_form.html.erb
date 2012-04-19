@@ -1,6 +1,4 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(@avatar,:url => create_presentation_picture_path, :html => { :multipart => true }, :remote => true) do |pic| %>
+<%= simple_form_for(@avatar,:url => create_avatar_path, :html => { :multipart => true }, :remote => true) do |pic| %>
 	<fieldset>
 		<label>Image</label>
 
@@ -26,31 +24,3 @@
 		</div>
 	</fieldset>
 <% end %>
-
-
-
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f| %>
-  <%= devise_error_messages! %>
-
-<%= f.input :display_name %>
-
-<%= f.input :email %>
-
-<%= f.input :password %>	
-
-<%= f.input :password_confirmation %>
-
-<%= f.input :real_name %>
-
-<%= f.input :website %>
-
-<%= f.input :location %>
-
-<%= f.input :birthday %>
-
-<%= f.input :about_me %>
-
-<%= f.button :submit %>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>

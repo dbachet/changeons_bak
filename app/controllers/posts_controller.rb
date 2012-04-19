@@ -182,7 +182,6 @@ class PostsController < AuthorizedController
   # GET /posts/1/edit
   def edit
     @presentation_picture = @post.presentation_picture || PresentationPicture.new
-    puts @presentation_picture.inspect
     add_breadcrumb truncate(@post.title, :length => 20), :post_path, :title => "Revenir à l'article"
     add_breadcrumb "Éditer l'article", :edit_post_path
     

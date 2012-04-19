@@ -1,0 +1,10 @@
+// $("form#new_presentation_picture").bind('ajax:success', function(evt, data, status, xhr) {
+	
+	// $('#percent').html("100%");
+	// $.fancybox.close();
+	$('#status').html("L'image a été téléchargée !");
+	$('#avatar_id').val("<%= @avatar.id %>");
+	$('#avatar_preview').html("Aperçu de l'image</br><%= escape_javascript(image_tag @avatar.avatar.url(:thumb), :width => '60px') %>").fadeIn("slow");
+	$('#delete_avatar_link').fadeIn("slow");
+	$('#avatar_input').fadeOut("slow");
+// });

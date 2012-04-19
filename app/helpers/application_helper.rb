@@ -35,15 +35,18 @@ module ApplicationHelper
   
   def avatar_url(user, size)
     if user[:id] == -1 || user[:id] == -2
-      asset_path("default_user_image.jpg")
+      request.host_with_port + asset_path("default_user_image.jpg")
     else
     
-      # if user.avatar_url.present?
-      #   user.avatar_url
-      # else
-      default_url = asset_path("default_user_image.jpg")
-      gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
-      "http://gravatar.com/avatar/#{gravatar_id}.png?s=48&d=#{CGI.escape(default_url)}&s=#{size}"
+      if user.avatar.present?
+          user.get_avatar.url(:thumb)
+      else
+
+        default_url = "retro"
+        puts "default_URL: #{default_url}"
+        gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+        "http://gravatar.com/avatar/#{gravatar_id}.png?s=48&d=#{CGI.escape(default_url)}&s=#{size}"
+      end
     end
   end
 end

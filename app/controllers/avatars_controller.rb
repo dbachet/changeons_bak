@@ -1,25 +1,14 @@
 # -*- encoding : utf-8 -*-
-class PresentationPicturesController < AuthorizedController
-  respond_to :html, :only => :new
+class AvatarsController < ApplicationController
   respond_to :js, :only => [:create, :destroy]
   
-  def new
-    @presentation_picture = PresentationPicture.new
-    
-    respond_to do |format|
-      format.html { render :new, :layout => false}
-    end
-  end
-  
   def create
-    
-    @presentation_picture = current_user.presentation_pictures.create(params[:presentation_picture])
 
+    @avatar = Avatar.create(params[:avatar])
     
-    if @presentation_picture.save
+    if @avatar.save
       respond_with
     end
-    
     # respond_with do |format|
     #   if @presentation_picture.save
     #     puts "Should get out as js, shit!"
@@ -34,7 +23,7 @@ class PresentationPicturesController < AuthorizedController
   end
   
   def destroy
-    @presentation_picture = PresentationPicture.new
+    @avatar = Avatar.new
     respond_with
   end
 end
