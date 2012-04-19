@@ -114,15 +114,22 @@ class QuestionsController < AuthorizedController
   # POST /questions.xml
   def create
     @question = current_user.questions.create(params[:question])
+    @presentation_picture = PresentationPicture.find_by_id(params[:question][:presentation_picture_id])
     
     respond_to do |format|
       if @question.save
-        manage_presentation_picture(@question, params[:question][:presentation_picture_id])
+        if @presentation_picture.present?
+          manage_presentation_picture(@question, params[:question][:presentation_picture_id])
+        end
         @question.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         format.html { redirect_to(@question, :notice => 'Question was successfully created.') }
         format.xml  { render :xml => @question, :status => :created, :location => @question }
       else
-        @presentation_picture = @question.presentation_picture || PresentationPicture.new
+        if params[:question][:presentation_picture_id].present?
+          @presentation_picture = PresentationPicture.find_by_id(params[:question][:presentation_picture_id])
+        else
+          @presentation_picture = PresentationPicture.new
+        end
         format.html { render :action => "new" }
         format.xml  { render :xml => @question.errors, :status => :unprocessable_entity }
       end
@@ -133,6 +140,7 @@ class QuestionsController < AuthorizedController
   # PUT /questions/1.xml
   def update
     @question = current_user.questions.find(params[:id])
+    @presentation_picture = PresentationPicture.find_by_id(params[:question][:presentation_picture_id])
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
@@ -141,7 +149,11 @@ class QuestionsController < AuthorizedController
         format.html { redirect_to(@question, :notice => 'Question was successfully updated.') }
         format.xml  { head :ok }
       else
-        @presentation_picture = @question.presentation_picture || PresentationPicture.new
+        if params[:question][:presentation_picture_id].present?
+          @presentation_picture = PresentationPicture.find_by_id(params[:question][:presentation_picture_id])
+        else
+          @presentation_picture = PresentationPicture.new
+        end
         format.html { render :action => "edit" }
         format.xml  { render :xml => @question.errors, :status => :unprocessable_entity }
       end

@@ -135,20 +135,25 @@ class TipsController < AuthorizedController
   # POST /tips.xml
   def create
     # @tip = current_user.tips.new(params[:tip])
+    @presentation_picture = PresentationPicture.find_by_id(params[:tip][:presentation_picture_id])
     
     respond_to do |format|
       if @tip.save
         
-        
-        manage_presentation_picture(@tip, params[:tip][:presentation_picture_id])
-        
+        if @presentation_picture.present?
+          manage_presentation_picture(@tip, params[:tip][:presentation_picture_id])
+        end
         @tip.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         
         
         format.html { redirect_to(@tip, :notice => 'Tip was successfully created.') }
         format.xml  { render :xml => @tip, :status => :created, :location => @tip }
       else
-        @presentation_picture = @tip.presentation_picture || PresentationPicture.new
+        if params[:tip][:presentation_picture_id].present?
+          @presentation_picture = PresentationPicture.find_by_id(params[:tip][:presentation_picture_id])
+        else
+          @presentation_picture = PresentationPicture.new
+        end
         format.html { render :action => "new" }
         format.xml  { render :xml => @tip.errors, :status => :unprocessable_entity }
       end
@@ -159,11 +164,14 @@ class TipsController < AuthorizedController
   # PUT /tips/1.xml
   def update
     @tip = Tip.find(params[:id])
+    @presentation_picture = PresentationPicture.find_by_id(params[:tip][:presentation_picture_id])
     
     respond_to do |format|
       if @tip.update_attributes(params[:tip])
         
-        manage_presentation_picture(@tip, params[:tip][:presentation_picture_id])
+        if @presentation_picture.present?
+          manage_presentation_picture(@tip, params[:tip][:presentation_picture_id])
+        end
         @tip.pending_for_moderation
         
         
@@ -171,7 +179,11 @@ class TipsController < AuthorizedController
         format.html { redirect_to(@tip, :notice => 'Tip was successfully updated.') }
         format.xml  { head :ok }
       else
-        @presentation_picture = @tip.presentation_picture || PresentationPicture.new
+        if params[:tip][:presentation_picture_id].present?
+          @presentation_picture = PresentationPicture.find_by_id(params[:tip][:presentation_picture_id])
+        else
+          @presentation_picture = PresentationPicture.new
+        end
         format.html { render :action => "edit" }
         format.xml  { render :xml => @tip.errors, :status => :unprocessable_entity }
       end

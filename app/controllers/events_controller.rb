@@ -128,17 +128,24 @@ class EventsController < AuthorizedController
   # POST /events.xml
   def create
     @event = current_user.events.new(params[:event])
+    @presentation_picture = PresentationPicture.find_by_id(params[:event][:presentation_picture_id])
     # @event.categories.build params[:event][:category_ids]
     # @event.event_start_date = Timeliness.parse(@event.event_start_date, :format => 'dd/mm/yyyy')
 
     respond_to do |format|
       if @event.save
-        manage_presentation_picture(@event, params[:event][:presentation_picture_id])
+        if @presentation_picture.present?
+          manage_presentation_picture(@event, params[:event][:presentation_picture_id])
+        end
         @event.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
-        @presentation_picture = @event.presentation_picture || PresentationPicture.new
+        if params[:event][:presentation_picture_id].present?
+          @presentation_picture = PresentationPicture.find_by_id(params[:event][:presentation_picture_id])
+        else
+          @presentation_picture = PresentationPicture.new
+        end
         format.html { render :action => "new" }
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
       end
@@ -150,16 +157,22 @@ class EventsController < AuthorizedController
   def update
     @event = Event.find(params[:id])
     # @event.categories.build params[:event][:category_ids]
-    
+    @presentation_picture = PresentationPicture.find_by_id(params[:event][:presentation_picture_id])
     
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        manage_presentation_picture(@event, params[:event][:presentation_picture_id])
+        if @presentation_picture.present?
+          manage_presentation_picture(@event, params[:event][:presentation_picture_id])
+        end
         @event.pending_for_moderation
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
         format.xml  { head :ok }
       else
-        @presentation_picture = @event.presentation_picture || PresentationPicture.new
+        if params[:event][:presentation_picture_id].present?
+          @presentation_picture = PresentationPicture.find_by_id(params[:event][:presentation_picture_id])
+        else
+          @presentation_picture = PresentationPicture.new
+        end
         format.html { render :action => "edit" }
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
       end
