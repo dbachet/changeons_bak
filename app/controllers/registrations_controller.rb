@@ -14,13 +14,15 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource
     resource.role = "user"
-    @avatar = Avatar.find(params[:user][:avatar_id])
+    @avatar = Avatar.find_by_id(params[:user][:avatar_id])
     
     
     
     if resource.save
-      @avatar.user_id = resource.id
-      @avatar.save
+      if @avatar.present?
+        @avatar.user_id = resource.id
+        @avatar.save
+      end
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_in(resource_name, resource)
@@ -31,6 +33,11 @@ class RegistrationsController < Devise::RegistrationsController
         respond_with resource, :location => after_inactive_sign_up_path_for(resource)
       end
     else
+      if params[:user][:avatar_id].present?
+        @avatar = Avatar.find_by_id(params[:user][:avatar_id])
+      else
+        @avatar = Avatar.new
+      end
       clean_up_passwords(resource)
       respond_with_navigational(resource) { render_with_scope :new }
     end
@@ -47,16 +54,23 @@ class RegistrationsController < Devise::RegistrationsController
   # the current user in place.
   def update
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
-    @avatar = Avatar.find(params[:user][:avatar_id])
+    @avatar = Avatar.find_by_id(params[:user][:avatar_id])
     
     if resource.update_with_password(params[resource_name])
-      @avatar.user_id = resource.id
-      @avatar.save
+      if !@avatar.nil?
+        @avatar.user_id = resource.id
+        @avatar.save
+      end
       
       set_flash_message :notice, :updated if is_navigational_format?
       sign_in resource_name, resource, :bypass => true
       respond_with resource, :location => after_update_path_for(resource)
     else
+      if !params[:user][:avatar_id].blank?
+        @avatar = Avatar.find_by_id(params[:user][:avatar_id])
+      else
+        @avatar = Avatar.new
+      end
       clean_up_passwords(resource)
       respond_with_navigational(resource){ render_with_scope :edit }
     end

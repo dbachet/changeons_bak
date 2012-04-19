@@ -17,7 +17,7 @@
 		<%= render "layouts/presentation_picture_form" %>
 		
 		<%= simple_form_for(@post, :validate => true) do |f| %>
-		<%= f.input :presentation_picture_id, :label => false, :input_html => {:id => "presentation_picture_id", :value => (@post.presentation_picture.id if !@post.presentation_picture.blank?) } %>
+		<%= f.input :presentation_picture_id, :label => false, :input_html => {:id => "presentation_picture_id", :value => @presentation_picture.id } %>
 		
 		<fieldset class="title">
 			<label>Titre*</label>

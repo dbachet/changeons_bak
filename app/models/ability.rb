@@ -38,24 +38,25 @@ class Ability
       cannot [:show_guest_fields, :show_guest_fields_for_reply, :comment_as_guest, :create_comment_as_guest, :create_reply_as_guest], Comment
     elsif user.role? :user
       can [:create], NewsletterSubscriber
-      # can [:show_more_posts, :vote_up, :vote_down], Post
       can [:create_reply, :create, :show_reply, :show_more_comments], Comment
       can [:edit, :update, :destroy], Comment , :user_id => user.id
       can [:home, :tips, :about, :search], :pages
       # can :archives, Post
       # can :manage, Tip, :user_id => user.id
-      can [:new, :index, :show], [Event, ProductTest, Tip, Question, Post]
+      can [:new, :index, :show], [Event, ProductTest, Tip, Question]
+      can [:index, :show], Post
       # can :manage, Event, :user_id => user.id
       # can :manage, ProductTest, :user_id => user.id
       can [:show_posts], ActsAsTaggableOn::Tag
       # can [:show, :index], Question
-      can [:create, :update], [Event, ProductTest, Tip, Question, Post], :user_id => user.id
+      can [:create, :update], [Event, ProductTest, Tip, Question], :user_id => user.id
       can [:show], Category
       can [:show], User
-      can [:create, :update], PresentationPicture, :user_id => user.id
+      can [:create], PresentationPicture
+      can [:update, :destroy], PresentationPicture, :user_id => user.id
     else
       can [:create], NewsletterSubscriber
-      can [:index, :show, :show_more_posts], Post
+      can [:index, :show], Post
       can :manage, Comment
       cannot [:create_reply, :create, :edit, :update, :destroy], Comment
       can [:home, :tips, :about, :search], :pages

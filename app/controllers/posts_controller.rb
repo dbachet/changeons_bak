@@ -196,13 +196,17 @@ class PostsController < AuthorizedController
   def create
     @post = current_user.posts.new(params[:post])
     @post.tag_list = params[:post][:tag_list]
+    @presentation_picture = PresentationPicture.find_by_id(params[:post][:presentation_picture_id])
+    
     # @post.categories.build params[:post][:category_ids]
     # Category.attach_to(@post, params[:post][:category_ids])
     
     respond_to do |format|
       if @post.save
         # generates slug for the tag
-        manage_presentation_picture(@post, params[:post][:presentation_picture_id])
+        if @presentation_picture.present?
+          manage_presentation_picture(@post, params[:post][:presentation_picture_id])
+        end
         @post.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         @post.tags.each do |tag|
           tag.save
@@ -211,7 +215,11 @@ class PostsController < AuthorizedController
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
-        @presentation_picture = @post.presentation_picture || PresentationPicture.new
+        if params[:post][:presentation_picture_id].present?
+          @presentation_picture = PresentationPicture.find_by_id(params[:post][:presentation_picture_id])
+        else
+          @presentation_picture = PresentationPicture.new
+        end
         format.html { render :action => "new" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end
@@ -223,7 +231,7 @@ class PostsController < AuthorizedController
   def update
     # @post = Post.find(params[:id])
     @post.tag_list = params[:post][:tag_list]
-  
+    @presentation_picture = PresentationPicture.find_by_id(params[:post][:presentation_picture_id])
     # @post.categories.build params[:post][:category_ids]
     
     
@@ -234,12 +242,20 @@ class PostsController < AuthorizedController
           tag.save
         end
         
-        manage_presentation_picture(@post, params[:post][:presentation_picture_id])
+        if @presentation_picture.present?
+          manage_presentation_picture(@post, params[:post][:presentation_picture_id])
+        end
+        
         @post.pending_for_moderation
         format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
         format.xml  { head :ok }
       else
-        @presentation_picture = @post.presentation_picture || PresentationPicture.new
+        if params[:post][:presentation_picture_id].present?
+          @presentation_picture = PresentationPicture.find_by_id(params[:post][:presentation_picture_id])
+        else
+          @presentation_picture = PresentationPicture.new
+        end
+        
         format.html { render :action => "edit" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end

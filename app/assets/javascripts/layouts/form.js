@@ -2,7 +2,7 @@
 	$(document).ready(function() {
 		$(function(){
 			 // Change to hard coded link
-			bind_delete_presentation_picture_link();
+			// bind_delete_presentation_picture_link();
 		});
 		presentation_picture_form();
 		
