@@ -19,13 +19,13 @@ $(document).ready(function(){
 			$(this).find('.top_categories_arrows').css("background-position", "0 -15px");
 			$(this).attr('title', 'Retirer la liste des catégories');
 			list_categories.show();
-			list_categories.delay(200).animate({marginTop: '-10px', opacity: '1'}, 160);
-			list_categories.animate({marginTop: '-20px'}, 140);
-			list_categories.animate({marginTop: '-10px'}, 80);
-			list_categories.animate({marginTop: '-15px'}, 60);
+			list_categories.css("opacity", '1');
+			// list_categories.animate({marginTop: '-20px'}, 140);
+			// list_categories.animate({marginTop: '-10px'}, 80);
+			// list_categories.animate({marginTop: '-15px'}, 60);
 			// list_categories.animate({marginTop: '-17px'}, 50);
 			// list_categories.animate({marginTop: '-19px'}, 70);
-			list_categories.animate({marginTop: '-10px'}, 35);
+			list_categories.animate({marginTop: '-10px', opacity: '1'}, 700, 'easeOutBounce');
 			
 			
 			$(this).data('show', true);

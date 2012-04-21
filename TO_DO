@@ -148,9 +148,12 @@ REFACTOR ROLES
 + add country selector on event form
 + add departement on event form
 + ajouter mechanisme de modération/lock		!!!!!!!!!!
++ add possible picture instead of gravatar !!!!!
+
 
 - remove not used js.erb files
 - SEO
+-ajouter les messages flash en haut de la page
 - problème with the remove picture in form, confirmation not working
 - créer helper for product test title
 - when remove post/tip/... remove from categorizations !!!!
@@ -158,7 +161,7 @@ REFACTOR ROLES
 - les + lus, les + votés, classement
 - Care about caching
 - add validation on presentation_picture
-
+- changer security of presentation_picture
 - fix problem for updating user by admin
 - Friendly_id, add index
 - ajouter annuaire pages entreprises bio
@@ -168,7 +171,6 @@ REFACTOR ROLES
 - secure role during editing user
 - ajouter logo redaction changeons sur les items de la redaction
 - tooltips on breadcrumb
-- add possible picture instead of gravatar !!!!!
 - redirect to 404 page when errors
 
 - ajouter "signaler un abus"			!!!!!!!!!
