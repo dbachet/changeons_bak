@@ -45,6 +45,13 @@ class User < ActiveRecord::Base
     end
   end
   
+  def is_owner_of_avatar?(current_user)
+    if self.avatar.user_id = current_user.id
+      true
+    end
+  end
+  
+  
   protected
   
   def set_default_role

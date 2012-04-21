@@ -52,6 +52,8 @@ class Ability
       can [:create, :update], [Event, ProductTest, Tip, Question], :user_id => user.id
       can [:show], Category
       can [:show], User
+      can [:create], Avatar
+      can [:destroy], Avatar, :user_id => user.id
       can [:create], PresentationPicture
       can [:update, :destroy], PresentationPicture, :user_id => user.id
     else

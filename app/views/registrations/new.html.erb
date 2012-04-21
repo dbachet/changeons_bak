@@ -7,7 +7,7 @@
 
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f| %>
-<%= f.input :avatar_id, :label => false, :input_html => {:id => "avatar_id", :value => @avatar.id } %>
+<%= f.input :avatar_id, :label => false, :as => :hidden, :input_html => {:id => "avatar_id", :value => @avatar.id } %>
   <%= devise_error_messages! %>
 
 <%= f.input :display_name %>

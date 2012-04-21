@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RegistrationsController < Devise::RegistrationsController
   prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
   prepend_before_filter :authenticate_scope!, :only => [:edit, :update, :destroy]
@@ -57,16 +58,28 @@ class RegistrationsController < Devise::RegistrationsController
     @avatar = Avatar.find_by_id(params[:user][:avatar_id])
     
     if resource.update_with_password(params[resource_name])
-      if !@avatar.nil?
-        @avatar.user_id = resource.id
-        @avatar.save
+      if @avatar.present?
+        if !@avatar.is_used_by_another_user?(resource)
+          @avatar.user_id = resource.id
+          @avatar.save
+        else
+          puts "ERROR: AVATAR IS USED BY ANTOHER USER"
+          puts "#{@avatar.inspect}"
+        end
+      else
+        if resource.is_owner_of_avatar?(current_user)
+          current_user.avatar.user_id = nil
+          current_user.avatar.save
+        else
+          puts "ERROR: THIS USER IS NOT OWNER OF THE AVATAR AND TRIES TO NLINK IT FROM RESOURCE"
+        end
       end
       
       set_flash_message :notice, :updated if is_navigational_format?
       sign_in resource_name, resource, :bypass => true
       respond_with resource, :location => after_update_path_for(resource)
     else
-      if !params[:user][:avatar_id].blank?
+      if params[:user][:avatar_id].present?
         @avatar = Avatar.find_by_id(params[:user][:avatar_id])
       else
         @avatar = Avatar.new

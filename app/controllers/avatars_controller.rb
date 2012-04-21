@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class AvatarsController < ApplicationController
+class AvatarsController < AuthorizedController
   respond_to :js, :only => [:create, :destroy]
   
   def create

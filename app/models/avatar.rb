@@ -11,5 +11,14 @@ class Avatar < ActiveRecord::Base
 
   attr_accessible :avatar
   attr_accessor :avatar_url
+   
+  
+  def is_used_by_another_user?(user)
+    if self.user_id == user.id || self.user_id.blank?
+      false
+    else
+      true
+    end
+  end
   
 end
