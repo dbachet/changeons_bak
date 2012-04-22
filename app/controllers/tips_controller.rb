@@ -127,7 +127,7 @@ class TipsController < AuthorizedController
   def edit
     # @tip = Tip.find(params[:id])
     @presentation_picture = @tip.presentation_picture || PresentationPicture.new 
-    add_breadcrumb truncate(@tip.title, :length => 20), :tip_path
+    add_breadcrumb truncate(@tip.title, :length => 20), :tip_path, :title => "Revenir à l'astuce"
     add_breadcrumb "Éditer l'astuce", :edit_tip_path
   end
 

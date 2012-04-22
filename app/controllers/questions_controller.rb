@@ -139,7 +139,6 @@ class QuestionsController < AuthorizedController
   # PUT /questions/1
   # PUT /questions/1.xml
   def update
-    @question = current_user.questions.find(params[:id])
     @presentation_picture = PresentationPicture.find_by_id(params[:question][:presentation_picture_id])
 
     respond_to do |format|

@@ -1,1 +1,5 @@
 $('div#votes_result').html("<%= escape_javascript(render :partial => 'layouts/votes_result') %>");
+
+$('div#notice_alert_fields').html("<%= escape_javascript(render :partial => 'layouts/flash_messages') %>");
+
+notice_alert_fields();

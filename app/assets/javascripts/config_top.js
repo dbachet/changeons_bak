@@ -7,15 +7,20 @@ $(document).ready(function(){
 		
 		
 		if (showOrHide){
+			list_categories.removeClass('down');
+			list_categories.addClass('up');
 			$(this).find('.top_categories_arrows').css("background-position", "0 0");
 			$(this).attr('title', 'Afficher les catégories');
 			list_categories.animate({marginTop: '-13px'}, 70);
 			list_categories.animate({marginTop: '-3px'}, 120);
 			list_categories.animate({marginTop: '-45px', opacity: '0'}, 200);
 			
+			
 			$(this).data('show', false);
 			list_categories.hide(10);
 		} else{
+			list_categories.removeClass('up');
+			list_categories.addClass('down');
 			$(this).find('.top_categories_arrows').css("background-position", "0 -15px");
 			$(this).attr('title', 'Retirer la liste des catégories');
 			list_categories.show();
@@ -26,6 +31,7 @@ $(document).ready(function(){
 			// list_categories.animate({marginTop: '-17px'}, 50);
 			// list_categories.animate({marginTop: '-19px'}, 70);
 			list_categories.animate({marginTop: '-10px', opacity: '1'}, 700, 'easeOutBounce');
+			
 			
 			
 			$(this).data('show', true);

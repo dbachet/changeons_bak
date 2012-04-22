@@ -1,6 +1,7 @@
 $("form#new_user").bind('ajax:success', function(evt, data, status, xhr) {
 	$.fancybox();
-	alert();
 	
 	$('div#notice_alert_fields').html("<%= escape_javascript(render :partial => 'layouts/flash_messages') %>");
+
+	notice_alert_fields();
 });

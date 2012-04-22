@@ -5,8 +5,10 @@ class VotesController < AuthorizedController
     @vote_parent_object = vote_parent_object
     begin
       if current_user.voted_for?(@vote_parent_object)
+        flash.now[:notice] = "Vote annulé."
         current_user.clear_votes(@vote_parent_object)
       else
+        flash.now[:notice] = "Vous avez voté pour #{object_name}. Si vous voulez annuler, cliquez une seconde fois !"
         current_user.vote_exclusively_for(@vote_parent_object)
       end
       @votes_result = @vote_parent_object.plusminus
@@ -42,7 +44,16 @@ class VotesController < AuthorizedController
   end
   
   private
-  
+    def object_name
+      case
+        when params[:voteable_type] == "post" then "cet article"
+        when params[:voteable_type] == "tip" then "cette astuce"
+        when params[:voteable_type] == "event" then "cet évènement"
+        when params[:voteable_type] == "product_test" then "cet avis/test de produit"
+        when params[:voteable_type] == "question" then "cette question"
+      end
+    end
+    
     def vote_parent_object
       case
         when params[:voteable_type] == "post" then Post.find(params[:voteable_id])

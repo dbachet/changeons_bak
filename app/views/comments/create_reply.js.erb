@@ -28,4 +28,8 @@ $("form#new_reply").bind('ajax:success', function(evt, data, status, xhr) {
 		
 		$('form#comment_new[data-validate], form#new_reply[data-validate]').validate();
 		
+		$('div#notice_alert_fields').html("<%= escape_javascript(render :partial => 'layouts/flash_messages') %>");
+
+		notice_alert_fields();
+		
 });

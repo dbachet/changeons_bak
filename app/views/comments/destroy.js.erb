@@ -1,7 +1,11 @@
 
 <% if @comment.is_root_comment? %>
 $("div.root_comment_area.<%= @comment.id %>").slideUp();
-$('div.root_comment_area.<%= @comment.id %>').next('.horizontal_rule_main').remove();
+$('div.root_comment_area.<%= @comment.id %>').next('.horizontal_rule').remove();
 <% else %>
 $("article#comment_<%= @comment.id %>").slideUp();
 <% end %>
+
+$('div#notice_alert_fields').html("<%= escape_javascript(render :partial => 'layouts/flash_messages') %>");
+
+notice_alert_fields();

@@ -150,10 +150,11 @@ REFACTOR ROLES
 + ajouter mechanisme de modération/lock		!!!!!!!!!!
 + add possible picture instead of gravatar !!!!!
 
-
+- revoir les z-index
+- bien ajouter tous les messages flash erreurs et notices (post, sources, avantages ...)
 - remove not used js.erb files
 - SEO
--ajouter les messages flash en haut de la page
+- ajouter les messages flash en haut de la page
 - problème with the remove picture in form, confirmation not working
 - créer helper for product test title
 - when remove post/tip/... remove from categorizations !!!!

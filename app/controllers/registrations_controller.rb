@@ -84,6 +84,7 @@ class RegistrationsController < Devise::RegistrationsController
       else
         @avatar = Avatar.new
       end
+      flash.now[:alert] = "Le profil n'a pas pu être enregistré. Veuillez vérifier si les champs sont remplis correctement !"
       clean_up_passwords(resource)
       respond_with_navigational(resource){ render_with_scope :edit }
     end

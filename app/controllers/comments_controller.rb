@@ -151,9 +151,9 @@ class CommentsController < AuthorizedController
         @comment.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         @comment_created = Comment.set_comment_hash(@comment)
         @comment = Comment.new
-        flash[:notice] = 'Comment was successfully created.'
+        flash.now[:notice] = 'Comment was successfully created.'
       else
-        flash[:alert] = 'Comment was not successfully created.'
+        flash.now[:alert] = 'Comment was not successfully created.'
               # @comments = @post.comment_threads
               # @tags = @post.tag_list
               # @votes_result = @post.plusminus
@@ -172,10 +172,10 @@ class CommentsController < AuthorizedController
         @comment.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         @comment_created = Comment.set_comment_hash(@comment)
         @comment= Comment.new
-        flash[:notice] = 'Comment was successfully created.'
+        flash.now[:notice] = 'Comment was successfully created.'
         format.js { render :create }
       else
-        flash[:alert] = 'Comment was not successfully created.'
+        flash.now[:alert] = 'Comment was not successfully created.'
         puts @comment.errors.inspect
         format.js { render :error_comment }
       end
@@ -208,9 +208,9 @@ class CommentsController < AuthorizedController
         end
         
         # @reply = Comment.set_comment_hash(@reply, @root_comment)
-        flash[:notice] = 'Comment was successfully created.'
+        flash.now[:notice] = 'Reply was successfully created.'
       else
-        flash[:alert] = 'Comment was not successfully created.'
+        flash.now[:alert] = 'Reply was not successfully created.'
       end
     end
     
@@ -244,10 +244,10 @@ class CommentsController < AuthorizedController
         end
         
         # @reply = Comment.set_comment_hash(@reply, @root_comment)
-        flash[:notice] = 'Comment was successfully created.'
+        flash.now[:notice] = 'Reply was successfully created.'
         format.js { render :create_reply }
       else
-        flash[:alert] = 'Comment was not successfully created.'
+        flash.now[:alert] = 'Reply was not successfully created.'
         format.js { render :error_comment }
       end
     end
@@ -276,9 +276,9 @@ class CommentsController < AuthorizedController
         @comment_updated = @comment
         @comment = Comment.new
         
-        flash[:notice] = 'Comment was successfully updated.'
+        flash.now[:notice] = 'Comment was successfully updated.'
       else
-        flash[:alert] = 'Comment was not successfully updated.'
+        flash.now[:alert] = 'Comment was not successfully updated.'
       end
     end
     
@@ -306,7 +306,9 @@ class CommentsController < AuthorizedController
     end
     @comment.destroy
 
-    respond_with
+    respond_with do |format|
+      flash.now[:notice] = 'Comment was successfully deleted.'
+    end
   end
   
   private

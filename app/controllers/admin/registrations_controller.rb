@@ -40,7 +40,7 @@ class Admin::RegistrationsController < Devise::RegistrationsController
     authorize! :create, :admin_registration
     
     if @user.save
-      flash[:notice] = 'User was successfully created.'
+      flash.now[:notice] = 'User was successfully created.'
       # redirect_to(admin_page_path, :notice => 'User item was successfully created.')
     else
       render :action => "new"
@@ -53,7 +53,7 @@ class Admin::RegistrationsController < Devise::RegistrationsController
     authorize! :update, :admin_registration
     
     if @user.update_attributes(params[:user])
-      flash[:notice] = 'User was successfully updated.'
+      flash.now[:notice] = 'User was successfully updated.'
       # redirect_to(root_path, :notice => 'User item was successfully updated.')
     else
       render :action => "edit"

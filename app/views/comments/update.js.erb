@@ -1,4 +1,4 @@
-$("form#comment_edit").bind('ajax:success', function(evt, data, status, xhr) {
+$("form#edit_comment").bind('ajax:success', function(evt, data, status, xhr) {
 	$.fancybox.close();
 	
 	var updatedCommentField = $('article#comment_<%= @comment_updated.id %>'),
@@ -10,5 +10,8 @@ $("form#comment_edit").bind('ajax:success', function(evt, data, status, xhr) {
 	updatedCommentField.hide();
 	updatedCommentField.delay(1000).fadeIn("slow");
 	
-	$('form#comment_new[data-validate], form#reply_new[data-validate]').validate();
+	$('form#new_comment[data-validate], form#new_reply[data-validate]').validate();
+	$('div#notice_alert_fields').html("<%= escape_javascript(render :partial => 'layouts/flash_messages') %>");
+
+	notice_alert_fields();
 });

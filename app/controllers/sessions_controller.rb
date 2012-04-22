@@ -96,7 +96,10 @@ class SessionsController < Devise::SessionsController
     # return render :sign_in_and_redirect => {:redirect => :back}
         respond_to do |format|
           # format.html { redirect_to(:back) }
-          format.js { render :sign_in_and_redirect }
+          format.js { 
+            flash[:notice] = "Vous êtes connecté !"
+            render :sign_in_and_redirect
+            }
         end
   end
 
