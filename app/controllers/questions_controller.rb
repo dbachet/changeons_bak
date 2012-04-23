@@ -122,7 +122,7 @@ class QuestionsController < AuthorizedController
           manage_presentation_picture(@question, params[:question][:presentation_picture_id])
         end
         @question.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
-        format.html { redirect_to(@question, :notice => 'Question was successfully created.') }
+        format.html { redirect_to(@question, :notice => "La question a été créee avec succès !") }
         format.xml  { render :xml => @question, :status => :created, :location => @question }
       else
         if params[:question][:presentation_picture_id].present?
@@ -130,6 +130,7 @@ class QuestionsController < AuthorizedController
         else
           @presentation_picture = PresentationPicture.new
         end
+        flash.now[:alert] = t(:form_record_fail, :model => "a question", :scope => [:errors])
         format.html { render :action => "new" }
         format.xml  { render :xml => @question.errors, :status => :unprocessable_entity }
       end
@@ -145,7 +146,7 @@ class QuestionsController < AuthorizedController
       if @question.update_attributes(params[:question])
         manage_presentation_picture(@question, params[:question][:presentation_picture_id])
         @question.pending_for_moderation
-        format.html { redirect_to(@question, :notice => 'Question was successfully updated.') }
+        format.html { redirect_to(@question, :notice => "La question a été mise à jour avec succès !") }
         format.xml  { head :ok }
       else
         if params[:question][:presentation_picture_id].present?
@@ -153,6 +154,7 @@ class QuestionsController < AuthorizedController
         else
           @presentation_picture = PresentationPicture.new
         end
+        flash.now[:alert] = t(:form_record_fail, :model => "a question", :scope => [:errors])
         format.html { render :action => "edit" }
         format.xml  { render :xml => @question.errors, :status => :unprocessable_entity }
       end

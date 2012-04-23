@@ -146,7 +146,7 @@ class TipsController < AuthorizedController
         @tip.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
         
         
-        format.html { redirect_to(@tip, :notice => 'Tip was successfully created.') }
+        format.html { redirect_to(@tip, :notice => "L'astuce a été créee avec succès !") }
         format.xml  { render :xml => @tip, :status => :created, :location => @tip }
       else
         if params[:tip][:presentation_picture_id].present?
@@ -154,6 +154,7 @@ class TipsController < AuthorizedController
         else
           @presentation_picture = PresentationPicture.new
         end
+        flash.now[:alert] = t(:form_record_fail, :model => "'astuce", :scope => [:errors])
         format.html { render :action => "new" }
         format.xml  { render :xml => @tip.errors, :status => :unprocessable_entity }
       end
@@ -176,7 +177,7 @@ class TipsController < AuthorizedController
         
         
         
-        format.html { redirect_to(@tip, :notice => 'Tip was successfully updated.') }
+        format.html { redirect_to(@tip, :notice => "L'astuce a été mise à jour avec succès !") }
         format.xml  { head :ok }
       else
         if params[:tip][:presentation_picture_id].present?
@@ -184,6 +185,7 @@ class TipsController < AuthorizedController
         else
           @presentation_picture = PresentationPicture.new
         end
+        flash.now[:alert] = t(:form_record_fail, :model => "'astuce", :scope => [:errors])
         format.html { render :action => "edit" }
         format.xml  { render :xml => @tip.errors, :status => :unprocessable_entity }
       end

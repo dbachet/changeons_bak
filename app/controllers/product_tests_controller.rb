@@ -181,7 +181,7 @@ class ProductTestsController < AuthorizedController
         end
         
         @product_test.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
-        format.html { redirect_to(@product_test, :notice => 'Product test was successfully created.') }
+        format.html { redirect_to(@product_test, :notice => "L'avis/test de produit a été crée avec succès !") }
         format.xml  { render :xml => @product_test, :status => :created, :location => @product_test }
       else
         if params[:product_test][:presentation_picture_id].present?
@@ -189,6 +189,7 @@ class ProductTestsController < AuthorizedController
         else
           @presentation_picture = PresentationPicture.new
         end
+        flash.now[:alert] = t(:form_record_fail, :model => "'avis/test de produit", :scope => [:errors])
         format.html { render :action => "new" }
         format.xml  { render :xml => @product_test.errors, :status => :unprocessable_entity }
       end
@@ -208,7 +209,7 @@ class ProductTestsController < AuthorizedController
           manage_presentation_picture(@product_test, params[:product_test][:presentation_picture_id])
         end
         @product_test.pending_for_moderation
-        format.html { redirect_to(@product_test, :notice => 'Product test was successfully updated.') }
+        format.html { redirect_to(@product_test, :notice => "L'avis/test de produit a été mis à jour avec succès !") }
         format.xml  { head :ok }
       else
         if params[:product_test][:presentation_picture_id].present?
@@ -216,6 +217,7 @@ class ProductTestsController < AuthorizedController
         else
           @presentation_picture = PresentationPicture.new
         end
+        flash.now[:alert] = t(:form_record_fail, :model => "'avis/test de produit", :scope => [:errors])
         format.html { render :action => "edit" }
         format.xml  { render :xml => @product_test.errors, :status => :unprocessable_entity }
       end

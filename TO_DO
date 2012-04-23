@@ -150,9 +150,10 @@ REFACTOR ROLES
 + ajouter mechanisme de modération/lock		!!!!!!!!!!
 + add possible picture instead of gravatar !!!!!
 + ajouter les messages flash en haut de la page
++ revoir les z-index
 
-
-- revoir les z-index
+- revoir top menu current button
+- ajouter liens éditer - supprimer  un peu partout
 - bien ajouter tous les messages flash erreurs et notices (post, sources, avantages ...)
 - remove not used js.erb files
 - SEO
@@ -161,19 +162,24 @@ REFACTOR ROLES
 - when remove post/tip/... remove from categorizations !!!!
 - add légende to the picture of the post/tip/event...
 - les + lus, les + votés, classement
-- Care about caching
+- Care about caching (à la fin)
 - add validation on presentation_picture
-- changer security of presentation_picture
+- refactor management method of presentation_picture
 - fix problem for updating user by admin
 - Friendly_id, add index
 - ajouter annuaire pages entreprises bio
 - check seeds
 - use yield(:head) to personalize the javascript scrits in views with <% content_for(:head) do %>
 - design
+- care about answer (after design of comments)
 - secure role during editing user
 - ajouter logo redaction changeons sur les items de la redaction
 - tooltips on breadcrumb
 - redirect to 404 page when errors
+- redis / resque
+- user profile (pour + tard ??)
+- sitemap (pour + tard ??)
+- réglement d'utilisation (pour maintenant quand même, mais après comments)
 
 - ajouter "signaler un abus"			!!!!!!!!!
 - faire un dashboard for users to see their tips, events...

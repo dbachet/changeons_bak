@@ -138,7 +138,7 @@ class EventsController < AuthorizedController
           manage_presentation_picture(@event, params[:event][:presentation_picture_id])
         end
         @event.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
-        format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
+        format.html { redirect_to(@event, :notice => "L'évènement a été crée avec succès !") }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
         if params[:event][:presentation_picture_id].present?
@@ -146,6 +146,7 @@ class EventsController < AuthorizedController
         else
           @presentation_picture = PresentationPicture.new
         end
+        flash.now[:alert] = t(:form_record_fail, :model => "'évènement", :scope => [:errors])
         format.html { render :action => "new" }
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
       end
@@ -165,7 +166,7 @@ class EventsController < AuthorizedController
           manage_presentation_picture(@event, params[:event][:presentation_picture_id])
         end
         @event.pending_for_moderation
-        format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
+        format.html { redirect_to(@event, :notice => "L'évènement a été mis à jour avec succès !") }
         format.xml  { head :ok }
       else
         if params[:event][:presentation_picture_id].present?
@@ -173,6 +174,7 @@ class EventsController < AuthorizedController
         else
           @presentation_picture = PresentationPicture.new
         end
+        flash.now[:alert] = t(:form_record_fail, :model => "'évènement", :scope => [:errors])
         format.html { render :action => "edit" }
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
       end

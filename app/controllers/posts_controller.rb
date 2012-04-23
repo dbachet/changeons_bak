@@ -212,7 +212,7 @@ class PostsController < AuthorizedController
           tag.save
         end
         
-        format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
+        format.html { redirect_to(@post, :notice => "L'article a été crée avec succès !") }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         if params[:post][:presentation_picture_id].present?
@@ -220,6 +220,7 @@ class PostsController < AuthorizedController
         else
           @presentation_picture = PresentationPicture.new
         end
+        flash.now[:alert] = t(:form_record_fail, :model => "'article", :scope => [:errors])
         format.html { render :action => "new" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end
@@ -247,7 +248,7 @@ class PostsController < AuthorizedController
         end
         
         @post.pending_for_moderation
-        format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
+        format.html { redirect_to(@post, :notice => "L'article a été mis à jour avec succès !") }
         format.xml  { head :ok }
       else
         if params[:post][:presentation_picture_id].present?
@@ -255,7 +256,7 @@ class PostsController < AuthorizedController
         else
           @presentation_picture = PresentationPicture.new
         end
-        
+        flash.now[:alert] = t(:form_record_fail, :model => "'article", :scope => [:errors])
         format.html { render :action => "edit" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end

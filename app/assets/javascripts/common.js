@@ -147,17 +147,58 @@ function notice_alert_fields() {
 		var top = top_page_height + 13;
 	}
 	
-	if ( notice_field_value != ""){
-		notice_alert_field.find("div.notice").fadeIn("slow");
-		notice_alert_field.find("div.notice").animate({marginTop: top}, 200);
-		notice_alert_field.find("div.notice").delay(8000).fadeOut("slow");
-	} 
 	
-	if ( alert_field_value != ""){
-		notice_alert_field.find("div.alert").fadeIn("slow");
-		notice_alert_field.find("div.alert").animate({marginTop: top}, 200);
-		notice_alert_field.find("div.alert").delay(8000).fadeOut("slow");
+	if ( notice_field_value != ""){
+		
+		notice_alert_field.delay(1000).animate({paddingTop: top}, 800, 'easeOutBounce');
+		notice_alert_field.find("div.notice").delay(1000).fadeIn(500);
+		notice_alert_field.find("div.notice").delay(9000).fadeOut();
+		if ( alert_field_value != ""){
+			
+			notice_alert_field.find("div.alert").delay(1000).fadeIn(500);
+			
+			
+			notice_alert_field.find("div.alert").delay(9000).fadeOut();
+		}
+		var var1 = (top - 13) + 'px',
+			var2 = (top + 10) + 'px';
+			
+		notice_alert_field.delay(8000).animate({paddingTop: var1}, 70);
+		notice_alert_field.delay(70).animate({paddingTop: var2}, 120);
+		notice_alert_field.delay(120).animate({paddingTop: '0px', opacity: '0'}, 200);
+	} else {
+		if ( alert_field_value != ""){
+			top = top - 10 + "px";
+			notice_alert_field.delay(1000).animate({paddingTop: top}, 800, 'easeOutBounce');
+			notice_alert_field.find("div.alert").delay(1000).fadeIn(500);
+			notice_alert_field.find("div.alert").delay(9000).fadeOut();
+			
+			var var1 = (top - 13) + 'px',
+				var2 = (top + 10) + 'px';
+
+			notice_alert_field.delay(8000).animate({paddingTop: var1}, 70);
+			notice_alert_field.delay(70).animate({paddingTop: var2}, 120);
+			notice_alert_field.delay(120).animate({paddingTop: '0px', opacity: '0'}, 200);
+		}
 	}
+	
+	// if ( notice_field_value != ""){
+	// 	notice_alert_field.find("div.notice").fadeIn("slow");
+	// 	notice_alert_field.find("div.notice").animate({marginTop: top}, 200);
+	// 	notice_alert_field.find("div.notice").delay(8000).fadeOut("slow");
+	// 	if ( alert_field_value != ""){
+	// 		notice_alert_field.find("div.alert").fadeIn("slow");
+	// 		notice_alert_field.find("div.alert").animate({marginTop: "15px"}, 200);
+	// 		notice_alert_field.find("div.alert").delay(8590).animate({marginTop: top}, 400);
+	// 		notice_alert_field.find("div.alert").delay(4000).fadeOut("slow");
+	// 	}
+	// } 
+	// 
+	// if ( alert_field_value != ""){
+	// 	notice_alert_field.find("div.alert").fadeIn("slow");
+	// 	notice_alert_field.find("div.alert").animate({marginTop: top}, 200);
+	// 	notice_alert_field.find("div.alert").delay(8000).fadeOut("slow");
+	// }
 }
 
 function read_stored_form_details_for_comments() {

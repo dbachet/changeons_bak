@@ -289,6 +289,7 @@ section#best{
 
 /* Notice alerts */
 div#notice_alert_fields{
+	padding-top: 0px;
 	width: 100%;
 	min-height: 40px;
 	position: fixed;
@@ -300,18 +301,33 @@ div#notice_alert_fields{
 }
 
 div#notice_alert_fields > div{
-	margin: 0.2em;
+	margin: 0.1em 5em 0.3em 5em;
 	padding: 0.5em 3em;
-	background: #21C734;
 	border-radius: 3px;
 	display: inline-block;
-	border-top: 1px solid #5DFF70;
+	
 	color: rgba(255, 255, 255, 0.8);
 	font-size: 1.1em;
 	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6);
+
+	
+}
+
+div#notice_alert_fields > div.notice {
+	background: #21C734;
+	border-top: 1px solid #5DFF70;
 	border-right: 1px solid #00B200;
 	border-left: 1px solid #00B200;
 	border-bottom: 1px solid #006D00;
+	box-shadow: 0 0 6px rgba(0,0,0,0.3), inset 0 -1px 0px rgba(0,0,0,0.2), inset 0 1px 0px rgba(255,255,255,0.3);
+}
+
+div#notice_alert_fields > div.alert {
+	background: #E2040F;
+	border-top: 1px solid #FF1823;
+	border-right: 1px solid #BA040F;
+	border-left: 1px solid #BA040F;
+	border-bottom: 1px solid #960000;
 	box-shadow: 0 0 6px rgba(0,0,0,0.3), inset 0 -1px 0px rgba(0,0,0,0.2), inset 0 1px 0px rgba(255,255,255,0.3);
 }
 
