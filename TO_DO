@@ -151,10 +151,11 @@ REFACTOR ROLES
 + add possible picture instead of gravatar !!!!!
 + ajouter les messages flash en haut de la page
 + revoir les z-index
++ bien ajouter tous les messages flash erreurs et notices (post, sources, avantages ...)
++ revoir top menu current button
 
-- revoir top menu current button
+
 - ajouter liens éditer - supprimer  un peu partout
-- bien ajouter tous les messages flash erreurs et notices (post, sources, avantages ...)
 - remove not used js.erb files
 - SEO
 - problème with the remove picture in form, confirmation not working

@@ -1,45 +1,31 @@
 <div style="margin: 0 auto;width:1160px">
 	<ul id="hmenu">
-		<li><%= 
+		<li>
+			<%=
 				link_to_unless_current("", root_path, :class => "changeons ") do
 					link_to("", root_path, :class => "changeons current")
 				end
 			%>
 		</li>
 	
-		<li><%=
-				link_to_unless_current("Articles", posts_path, :class => "top_menu") do
-					link_to("Articles", posts_path, :class => "current top_menu")
-				end
-			%>
+		<li>
+		<%= link_to("Articles", posts_path, :class => params[:controller] == "posts" ? "top_menu current" : "top_menu") %>
 		</li>
 		<!-- <div class="vertical_rule"></div> -->
-		<li><%=
-				link_to_unless_current("Astuces", tips_path, :class => "top_menu") do
-					link_to("Astuces", tips_path, :class => "current top_menu")
-				end
-			%>
+		<li>
+		<%= link_to("Astuces", tips_path, :class => params[:controller] == "tips" ? "top_menu current" : "top_menu") %>
 		</li>
 		<!-- <div class="vertical_rule"></div> -->
-		<li><%=
-				link_to_unless_current("Questions/Réponses", questions_path, :class => "top_menu") do
-					link_to("Questions/Réponses", questions_path, :class => "current top_menu")
-				end
-			%>
+		<li>
+		<%= link_to("Questions/Réponses", questions_path, :class => params[:controller] == "questions" ? "top_menu current" : "top_menu") %>
 		</li>
 		<!-- <div class="vertical_rule"></div> -->
-		<li><%=
-				link_to_unless_current("Évènements", events_path, :class => "top_menu") do
-					link_to("Évènements", events_path, :class => "current top_menu")
-				end
-			%>
+		<li>
+		<%= link_to("Évènements", events_path, :class => params[:controller] == "events" ? "top_menu current" : "top_menu") %>
 		</li>
 		<!-- <div class="vertical_rule"></div> -->
-		<li><%=
-				link_to_unless_current("Avis/Tests produits", product_tests_path, :class => "top_menu") do
-					link_to("Avis/Tests produits", product_tests_path, :class => "current top_menu")
-				end
-			%>
+		<li>
+		<%= link_to("Avis/Tests produits", product_tests_path, :class => params[:controller] == "product_tests" ? "top_menu current" : "top_menu") %>
 		</li>
 		<li>
 			<%= link_to ("<span style=\"display: inline-block;vertical-align: top;\">Catégories </span><span class='top_categories_arrows' style=\"background: url('/assets/top_categories_arrows.png');height: 15px;width: 15px;display: inline-block;vertical-align: top;margin: 0.3em 0 0 0.4em;\"></span>").html_safe, "#", :id => "display_categories_button", :class => "tooltipped", :title => "Afficher les catégories", 'data-show' => false, :style => "color: #21c734;text-shadow: 0 -1px 1px rgba(0,0,0,0.1);padding: 0.8em 0;display: inline-block;width: 7.5em;" %>
