@@ -1,23 +1,21 @@
-<%= form_for(@comment, :as => "comment",:url => create_comment_path(commentable_class, commentable), :remote => true, :validate => (current_user ? true : false)) do |f| %>
-<h1>Nouveau commentaire</h1>
+<%= simple_form_for(@comment, :as => "comment",:url => create_comment_path(commentable_class, commentable), :remote => true, :validate => (current_user ? true : false)) do |f| %>
+<h1>Écrivez un nouveau commentaire</h1>
 
 <div class="left">
-	<div class="field">
-	  <%= f.label :title %><br />
-	  <%= f.text_field :title %>
-	</div>
 	
-	<div class="field">
-    	<%= f.label :body %><br />
-    	<%= f.text_area :body, :validate => true %>
-	</div>
+	<fieldset>
+	<%= f.input :title, :label => false %>
+	</fieldset>
 	
-	<div class="field">
-    	<%= f.check_box :send_notification_to_root_comment, :validate => true %><%= f.label "M'envoyer une notification lorsque quelqu'un répond à mon commentaire" %>
-	</div>
-
-	<div class="actions">
+	<fieldset>
+	<%= f.input :body, :label => false %>
+	</fieldset>
+	
+	<%= f.check_box :send_notification_to_root_comment, :validate => true %><%= f.label "M'envoyer une notification lorsque quelqu'un répond à mon commentaire" %>
+	
+	<div>
 	<% if current_user %>
+	
 		<%= f.submit %>
 	<% else %>
 		<div class="wrap_drop_write_as">

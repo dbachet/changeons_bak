@@ -1,37 +1,35 @@
-<%= form_for(@comment, :as => "comment", :url => create_comment_as_guest_path(commentable_class, commentable), :remote => true, :method => :post, :validate => true, :html => {:class => "guest"}) do |f| %>
-<h1>Nouveau commentaire</h1>
+<%= simple_form_for(@comment, :as => "comment", :url => create_comment_as_guest_path(commentable_class, commentable), :remote => true, :method => :post, :validate => true, :html => {:class => "guest"}) do |f| %>
+<h1>Écrivez un nouveau commentaire</h1>
 
 <div class="left">
-  <div class="field">
-    <%= f.label :guest_email %><br />
-    <%= f.text_field :guest_email, :validate => true %>
-  </div>
-  <div class="field">
-    <%= f.label :guest_website %><br />
-    <%= f.text_field :guest_website, :validate => true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body, :validate => true %>
-  </div>
+	<fieldset>
+	<%= f.input :guest_email, :label => false %>
+	</fieldset>
+	
+	<fieldset>
+	<%= f.input :guest_website, :label => false %>
+	</fieldset>
+	
+  	<fieldset>
+	<%= f.input :title, :label => false %>
+	</fieldset>
+	
+	<fieldset>
+	<%= f.input :body, :label => false %>
+	</fieldset>
 
   <div class="field">
 	<%= f.check_box :send_notification_to_root_comment, :validate => true %><%= f.label "M'envoyer une notification lorsque quelqu'un répond à mon commentaire" %>
   </div>
 
-  <div class="field">
+  <fieldset>
     <%= recaptcha_tags(:display => {:theme => 'blackglass'}, :ajax => true) %>
 	<span></span>
-  </div>
+  </fieldset>
 
-  <div class="actions">
+  <fieldset>
     <%= f.submit %>
-  </div>
+  </fieldset>
 </div>
 <div class="right">
 	ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
@@ -40,10 +38,6 @@
 				ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
 					ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
 </div>
-<div class="right">
-  
-</div>
-
 	
 	
 <% end %>

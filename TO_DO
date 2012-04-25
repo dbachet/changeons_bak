@@ -153,35 +153,44 @@ REFACTOR ROLES
 + revoir les z-index
 + bien ajouter tous les messages flash erreurs et notices (post, sources, avantages ...)
 + revoir top menu current button
++ add légende to the picture of the post/tip/event...
 
-
+small things:
+- problème with the remove picture in form, confirmation not working
 - ajouter liens éditer - supprimer  un peu partout
 - remove not used js.erb files
-- SEO
-- problème with the remove picture in form, confirmation not working
 - créer helper for product test title
-- when remove post/tip/... remove from categorizations !!!!
-- add légende to the picture of the post/tip/event...
-- les + lus, les + votés, classement
-- Care about caching (à la fin)
 - add validation on presentation_picture
 - refactor management method of presentation_picture
+- when remove post/tip/... remove from categorizations !!!!
 - fix problem for updating user by admin
-- Friendly_id, add index
+- secure role during editing user
+- tooltips on breadcrumb 
+
+
+bigger ones:
+- Care about caching (à la fin)
+- les + lus, les + votés, classement
 - ajouter annuaire pages entreprises bio
 - check seeds
 - use yield(:head) to personalize the javascript scrits in views with <% content_for(:head) do %>
+- Friendly_id, add index
 - design
 - care about answer (after design of comments)
-- secure role during editing user
+- SEO
 - ajouter logo redaction changeons sur les items de la redaction
-- tooltips on breadcrumb 
+- ajaouter logo BIO sur les produits ayant une certification BIO
 - redirect to 404 page when errors
 - redis / resque
-- user profile (pour + tard ??)
-- sitemap (pour + tard ??)
 - réglement d'utilisation (pour maintenant quand même, mais après comments)
 
+
+
+
+pour + tard:
+
+- user profile (pour + tard ??)
+- sitemap (pour + tard ??)
 - ajouter "signaler un abus"			!!!!!!!!!
 - faire un dashboard for users to see their tips, events...
 - resize top bar for users with less than 1200px

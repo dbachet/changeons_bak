@@ -1,18 +1,7 @@
-<%= form_for(@reply, :as => "reply", :url => create_comment_reply_as_guest_path(commentable_class, commentable, @root_comment), :html => {:method => :post, :class => "guest"}, :validate => true, :remote => true) do |f| %>
+<%= simple_form_for(@reply, :as => "reply", :url => create_comment_reply_as_guest_path(commentable_class, commentable, @root_comment), :html => {:method => :post, :class => "guest"}, :validate => true, :remote => true) do |f| %>
 
-<h1>Votre réponse à <%= Comment.comment_author_email(@root_comment) %></h1>
+<h1>Écrivez votre réponse</h1>
 
-  <% if @reply.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@reply.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-      <ul>
-      <% @reply.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 <div class="left">
 	ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
 		ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
@@ -21,32 +10,28 @@
 					ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
 </div>
 <div class="right">
-	<div class="new_reply_guest_fields">
-	  <div class="field">
-	    <%= f.label :guest_email %><br />
-	    <%= f.text_field :guest_email, :validate => true %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :guest_website %><br />
-	    <%= f.text_field :guest_website, :validate => true %>
-	  </div>
-	</div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body, :validate => true %>
-  </div>
+	  <fieldset>
+	    <%= f.input :guest_email, :label => false %>
+	  </fieldset>
+	  <fieldset>
+	    <%= f.input :guest_website, :label => false %>
+	  </fieldset>
 
-  <div class="field">
+	  <fieldset>
+	    <%= f.input :title, :label => false %>
+	  </fieldset>
+	  <fieldset>
+	    <%= f.input :body, :label => false %>
+	  </fieldset>
+
+
+  <fieldset>
     <%= recaptcha_tags(:display => {:theme => 'white'}, :ajax => true) %>
 	<span></span>
-  </div>
+  </fieldset>
 
-  <div class="actions">
+  <fieldset>
     <%= f.submit %>
-  </div>
+  </fieldset>
 </div>
 <% end %>
