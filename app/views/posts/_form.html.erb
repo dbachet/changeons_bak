@@ -14,10 +14,11 @@
 		
 		<div class="written_by"><span>écrit par</span> <%= (@post.user.email if @post.user) || current_user.email %></div>
 		
-		<%= render "layouts/presentation_picture_form" %>
+		<%= render "layouts/presentation_picture_form", :parent_object => @post %>
 		
 		<%= simple_form_for(@post, :validate => true) do |f| %>
 		<%= f.input :presentation_picture_id, :label => false, :as => :hidden, :input_html => {:id => "presentation_picture_id", :value => @presentation_picture.id } %>
+		<%= f.input :presentation_picture_text, :label => false, :as => :hidden, :input_html => {:id => "presentation_picture_text_record", :value => @post.presentation_picture_text  } %>
 		
 		<fieldset class="title">
 			<label>Titre*</label>

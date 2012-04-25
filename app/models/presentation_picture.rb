@@ -10,8 +10,10 @@ class PresentationPicture < ActiveRecord::Base
        :path => "/presentation_pictures/:id/:style/:filename",
        :url  => ":s3_eu_url"
 
-  attr_accessible :picture
-  attr_accessor :picture_url
+  attr_accessible :picture, :text
+  attr_accessor :picture_url, :text
+  
+  validates_length_of :text, :maximum => 80
   
   public
   

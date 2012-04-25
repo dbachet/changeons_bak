@@ -7,4 +7,5 @@
 	$('#presentation_picture_preview').html("Aperçu de l'image</br><%= escape_javascript(image_tag @presentation_picture.picture.url(:medium), :width => '300px') %>").fadeIn("slow");
 	$('#delete_presentation_picture_link').fadeIn("slow");
 	$('#presentation_picture_input').fadeOut("slow");
+	$('#presentation_picture_text_input').fadeIn("slow");
 // });

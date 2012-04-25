@@ -175,7 +175,7 @@ REFACTOR ROLES
 - care about answer (after design of comments)
 - secure role during editing user
 - ajouter logo redaction changeons sur les items de la redaction
-- tooltips on breadcrumb
+- tooltips on breadcrumb 
 - redirect to 404 page when errors
 - redis / resque
 - user profile (pour + tard ??)

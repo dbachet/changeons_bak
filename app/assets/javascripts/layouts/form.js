@@ -1,11 +1,8 @@
 // <script type="text/javascript">
 	$(document).ready(function() {
-		$(function(){
-			 // Change to hard coded link
-			// bind_delete_presentation_picture_link();
-		});
 		presentation_picture_form();
-		
+		var presentation_picture_text = $('#presentation_picture_text_record').val();
+		$('#presentation_picture_text').val(presentation_picture_text);
 	});
 	
 	function progressHandlingFunction(e){
@@ -17,6 +14,9 @@
 	
 	function presentation_picture_form(){
 		$(function(){
+			$('#presentation_picture_text').change(function(event){
+				$('#presentation_picture_text_record').val($('#presentation_picture_text').val());
+			}),
 			$(':file').change(function(event){
 			    var file = this.files[0];
 			    name = file.name;

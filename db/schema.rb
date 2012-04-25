@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120419085435) do
+ActiveRecord::Schema.define(:version => 20120425143852) do
 
   create_table "answers", :force => true do |t|
     t.string   "content"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20120419085435) do
     t.text     "sources"
     t.string   "addr_street_2"
     t.string   "department"
+    t.string   "presentation_picture_text"
   end
 
   create_table "moderation_settings", :force => true do |t|
@@ -158,6 +159,7 @@ ActiveRecord::Schema.define(:version => 20120419085435) do
     t.boolean  "has_big_picture"
     t.boolean  "picture_orientation_horizontal"
     t.text     "sources"
+    t.string   "presentation_picture_text"
   end
 
   create_table "presentation_pictures", :force => true do |t|
@@ -205,6 +207,7 @@ ActiveRecord::Schema.define(:version => 20120419085435) do
     t.text     "sources"
     t.string   "certifying_organization"
     t.string   "certifying_organization_identifier"
+    t.string   "presentation_picture_text"
   end
 
   create_table "question_categorizations", :force => true do |t|
@@ -222,6 +225,7 @@ ActiveRecord::Schema.define(:version => 20120419085435) do
     t.string   "title"
     t.integer  "user_id"
     t.text     "sources"
+    t.string   "presentation_picture_text"
   end
 
   create_table "slugs", :force => true do |t|
@@ -277,6 +281,7 @@ ActiveRecord::Schema.define(:version => 20120419085435) do
     t.boolean  "has_big_picture"
     t.boolean  "picture_orientation_horizontal"
     t.text     "sources"
+    t.string   "presentation_picture_text"
   end
 
   create_table "upload_pictures", :force => true do |t|
