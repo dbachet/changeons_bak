@@ -35,7 +35,7 @@ module ApplicationHelper
   
   def avatar_url(user, size)
     if user[:id] == -1 || user[:id] == -2
-      request.host_with_port + asset_path("default_user_image.jpg")
+      asset_path("default_user_image.jpg")
     else
     
       if user.avatar.present?

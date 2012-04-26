@@ -22,7 +22,7 @@ $("form#new_comment").bind('ajax:success', function(evt, data, status, xhr) {
 		
 	$('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
 
-	$('form#new_comment[data-validate], form#new_reply[data-validate]').validate();
+	validate_comment_forms();
 	
 	$('div#notice_alert_fields').html("<%= escape_javascript(render :partial => 'layouts/flash_messages') %>");
 	

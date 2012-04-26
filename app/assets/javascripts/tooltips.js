@@ -6,4 +6,6 @@ $(document).ready(function(){
 	$('article.form textarea').tipsy({trigger: 'focus', gravity: 'e'});
 	$('article.form input[type="text"]').tipsy({trigger: 'focus', gravity: 'w'});
 	$('article.form select').tipsy({trigger: 'focus', gravity: 'w'});
+	$('article.root_comment div.author_comment_name a').tipsy({fade:true, live:true, offset: 0});
+	$('article.comment_reply div.author_comment_name a').tipsy({fade:true, live:true, offset: 0});
 });

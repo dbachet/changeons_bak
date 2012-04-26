@@ -146,7 +146,7 @@ class Comment < ActiveRecord::Base
     end
   end
   
-  def getUserInfo
+  def getCommentAuthor
     if self.user_id == -1
       user = {:id => -1, :name => "Invité"}
     else

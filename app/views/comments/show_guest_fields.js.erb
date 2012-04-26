@@ -1,9 +1,9 @@
-var comment_title = $('form#comment_new input#comment_title').val(),
-	comment_content = $('form#comment_new textarea#comment_body').val(),
-	comment_guest_email = $('form#comment_new input#comment_guest_email').val(),
-	comment_guest_website = $('form#comment_new input#comment_guest_website').val();
+var comment_title = $('form#new_comment input#comment_title').val(),
+	comment_content = $('form#new_comment textarea#comment_body').val(),
+	comment_guest_email = $('form#new_comment input#comment_guest_email').val(),
+	comment_guest_website = $('form#new_comment input#comment_guest_website').val();
 	
-	var replyFormWithGuestFields = $('form#reply_new.guest');
+	var replyFormWithGuestFields = $('form#new_reply.guest');
 	
 	if (replyFormWithGuestFields[0]){
 		$('div#wrap_form_new_reply').remove();
@@ -21,9 +21,9 @@ commentField.hide();
 
 commentField.fadeIn("slow");
 
-$('form#comment_new input#comment_title').val(comment_title);
-$('form#comment_new textarea#comment_body').val(comment_content);
-$('form#comment_new input#comment_guest_email').val(comment_guest_email);
-$('form#comment_new input#comment_guest_website').val(comment_guest_website);
+$('form#new_comment input#comment_title').val(comment_title);
+$('form#new_comment textarea#comment_body').val(comment_content);
+$('form#new_comment input#comment_guest_email').val(comment_guest_email);
+$('form#new_comment input#comment_guest_website').val(comment_guest_website);
 
-$('form#reply_new[data-validate], form#comment_new[data-validate]').validate();
+validate_comment_forms();

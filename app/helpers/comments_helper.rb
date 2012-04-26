@@ -31,7 +31,7 @@ module CommentsHelper
   
   def display_comment(comment, is_new = false)
       
-      user = comment.getUserInfo
+      user = comment.getCommentAuthor
       content_tag(:article, :class => (comment.is_root_comment? ? (is_new ? "root_comment new" : "root_comment") : (is_new ? "comment_reply new reply_for_#{comment.parent_id}" : "comment_reply reply_for_#{comment.parent_id}")), :id => "comment_#{comment.id}" ) do
           content_tag(:div, :class => "comment_content") do
             content_tag(:header) do
@@ -43,12 +43,24 @@ module CommentsHelper
             content_tag(:div, simple_format(h comment.body), :class => "comment_body")
           end +
           content_tag(:div, "", :class => "arrow_comment") +
-          content_tag(:div, "#{user[:name] || user.display_name }, le #{comment.created_at.strftime("%e")} #{getMonthFromNumber(comment.created_at.strftime("%m"))} #{comment.created_at.strftime("%Y à %H:%M")}", :class => "author_comment_name") +
+          content_tag(:div, comment_author_link(comment, user) + ", le " + comment.created_at.strftime("%e") + " " + getMonthFromNumber(comment.created_at.strftime("%m")) + " " + comment.created_at.strftime("%Y à %H:%M"), :class => "author_comment_name") +
           content_tag(:div, image_tag(avatar_url(user, 60), :class => "avatar"), :class => "author_comment_image") +
           
           (link_to("Répondre", show_comment_reply_path(commentable_class, commentable, comment.id), :remote => true, :class => "show_reply_fields awesome orange") if comment.is_root_comment?) +
           (content_tag(:p, "", :class => "reply_fields", :id => "reply_comment_#{comment.id}") if comment.is_root_comment?)
       end
+  end
+  
+  def comment_author_link(comment, user)
+    # when guest, return guest_website
+    if user[:id] == -1
+      link_to user[:name], (comment.guest_website || "http://www.changeons.org"), :class => "tooltipped", :title => "Voir le site de cette invité \"#{truncate(comment.guest_website, :length => 40)}\""
+    # when user registered, return website
+    elsif user[:id] == -2
+      user.name
+    elsif user.display_name
+      link_to user.display_name, show_user_profile_path(user), :class => "tooltipped", :title => "Voir le profil de \"#{user.display_name}\""
+    end
   end
   
   def commentable

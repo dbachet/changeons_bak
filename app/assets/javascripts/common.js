@@ -116,7 +116,7 @@ $(document).ready(function() {
 
 
 // $('form#comment_new[data-validate]').validate();
-
+// validate_comment_forms();
 
 
 });
@@ -131,6 +131,10 @@ function add_drawback_remove_links(link_to_remove_drawback){
 		    $(this).append('<a href="' + link_to_remove_drawback + '?source=' + $(this).attr('class') + '" data-remote="true" class="remove_item"' + '>Supprimer</a>');
 		});
 	}
+}
+
+function validate_comment_forms() {
+	$('form#new_reply[data-validate], form#new_comment[data-validate]').validate();
 }
 
 function notice_alert_fields() {
