@@ -88,17 +88,33 @@
 	<% end %>
 	</section>
 	
-	<%= simple_form_for([@question, @answer]) do |f| %>
-	  <%= f.error_notification %>
+	
+	
+		<%= simple_form_for([@question, @answer], :validate => true, :remote => true) do |f| %>
+		<h1>Écrivez votre réponse</h1>
+		  <div class="left">
+			<% if current_user %>
+			<fieldset>
+			<%= f.input :content, :label => false %>
+			</fieldset>
+		
+			<fieldset>
+			<%= f.button :submit %>
+			</fieldset>
+			<% else %>
+				<p>Afin de pouvoir écrire une réponse, vous devez avoir un compte et être connecté !</p>
+				<p><%= link_to('Se connecter', new_user_session_path, :class => "awesome fancybox_signin fancybox.ajax")  %></p>
+			<% end %>
+		  </div>
+		  <div class="right">
+			ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+				ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+					ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+						ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+							ieurhfieuh rfiuehr ifhurhfieh rifhueiruhfieurh fieh rifuhieurfhiue rhifeh irfhieu hrfi
+		  </div>
+		<% end %>
 
-	  <div class="inputs">
-	    <%= f.input :content %>
-	  </div>
-
-	  <div class="actions">
-	    <%= f.button :submit %>
-	  </div>
-	<% end %>
 	
 </div>
 

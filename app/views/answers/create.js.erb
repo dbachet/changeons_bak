@@ -1,0 +1,31 @@
+$("form#new_answer").bind('ajax:success', function(evt, data, status, xhr) {
+	var last_answer = $('section#answers > article:first');
+	
+	
+	var newAnswerField = $('section#answers'),
+		newAnswerFieldTop = newAnswerField.position().top - $('nav#top_page').height() - 10;
+
+
+
+	$('html, body').animate({scrollTop: newAnswerFieldTop + 'px'}, 800);
+		
+	// if (last_answer[0]){
+	// 	last_answer.before("<%= escape_javascript("ezdzedzed") %>");
+	// 	
+	// } else {
+	// 	$('section#answers').html("<%= escape_javascript("zedzedzde") %>");
+	// }
+	// 
+	// newAnswer = $('article#answer_<%= @answer_created.id %>');
+	// newComment.hide();
+	// newComment.delay(500).fadeIn("slow");
+	// 	
+	// $('div#wrap_form_new_comment').html("<%= escape_javascript(render :partial => 'comments/form') %>");
+	// 
+	// validate_comment_forms();
+	// 
+	// $('div#notice_alert_fields').html("<%= escape_javascript(render :partial => 'layouts/flash_messages') %>");
+	// 
+	// notice_alert_fields();
+		
+});

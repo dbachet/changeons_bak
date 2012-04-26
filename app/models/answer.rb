@@ -14,6 +14,8 @@ class Answer < ActiveRecord::Base
   
   attr_accessible :content
   
+  validates_presence_of :content
+  
   acts_as_voteable
   
 end
