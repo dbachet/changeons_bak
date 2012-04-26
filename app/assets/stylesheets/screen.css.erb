@@ -2900,7 +2900,7 @@ section#answers{
 	padding-left: 1em;
 }
 	
-	/* ROOT COMMENT */
+	
 	section#answers article.answer {
 		margin: 0px 10px 60px 10px;
 	}
@@ -2908,19 +2908,14 @@ section#answers{
 	section#answers article.answer div.answer_content{
 		width: 430px;
 		margin: 0 0 0 0px;
-		background-color: #F2F47A;
-		-webkit-border-bottom-left-radius: 4px;
-		-webkit-border-bottom-right-radius: 4px;
-		-moz-border-radius-bottomright: 4px;
-		-moz-border-radius-bottomleft: 4px;
-		border-bottom-right-radius: 4px;
-		border-bottom-left-radius: 4px;
+		background-color: rgba(140, 10, 80, 0.3);
+		border-radius: 2px;
 		padding: 0 0 5px 0px;
-		
-		-webkit-box-shadow: 0 0 4px #000;
-		-mox-box-shadow: 0 0 4px #000;
-		box-shadow: 0 0 4px #000;
-		border: 1px solid rgba(110, 0, 50, 1);
+		text-transform:capitalize;
+		-webkit-box-shadow: 0 1px 1px #fff, inset 0 1px 1px rgba(255,255,255,0.3);
+		-mox-box-shadow: 0 1px 1px #fff, inset 0 1px 1px rgba(255,255,255,0.3);
+		box-shadow: 0 1px 1px #fff, inset 0 1px 1px rgba(255,255,255,0.3);
+		border: 1px solid rgba(0,0,0,0.3);
 	}
 		
 		section#answers article.answer div.arrow_answer{
@@ -2946,17 +2941,22 @@ section#answers{
 		
 		section#answers article.answer div.author_answer_image{
 			margin: -70px 0 -30px 410px;
-			-webkit-transform: rotate(5deg); 
-			-moz-transform: rotate(5deg);
-			transform: rotate(5deg);
 			width: 60px;
 			height: 60px;
 		}
 		
 		section#answers article.answer div.author_answer_image img{
-			-webkit-box-shadow: 0 0 7px #000;
-			-mox-box-shadow: 0 0 7px #000;
-			box-shadow: 0 0 7px #000;
+			-webkit-box-shadow: 0 0 2px #000;
+			-mox-box-shadow: 0 0 2px #000;
+			box-shadow: 0 0 2px #000;
+		}
+		
+		section#answers div.answer_vote span{
+			vertical-align: top;
+		}
+		
+		section#answers div.answer_vote span.answer_votes_result {
+			padding-top: 1em;
 		}
 
 

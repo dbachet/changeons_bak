@@ -36,7 +36,7 @@ module CommentsHelper
           content_tag(:div, :class => "comment_content") do
             content_tag(:header) do
               content_tag(:div, comment.title.html_safe, :class => "title") + 
-                render('moderation_settings/comment_moderation_links', :comment => comment) +
+                (render('moderation_settings/comment_moderation_links', :comment => comment) if can? :manage, ModerationSetting) +
                 (link_to('Supprimer', destroy_comment_path(comment), :class => "delete_comment_link", :confirm => 'Are you sure?', :method => :delete, :remote => true) if can? :destroy, comment) +
                 (link_to('Éditer', edit_comment_path(commentable_class, commentable, comment), :class => "edit_comment_link fancybox.ajax") if can? :edit, comment)
             end +
