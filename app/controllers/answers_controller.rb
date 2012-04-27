@@ -90,7 +90,8 @@ class AnswersController < ApplicationController
     respond_to do |format|
       if @answer.save
         @answer.moderation_setting = ModerationSetting.create(:published => true, :moderated => false, :refuse_cause => "-")
-        format.js 
+        format.html { redirect_to @question }
+        # format.js 
       else
         format.js 
       end

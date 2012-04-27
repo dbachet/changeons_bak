@@ -90,7 +90,7 @@
 	
 	
 	
-		<%= simple_form_for([@question, @answer], :validate => true, :remote => true) do |f| %>
+		<%= simple_form_for([@question, @answer], :validate => true) do |f| %>
 		<h1>Écrivez votre réponse</h1>
 		  <div class="left">
 			<% if current_user %>

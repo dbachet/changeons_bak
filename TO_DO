@@ -154,6 +154,8 @@ REFACTOR ROLES
 + bien ajouter tous les messages flash erreurs et notices (post, sources, avantages ...)
 + revoir top menu current button
 + add légende to the picture of the post/tip/event...
++ care about answer (after design of comments)
+
 
 small things:
 - problème with the remove picture in form, confirmation not working
@@ -177,9 +179,8 @@ bigger ones:
 - use yield(:head) to personalize the javascript scrits in views with <% content_for(:head) do %>
 - Friendly_id, add index
 - design
-- care about answer (after design of comments)
 - SEO
-- ajouter logo redaction changeons sur les items de la redaction
+- ajouter logox redaction changeons sur les items de la redaction
 - ajaouter logo BIO sur les produits ayant une certification BIO
 - redirect to 404 page when errors
 - redis / resque
