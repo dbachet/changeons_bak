@@ -6,7 +6,7 @@ class PagesController < AuthorizedController
   def home
     @default_post_offset = APP_CONFIG['defaults']['default_post_offset']
     @posts = Post.recent.limit(5)
-    @tips = Tip.recent.limit(3)
+    @tips = Tip.member_of_redaction.published.recent.limit(3)
     @questions = Question.recent.limit(3)
     @top_tips = Tip.recent.limit(3)
     @events = Event.recent.limit(3)

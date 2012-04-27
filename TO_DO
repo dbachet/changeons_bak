@@ -180,8 +180,8 @@ bigger ones:
 - Friendly_id, add index
 - design
 - SEO
-- ajouter logox redaction changeons sur les items de la redaction
-- ajaouter logo BIO sur les produits ayant une certification BIO
+- ajouter logo redaction changeons sur les items de la redaction
+- ajouter logo BIO sur les produits ayant une certification BIO
 - redirect to 404 page when errors
 - redis / resque
 - réglement d'utilisation (pour maintenant quand même, mais après comments)

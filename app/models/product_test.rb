@@ -2,6 +2,9 @@
 class ProductTest < ActiveRecord::Base
   scope :published, joins(:moderation_setting).where("moderation_settings.published = ?", true)
   scope :recent, order('created_at desc')
+  scope :member_of_redaction, joins(:user).where("users.role = ? OR users.role = ?", "admin", "redactor")
+  delegate :member_of_redaction?, :to => :user, :allow_nil => true, :prefix => :is_authored_by
+  
   delegate :picture, :to => :presentation_picture, :allow_nil => true
   
   delegate :approve, :refuse, :pending_for_moderation, :to => :moderation_setting, :allow_nil => true

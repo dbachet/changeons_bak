@@ -51,6 +51,14 @@ class User < ActiveRecord::Base
     end
   end
   
+  def member_of_redaction?
+    if self.role?(:admin) || self.role?(:redactor)
+      true
+    else
+      false
+    end
+  end
+  
   
   protected
   
