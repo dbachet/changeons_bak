@@ -1327,6 +1327,7 @@ input#newsletter_subscriber_submit{
 /* END - NEWSLETTER FORM */
 
 /* Home */
+	section#last_from_redaction,
 	section#product_tests_ranking,
 	section#posts_ranking,
 	section#tips_ranking,
@@ -1349,6 +1350,7 @@ input#newsletter_subscriber_submit{
 		box-shadow: 0 0 4px #000;*/
 	}
 	
+	section#last_from_redaction article,
 	section#product_tests_ranking article,
 	section#tips_ranking article,
 	section#posts_ranking article,
@@ -1356,6 +1358,7 @@ input#newsletter_subscriber_submit{
 		margin: 1em;
 	}
 	
+	section#last_from_redaction article header span,
 	section#product_tests_ranking article header span,
 	section#tips_ranking article header span,
 	section#posts_ranking article header span,
@@ -1365,8 +1368,11 @@ input#newsletter_subscriber_submit{
 		color: #B1F100;
 		width: 14em;
 		text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
+		
+	  	
 	}
 	
+	section#last_from_redaction article header img,
 	section#product_tests_ranking article header img,
 	section#tips_ranking article header img,
 	section#posts_ranking article header img,
@@ -1379,6 +1385,7 @@ input#newsletter_subscriber_submit{
 		box-shadow: 0 1px 1px rgba(255, 255, 255, 0.4), 0 -1px 1px rgba(0, 0, 0, 1);
 	}
 	
+	section#last_from_redaction article aside,
 	section#product_tests_ranking article aside,
 	section#tips_ranking article aside,
 	section#posts_ranking article aside,
@@ -1388,6 +1395,7 @@ input#newsletter_subscriber_submit{
 		text-align: right;
 	}
 	
+	section#last_from_redaction,
 	section#product_tests_ranking,
 	section#tips_ranking,
 	section#posts_ranking,
@@ -1398,13 +1406,15 @@ input#newsletter_subscriber_submit{
 	section#events,
 	section#product_tests{
 		min-height: 365px;
-		padding: 20px 40px;
+		padding: 35px 40px 20px;
 		width: 31.2em;
 		display: inline-block;
 		margin-bottom: 30px;
 		font-family: "CaviarDreamsRegular", verdana, arial;
+		position:relative;
 	}
 	
+		section#last_from_redaction > header h1,
 		section#questions > header h1,
 		section#product_tests_ranking > header h1,
 		section#posts_ranking > header h1,
@@ -1417,9 +1427,11 @@ input#newsletter_subscriber_submit{
 			font-style: italic;
 			font-size: 27px;
 			margin-top: 0px;
+			margin-bottom: 2em;
 			text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
 		}
 
+		section#last_from_redaction article,
 		section#questions article,
 		section#posts article,
 		section#tips article,
@@ -1428,10 +1440,10 @@ input#newsletter_subscriber_submit{
 			min-height: 10em;
 			width: 410px;
 			padding: 0px;
-			-webkit-transition: width 0.3s linear, background 0.2s ease;
-			-moz-transition: width 0.3s linear, background 0.2s ease;
-			-o-transition: width 0.3s linear, background 0.2s ease;
-			transition: width 0.3s linear, background 0.2s ease;
+			-webkit-transition: background 0.2s ease;
+			-moz-transition: background 0.2s ease;
+			-o-transition: background 0.2s ease;
+			transition: background 0.2s ease;
 			-webkit-border-top-right-radius: 5px;
 			-webkit-border-bottom-right-radius: 5px;
 			-moz-border-radius-topright: 5px;
@@ -1440,15 +1452,66 @@ input#newsletter_subscriber_submit{
 			border-bottom-right-radius: 5px;
 			margin-bottom: 1em;
 		}
-
-		section#questions article:hover,
-		section#posts article:hover,
-		section#tips article:hover,
-		section#events article:hover,
-		section#product_tests article:hover{
-/*			background: rgba(8, 8, 8, 0.4);*/
+		
+		section#last_from_redaction:before{
+			position: absolute;
+			width: 105px;
+			height: 85px;
+			background: url('redaction_changeons_main_small.png') right 1.4em no-repeat;
+			content: "";
+			top: 10px;
+			left: 28em;
+		}
+		
+		section#last_from_redaction:hover:before{
+/*			position: absolute;
+			width: 410px;
+			height: 85px;*/
+			-webkit-transform: rotate(20deg); 
+			-moz-transform: rotate(20deg);
+			transform: rotate(20deg);
+/*			background: url('redaction_changeons_main_small.png') right top no-repeat;
+			content: "";
+			top: 10px;*/
+		}
+		
+		section#last_from_redaction article .model_name{
+			text-align: right;
+			font-size: 1.5em;
+			
+		}
+		
+		section#last_from_redaction article.post header,
+		section#last_from_redaction article.post header h1,
+		section#last_from_redaction article.post .model_name{
+			color: rgba(140, 10, 80, 1);
+		}
+		
+		section#last_from_redaction article.tip header,
+		section#last_from_redaction article.tip header h1,
+		section#last_from_redaction article.tip .model_name{
+			color: rgba(100, 244, 40, 1); /*rgba(93, 172, 0, 1)*/
+		}
+		
+		section#last_from_redaction article.question header,
+		section#last_from_redaction article.question header h1,
+		section#last_from_redaction article.question .model_name{
+			color: rgba(239, 0, 70, 1);/*rgba(220, 40, 70, 1)*/
+		}
+		
+		section#last_from_redaction article.event header,
+		section#last_from_redaction article.event header h1,
+		section#last_from_redaction article.event .model_name{
+			color: rgba(175, 77, 5, 1);
+		}
+		
+		section#last_from_redaction article.product_test header,
+		section#last_from_redaction article.product_test header h1,
+		section#last_from_redaction article.product_test .model_name{
+			color: rgba(0, 77, 175, 1);
 		}
 
+			section#last_from_redaction article div.left,
 			section#questions article div.left,
 			section#posts article div.left,
 			section#tips article div.left,
@@ -1460,6 +1523,7 @@ input#newsletter_subscriber_submit{
 				width: 65px;
 			}
 			
+			section#last_from_redaction article div.content,
 			section#questions article div.content,
 			section#posts article div.content,
 			section#tips article div.content,
@@ -1471,6 +1535,7 @@ input#newsletter_subscriber_submit{
 /*				border-top: 1px dotted;*/
 			}
 
+			section#last_from_redaction article header,
 			section#questions article header,
 			section#posts article header,
 			section#tips article header,
@@ -1483,6 +1548,7 @@ input#newsletter_subscriber_submit{
 				text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
 			}
 
+				section#last_from_redaction article header span,
 				section#questions article header span,
 				section#posts article header span,
 				section#tips article header span,
@@ -1496,6 +1562,7 @@ input#newsletter_subscriber_submit{
 				section#tips article header,
 				section#events article header,
 				section#product_tests article header,*/
+				section#last_from_redaction article header h1,
 				section#questions article header h1,
 				section#posts article header h1,
 				section#tips article header h1,
@@ -1509,6 +1576,8 @@ input#newsletter_subscriber_submit{
 					text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
 				}
 
+			section#last_from_redaction article div.description,
+			section#last_from_redaction article div.short_description,
 			section#questions article div.description,
 			section#posts article div.short_description,
 			section#tips article div.description,
@@ -1525,6 +1594,7 @@ input#newsletter_subscriber_submit{
 			}
 
 
+			section#last_from_redaction article div.image,
 			section#questions article div.image,
 			section#posts article div.image,
 			section#tips article div.image,
@@ -1537,6 +1607,7 @@ input#newsletter_subscriber_submit{
 				margin-top: 12px;
 			}
 
+				section#last_from_redaction article div.image img,
 				section#questions article div.image img,
 				section#posts article div.image img,
 				section#tips article div.image img,
@@ -1548,6 +1619,7 @@ input#newsletter_subscriber_submit{
 					opacity: 0.5;
 				}
 
+				section#last_from_redaction article div.image p,
 				section#questions article div.image p,
 				section#posts article div.image p,
 				section#tips article div.image p,
@@ -1556,6 +1628,7 @@ input#newsletter_subscriber_submit{
 					margin: 0;
 				}
 
+			section#last_from_redaction article div.date,
 			section#questions article div.date,
 			section#posts article div.date,
 			section#tips article div.date,
@@ -1578,6 +1651,7 @@ input#newsletter_subscriber_submit{
 				font-weight: bold;
 			}
 
+				section#last_from_redaction article div.date span.day,
 				section#questions article div.date span.day,
 				section#posts article div.date span.day,
 				section#tips article div.date span.day,
@@ -1586,6 +1660,7 @@ input#newsletter_subscriber_submit{
 					font-size: 16px;
 				}
 
+				section#last_from_redaction article div.date span.month,
 				section#questions article div.date span.month,
 				section#posts article div.date span.month,
 				section#tips article div.date span.month,
@@ -1594,6 +1669,7 @@ input#newsletter_subscriber_submit{
 					font-size: 20px;
 				}
 
+				section#last_from_redaction article div.date span.year,
 				section#questions article div.date span.year,
 				section#posts article div.date span.year,
 				section#tips article div.date span.year,
@@ -1661,7 +1737,16 @@ input#newsletter_subscriber_submit{
 	}
 	
 	/* End - Tips ranking */
-
+	
+	/* Redaction Changeons */
+	
+	section#last_from_redaction{
+		background: url('dashed_entries.png') 0px 15px repeat-x, rgba(0, 0, 0, 0.4);
+		box-shadow: 0 -1px rgba(255,255,255, 0.5), inset 0 -1px rgba(0,0,0,0.5);
+	}	
+	
+	/* Redaction Changeons */
+	
 /* End - Home */
 
 /* Post/Tip/Event/Product test Show */
@@ -2215,7 +2300,9 @@ section#posts_ranking header h1,
 section#post_tag_tool header h1,
 article#post header div.written_by span,
 section#posts article header span,
-section#posts header h1{
+section#posts header h1,
+section#last_from_redaction article header span,
+section#last_from_redaction header h1{
 	color: rgba(255, 255, 255, 0.8);
 }
 
@@ -2911,7 +2998,6 @@ section#answers{
 		background-color: rgba(140, 10, 80, 0.3);
 		border-radius: 2px;
 		padding: 0 0 5px 0px;
-		text-transform:capitalize;
 		-webkit-box-shadow: 0 1px 1px #fff, inset 0 1px 1px rgba(255,255,255,0.3);
 		-mox-box-shadow: 0 1px 1px #fff, inset 0 1px 1px rgba(255,255,255,0.3);
 		box-shadow: 0 1px 1px #fff, inset 0 1px 1px rgba(255,255,255,0.3);
@@ -3172,7 +3258,6 @@ div#display_comments div.root_comment_area {
 		background-color: rgba(140, 10, 80, 0.3);
 		border-radius: 2px;
 		padding: 0 0 5px 0px;
-		text-transform:capitalize;
 		-webkit-box-shadow: 0 1px 1px #fff, inset 0 1px 1px rgba(255,255,255,0.3);
 		-mox-box-shadow: 0 1px 1px #fff, inset 0 1px 1px rgba(255,255,255,0.3);
 		box-shadow: 0 1px 1px #fff, inset 0 1px 1px rgba(255,255,255,0.3);
@@ -3273,7 +3358,6 @@ div#display_comments div.root_comment_area {
 		box-shadow: 0 1px 1px #fff, inset 0 1px 1px #FFF;
 		border: 1px solid rgba(0,0,0,0.3);
 		padding: 0 0 30px 0px;
-		text-transform:capitalize;
 	}
 
 	div#display_comments article.comment_reply div.arrow_comment{

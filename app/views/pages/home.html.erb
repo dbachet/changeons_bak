@@ -1,107 +1,13 @@
-<div id="page_info" data-action="index_post"></div>
-<h1 class="red_section big">Les <span>ARTICLES</span></h1>
-<section id="posts" data-displayed-posts=<%= @displayed_posts %>>
+<section id="last_from_redaction">
 	<header>
-		<h1>Derniers articles</h1>
+		<h1>
+			Dernières entrées de la
+		</h1>
 	</header>
-	<%= render "posts/posts" %>
+	<%= render "layouts/redaction_last_entries" %>
 
 	<%= link_to "Voir tous les articles", posts_path %>
 
-	<br />
 
-	<% if can? :new, @post %><%= link_to 'New Post', new_post_path %><% end %>
 </section>
-<div style="display:inline-block; width:22em; vertical-align: top">
-	<section id="posts_ranking">
-		<header>
-			<h1>Classement</h1>
-		</header>
-		<% @top_posts.each do |post| %>
-			<article>
-				<header>
-					<%= image_tag post.picture.url(:thumb) %><span><%= truncate(post.title, :length => 55, :separator => ' ') %></span>
-				</header>
-				<aside><%= post.plusminus %> votes, <%= Comment.fetch_comments(post, 0, 0).size %> commentaires</aside>
-			</article>
-		<% end %>
-	</section>
-	<section id="post_tag_tool">
-		<header>
-			<h1>Tags</h1>
-		</header>
-		<% @tags.each do |tag| %>
-			<span style="font-size: <%= 8 + rand(20) %>px"><%= link_to tag, tag_show_posts_path(tag.cached_slug) %>
-		<% end %>
-	</section>
-</div>
-<h1 class="red_section big">Les <span>ASTUCES</span></h1>
-<section id="tips" >
-	<header>
-		<h1>Dernières astuces ajoutées</h1>
-	</header>
-	<%= render "tips/tips" %>
 
-	<%= link_to "Voir toutes les astuces", tips_path %>
-
-	<% if can? :new, @tip %><%= link_to 'New Post', new_tip_path %><% end %>
-</section>
-<section id="tips_ranking">
-	<header>
-		<h1>Classement</h1>
-	</header>
-	<% @top_tips.each do |tip| %>
-		<article>
-			<header>
-				<%= image_tag tip.picture.url(:thumb) if !tip.presentation_picture.blank? %><span><%= truncate(tip.title, :length => 55, :separator => ' ') %></span>
-			</header>
-			<aside><%= tip.plusminus %> votes, <%= Comment.fetch_comments(tip, 0, 0).size %> commentaires</aside>
-		</article>
-	<% end %>
-</section>
-<h1 class="red_section big">Les <span>QUESTIONS/RÉPONSES</span></h1>
-<section id="questions" >
-	<header>
-		<h1>Dernières questions ajoutées</h1>
-	</header>
-	<%= render "questions/questions" %>
-
-	<%= link_to "Voir toutes les questions", questions_path %>
-
-	<% if can? :new, @tip %><%= link_to 'New Post', new_question_path %><% end %>
-</section>
-<h1 class="red_section big">Les <span>ÉVÈNEMENTS</span></h1>
-<section id="events">
-	<header>
-		<h1>Derniers évènements ajoutées</h1>
-	</header>
-	<%= render "events/events" %>
-
-	<%= link_to "Voir tous les évènements", events_path %>
-
-	<% if can? :new, @event %><%= link_to 'New Event', new_event_path %><% end %>
-</section>
-<h1 class="red_section big">Les <span>AVIS/TESTS PRODUITS</span></h1>
-<section id="product_tests" >
-	<header>
-		<h1>Derniers tests de produits</h1>
-	</header>
-	<%= render "product_tests/product_tests" %>
-
-	<%= link_to "Voir tous les avis/tests produits", product_tests_path %>
-
-	<% if can? :new, @product_test %><%= link_to 'New product test', new_product_test_path %><% end %>
-</section>
-<section id="product_tests_ranking">
-	<header>
-		<h1>Classement des meilleurs produits</h1>
-	</header>
-	<% @top_product_tests.each do |product_test| %>
-		<article>
-			<header>
-				<%= image_tag product_test.picture.url(:thumb) %><span><%= truncate("#{product_test.brand} #{product_test.product_model}", :length => 55, :separator => ' ') %></span>
-			</header>
-			<aside><%= product_test.plusminus %> votes, <%= Comment.fetch_comments(product_test, 0, 0).size %> commentaires</aside>
-		</article>
-	<% end %>
-</section>

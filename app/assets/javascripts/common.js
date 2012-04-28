@@ -39,14 +39,14 @@ $(document).ready(function() {
 	});
 
 	// post list for home page
-	$('section#posts article, section#tips article,	section#events article,	section#product_tests article, section#questions article').live({
+	$('section#last_from_redaction article, section#posts article, section#tips article,	section#events article,	section#product_tests article, section#questions article').live({
 	mouseenter: function() {
 	  	$('img', this).animate({
 	    	opacity: 1,
 			marginLeft: '-30px'// ,
 			// 			width: '75px',
 			// 			height: '75px'
-		}, 200);
+		}, 100);
 	},
 	mouseleave: function() {
 		$('img', this).animate({
@@ -56,6 +56,12 @@ $(document).ready(function() {
 			// 			height: '50px'
 		}, 100);
 	}
+	});
+	
+	$('section#last_from_redaction article, section#posts article, section#tips article,	section#events article,	section#product_tests article, section#questions article').click(function(event){
+		event.preventDefault();
+		var url = $(this).find('a.link_to_entry').attr('href');
+		window.location = url;
 	});
 	// END - post list for home page
 	

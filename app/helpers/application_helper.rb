@@ -33,6 +33,44 @@ module ApplicationHelper
     end
   end
   
+  def entry_class(entry)
+    entry.class.to_s.underscore.downcase
+  end
+  
+  def entry_title(entry)
+    
+    if entry_class(entry) == "product_test"
+      entry.brand + entry.product_model
+    else
+      entry.title
+    end
+  end
+  
+  def entry_description(entry)
+    
+    if entry_class(entry) == "post"
+      entry.short_description
+    elsif entry_class(entry) == "question"
+      entry.content
+    else
+      entry.description
+    end
+  end
+  
+  def entry_class_french(entry)
+    if entry_class(entry) == "post"
+      "ARTICLE"
+    elsif entry_class(entry) == "tip"
+      "ASTUCE"
+    elsif entry_class(entry) == "question"
+      "QUESTION"
+    elsif entry_class(entry) == "event"
+      "ÉVÈNEMENT"
+    elsif entry_class(entry) == "product_test"
+      "AVIS/TEST DE PRODUIT"
+    end
+  end
+  
   def avatar_url(user, size)
     if user[:id] == -1 || user[:id] == -2
       asset_path("default_user_image.jpg")

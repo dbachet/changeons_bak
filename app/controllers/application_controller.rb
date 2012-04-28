@@ -43,6 +43,38 @@ class ApplicationController < ActionController::Base
 
   private
   
+  def get_last_from_redaction
+    posts = Post.member_of_redaction.published.recent.limit(20)
+    tips = Tip.member_of_redaction.published.recent.limit(20)
+    questions = Question.member_of_redaction.published.recent.limit(20)
+    events = Event.member_of_redaction.published.recent.limit(20)
+    product_tests = ProductTest.member_of_redaction.published.recent.limit(20)
+    
+    hash = {}
+    
+    posts.each do |post|
+    	hash[post.created_at] = post
+    end
+    
+    tips.each do |tip|
+    	hash[tip.created_at] = tip
+    end
+    
+    questions.each do |question|
+    	hash[question.created_at] = question
+    end
+    
+    events.each do |event|
+    	hash[event.created_at] = event
+    end
+    
+    product_tests.each do |product_test|
+    	hash[product_test.created_at] = product_test
+    end
+    
+    hash
+  end
+  
   def manage_presentation_picture(object, presentation_picture_id)
     presentation_picture = PresentationPicture.find_by_id(presentation_picture_id)
     if !object.presentation_picture    # NO picture stored

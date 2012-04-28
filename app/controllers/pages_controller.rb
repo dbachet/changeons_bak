@@ -4,6 +4,11 @@ class PagesController < AuthorizedController
   add_breadcrumb ("<div class='home_breadcrumbs'></div>").html_safe, :root_path, :title => "Revenir en page d'accueil"
   
   def home
+    @last_from_redaction = get_last_from_redaction
+    @last_from_redaction_keys = @last_from_redaction.keys.sort
+    puts @last_from_redaction_keys
+    
+    
     @default_post_offset = APP_CONFIG['defaults']['default_post_offset']
     @posts = Post.recent.limit(5)
     @tips = Tip.member_of_redaction.published.recent.limit(3)

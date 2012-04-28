@@ -1,0 +1,22 @@
+<% @last_from_redaction_keys.take(4).each do |entry_key| %>
+
+	<% entry = @last_from_redaction[entry_key] %>
+	
+	<article id="<%= entry_class(entry) %>_<%= entry.id %>" class="<%= entry_class(entry) %>">
+		<div class="left">
+			<div class="image"><%= image_tag entry.picture.url(:thumb) if !entry.presentation_picture.blank? %></div>
+			<div class="date"><span class="day"><%= entry.created_at.strftime("%d") %></span><span class="month"><%= getMonthFromNumber(entry.created_at.strftime("%m")) %></span></br><span class="year"><%= entry.created_at.strftime("%Y") %></span></div>
+		</div>
+		<div class="content">
+			<header>
+		    	<h1><%= entry_title(entry) %></h1>
+				<span>écrit par</span> <%= entry.user.display_name %>
+			</header>
+		    <div class="short_description"><%= truncate(entry_description(entry), :length => 120) %></div>
+		    <%= link_to 'Voir', entry, :class => "link_to_entry" %>
+		</div>
+	<div class="model_name"><%= entry_class_french(entry) %></div>
+	</article>
+	<div class="horizontal_rule"></div>
+	<%# end %>
+<% end %>

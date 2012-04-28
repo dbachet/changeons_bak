@@ -169,7 +169,7 @@ small things:
 - secure role during editing user
 - tooltips on breadcrumb
 - Vous voulez changer le monde ? Changez-vous d'abord !
-
+- titleize the text by model or by titleize method
 
 bigger ones:
 - Care about caching (à la fin)
