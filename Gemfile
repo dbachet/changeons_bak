@@ -44,3 +44,7 @@ gem 'aws-sdk'
 group :development do
   gem 'nokogiri', '1.4.7'
 end
+
+group :staging, :production do
+  gem 'nokogiri', '1.5.2'
+end
