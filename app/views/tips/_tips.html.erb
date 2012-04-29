@@ -1,3 +1,4 @@
+
 <% @tips.each do |tip| %>
 <article id="tip_<%= tip.id %>">
 	<div class="left">
@@ -11,9 +12,7 @@
 			<span>écrit par</span> <%= tip.user.email %>
 		</header>
 	    <div class="description"><%= raw(tip.description) %></div>
-	    <%= link_to 'Voir', tip %>
-	    <% if can? :edit, tip %><%= link_to '| Éditer', edit_tip_path(tip) %><% end %>
-	    <% if can? :destroy, tip %><%= link_to '| Supprimer', tip, :confirm => 'Are you sure?', :method => :delete %><% end %>
+	    <%= link_to 'Voir', tip, :class => "link_to_entry" %>
 	</div>
 </article>
 <div class="horizontal_rule"></div>

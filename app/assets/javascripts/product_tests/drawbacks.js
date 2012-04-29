@@ -35,7 +35,7 @@ function add_drawback() {
 			$('ul#drawbacks_preview li a.remove_drawback').remove();
 			$('ul#drawbacks_preview li span.drawback_icon').remove();
 			var drawbacks_val_without_remove_link = $('ul#drawbacks_preview').html();
-			$('textarea#product_test_drawbacks').val(drawbacks_val_without_remove_link);
+			$('#product_test_drawbacks').val(drawbacks_val_without_remove_link);
 			$('ul#drawbacks_preview').html(drawbacks_val);
 		}
 
@@ -56,7 +56,7 @@ function remove_drawback(drawback) {
 	var drawbacks_val = $('ul#drawbacks_preview').html();
 	
 	
-	$('textarea#product_test_drawbacks').val(drawbacks_val);
+	$('#product_test_drawbacks').val(drawbacks_val);
 	
 	
 	// We had again the icons and remove drawback links

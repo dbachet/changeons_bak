@@ -35,7 +35,7 @@ function add_advantage() {
 			$('ul#advantages_preview li a.remove_advantage').remove();
 			$('ul#advantages_preview li span.advantage_icon').remove();
 			var advantages_val_without_remove_link = $('ul#advantages_preview').html();
-			$('textarea#product_test_advantages').val(advantages_val_without_remove_link);
+			$('#product_test_advantages').val(advantages_val_without_remove_link);
 			$('ul#advantages_preview').html(advantages_val);
 		}
 
@@ -56,7 +56,7 @@ function remove_advantage(advantage) {
 	var advantages_val = $('ul#advantages_preview').html();
 	
 	
-	$('textarea#product_test_advantages').val(advantages_val);
+	$('#product_test_advantages').val(advantages_val);
 	
 	
 	// We had again the icons and remove advantage links

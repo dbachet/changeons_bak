@@ -10,9 +10,7 @@
 			<span>écrit par</span> <%= question.user.email %>
 		</header>
 	    <div class="description"><%= raw(question.content) %></div>
-	    <%= link_to 'Voir', question %>
-	    <% if can? :edit, question %><%= link_to '| Éditer', edit_question_path(question) %><% end %>
-	    <% if can? :destroy, question %><%= link_to '| Supprimer', question, :confirm => 'Are you sure?', :method => :delete %><% end %>
+	    <%= link_to 'Voir', question, :class => "link_to_entry" %>
 	</div>
 </article>
 <div class="horizontal_rule"></div>

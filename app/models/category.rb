@@ -8,7 +8,8 @@ class Category < ActiveRecord::Base
   has_many :events, :through => :categorizations, :source => :categorizable, :source_type => 'Event'
   has_many :product_tests, :through => :categorizations, :source => :categorizable, :source_type => 'ProductTest'
   has_many :questions, :through => :categorizations, :source => :categorizable, :source_type => 'Question'
-    
+  
+  attr_accessible :name
     
   # has_many :posts, :through => :categorizations
   # 

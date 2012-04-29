@@ -30,7 +30,7 @@ var advantage_val = $('input#product_test_advantage').val(),
 		$('ul#advantages_preview li a.remove_item').remove();
 		$('ul#advantages_preview div.advantage_icon').remove();
 		var advantages_val_without_remove_link = $('ul#advantages_preview').html();
-		$('textarea#product_test_advantages').val(advantages_val_without_remove_link);
+		$('#product_test_advantages').val(advantages_val_without_remove_link);
 		$('ul#advantages_preview').html(advantages_val);
 	}
 	

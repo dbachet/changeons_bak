@@ -10,9 +10,7 @@
 			<span>écrit par</span> <%= event.user.email %>
 		</header>
 	    <div class="description"><%= raw(event.description) %></div>
-	    <%= link_to 'Voir', event %>
-	    <% if can? :edit, event %><%= link_to '| Éditer', edit_event_path(event) %><% end %>
-	    <% if can? :destroy, event %><%= link_to '| Supprimer', event, :confirm => 'Are you sure?', :method => :delete %><% end %>
+	    <%= link_to 'Voir', event, :class => "link_to_entry" %>
 	</div>
 </article>
 <div class="horizontal_rule"></div>

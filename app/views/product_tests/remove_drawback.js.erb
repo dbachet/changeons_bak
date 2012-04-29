@@ -5,7 +5,7 @@ $('ul#drawbacks_preview li.' + "<%= @source %>").remove();
 $('ul#drawbacks_preview li a.remove_item').remove();
 
 var drawbacks_val = $('ul#drawbacks_preview').html();
-$('textarea#product_test_drawbacks').val(drawbacks_val);
+$('#product_test_drawbacks').val(drawbacks_val);
 
 var link_to_remove_drawback = "<%= product_tests_remove_drawback_path %>";
 

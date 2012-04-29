@@ -5,7 +5,7 @@ $('ul#advantages_preview li.' + "<%= @source %>").remove();
 $('ul#advantages_preview li a.remove_item').remove();
 
 var advantages_val = $('ul#advantages_preview').html();
-$('textarea#product_test_advantages').val(advantages_val);
+$('#product_test_advantages').val(advantages_val);
 
 var link_to_remove_advantage = "<%= product_tests_remove_advantage_path %>";
 

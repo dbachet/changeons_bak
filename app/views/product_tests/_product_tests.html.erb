@@ -10,9 +10,8 @@
 			<span>écrit par</span> <%= product_test.user.email %>
 		</header>
 	    <div class="description"><%= raw(product_test.description) %></div>
-	    <%= link_to 'Voir', product_test %>
-	    <% if can? :edit, product_test %><%= link_to '| Éditer', edit_product_test_path(product_test) %><% end %>
-	    <% if can? :destroy, product_test %><%= link_to '| Supprimer', product_test, :confirm => 'Are you sure?', :method => :delete %><% end %>
+	    <%= link_to 'Voir', product_test, :class => "link_to_entry" %>
+<% end %>
 	</div>
 </article>
 <div class="horizontal_rule"></div>

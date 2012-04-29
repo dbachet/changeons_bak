@@ -30,7 +30,7 @@ var drawback_val = $('input#product_test_drawback').val(),
 		$('ul#drawbacks_preview li a.remove_item').remove();
 		$('ul#drawbacks_preview div.drawback_icon').remove();
 		var drawbacks_val_without_remove_link = $('ul#drawbacks_preview').html();
-		$('textarea#product_test_drawbacks').val(drawbacks_val_without_remove_link);
+		$('#product_test_drawbacks').val(drawbacks_val_without_remove_link);
 		$('ul#drawbacks_preview').html(drawbacks_val);
 	}
 	
