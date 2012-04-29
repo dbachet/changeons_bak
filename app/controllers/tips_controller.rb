@@ -134,7 +134,7 @@ class TipsController < AuthorizedController
   # POST /tips
   # POST /tips.xml
   def create
-    # @tip = current_user.tips.new(params[:tip])
+    @tip = current_user.tips.new(params[:tip])
     @presentation_picture = PresentationPicture.find_by_id(params[:tip][:presentation_picture_id])
     
     respond_to do |format|
