@@ -38,5 +38,9 @@ gem 'tipsy-rails'
 # gem "paperclip", "~> 3.0"
 # gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "paperclip", "3.0.0"
-gem 'nokogiri', '1.4.7'
+
 gem 'aws-sdk'
+
+group :development do
+  gem 'nokogiri', '1.4.7'
+end
