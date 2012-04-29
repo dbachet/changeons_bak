@@ -25,7 +25,7 @@ $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
  
 # REPLACE this below with your ruby version/gemset version:  YOUR_RUBY_VERSION@YOUR_GEM_SET
-set :rvm_ruby_string, 'ruby-1.9.2-p318'
+set :rvm_ruby_string, 'ruby-1.9.3-p125'
 set :rvm_type, :user
 
 default_run_options[:pty] = true
