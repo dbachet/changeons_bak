@@ -1366,7 +1366,7 @@ input#newsletter_subscriber_submit{
 		vertical-align: top;
 		display: inline-block;
 		color: #B1F100;
-		width: 14em;
+		padding-right: 1em;
 		text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
 		
 	  	
@@ -1406,8 +1406,8 @@ input#newsletter_subscriber_submit{
 	section#events,
 	section#product_tests{
 		min-height: 365px;
-		padding: 35px 40px 20px;
-		width: 31.2em;
+		padding: 3em 1em;
+		width: 33.2em;
 		display: inline-block;
 		margin-bottom: 30px;
 		font-family: "CaviarDreamsRegular", verdana, arial;
@@ -1460,7 +1460,7 @@ input#newsletter_subscriber_submit{
 			background: url('redaction_changeons_main_small.png') right 1.4em no-repeat;
 			content: "";
 			top: 10px;
-			left: 28em;
+			left: 24em;
 		}
 		
 		section#last_from_redaction:hover:before{
@@ -1481,32 +1481,41 @@ input#newsletter_subscriber_submit{
 			
 		}
 		
-		section#last_from_redaction article.post header,
-		section#last_from_redaction article.post header h1,
+		section#last_from_redaction article header h1{
+			color: rgba(0, 0, 0, 0.8);
+		}
+		
+		section#last_from_redaction article.post header span,
+		section#last_from_redaction article.post div.date,
 		section#last_from_redaction article.post .model_name{
 			color: rgba(140, 10, 80, 1);
 		}
 		
-		section#last_from_redaction article.tip header,
-		section#last_from_redaction article.tip header h1,
+		section#last_from_redaction article div.short_description,
+		section#last_from_redaction article header{
+			color: rgba(0, 0, 0, 0.5);
+		}
+		
+		section#last_from_redaction article.tip header span,
+		section#last_from_redaction article.tip div.date,
 		section#last_from_redaction article.tip .model_name{
 			color: rgba(100, 244, 40, 1); /*rgba(93, 172, 0, 1)*/
 		}
 		
-		section#last_from_redaction article.question header,
-		section#last_from_redaction article.question header h1,
+		section#last_from_redaction article.question header span,
+		section#last_from_redaction article.question div.date,
 		section#last_from_redaction article.question .model_name{
 			color: rgba(239, 0, 70, 1);/*rgba(220, 40, 70, 1)*/
 		}
 		
-		section#last_from_redaction article.event header,
-		section#last_from_redaction article.event header h1,
+		section#last_from_redaction article.event header span,
+		section#last_from_redaction article.event div.date,
 		section#last_from_redaction article.event .model_name{
 			color: rgba(175, 77, 5, 1);
 		}
 		
-		section#last_from_redaction article.product_test header,
-		section#last_from_redaction article.product_test header h1,
+		section#last_from_redaction article.product_test header span,
+		section#last_from_redaction article.product_test div.date,
 		section#last_from_redaction article.product_test .model_name{
 			color: rgba(0, 77, 175, 1);
 		}
@@ -1544,7 +1553,6 @@ input#newsletter_subscriber_submit{
 				padding-top:10px;
 				display: block;
 				font-size: 11px;
-				color: #B1F100;
 				text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
 			}
 
@@ -1572,7 +1580,6 @@ input#newsletter_subscriber_submit{
 					font-size: 15px;
 					margin-top: 0px;
 					margin-bottom: 0px;
-					color: #B1F100;
 					text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.4);
 				}
 
@@ -1589,7 +1596,6 @@ input#newsletter_subscriber_submit{
 				text-align: justify;
 				line-height: 1.2;
 				font-family: "Helvetica Neue",Arial,sans-serif;
-				color: rgba(255, 255, 255, 0.3);
 				text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
 			}
 
@@ -1616,7 +1622,6 @@ input#newsletter_subscriber_submit{
 					border-radius: 2px;
 					box-shadow: 0 1px 1px rgba(255, 255, 255, 0.4), 0 -1px 1px rgba(0, 0, 0, 1);
 					
-					opacity: 0.5;
 				}
 
 				section#last_from_redaction article div.image p,
@@ -1634,7 +1639,7 @@ input#newsletter_subscriber_submit{
 			section#tips article div.date,
 			section#events article div.date,
 			section#product_tests article div.date{
-				padding: 2px 0px 0px 2px;
+				padding: 0px 0px 0px 2px;
 				margin: 0px 0px 0px 0px;
 				display: block;
 				height: 43px;
@@ -1643,12 +1648,11 @@ input#newsletter_subscriber_submit{
 				-moz-border-radius: 5px;
 				border-radius: 5px;
 				line-height: 0.9;
-				text-align: center;
-				color: #CCCCCC;			/*ee*/
+				text-align: left;
 				-webkit-text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.7);
 				-moz-text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.7);
 				text-shadow: 0 1px rgba(255, 255, 255, 0.1), 0 -1px 0 rgba(0, 0, 0, 0.7);
-				font-weight: bold;
+/*				font-weight: bold;*/
 			}
 
 				section#last_from_redaction article div.date span.day,
@@ -1657,7 +1661,7 @@ input#newsletter_subscriber_submit{
 				section#tips article div.date span.day,
 				section#events article div.date span.day,
 				section#product_tests article div.date span.day{
-					font-size: 16px;
+					font-size: 1em;
 				}
 
 				section#last_from_redaction article div.date span.month,
@@ -1666,7 +1670,7 @@ input#newsletter_subscriber_submit{
 				section#tips article div.date span.month,
 				section#events article div.date span.month,
 				section#product_tests article div.date span.month{
-					font-size: 20px;
+					font-size: 1.3em;
 				}
 
 				section#last_from_redaction article div.date span.year,
@@ -1675,7 +1679,7 @@ input#newsletter_subscriber_submit{
 				section#tips article div.date span.year,
 				section#events article div.date span.year,
 				section#product_tests article div.date span.year{
-					font-size: 25px;
+					font-size: 1.5em;
 				}
 
 	section#posts header h1 span.tag{
@@ -1741,8 +1745,9 @@ input#newsletter_subscriber_submit{
 	/* Redaction Changeons */
 	
 	section#last_from_redaction{
-		background: url('dashed_entries.png') 0px 15px repeat-x, rgba(0, 0, 0, 0.4);
-		box-shadow: 0 -1px rgba(255,255,255, 0.5), inset 0 -1px rgba(0,0,0,0.5);
+		background: url('dashed_entries.png') 0px 15px repeat-x;
+/*		box-shadow: 0 0px 3px rgba(0,0,0,0.5);
+		border: 8px solid rgba(255, 255, 255, 0.3);*/
 	}	
 	
 	/* Redaction Changeons */
@@ -2303,7 +2308,7 @@ section#posts article header span,
 section#posts header h1,
 section#last_from_redaction article header span,
 section#last_from_redaction header h1{
-	color: rgba(255, 255, 255, 0.8);
+	color: #E57322;
 }
 
 /* End - Post show */

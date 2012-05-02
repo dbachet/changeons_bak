@@ -42,19 +42,19 @@ $(document).ready(function() {
 	$('section#last_from_redaction article, section#posts article, section#tips article,	section#events article,	section#product_tests article, section#questions article').live({
 	mouseenter: function() {
 	  	$('img', this).animate({
-	    	opacity: 1,
+	    	// opacity: 1,
 			marginLeft: '-30px'// ,
 			// 			width: '75px',
 			// 			height: '75px'
-		}, 100);
+		}, 100, 'swing');
 	},
 	mouseleave: function() {
 		$('img', this).animate({
-		  	opacity: 0.5,
+		  	// opacity: 0.5,
 			marginLeft: '0px'// ,
 			// 			width: '50px',
 			// 			height: '50px'
-		}, 100);
+		}, 500, 'easeOutBounce');
 	}
 	});
 	
